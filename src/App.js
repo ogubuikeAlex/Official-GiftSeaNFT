@@ -1,28 +1,21 @@
-
+import HomeScreen from './screen/HomeScreen'
+import Userdashboard from './screen/Userdashboard'
 import React from 'react'
-import Header from './Components/Header';
-import HeroSection from './Components/HeroSection';
-import CounterSection from './Components/CounterSection';
 import './App.css';
-import Features from './Components/Features';
-import TabToggle from './Components/TabToggle';
-import Trending from './Components/Trending'
-import Toggler from './Components/Toggler'
-import Newsletter from './Components/Newletter';
-import Footer from './Components/Footer';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+
 const App = () => {
   return (
     <div className='App'>
-      <Header/>
-      <HeroSection/> 
-      <CounterSection/>  
-      <Features/>
-      {/* <TabToggle/> */}
-      <Trending/>
-      <Toggler/>
-      <Newsletter/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <main>
+        <Routes>
+            <Route path="/" element={<HomeScreen/>}/>
+            <Route path="/userdashboard" element={<Userdashboard/>}/>
+        </Routes>
+        </main>
+      </BrowserRouter>
+          </div>
     
   )
 }
