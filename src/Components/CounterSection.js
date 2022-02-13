@@ -31,15 +31,22 @@ background: #FDFDFD;
     align-items: center;
     padding: 30px 50px;
     line-height: 30px;
+    @media(max-width: 540px){
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
     .willCount h1{
         font-size: 38px;
         font-weight: bolder;
+        text-align: center;
     }
         p{
         font-size: 18px;
         font-weight: bolder;
         color: #bbb;
         padding: .2rem;
+        text-align: center;
         opacity: 0.8;
     }
 }

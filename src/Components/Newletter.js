@@ -15,7 +15,7 @@ const Newletter = () => {
             <img src={illustration} alt=''/>
         </div>
         <div className='right-container'>
-            <h1>Get notified on our latest NFT release</h1>
+            <h1>Get notified on our latest NFT release</h1><br></br>
             <div className='subscribe'>
             <input type='email' placeholder='Your email address'/>
             <button className='submit'>Submit</button>

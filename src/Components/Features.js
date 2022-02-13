@@ -71,6 +71,9 @@ const FeatureStyled = styled.div`
     .myImg{
         width:100%;
         justify-content: center;
+        img{
+            width: 70%;
+        }
     }
     .featureProducts{
         display:flex;

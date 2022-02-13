@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import logo from '../img/logo.png';
 
+
 const Header = () => {
   return (
     <HeaderStyled>
@@ -15,27 +16,38 @@ const Header = () => {
 }
 
 const HeaderStyled = styled.div`
-  padding:.6rem;
-  
-  div{
+  .imgCon img{
+    margin-left: 30px;
+    @media(max-width: 540px){
+      margin-left: 30px;
+    }
+  }
+  .imgCon{
     background: #fff;
     justify-content: center;
     display: flex;
     flex-direction: row;
-    padding: .6rem;
+    padding: .8rem;
     justify-content: space-between;
     align-items: center;
-    width:100;
+    
     .connect{
       background: linear-gradient(#02AAB0, #00CBAC);
       color: white;
-      padding: 0.6em 40px;
-      display: flex;
+      padding: .4rem 40px;
+      justify-content: center;
+      align-items: center;
       border-radius: 10px;
       cursor: pointer;
+      @media(max-width: 540px){
+        margin-left: -20px;
+      }
     }
-    .connect i{
+    i{
       margin-left: 10px;
+      text-align: center;
+      justify-content: center;
+
     }
   }
 `;

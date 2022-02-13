@@ -17,13 +17,11 @@ const Trending = () => {
                                 <img src={blog.image} alt=''/>
                             </div>
                             <div className='user'>
-                            <div className='object'>
                             <h5>{blog.title}</h5>
                             <span>
                             <i className='fa-brands fa-ethereum'></i>
                             <p>{blog.rate}</p>
                             </span>
-                            </div>
                             </div>
                                 <div className='increase'>
                                     <p>{blog.increase}</p>
@@ -38,32 +36,68 @@ const Trending = () => {
 }
 
 const TrendingStyled = styled.div`
-.increase p{
+.image{
+    width: 120px;
     justify-content: center;
-    padding: 3em;
+    align-items: center;
+    padding: 0.5em;
+    img{
+        width: 100%;
+        height: 100%;
+
+    @media(max-width: 540px){
+        height: 90px;
+        transform: translateY(-10px) translateX(-10px);
+        }
+        @media(min-width: 365px) and (max-width: 375px){
+            width: 80px;
+        }
+    }
+}
+.increase{
+    justify-content: center;
     text-align: center;
+    margin-top: 30px;
+    @media(max-width: 900px){
+        transform: translateY(7px) translateX(-35px);
+        }
+    @media(max-width: 540px){
+        transform: translateX(-60px);
+        }
+    @media(max-width: 540px){
+        transform: translateX(-28px);
+        .increase p{
+            font-size: 15px;
+        }
+    }
 }
 h5{
     padding-top: 20px;
+    width: 129px;
+    font-size: 16px;
+    font-weight: bold;
+    @media(max-width: 900px){
+        font-size: 15px;
+        }
+    
 }
 span{
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 5px;
+    margin-left:-36px;
 }
 p{
-    font-weight: bold;
-    font-size: 18px;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 i{
-    margin-right: 20px;
+    margin-right: 8px;
     font-size: 25px;
     
 }
-    .object{
-        display:flex;
-        flex-direction: column;
+
     }
     .blogs{
         display: grid;
@@ -81,46 +115,42 @@ i{
             }
             .user{
                 font-weight: 400;
+                margin-top: -8px;
                 display: flex;
-                flex-direction: row;
-                font-size: .8rem;
+                flex-direction: column;
+                font-size: .7rem;
+                @media(max-width: 540px){
+                    transform: translateX(-25px);
+                }
             }
+
             
         }
         .blog{
             background: rgba(255, 255, 255, 0.03);
             box-shadow: 3px 2px 4px 7px #F2F2F2;
-            padding: 0.2em;
             margin: 20px;
             border-radius: 20px;
-            display: flex;
-            flex-direction: row;
+            display: grid;
+            padding: 1em;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1rem;
             justify-content:flex-start;
-            width: 75% !important;
+            width: 85% !important;
+            height: 85% !important;
+            @media(max-width: 900px){
+                width: 100%;
+                }
+            @media(max-width: 768px){
+                width: 100% !important;
+                height: 100% !important;
+            }
             @media(max-width: 540px){
                 width: 88% !important;
-                height: 88%;
+                height: 88% !important;
                 padding-right: 20px;
                 margin:0 !important;
                 }
-            .image{
-                width: 100%;
-                border-radius: 10px;
-                padding-right: 10px;
-                transition: .4s ease-in-out all;
-                @media(max-width: 540px){
-                    object-fit: cover;
-                    margin:0 !important;
-                    }
-                img{
-                    padding: .3rem;
-                    width: 180px;
-                    height:180px;
-                    @media(max-width:540px){
-                        width:130px;
-                        height:130px;
-                        margin:0 !important;
-                    }
                 }
             }
                 

@@ -10,7 +10,13 @@
   }
   .carousel-indicators{
       position: absolute;
-      top: 500px;
+      top: 460px;
+  }
+  @media(max-width: 900px){
+    .right-hero{
+        transform: translateX(-80px);
+        width: 100%;
+    }
   }
 
   

@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import Slider from './Slider';
+import decoration from '../img/Decoration.png'
 
 const HeroSection = () => {
 
   return (
     <HeroSectionStyled>
     <div className='heroSection'>
+    <img className='decoration' src={decoration} alt=""/>
       <div className='left-hero'>
         <h3>Buy, Gift and sell</h3>
         <h1>Lorem Ipsum dolor sit amet, consecteur adispiscing elit.</h1>
@@ -16,8 +18,10 @@ const HeroSection = () => {
         <button className='collections'>See Collections</button>
         
       </div>
-      <div className='right-hero'>
+      <div className='rigth-container'>
+        <div className='right-hero'>
         <Slider/>
+        </div>
       </div>
       </div>
     
@@ -26,85 +30,97 @@ const HeroSection = () => {
 }
 
 const HeroSectionStyled = styled.div`
+.decoration{
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  width:100%;
+  object-fit: cover;
+  justify-content: center;
+  }
 .heroSection{
   background: #E5E5E5;
   display: grid;
+  margin:0 !important;
   justify-content: center;
   padding: 40px;
   align-items: center;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
-  width: 100% !important;
-  padding-top: 30px;
-  padding-bottom: 30px;
   @media(max-width:540px) and (min-width: 365px){
     grid-template-columns: repeat(1, 1fr);
       padding-top: 50px;
       align-items: center;
       justify-content: center !important;
-      width: 100%;
+      margin: 0 !important;
   }
 }
+h3{
+  color: #02AAB0;
+  font-weight: bold;
+}
+h1{
+  font-weight: bolder;
+}
 .collections{
-  background: linear-gradient(#02AAB0, #00CBAC);
+  background: linear-gradient(45deg, #02AAB0, #00CBAC);
   color: white;
   border: none;
-  padding: 0.8em 80px;
   font-size: 19px;
-  display: flex;
+  width: 218px;
+  padding:.5rem;
+  text-align: center;
   border-radius: 10px;
   cursor: pointer;
+
 }
 .left-hero{
   line-height: 30px;
-  width: 100%;
+  margin: 0 !important;
   justify-content: center;
+  @media(max-width: 540px){
+    transform: translateX(10px);
+    margin: 0 !important;
+  }
 }
 .right-hero{
   box-shadow: 2px 4px 8px 10px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  width: 80%;
   object-fit: cover;
-  margin: 2rem;
+  z-index: 50 !important;
+  margin: 0 !important;
+  padding: 9px;
+  width: 65%;
+  transform: translateX(120px);
   background: #fff;
-  padding: .3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  @media(max-width: 540px){
-    transform: translateX(-8%);
-    width: 100%;
+  @media(max-width:900px){
+    width:80%;
+    transform: translateX(20px);
   }
-  .grid-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: .5em;
+  @media(max-width:540px){
+    margin: 0 !important;
+    width:70%;
+    transform: translateX(70px) translateY(10px);
+  }
 
-  }
 .buyButton{
-  object-fit: cover;
-  width: 99%;
-  padding: 0.7em !important;
+  padding: 0.5em !important;
 }
   .right-img{
     border-radius: 20px;
     object-fit: cover;
-    height: 150px;
+    height: 46px;
+    width: 403px;
     :hover{
       transform: ease-in-out all;
       cursor: pointer;
     }
   }
 }
-.second-grid-container{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  padding: 1em;
-  font-weight: bolder;
   i{
     color: #00AC4F;
   }

@@ -26,6 +26,12 @@ const Card = () => {
 }
 
 const CardStyled = styled.div`
+h5{
+  font-size: 18px;
+  @media(max-width: 540px){
+    font-size: 16px;
+  }
+}
 .grid-container{
     display: flex;
     flex-direction: row;
@@ -36,7 +42,7 @@ const CardStyled = styled.div`
   .right-img{
     border-radius: 20px;
     object-fit: cover;
-    height: 250px;
+    height: 150px;
     :hover{
       transform: ease-in-out all;
       cursor: pointer;
@@ -55,6 +61,11 @@ const CardStyled = styled.div`
   }
   span{
     color: #00AC4F;
+    @media(max-width: 540px){
+      width: 100%;
+      font-size: 14px;
+    }
+    
   }
 
 }
@@ -62,6 +73,11 @@ const CardStyled = styled.div`
     display: flex;
     flex-direction: row;
     font-weight: bolder;
+    @media(max-width: 540px){
+      width: 100%;
+      font-size: 14px;
+      font-weight: 400;
+    }
 
   }
   .roundImg{
@@ -71,6 +87,12 @@ const CardStyled = styled.div`
     border-radius: 50%;
     display: flex;
     flex-direction: row;
+    @media (max-width: 540px){
+      width:30px;
+      height: 30px;
+      justify-content: center;
+      transform: translateX(20px);
+    }
   }
   .buyButton{
     width: 98%;
@@ -86,7 +108,6 @@ const CardStyled = styled.div`
       background: #02AAB0;
       color: #fff;
       cursor: pointer;
-      transform: translateY(-6px);
 
     }
   }
