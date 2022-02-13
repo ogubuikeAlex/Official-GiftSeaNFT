@@ -53,7 +53,7 @@ const Wrap = styled.div`
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
     }
-    h1{
+    h4{
         padding: 2rem;
         font-size: 1.5rem;
         @media(max-width: 540px){
@@ -75,7 +75,7 @@ const FrequentQuestions = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 60px;
-    h4, h1{
+    h4{
         text-align: center;
         font-weight: bold;
         margin-bottom: 20px;
@@ -109,7 +109,7 @@ const Toggler= () => {
                         return (
                             <>
                             <Wrap onClick={() => toggle(index)} key={index}>
-                            <h1>{item.question}</h1>
+                            <h4>{item.question}</h4>
                             <span>{clicked === index ? <FiMinus/> : <FiPlus/>}</span>
                             </Wrap>
                             {clicked === index ? (

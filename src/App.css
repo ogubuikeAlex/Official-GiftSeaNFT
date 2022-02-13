@@ -2,9 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'inter';
 }
-
+body{
+    background: #fdffff;
+}
+h1{
+    font-weight: 900;
+}
 .imgUser{
     border-radius: 20px;
   }

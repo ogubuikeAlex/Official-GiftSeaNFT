@@ -42,7 +42,7 @@ const FooterStyled = styled.div`
 background: #1A1036;
 color: #fff;
 position: relative;
-top: 350px;
+top: 200px;
 padding: 3em;
 .imgCon{
     justify-content: center;
