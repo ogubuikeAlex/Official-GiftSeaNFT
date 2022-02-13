@@ -58,6 +58,7 @@ const Wrap = styled.div`
         font-size: 1.5rem;
         @media(max-width: 540px){
             font-size: 16px;
+            padding:1rem;
         }
     }
 
@@ -102,7 +103,7 @@ const Toggler= () => {
             <TogglerStyled>
             <FrequentQuestions>
             <h4>Quick answers to your questions</h4>
-            <h1>Frequently Asked <span>Questions</span></h1>
+            <h1>Frequently Asked <span>Questions</span></h1><br></br><br></br>
             </FrequentQuestions>
                 <Container>
                     {Data.map((item, index) => {

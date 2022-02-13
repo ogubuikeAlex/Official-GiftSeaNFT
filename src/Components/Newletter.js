@@ -29,7 +29,7 @@ const Newletter = () => {
 const NewsletterStyled = styled.div`
 background: #00CBAC;
 position: relative;
-top: 5rem;
+top: 9.8rem;
 border-radius: 20px;
 width:100%;
 @media(max-width:540px){
