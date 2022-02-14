@@ -1,14 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import Slider from './Slider';
 import decoration from '../img/Decoration.png'
+import {slideInUp} from 'react-animations';
+
+const Slides = styled.div`
+animation: 2s ${keyframes`${slideInUp}`}
+`;
 
 const HeroSection = () => {
-
   return (
     <HeroSectionStyled>
     <div className='heroSection'>
     <img className='decoration' src={decoration} alt=""/>
+      <Slides>
       <div className='left-hero'>
         <p className='left-hero_tagline'>Buy, Gift and sell</p>
         <h1 className="left-hero_h1">Lorem Ipsum dolor sit amet, consecteur adispiscing elit.</h1>
@@ -16,13 +21,15 @@ const HeroSection = () => {
           or held for profit overtime.
         </p>
         <button className='left-hero_button'>See Collections</button>
-        
       </div>
+      </Slides>
+      <Slides>
       <div className='rigth-container'>
         <div className='right-hero'>
         <Slider/>
         </div>
       </div>
+      </Slides>
       </div>
     
     </HeroSectionStyled>
@@ -38,6 +45,10 @@ const HeroSectionStyled = styled.div`
   width:100%;
   object-fit: cover;
   justify-content: center;
+  @media(max-width: 540px){
+    height: 700px;
+    object-fit: contain;
+  }
   }
 .heroSection{
   background: #E5E5E5;
@@ -51,6 +62,7 @@ const HeroSectionStyled = styled.div`
   @media(max-width:540px) and (min-width: 365px){
     grid-template-columns: repeat(1, 1fr);
       padding-top: 50px;
+      padding-bottom: 100px;
       align-items: center;
       justify-content: center !important;
       margin: 0 !important;

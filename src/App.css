@@ -15,8 +15,9 @@ h1{
   }
   .carousel-indicators{
       position: absolute;
-      top: 460px;
+      top: 360px;
   }
+
   @media(max-width: 900px){
     .right-hero{
         transform: translateX(-80px);

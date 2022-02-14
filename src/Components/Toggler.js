@@ -1,15 +1,20 @@
 import React, {useState} from 'react'
 import {Data} from './Data'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
+import {fadeInUp} from 'react-animations';
 import {IconContext} from 'react-icons'
 import {FiPlus, FiMinus} from 'react-icons/fi'
 
+const Bounce = styled.div`
+animation: 2s ${keyframes`${fadeInUp}`}`;
+
 const TogglerStyled = styled.div`
     margin-top: 80px;
-    background: #F5F5F5;
+    background: linear-gradient(180deg, #FFFFFF -6.15%, #F5F6F8 90.72%);
     display: flex;
     flex-direction: column;
-    width: 100%;    
+    width: 100%; 
+    transition: all ease-in-out .6s;   
     align-items: center;
     @media(max-width: 540px){
         margin-top: 80px;
@@ -21,6 +26,7 @@ const TogglerStyled = styled.div`
 const Container = styled.div`
     width: 600px;
     margin: 4em;
+    transition: all ease-in-out .4s;
     border-radius: 20px;
     justify-content: center;
     box-shadow: 2px 10px 15px 12px rgba(153, 153, 153, 0.3);
@@ -37,6 +43,7 @@ const Wrap = styled.div`
     flex-direction: row;
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     justify-content: space-between;
+    transition: all ease-in-out .4s;
     align-items: center;
     padding-right: 20px;
     text-align: center;
@@ -55,7 +62,7 @@ const Wrap = styled.div`
     }
     h4{
         padding: 2rem;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         @media(max-width: 540px){
             font-size: 16px;
             padding:1rem;
@@ -65,10 +72,11 @@ const Wrap = styled.div`
 `;
 const Dropdown = styled.div`
     background: #FDFDFD;
-    padding: 1em;
+    padding: 2rem;
     p{
         border-left:3px solid #00FFB9;
-        padding: 1em 3em;
+        padding-left: 1.2em;
+        transition: ease-in-out .6s all;
     }
 `;
 
@@ -76,6 +84,9 @@ const FrequentQuestions = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 60px;
+    @media(max-width: 540px){
+        margin-bottom: 50px;
+    }
     h4{
         text-align: center;
         font-weight: bold;
@@ -103,25 +114,29 @@ const Toggler= () => {
             <TogglerStyled>
             <FrequentQuestions>
             <h4>Quick answers to your questions</h4>
-            <h1>Frequently Asked <span>Questions</span></h1><br></br><br></br>
+            <h1>Frequently Asked <span>Questions</span></h1>
             </FrequentQuestions>
-                <Container>
+                    <Bounce>
+                    <Container>
                     {Data.map((item, index) => {
                         return (
                             <>
                             <Wrap onClick={() => toggle(index)} key={index}>
                             <h4>{item.question}</h4>
-                            <span>{clicked === index ? <FiMinus/> : <FiPlus/>}</span>
+                            <span>{clicked === index ? <FiMinus/> : <FiPlus style={{transition: 'ease-in-out .6s'}}/>}</span>
                             </Wrap>
                             {clicked === index ? (
                             <Dropdown>
+                            <Bounce>
                             <p>{item.answer}</p>
+                            </Bounce>
                             </Dropdown>
                             ): null }
                             </>
                         )
                     })}
                 </Container>
+                </Bounce>
             </TogglerStyled>
         </IconContext.Provider>
     );
