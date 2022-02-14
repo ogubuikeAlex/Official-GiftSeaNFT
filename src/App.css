@@ -21,7 +21,9 @@ h1{
     .right-hero{
         transform: translateX(-80px);
         width: 100%;
+       
     }
-  }
+  } 
 
-  
+  /* //remove to seprate file */
+ 

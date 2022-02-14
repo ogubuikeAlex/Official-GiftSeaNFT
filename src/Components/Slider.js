@@ -5,6 +5,7 @@ import image2 from '../img/unsplashed5.png';
 import image3 from '../img/unsplashcolor.png';
 import image4 from '../img/unsplashed4.png';
 import Card from './Card';
+import '../App.css';
 
 const Slider = () => {
   return (
@@ -46,6 +47,5 @@ const Slider = () => {
     </div>
   )
 }
-
 
 export default Slider

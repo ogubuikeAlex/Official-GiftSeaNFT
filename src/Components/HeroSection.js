@@ -10,12 +10,12 @@ const HeroSection = () => {
     <div className='heroSection'>
     <img className='decoration' src={decoration} alt=""/>
       <div className='left-hero'>
-        <h3>Buy, Gift and sell</h3>
-        <h1>Lorem Ipsum dolor sit amet, consecteur adispiscing elit.</h1>
-        <p>Access a pool of Non-fungible Tokens which can either be gifted
+        <p className='left-hero_tagline'>Buy, Gift and sell</p>
+        <h1 className="left-hero_h1">Lorem Ipsum dolor sit amet, consecteur adispiscing elit.</h1>
+        <p className='left-hero_description'>Access a pool of Non-fungible Tokens which can either be gifted
           or held for profit overtime.
         </p>
-        <button className='collections'>See Collections</button>
+        <button className='left-hero_button'>See Collections</button>
         
       </div>
       <div className='rigth-container'>
@@ -56,18 +56,19 @@ const HeroSectionStyled = styled.div`
       margin: 0 !important;
   }
 }
-h3{
+.left-hero_tagline{
   color: #02AAB0;
-  font-weight: bold;
+  font-weight: bold; 
+  font-size: 14px;
 }
 h1{
   font-weight: bolder;
 }
-.collections{
+.left-hero_button{
   background: linear-gradient(45deg, #02AAB0, #00CBAC);
   color: white;
   border: none;
-  font-size: 19px;
+  font-size: 16px;
   width: 218px;
   padding:.5rem;
   text-align: center;
@@ -83,6 +84,9 @@ h1{
     transform: translateX(10px);
     margin: 0 !important;
   }
+}
+.left-hero_description {
+  font-size: 15px;
 }
 .right-hero{
   box-shadow: 2px 4px 8px 10px rgba(0, 0, 0, 0.1);
