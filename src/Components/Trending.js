@@ -74,6 +74,9 @@ const TrendingStyled = styled.div`
             font-size: 15px;
         }
     }
+    @media(min-width: 365px){
+        transform: translateX(-45px);
+    }
 }
 h5{
     padding-top: 20px;
@@ -170,10 +173,16 @@ i{
             text-align: center;
             h4{
                 font-weight: bold;
+                @media(max-width: 540px){
+                    font-size: 16px;
+                }
             }
             h1{
                 color: #00CBAC;
                 font-weight: bold;
+                @media(max-width: 540px){
+                    font-size: 22px;
+                }
             }
         }
     }

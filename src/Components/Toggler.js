@@ -91,6 +91,15 @@ const FrequentQuestions = styled.div`
         text-align: center;
         font-weight: bold;
         margin-bottom: 20px;
+        @media(max-width: 540px){
+            font-size: 18px;
+        }
+        h1{
+            font-weight: bold;
+            @media(max-width: 540px){
+                font-size: 18px;
+            }
+        }
     }
     span{
         color: #00FFB9;

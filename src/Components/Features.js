@@ -18,7 +18,7 @@ const Features = () => {
                     <div className='rowContainer'>
                         <h4>Buy NFT</h4>
                         <p>You can buy NFT with us. You can buy NFT with us. 
-                            You can buy NFT with us 
+                            You can buy NFT with us. You can buy NFT with us.
                         </p>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ const Features = () => {
                     <div className='rowContainer'>
                         <h4>Buy NFT</h4>
                         <p>You can buy NFT with us. You can buy NFT with us. 
-                            You can buy NFT with us 
+                            You can buy NFT with us You can buy NFT with us.
                         </p>
                     </div>
                 </div>
@@ -36,7 +36,7 @@ const Features = () => {
                     <div className='rowContainer'>
                         <h4>Buy NFT</h4>
                         <p>You can buy NFT with us. You can buy NFT with us. 
-                            You can buy NFT with us 
+                            You can buy NFT with us. You can buy NFT with us 
                         </p>
                     </div>
                 </div>
@@ -52,6 +52,16 @@ const FeatureStyled = styled.div`
     h4, h1{
         text-align: center;
         font-weight: bold;
+    }
+    h4{
+        @media(max-width: 540px){
+            font-size: 22px;
+        }
+    }
+    h1{
+        @media(max-width: 540px){
+            font-size: 22px;
+        }
     }
     .grid-contain{
         display: grid;
@@ -73,6 +83,16 @@ const FeatureStyled = styled.div`
         justify-content: center;
         img{
             width: 70%;
+            @media(max-width: 900){
+                width: 60%;
+                justify-content: center;
+                align-items: center;
+            }
+            @media(max-width: 540px){
+                width: 50%;
+                justify-content: center;
+                align-items: center;
+            }
         }
     }
     .featureProducts{

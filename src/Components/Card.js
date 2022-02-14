@@ -53,6 +53,8 @@ h5{
     width: 100%;
     font-size: 14px;   
   }   
+  
+  }
 } 
   .right-img{
     border-radius: 20px;
@@ -77,8 +79,10 @@ h5{
   .carousel-info_bottom-text{
     color: #00AC4F;
     font-size: 14px;
+    @media(max-width: 900px){
+      font-size: 10px;
+    }
     @media(max-width: 540px){
-      width: 100%;
       font-size: 12px;
     }    
   }
