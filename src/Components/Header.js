@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <HeaderStyled>
         <div className='imgCon'><img className='logo' src={logo} alt=''/>
-        <div className='connect'>Connect 
+        <div className='connect'>Connect Wallet
         <i class="fas fa-lock"></i>
         </div>
         </div>
