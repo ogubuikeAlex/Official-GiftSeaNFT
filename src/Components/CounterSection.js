@@ -1,8 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components';
+import {slideInUp} from 'react-animations'
+
+const Slides = styled.div`
+animation: 2s ${keyframes`${slideInUp}`}`;
 
 const CounterSection = () => {
   return (
+      <Slides>
       <CounterSectionStyled>
     <div className='counter'>
         <div className='willCount'>
@@ -19,6 +24,7 @@ const CounterSection = () => {
         </div>
     </div>
     </CounterSectionStyled>
+    </Slides>
   )
 }
 
@@ -33,13 +39,15 @@ background: #FDFDFD;
     line-height: 30px;
     @media(max-width: 540px){
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        
+        grid-template-columns: repeat(1, 1fr);        
     }
     .willCount h1{
         font-size: 38px;
         font-weight: bolder;
         text-align: center;
+        @media(max-width:540px){
+            font-size: 30px;
+        }
     }
         p{
         font-size: 18px;

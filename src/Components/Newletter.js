@@ -71,6 +71,9 @@ width:100%;
     h1{
         font-weight: bold;
         color: #fff;
+        @media(max-width: 540px){
+            font-size: 22px;
+        }
     }
     .subscribe{
         display: flex;

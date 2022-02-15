@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import roundedImgs from '../img/unsplashed5.png';
+import roundedImgs1 from '../img/Ellipse 96.png';
+import roundedImgs2 from '../img/Ellipse 97.png';
+import roundedImgs3 from '../img/Ellipse 98.png';
+import roundedImgs4 from '../img/Ellipse 95.png';
 
 const Card = () => {
   return (
@@ -9,10 +12,10 @@ const Card = () => {
         <div className='carousel-info_top'>
           <p>Africana Ape NFT</p>
           <div className='carousel-info_top-images'>
-            <img className='roundImg' src={roundedImgs} alt='pics' />
-            <img className='roundImg' src={roundedImgs} alt='pics' />
-            <img className='roundImg' src={roundedImgs} alt='pics' />
-            <img className='roundImg' src={roundedImgs} alt='pics' />
+            <img className='roundImg1' src={roundedImgs1} alt='pics' />
+            <img className='roundImg2' src={roundedImgs2} alt='pics' />
+            <img className='roundImg3' src={roundedImgs3} alt='pics' />
+            <img className='roundImg4' src={roundedImgs4} alt='pics' />
           </div>
         </div>
          <div className='carousel-info_bottom'>
@@ -50,6 +53,8 @@ h5{
     width: 100%;
     font-size: 14px;   
   }   
+  
+  }
 } 
   .right-img{
     border-radius: 20px;
@@ -74,8 +79,10 @@ h5{
   .carousel-info_bottom-text{
     color: #00AC4F;
     font-size: 14px;
+    @media(max-width: 900px){
+      font-size: 10px;
+    }
     @media(max-width: 540px){
-      width: 100%;
       font-size: 12px;
     }    
   }
@@ -83,18 +90,33 @@ h5{
 #stock {
   color: #838383;
 }
+
 .carousel-info_top-images{
     display: flex;
-    flex-direction: row;      
-   
+    flex-direction: row;
     @media(max-width: 540px){
       width: 50%;
+      transform: translateX(45px);
     }
 
   }
-  .roundImg{
-    width:  23px;
-    height: 23px;
+  .roundImg3{
+    transform: translateX(10px);
+  }
+  .roundImg2{
+    transform: translateX(19px);
+    z-index: 50;
+  }
+  .roundImg1{
+    transform: translateX(29px);
+    z-index: 100;
+  }
+  .roundImg1,
+  .roundImg2,
+  .roundImg3,
+  .roundImg4{
+    width:  23.93px;
+    height: 23.93px;
     border: 1px solid #fff;
     border-radius: 50%;
     display: flex;
@@ -102,7 +124,6 @@ h5{
     @media (max-width: 540px){
       width:20px;
       height: 20px;     
-      transform: translateX(20px);
     }
   }
   .buyButton{

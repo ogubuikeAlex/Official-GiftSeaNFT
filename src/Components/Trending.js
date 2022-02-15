@@ -1,10 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import blogs from '../Trends';
+import {slideInUp} from 'react-animations'
+
+const Slides = styled.div`
+animation: 2s ${keyframes`${slideInUp}`}`;
 
 const Trending = () => {
     return (
         <TrendingStyled>
+            <Slides>
             <div className='Nfts'>
             <h4>Most sort after</h4>
             <h1>Trending NFTS</h1>
@@ -31,6 +36,7 @@ const Trending = () => {
                         
                     }
                 </div>
+                </Slides>
         </TrendingStyled>
     )
 }
@@ -42,12 +48,13 @@ const TrendingStyled = styled.div`
     align-items: center;
     padding: 0.5em;
     img{
+        border-radius: 10px;
         width: 100%;
         height: 100%;
 
     @media(max-width: 540px){
         height: 90px;
-        transform: translateY(-10px) translateX(-10px);
+        transform: translateY(-6px) translateX(-5.5px);
         }
         @media(min-width: 365px) and (max-width: 375px){
             width: 80px;
@@ -59,16 +66,16 @@ const TrendingStyled = styled.div`
     text-align: center;
     margin-top: 30px;
     @media(max-width: 900px){
-        transform: translateY(7px) translateX(-35px);
+        transform: translateY(7px) translateX(-40px);
         }
     @media(max-width: 540px){
-        transform: translateX(-60px);
-        }
-    @media(max-width: 540px){
-        transform: translateX(-28px);
+        transform: translateX(-10px);
         .increase p{
             font-size: 15px;
         }
+    }
+    @media(min-width: 365px){
+        transform: translateX(-45px);
     }
 }
 h5{
@@ -76,6 +83,9 @@ h5{
     width: 129px;
     font-size: 16px;
     font-weight: bold;
+    @media(max-width: 1440px) and (min-width: 768px){
+        width:150px;
+    }
     @media(max-width: 900px){
         font-size: 15px;
         }
@@ -86,6 +96,16 @@ span{
     justify-content: center;
     padding-top: 5px;
     margin-left:-36px;
+    @media(max-width: 1440px){
+        transform: translateX(-20px);
+    }
+    @media(max-width: 1220px){
+        transform: translateX(-10px);
+    }
+    @media(max-width: 900px){
+        transform: translateX(-5px);
+    }
+    
 }
 p{
     font-weight: 500;
@@ -109,10 +129,6 @@ i{
             grid-template-columns: repeat(1, 1fr);
             grid-gap: 50px;
         }
-            h6{
-                font-size: .8rem;
-                font-weight: 400;
-            }
             .user{
                 font-weight: 400;
                 margin-top: -8px;
@@ -128,11 +144,12 @@ i{
         }
         .blog{
             background: rgba(255, 255, 255, 0.03);
-            box-shadow: 3px 2px 4px 7px #F2F2F2;
+            box-shadow: 3px 3px 4px 2px #F2F2F2;
             margin: 20px;
-            border-radius: 20px;
+            border-top: none;
+            border-radius: 10px;
             display: grid;
-            padding: 1em;
+            padding: 0 !important;
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 1rem;
             justify-content:flex-start;
@@ -140,18 +157,13 @@ i{
             height: 85% !important;
             @media(max-width: 900px){
                 width: 100%;
-                }
-            @media(max-width: 768px){
-                width: 100% !important;
-                height: 100% !important;
             }
             @media(max-width: 540px){
                 width: 88% !important;
                 height: 88% !important;
-                padding-right: 20px;
-                margin:0 !important;
+                margin:0 !important;            
                 }
-                }
+
             }
                 
             }
@@ -161,10 +173,16 @@ i{
             text-align: center;
             h4{
                 font-weight: bold;
+                @media(max-width: 540px){
+                    font-size: 16px;
+                }
             }
             h1{
                 color: #00CBAC;
                 font-weight: bold;
+                @media(max-width: 540px){
+                    font-size: 22px;
+                }
             }
         }
     }

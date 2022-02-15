@@ -32,7 +32,7 @@ const HeaderStyled = styled.div`
     align-items: center;
     
     .connect{
-      background: linear-gradient(#02AAB0, #00CBAC);
+      background: linear-gradient(to right, #02AAB0, #00CBAC);
       color: white;
       padding: .4rem 40px;
       justify-content: center;

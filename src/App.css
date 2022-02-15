@@ -15,15 +15,23 @@ h1{
   }
   .carousel-indicators{
       position: absolute;
-      top: 460px;
+      top: 500px;
   }
+
   @media(max-width: 900px){
     .right-hero{
         transform: translateX(-80px);
         width: 100%;
-       
     }
-  } 
+    .carousel-indicators{
+        top: 150px;
+    }
+} 
+@media(max-width: 1045px){
+    .carousel-indicators{
+        top: 460px;    
+    }
+}
 
   /* //remove to seprate file */
  

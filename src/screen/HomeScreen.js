@@ -16,7 +16,7 @@ const HomeScreen = () => {
       <HeroSection/> 
       <CounterSection/>  
       <Features/>
-      {/* <TabToggle/> */}
+      <TabToggle/>
       <Trending/>
       <Toggler/>
       <Newsletter/>
