@@ -18,6 +18,7 @@ const Header = () => {
 const HeaderStyled = styled.div`
   .imgCon img{
     margin-left: 30px;
+    width: 140px;
     @media(max-width: 540px){
       margin-left: 30px;
     }
