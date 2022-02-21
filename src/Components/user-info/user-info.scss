@@ -1,0 +1,54 @@
+@use '../../scss/abstracts/' as *;
+
+.search{
+    @include flex(center, flex-start);
+    padding:0;
+    margin-left: -20px;
+    input{
+        width: 591.59px;
+        height: 44px;
+        margin-right: 10px;
+        border-radius: 3px;
+        border: none;
+        padding-left: 40px;
+        padding-right: 20px;
+        outline: none;
+        @media(max-width: 1045px) and(min-width:768px){
+            width: 100%;
+        }
+        @media (max-width: 540px) {
+            width: 100%;
+        }
+
+    }
+    .searchAlign{
+        display: flex;
+        flex-direction:row;
+        i{
+            position: relative;
+            top: 13px;
+            color: #bbb;
+            left: 30px;
+        }
+    }
+    button{
+        width: 124.6px;
+        height: 44px;
+        color: $white;
+        background: $sideactive;
+        border-radius: 3px;
+        border: none;
+        @media(max-width: 1045px) and(min-width:768px){
+            width: 80%;
+        }
+        @media(max-width: 540px){
+            width: 100%;
+        }
+
+    }
+
+        @include tablet {
+            padding: 0 $mobileSpacing;
+        }
+    }
+
