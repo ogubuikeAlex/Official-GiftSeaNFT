@@ -11,7 +11,6 @@ animation: 3s ${keyframes`${fadeInUp}`}`;
 
 const Dashboard = () => {
     return (
-        
         <DashboardRightStyled>
         <DashboardWrapper>
             <DashboardWrapperRight>
@@ -78,10 +77,18 @@ const Dashboard = () => {
 
 const DashboardRightStyled = styled.div`
 overflow-y:auto;
-@media(max-width: 1220px) and(min-width:900px){
+@media(max-width: 1220px)and(min-width:900px){
     width: calc(100% + 15%);
     transform: translateX(30px);
 }
+    @media(max-width: 900px){
+        transform: translateX(-40px);
+        border-radius: 10px;
+    }
+    @media only screen and (max-width: 540px){
+        width: 100%;
+        transform: translateX(50px);
+    }
     .portBal{
     height: 15px;
     width: 99px;
@@ -101,6 +108,10 @@ overflow-y:auto;
     line-height: 29px;
     text-align: left;
     color: #110617;
+    @media(max-width: 900px){
+        width: 240px;
+        font-size: 18px;
+    }
 }
 .ethBal{
     height: 39px;
@@ -111,6 +122,9 @@ overflow-y:auto;
     line-height: 39px;
     text-align: left;
     color: #252F40;
+    @media(max-width: 900px){
+        font-size: 18px;
+    }
 }
 .balanceContainer{
     height: 149px;
@@ -120,7 +134,9 @@ overflow-y:auto;
     background: #FFFFFF;
     border: 1px solid #02AAB066;
     box-shadow: 0px 20px 20px 0px #3333331A;
-    
+    @media(max-width: 1220px){
+        width: 200px;
+    }
     @media(max-width:540px){
         width: 100%;
         justify-content: center;
@@ -199,6 +215,7 @@ overflow-y:auto;
 
 const HistoryStyled = styled.div`
 margin-top: 50px;
+overflow-x: hidden;
 .history-title{
         height: 24px;
         width: 70px;
@@ -212,11 +229,15 @@ margin-top: 50px;
     .img{
         display: flex;
         flex-direction:row;
+        margin-right: 10px;
     }
     .details{
         display:flex;
         flex-direction: row;
         justify-content: space-between;
+        @media(max-width: 900px){
+            font-size: 13px;
+        }
         .imgUrl{
             height: 44px;
             width: 44px;
@@ -224,7 +245,10 @@ margin-top: 50px;
         }
         .user{
             display: block;
-            margin-left: 30px;
+            margin-left: 20px;
+            @media(max-width: 900px){
+                margin-left: 5px;
+            }
             .title{
                 height: 17px;
                 width: 140px;
@@ -233,6 +257,9 @@ margin-top: 50px;
                 font-weight: 500;
                 line-height: 17px;
                 text-align: left;
+                @media(max-width: 900px){
+                    font-size: 12px;
+                }
             }
             .subtitle{
                 height: 12px;
@@ -254,6 +281,9 @@ margin-top: 50px;
             font-weight: 600;
             line-height: 12px;
             text-align: left;
+            @media(max-width: 900px){
+                margin-left: -20px;
+            }
         }
     }
     .seeall_btn{
@@ -265,17 +295,28 @@ margin-top: 50px;
         background: #FFF;
         border: solid 1px #1A1036;
         outline: none;
+        justify-content: center;
+        transform: translateX(65%);
         :hover{
             color: #FFF;
             background: #02AAB0;
             transition: .4s ease-in-out all;
             outline: none;
         }
-        @media(max-width: 540px){
-            width: 100%;
+        @media(max-width: 1220px){
+            justify-content: center;
+            margin-left: -20px;
+        }
+        @media only screen and (max-width: 900px){
+            width: 45%;
+        }
+        @media only screen and (max-width: 540px){
+            width: 50%;
             justify-content: center;
         }
-
+        @media(max-width: 400px){
+            width: 55%;
+        }
 
     }
 

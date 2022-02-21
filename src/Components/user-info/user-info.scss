@@ -13,11 +13,16 @@
         padding-left: 40px;
         padding-right: 20px;
         outline: none;
+        @media(max-width: 1220px){
+            width: 500px;
+            margin-left: -60px;
+        }
         @media(max-width: 1045px) and(min-width:768px){
             width: 100%;
         }
         @media (max-width: 540px) {
             width: 100%;
+            margin-left:20px;
         }
 
     }
@@ -29,6 +34,12 @@
             top: 13px;
             color: #bbb;
             left: 30px;
+            @media (max-width: 1220px) {
+                left: -20px;
+            }
+            @media (max-width: 540px) {
+                left:45px;
+            }
         }
     }
     button{
@@ -42,7 +53,7 @@
             width: 80%;
         }
         @media(max-width: 540px){
-            width: 100%;
+            width: 50%;
         }
 
     }

@@ -25,6 +25,19 @@
         position: fixed;
         top: 0;
         right: 0;
+        @media(max-width: 1220px){
+            width: 300px;
+        }
+        @media(max-width: 1045px){
+            position: relative;
+            width: 100%;
+        }
+        @media(max-width: 900px){
+            width: 100%;
+            overflow-x: hidden;
+            padding-right: 10px;
+            position:relative;
+        }
 
         @include tablet {
             position: relative;

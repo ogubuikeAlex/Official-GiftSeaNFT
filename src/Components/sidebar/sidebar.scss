@@ -11,6 +11,27 @@
     position: fixed;
     top: 0;
     z-index: 100;
+    &.active {
+        font-weight: 600;
+        color: $sideactive;
+    }
+    @media(max-width: 1220px){
+        width: 240px;
+        &.active {
+            font-weight: 600;
+            color: $sideactive;
+        }
+    }
+    @media(max-width: 900px){
+        width: 220px;
+        justify-content: center;
+        text-align: center;
+        font-size: 13px;
+        &.active {
+            font-weight: 600;
+            color: $sideactive;
+        }
+    }
 
     @include tablet {
         width: 100vw;
@@ -36,6 +57,12 @@
             justify-content: left;
             @media(max-width: 1440px){
                 margin-left: -70px;
+            }
+            @media(max-width: 1220px){
+                margin-left: 40px;
+            }
+            @media(max-width: 900px){
+                transform: translateY(30px) translateX(-20px);
             }
             @media(max-width: 540px){
                 margin-left: 0;
@@ -84,7 +111,7 @@
                 color: $sideactive;
 
                 @include tablet {
-                    color: $textalt;
+                    color: $sideactive;
                 }
 
                 &::before {

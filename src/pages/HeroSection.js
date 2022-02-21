@@ -99,6 +99,13 @@ const HeroSection = () => {
 }
 const HeroSectionStyled = styled.div`
 width: 718.99px;
+@media(max-width: 1220px){
+    width: 630px;
+    padding: 1em;    
+}
+@media(max-width: 900px){
+    transform: translateX(-50px);
+}
 @media(max-width: 540px){
     width: 100%;
 }
@@ -109,23 +116,32 @@ border-radius: 10px;
 width: 721.99px;
 height: 181px;
 margin-bottom: 15px;
-@media(max-width: 900px){
-    width: calc(100% + 15%);
-    transform: translateX(20px);
+@media only screen and (max-width: 1220px){
+    width: 635px;
+    transform:translateX(-80px);
 }
-@media(max-width: 540px){
+@media only screen and (max-width: 900px){
+    transform: translateX(-52px);
+}
+@media only screen and (max-width: 540px){
     width: 100%;
-    transform: translateX(0px);
+    transform: translateX(40px);
 }
 .attach{
     position: absolute;
     width: 710.19px;
     height: 181px;
-    @media(max-width: 900px){
-        width: 100%;
+    @media(max-width: 1220px){
+        width: 98.2%;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
-    @media(max-width: 540px){
-        width: 100%;
+    @media(max-width: 900px){
+        object-fit: cover;
+    }
+    @media only screen and (max-width: 540px){
+        width: calc(100% + 38.2px);
+        transform: translateX(-50px);
     }
 }
 .center-container{
@@ -160,7 +176,7 @@ margin-bottom: 15px;
     height: 41px;
     transform: translateY(20px);
     @media(max-width: 540px){
-        width: 50%;
+        width: 70%;
         font-size: 16px;
     }
     }
@@ -175,13 +191,17 @@ const NFTcontainerStyled = styled.div`
     background: #FFF;
     padding: 1.5rem 1rem;
     transform: translateX(10px);
-    @media(max-width: 900px){
-        width: calc(100% + 15%);
-        transform: translateX(30px);
+    @media(max-width: 1220px){
+        width: 600px;
+        margin-left: -70px;
     }
-    @media(max-width: 540px){
+    @media(max-width: 900px){
+        transform: translateX(20px);
+        width: calc(100% + 40px);
+    }
+    @media only screen and (max-width: 540px){
         width: 100%;
-        transform: translateX(10px);
+        transform: translateX(120px);
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         height:fit-content;
@@ -190,32 +210,29 @@ const NFTcontainerStyled = styled.div`
         }
     }
 }
-display: grid;
-width: 100%;
-grid-template-columns: repeat(2, 1fr);
-@media(max-width: 900px){
-    grid-template-columns: repeat(1, 1fr);
-}
 
 .NFTCardContainer{
     display: grid;
     width: 710.19px;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
+    @media(max-width: 1220px){
+        width: 100%;
+    }
     @media(max-width: 1045px)and(min-width: 900px){
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        width: calc(100% + 15%);
+        width: calc(100% + 17%);
     }
-    @media(max-width: 540px){
+    @media only screen and (max-width: 540px){
         grid-template-columns: repeat(1, 1fr);
         width: 80%;
-        transform: translateX(25px);
+        transform: translateX(80px);
         justify-content: center;
     }
     @media(max-width:400px){
         width: 100%;
-        transform: translateX(-10px);
+        transform: translateX(30px);
     }
     .dashCards{
         padding:0.6em;
@@ -223,28 +240,38 @@ grid-template-columns: repeat(2, 1fr);
         border-radius: 20px;
         margin: 10px;
         box-shadow: 0px 10px 30px 0px #0000001A;
+        @media(max-width: 1220px){
+            transform: translateX(-50px);
+        }
         @media(max-width: 900px){
             width: 100%;
         }
         @media(max-width: 540px){
             width: 100%;
+            transform: translateX(10px);
         }
         }
 }
 .text-container{
-    @media(max-width: 900px){
-        width: calc(100% + 15%);
-        transform: translateX(20px);
+    @media(max-width: 1220px){
+        transform: translateX(-60px);
     }
-    @media(max-width: 540px){
+    @media(max-width: 900px){
+        transform: translateX(-30px);
+    }
+    @media only screen and (max-width: 540px){
         width: 100%;
-        transform: translateX(0px);
+        transform: translateX(40px);
     }
 }
 .woman{
     height: 316px;
     width: 320px;
     border-radius: 3px;
+    @media(max-width: 1220px){
+        width: 100%;
+        object-fit: cover;
+    }
     @media(max-width: 540px){
         width: 100%;
         object-fit: cover;
