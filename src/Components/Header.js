@@ -1,17 +1,68 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import logo from '../img/logo.png';
 
 
 const Header = () => {
+
+  const { ethereum } = window;
+  const [userHasMetaMask, setUserHasMetaMask] = useState(false);
+  const [userHasConnectedccount, setUserHasConnectedAccount] = useState(false);
+  const [userAccount, setUserAccount] = useState();
+
+  const checkForMetaMask = async () => {
+    if (!ethereum) {
+      console.log("You need to install metamask");
+      return false;
+    }
+        
+    setUserHasMetaMask(true);
+    await checkForAuthenticatedEthereumWallet();
+    return true;
+  }
+
+  const checkForAuthenticatedEthereumWallet = async () => {
+    var accounts = await ethereum.request({ method: 'eth_accounts' })
+
+    if (accounts.length !== 0) {
+      console.log(`Authorized Account found: ${accounts[0]}`);
+      return true;
+    }
+    console.log("no account found ");
+    return false;
+  }
+
+  const connectWallet = async () => {
+    let userHasMetaMask = checkForMetaMask();
+
+    if (!userHasMetaMask) {
+      console.log("You do not have metamask!");
+      return;
+      //Show up a modal for user to connect metamask
+    }
+    console.log("You have metamask!");
+    let userHasAuthenticatedWallet = checkForAuthenticatedEthereumWallet();
+
+    if (!userHasAuthenticatedWallet) {
+      console.log("You do not hve an have an authenticatdmetamask!");
+      //Show page  that ask user to authenticate metamask!
+    }
+
+    console.log("You have  an authenticated metamask wallet!");
+
+    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+    setUserAccount(accounts[0]);
+    setUserHasConnectedAccount(true);
+  }
+
   return (
     <HeaderStyled>
-        <div className='imgCon'><img className='logo' src={logo} alt=''/>
-        <div className='connect'>Connect Wallet
-        <i class="fas fa-lock"></i>
+      <div className='imgCon'><img className='logo' src={logo} alt='' />
+        <div className='connect' onClick={connectWallet}>Connect Wallet
+          <i class="fas fa-lock"></i>
         </div>
-        </div>
-      </HeaderStyled>
+      </div>
+    </HeaderStyled>
   )
 }
 
