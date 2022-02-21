@@ -14,7 +14,7 @@ import {Col, Row} from 'react-bootstrap'
 import woman from '../img/woman.png';
 
 const Bounce = styled.div`
-animation: 3s ${keyframes`${fadeInRight}`}`;
+animation: 1s ${keyframes`${fadeInRight}`}`;
 
 const HeroSection = () => {
   return (
@@ -37,7 +37,7 @@ const HeroSection = () => {
                 <p className='SeeAll'>See All</p>
             </div>
             <Row className='contentContainer'>
-                <Col>
+                <Col style={{margin: '0', padding: '0'}}>
                     <img className='woman' src={woman} alt=''/>
                 </Col>
                 <Col style={{display: 'block'}}>
@@ -99,12 +99,39 @@ const HeroSection = () => {
 }
 const HeroSectionStyled = styled.div`
 width: 718.99px;
-@media(max-width: 1220px){
-    width: 630px;
-    padding: 1em;    
+@media only screen and (max-width: 1316px){
+    width: 70%;
+    height: fit-content;
+    margin-left:-35px;
+    padding: 1em;
+}
+@media only screen and (max-width: 1165px){
+    margin-left: -45px;
+}
+@media only screen and (max-width: 1120px){
+    margin-left: -55px;
+}
+@media(max-width: 1080px){
+    margin-left: -65px;
+}
+@media only screen and (max-width: 1000px){
+    margin-left: -80px;
+}
+@media only screen and (max-width: 1000px){
+    margin-left: -80px;
+}
+@media(max-width: 918px){
+    margin-left: -85px;
 }
 @media(max-width: 900px){
-    transform: translateX(-50px);
+    margin-left: -95px;
+}
+@media(max-width: 849px){
+    width: 100%;
+    transform: translateX(40px);
+}
+@media only screen and (max-width: 768px){
+    transform: translateX(90px);       
 }
 @media(max-width: 540px){
     width: 100%;
@@ -113,35 +140,29 @@ width: 718.99px;
 const NewsletterStyled = styled.div`
 background: #02AAB0;
 border-radius: 10px;
-width: 721.99px;
+width: 100%;
 height: 181px;
 margin-bottom: 15px;
-@media only screen and (max-width: 1220px){
-    width: 635px;
-    transform:translateX(-80px);
-}
-@media only screen and (max-width: 900px){
-    transform: translateX(-52px);
-}
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 1316px){
     width: 100%;
-    transform: translateX(40px);
 }
 .attach{
     position: absolute;
     width: 710.19px;
     height: 181px;
-    @media(max-width: 1220px){
-        width: 98.2%;
+    @media only screen and (max-width: 1316px){
+        width: 46.7%;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
     }
-    @media(max-width: 900px){
-        object-fit: cover;
+    @media(max-width: 1220px){
+        width: 44.8%;
     }
-    @media only screen and (max-width: 540px){
-        width: calc(100% + 38.2px);
-        transform: translateX(-50px);
+    @media only screen and (max-width: 849px){
+        width: 91%;
+    }
+    @media only screen and (max-width: 768px){
+        width: 94%;
     }
 }
 .center-container{
@@ -161,7 +182,10 @@ margin-bottom: 15px;
     line-height: 29px;
     letter-spacing: 0em;
     text-align: left;
-    
+    @media (max-width: 1000px){
+        transform: translateX(-10px);
+        font-size: 18px;
+    }
     @media(max-width: 540px){
         width: 100%;
         font-size:16px;
@@ -189,19 +213,28 @@ const NFTcontainerStyled = styled.div`
     width: 716px;
     border-radius: 10px;
     background: #FFF;
-    padding: 1.5rem 1rem;
+    padding: 0.8em;
     transform: translateX(10px);
-    @media(max-width: 1220px){
-        width: 600px;
-        margin-left: -70px;
-    }
-    @media(max-width: 900px){
-        transform: translateX(20px);
-        width: calc(100% + 40px);
-    }
-    @media only screen and (max-width: 540px){
+    @media only screen and (max-width: 1316px){
         width: 100%;
-        transform: translateX(120px);
+        height: fit-content;
+    }
+    @media(max-width: 1220px){
+        width: 100%;
+    }
+    @media only screen and (max-width: 1165px){
+        width: 100%;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+    @media only screen and (max-width: 768px){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media only screen and (max-width: 540px){
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         height:fit-content;
@@ -216,6 +249,9 @@ const NFTcontainerStyled = styled.div`
     width: 710.19px;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
+    @media only screen and (max-width: 1316px){
+        width: 100%;
+    }
     @media(max-width: 1220px){
         width: 100%;
     }
@@ -223,6 +259,28 @@ const NFTcontainerStyled = styled.div`
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         width: calc(100% + 17%);
+    }
+    @media (max-width: 1080px){
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    @media only screen and (max-width: 849px){
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: -30px;
+    }
+    @media only screen and (max-width: 825px){
+        grid-template-columns: repeat(1, 1fr);
+        width: 80%;
+        transform: translateX(45px);
+    }
+    @media only screen and (max-width: 768px){
+        display: grid;
+        width: 90%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (max-width: 682px){
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
     }
     @media only screen and (max-width: 540px){
         grid-template-columns: repeat(1, 1fr);
@@ -241,40 +299,82 @@ const NFTcontainerStyled = styled.div`
         margin: 10px;
         box-shadow: 0px 10px 30px 0px #0000001A;
         @media(max-width: 1220px){
-            transform: translateX(-50px);
+            width: 100%;
+            font-size: 14px;
         }
-        @media(max-width: 900px){
+        @media(max-width: 1138px){
+            width: 100%;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        @media(max-width: 1080px){
+            width: 65%;
+            transform: translateX(55px);
+            font-size: 16px;
+            font-weight: 600;
+        }
+        @media(max-width: 950px){
+            font-size: 13px;
+            width: 70%;
+            margin-left: -10px;
+        }
+        @media(max-width: 932px){
+            font-size: 10px;
+        }
+        @media(max-width: 918px){
+            width: 85%;
+            margin-left: -35px;
+        }
+        @media(max-width: 849px){
             width: 100%;
         }
         @media(max-width: 540px){
             width: 100%;
-            transform: translateX(10px);
+            transform: translateX(20px);
+        }
+        @media(max-width: 400px){
+            width: 100%;
+            transform: translateX(40px);
+        }
+        button{
+            @media only screen and (max-width: 1080px){
+                padding:0.8em;
+            }
+            @media only screen and (max-width: 1200px){
+                padding:0.4em;
+            }
+            @media only screen and (max-width: 1165px){
+                padding:0.4em;
+            }
+            @media(max-width: 932px){
+                padding: 0.7em;
+            }
         }
         }
 }
 .text-container{
-    @media(max-width: 1220px){
-        transform: translateX(-60px);
+    @media only screen and (max-width: 1316px){
+        width: 100%;
     }
-    @media(max-width: 900px){
-        transform: translateX(-30px);
+    @media(max-width: 1220px){
+        width: 100%;
     }
     @media only screen and (max-width: 540px){
         width: 100%;
-        transform: translateX(40px);
     }
 }
 .woman{
     height: 316px;
     width: 320px;
     border-radius: 3px;
+    @media only screen and (max-width: 1316px){
+        width: 100%;
+    }
     @media(max-width: 1220px){
         width: 100%;
-        object-fit: cover;
     }
     @media(max-width: 540px){
         width: 100%;
-        object-fit: cover;
     }
 }
 .listedNFT{
@@ -318,6 +418,10 @@ const NFTcontainerStyled = styled.div`
     line-height: 20px;
     text-align: left;
     color: #888888;
+    @media only screen and (max-width: 1165px){
+        width: 100%;
+        height: fit-content;
+    }
     @media(max-width: 540px){
         width: 100%;
     }

@@ -33,8 +33,8 @@ const Dashboard = () => {
                 </div><br></br><br></br>
                 <div className='myBalance'>Your Balance</div>
                 <div className="balanceContainer">
-                    <p className='portBal'>Portfolio Balance</p>
-                    <p className='ethBal'>$23,300.00</p>
+                    <div><p className='portBal'>Portfolio Balance</p></div>
+                    <div><p className='ethBal'>$23,300.00</p></div>
                     <div className='ethcontainer'>
                         <div>
                             <div className='brands'>
@@ -81,14 +81,10 @@ overflow-y:auto;
     width: calc(100% + 15%);
     transform: translateX(30px);
 }
-    @media(max-width: 900px){
-        transform: translateX(-40px);
-        border-radius: 10px;
-    }
-    @media only screen and (max-width: 540px){
-        width: 100%;
-        transform: translateX(50px);
-    }
+@media(max-width: 400px){
+    width: 100%;
+    transform: translateX(10px);
+}
     .portBal{
     height: 15px;
     width: 99px;
@@ -108,10 +104,6 @@ overflow-y:auto;
     line-height: 29px;
     text-align: left;
     color: #110617;
-    @media(max-width: 900px){
-        width: 240px;
-        font-size: 18px;
-    }
 }
 .ethBal{
     height: 39px;
@@ -122,9 +114,6 @@ overflow-y:auto;
     line-height: 39px;
     text-align: left;
     color: #252F40;
-    @media(max-width: 900px){
-        font-size: 18px;
-    }
 }
 .balanceContainer{
     height: 149px;
@@ -307,15 +296,18 @@ overflow-x: hidden;
             justify-content: center;
             margin-left: -20px;
         }
-        @media only screen and (max-width: 900px){
-            width: 45%;
+        @media only screen and (max-width: 768px){
+            transform: translateX(280px);
         }
-        @media only screen and (max-width: 540px){
-            width: 50%;
+        @media only screen and (max-width: 682px){
+            transform: translateX(250px);
+        }
+        @media (max-width: 540px) and (min-width: 400px){
             justify-content: center;
+            transform: translateX(170px);
         }
         @media(max-width: 400px){
-            width: 55%;
+            transform: translateX(80px);
         }
 
     }

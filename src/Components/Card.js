@@ -19,9 +19,9 @@ const Card = () => {
           </div>
         </div>
          <div className='carousel-info_bottom'>
-        <span className='carousel-info_bottom-text'><i class="fa-brands fa-ethereum"></i>&nbsp; 0.25 ETH</span>
+        <span className='carousel-info_bottom-text'><i class="fa-brands fa-ethereum"></i>&nbsp; <p>0.25ETH</p></span>
         <div className='carousel-info_bottom-text' id="stock">
-          5 of 321 in Stock
+          <p>5 of 321 in Stock</p>
         </div>
       </div>
 
@@ -75,11 +75,43 @@ h5{
   font-weight: bolder;
   i{
     color: #00AC4F;
+    padding-top:10px;
   }
   .carousel-info_bottom-text{
     color: #00AC4F;
     font-size: 14px;
-    @media(max-width: 900px){
+    display: flex;
+  p{
+    transform: translateY(7px);
+    @media(max-width: 1220px){
+      width: 100%;
+      font-size: 12px;
+  }
+  @media(max-width: 1138px){
+    width: 100%;
+    font-size: 12px;
+    font-weight:400;
+}
+    @media(max-width: 1220px){
+      width: 100%;
+      font-size: 14px;
+  }
+  }
+    @media(max-width: 1045px){
+      width: 100%;
+      font-size: 12px;
+  }
+  @media only screen and (max-width: 960px){
+    width: 100%;
+    font-size: 10px;
+  }
+    @media only screen and (max-width: 1040px){
+      font-size: 12px;
+    }
+    @media(max-width: 918px){
+      font-size: 14px;
+  }
+    @media only screen and (max-width: 849px){
       font-size: 10px;
     }
     @media(max-width: 540px){

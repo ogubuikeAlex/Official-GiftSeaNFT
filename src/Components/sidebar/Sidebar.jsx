@@ -7,7 +7,7 @@ import { Link, useLocation } from 'react-router-dom'
 import sidebarNav from '../../configs/sidebarNav'
 
 const BounceDown = styled.div`
-animation: 2s ${keyframes`${fadeInDown}`}`;
+animation: 1s ${keyframes`${fadeInDown}`}`;
 
 const Sidebar = () => {
     const [activeIndex, setActiveIndex] = useState(0)
@@ -31,7 +31,7 @@ const Sidebar = () => {
     return (
         <div className='sidebar'>
                 <BounceDown>
-            <div className="sidebar__logo">
+            <div className="sidebar__logo" style={{marginTop: '-30px'}}>
                 <img src={logo} alt=''/>
                 <div className="sidebar-close" onClick={closeSidebar}>
                     <i className='bx bx-x'></i>
@@ -50,7 +50,7 @@ const Sidebar = () => {
                         </Link>
                     ))
                 }
-                <div className="sidebar__menu__item" style={{marginTop: '70px'}}>
+                <div className="sidebar__menu__item" style={{marginTop: '25px'}}>
                     <div className="sidebar__menu__item__icon">
                         <i style={{color: '#FF4646'}} className='bx bx-log-out'></i>
                     </div>
