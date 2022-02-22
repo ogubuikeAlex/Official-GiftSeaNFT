@@ -71,13 +71,14 @@
         .sidebar-close {
             cursor: pointer;
             display: none;
-
             i {
                 font-size: 2rem;
             }
 
             @include tablet {
                 display: block;
+                position:relative;
+                top: 35px;
             }
         }
     }
