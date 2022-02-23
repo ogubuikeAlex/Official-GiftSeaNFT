@@ -4,17 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styled, {keyframes} from 'styled-components';
 import history from '../constants/data';
 import DashboardWrapper, {  DashboardWrapperRight } from '../Components/dashboard-wrapper/DashboardWrapper'
-import {fadeInUp} from 'react-animations';
-
-const Bounce = styled.div`
-animation: 3s ${keyframes`${fadeInUp}`}`;
 
 const Dashboard = () => {
     return (
         <DashboardRightStyled>
         <DashboardWrapper>
             <DashboardWrapperRight>
-                <Bounce>
                 <div className="metamask-top">
                     <div><i className='far fa-bell'></i></div>
                     <div className='drop'>
@@ -68,7 +63,6 @@ const Dashboard = () => {
                 </div>
                 <button className='seeall_btn'>See all</button>
                 </HistoryStyled>
-            </Bounce>
             </DashboardWrapperRight>
         </DashboardWrapper>
         </DashboardRightStyled>
@@ -81,10 +75,12 @@ overflow-y:auto;
     width: calc(100% + 15%);
     transform: translateX(30px);
 }
-@media(max-width: 400px){
-    width: 100%;
-    transform: translateX(10px);
-}
+@media only screen and (max-width: 849px){
+    transform: translateX(-25px);
+  }
+  @media only screen and (max-width: 768px){
+    transform: translateX(0);
+  }
     .portBal{
     height: 15px;
     width: 99px;
@@ -201,7 +197,6 @@ overflow-y:auto;
     }
 }
 `;
-
 const HistoryStyled = styled.div`
 margin-top: 50px;
 overflow-x: hidden;
@@ -307,11 +302,10 @@ overflow-x: hidden;
             transform: translateX(170px);
         }
         @media(max-width: 400px){
-            transform: translateX(80px);
+            transform: translateX(90px);
         }
 
     }
-
 `;
 
 export default Dashboard
