@@ -20,6 +20,7 @@
     "react-scripts": "5.0.0",
     "sass": "^1.49.8",
     "scss": "^0.2.4",
+    "serve": "^13.0.2",
     "styled-components": "^5.3.3",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
