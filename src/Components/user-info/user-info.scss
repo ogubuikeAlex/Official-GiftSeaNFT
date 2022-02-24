@@ -21,6 +21,7 @@
         margin-left: -30px;
     }
     
+    
     input{
         width: 591.59px;
         height: 44px;
@@ -60,10 +61,19 @@
         @media only screen and (max-width: 768px){
             width: 600px;
         }
+        @media only screen and (max-width: 600px){
+            width: 500px;
+            margin-left:15px;
+          }
         @media (max-width: 540px) {
             width: 100%;
             margin-left:20px;
         }
+        @media only screen and (max-width: 400px){
+            margin-left:10px;
+            width: 300px;
+            margin-right: 10px;
+          }
 
     }
     .searchAlign{
@@ -83,6 +93,9 @@
             @media only screen and (max-width: 849px){
              left:30px;
             }
+            @media only screen and (max-width: 600px){
+                left: 40px;
+              }
             @media (max-width: 540px) {
                 left:45px;
             }
