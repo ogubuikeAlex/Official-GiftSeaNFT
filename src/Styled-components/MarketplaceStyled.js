@@ -1,74 +1,12 @@
-import React from 'react'
-import { useState } from "react";
+
 import styled from 'styled-components';
-import image1 from '../img/unsplashed4.png';
-import image2 from '../img/unsplashed3.png';
-import Card from '../Components/Card'
-import Dashboard from '../pages/Dashboard'
-import unsplash from '../img/unsplashed5.png'
 
-
-
-const Collections = () => {
-    const [toggleState, setToggleState] = useState(1);
-
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
-    return (
-        <div>
-        <CollectionStyled>
-            <h4 style={{marginLeft: '20px', fontWeight: '600'}}>Our Marketplace</h4>
-    <div className="container">
-      <div className="bloc-tabs">
-        <button 
-          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(1)}>
-          Unmatured NFTs
-        </button>
-        <button 
-          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(2)}>
-          Mature NFTs
-        </button>
-        </div>
-      <div className="content-tabs">
-        <div id="content-tab"
-          className={toggleState === 1 ? "content  active-content" : "content"}>
-            <div className='dashCards'>
-            <img src={unsplash}alt=""/>
-            <Card/>
-            </div>
-            <div className='dashCards'>
-            <img src={image2}alt=""/>
-            <Card/>
-            </div>
-        </div>
-        <div id="content-tab"
-          className={toggleState === 2 ? "content  active-content" : "content"}>
-              <div className='dashCards'>
-            <img src={image1}alt=""/>
-            <Card/>
-            </div>
-              <div className='dashCards'>
-            <img src={unsplash}alt=""/>
-            <Card/>
-            </div>
-        </div>
-        </div>
-        </div>
-            </CollectionStyled>
-            <Dashboard/>
-        </div>
-    )
-}
-
-const CollectionStyled = styled.div`
+const MarketplaceStyled = styled.div`
   width: 100%;
   margin-bottom: 50px;
   margin-left: -25px;
   @media only screen and (max-width: 1316px){
-    margin-left: -40px;
+    margin-left: -50px;
 }
 
 @media only screen and (max-width: 1140px){
@@ -83,10 +21,7 @@ const CollectionStyled = styled.div`
   @media only screen and (max-width: 768px){
     margin-left: 0px;
   }
-  @media only screen and (max-width: 400px){
-    margin-left: -10px;
-  }
-
+  
   .container {
   display: flex;
   flex-direction: column;
@@ -140,8 +75,7 @@ const CollectionStyled = styled.div`
   justify-content: center;
   @media only screen and (max-width: 1140px){
     font-size: 14px;
-    }
-    
+}
 @media only screen and (max-width: 1180px){
     margin-left: 15px;
     font-size: 12px;
@@ -266,6 +200,8 @@ button {
     transform: translateX(60px);
     margin: 0 !important;
   }
+
 }
 `;
-export default Collections
+
+export default MarketplaceStyled

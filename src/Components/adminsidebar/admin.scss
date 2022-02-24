@@ -1,0 +1,157 @@
+@use '../../scss/abstracts/' as *;
+@use 'sass:math';
+
+.sidebar {
+    @include flex(stretch, flex-start);
+    flex-direction: column;
+    color: $txtColor;
+    width: $sideBarWidth;
+    background-color: $mainBg;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    &.active {
+        font-weight: 600;
+        color: $sideactive;
+    }
+    @media(max-width: 1220px){
+        width: 240px;
+        &.active {
+            font-weight: 600;
+            color: $sideactive;
+        }
+    }
+    @media(max-width: 900px){
+        width: 220px;
+        justify-content: center;
+        text-align: center;
+        font-size: 13px;
+        &.active {
+            font-weight: 600;
+            color: $sideactive;
+        }
+    }
+
+    @include tablet {
+        width: 100vw;
+        background-color: $mainBg;
+        color: $textalt;
+        z-index: 1;
+    }
+
+    &__logo {
+        @include flex();
+        height: $sideBarLogoHeight;
+
+        @include tablet {
+            justify-content: space-between;
+            height: math.div($sideBarLogoHeight, 1.8);
+            padding: 0 $mobileSpacing;
+            margin-bottom: $mobileSpacing;
+        }
+
+        img {
+            width: 140px;
+            height: var(--size);
+            justify-content: left;
+            @media(max-width: 1440px){
+                margin-left: -70px;
+            }
+            @media(max-width: 1220px){
+                margin-left: 40px;
+            }
+            @media(max-width: 900px){
+                transform: translateY(30px) translateX(-20px);
+            }
+            @media(max-width: 540px){
+                margin-left: 0;
+            }
+        }
+        .sidebar-close {
+            cursor: pointer;
+            display: none;
+            i {
+                font-size: 2rem;
+            }
+
+            @include tablet {
+                display: block;
+                position:relative;
+                top: 35px;
+            }
+        }
+    }
+
+    &__menu {
+        @include flex(stretch, flex-start);
+        flex-direction: column;
+        flex-grow: 1;
+
+        &__item {
+            @include flex(center, flex-start);
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 10%;
+            transition: color 0.3s ease-in-out;
+
+            @include tablet {
+                padding-left: $mobileSpacing;
+            }
+
+            &:hover {
+                color: $sideactive;
+
+                @include tablet {
+                    color: $textalt;
+                }
+            }
+
+            &.active {
+                font-weight: 600;
+                color: $sideactive;
+
+                @include tablet {
+                    color: $sideactive;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    height: 100%;
+                    width: 5px;
+                    right: 0;
+                    top: 0;
+                    background-color: $sideactive;
+                    border-radius: 20px;
+
+                    @include tablet {
+                        color: $sideactive;
+                        left: 0;
+                    }
+                }
+            }
+
+            &__icon {
+                --size: 40px;
+                width: var(--size);
+                height: var(--size);
+                margin-right: 1.5rem;
+                @include flex(center, center);
+
+                @include tablet {
+                    margin-right: .7rem;
+                }
+
+                i {
+                    font-size: 1.9rem;
+                }
+            }
+
+            &:last-child {
+                margin-top: auto;
+                cursor: pointer;
+            }
+        }
+    }
+}

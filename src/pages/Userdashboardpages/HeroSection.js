@@ -1,20 +1,20 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
-import {fadeInRight} from 'react-animations';
-import attach from '../img/Vector 1.png'
-import attached from '../img/Vector 2.png'
-import Dashboard from './Dashboard';
-import Card from '../Components/Card'
-import image1 from '../img/unsplashed4.png';
-import image2 from '../img/unsplashed3.png';
-import image3 from '../img/unsplashed2.png';
-import image4 from '../img/unsplash.png';
+import {fadeInDown} from 'react-animations';
+import attach from '../../img/Vector 1.png'
+import attached from '../../img/Vector 2.png'
+import Dashboard from '../../pages/Userdashboardpages/Dashboard';
+import Card from '../../Components/Card'
+import image1 from '../../img/unsplashed4.png';
+import image2 from '../../img/unsplashed3.png';
+import image3 from '../../img/unsplashed2.png';
+import image4 from '../../img/unsplash.png';
+import woman from '../../img/woman.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Col, Row} from 'react-bootstrap'
-import woman from '../img/woman.png';
 
 const Bounce = styled.div`
-animation: 1s ${keyframes`${fadeInRight}`}`;
+animation: 1s ${keyframes`${fadeInDown}`}`;
 
 const HeroSection = () => {
   return (
