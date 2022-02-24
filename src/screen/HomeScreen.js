@@ -9,10 +9,10 @@ import Toggler from '../Components/Toggler'
 import Newsletter from '../Components/Newletter';
 import Footer from '../Components/Footer';
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
   return (
     <div>
-      <Header/>
+      <Header handleClick={props.handleClick} />
       <HeroSection/> 
       <CounterSection/>  
       <Features/>
