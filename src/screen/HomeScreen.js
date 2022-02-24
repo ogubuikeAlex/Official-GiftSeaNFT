@@ -12,7 +12,7 @@ import Footer from '../Components/Footer';
 const HomeScreen = () => {
   return (
     <div>
-        <Header/>
+      <Header/>
       <HeroSection/> 
       <CounterSection/>  
       <Features/>
