@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import Homepage from './Components/Homepage/Homepage'
 import Userdashboard from './screen/Userdashboard'
-import Admindashboard from './screen/Admindashboard'
+// import Admindashboard from './screen/Admindashboard'
 import './App.css';
 
 const App = () => {
