@@ -3,7 +3,8 @@ import MarketplaceStyled from '../../Styled-components/MarketplaceStyled'
 import image1 from '../../img/unsplashed4.png'
 import image2 from '../../img/unsplashed3.png'
 import image3 from '../../img/unsplashed2.png'
-import Card from '../../Components/Card'
+import ClickedButt from '../../Components/clickedButton/ClickedButt'
+import MarketCards from '../Admindashboardpages/MarketCards'
 import Dashboard from '../../pages/Userdashboardpages/Dashboard'
 import image4 from '../../img/unsplash.png'
 import unsplash from '../../img/unsplashed5.png'
@@ -42,75 +43,91 @@ function MarketPlace() {
         <div id="content-tab"
           className={toggleState === 1 ? "content  active-content" : "content"}>
             <div className='dashCards'>
+              <ClickedButt/>
             <img src={unsplash}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image2}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image1}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image4}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={unsplash}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={unsplash}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image1}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={unsplashed}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
         </div>
         <div id="content-tab"
           className={toggleState === 2 ? "content  active-content" : "content"}>
               <div className='dashCards'>
+              <ClickedButt/>
             <img src={unsplash}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
               <div className='dashCards'>
+              <ClickedButt/>
             <img src={image1}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image3}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image2}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
         </div>
         
         <div id="content-tab"
           className={toggleState === 3 ? "content  active-content" : "content"}>
               <div className='dashCards'>
+              <ClickedButt/>
             <img src={image2}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image4}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image3}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image1}alt=""/>
-            <Card/>
+            <MarketCards/>
             </div>
         </div>
         </div>

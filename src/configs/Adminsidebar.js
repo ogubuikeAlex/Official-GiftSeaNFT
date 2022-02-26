@@ -26,13 +26,13 @@ const Adminsidebar = [
     {
         link: '/admin_dashboard/upload',
         section: 'upload',
-        icon: <i className='bx bx-chat'></i>,
+        icon: <i className='bx bx-upload'></i>,
         text: 'Upload NFT'
     },
     {
         link: '/admin_dashboard/transactions',
         section: 'transactions',
-        icon: <i className='bx bx-note'></i>,
+        icon: <i className='bx bx-money'></i>,
         text: 'Transactions'
     },
     {

@@ -1,9 +1,9 @@
 import React from 'react'
-import CardStyled from '../Styled-components/CardStyled'
-import roundedImgs1 from '../img/Ellipse 96.png';
-import roundedImgs2 from '../img/Ellipse 97.png';
-import roundedImgs3 from '../img/Ellipse 98.png';
-import roundedImgs4 from '../img/Ellipse 95.png';
+import CardStyled from '../../Styled-components/CardStyled'
+import roundedImgs1 from '../../img/Ellipse 96.png';
+import roundedImgs2 from '../../img/Ellipse 97.png';
+import roundedImgs3 from '../../img/Ellipse 98.png';
+import roundedImgs4 from '../../img/Ellipse 95.png';
 
 const Card = () => {
   return (
@@ -26,8 +26,8 @@ const Card = () => {
       </div>
 
       </div>
-     
-      <button className='buyButton'>Buy</button>
+      <button className='buyButton'>View</button>
+      <button className='buyButton'>Edit</button>
     </CardStyled>
   )
 }

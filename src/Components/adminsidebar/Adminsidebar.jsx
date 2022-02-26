@@ -45,7 +45,7 @@ const Sidebar = () => {
                         </Link>
                     ))
                 }
-                <div className="sidebar__menu__item" style={{marginTop: '70px'}}>
+                <div className="sidebar__menu__item" style={{marginTop: '50px'}}>
                     <div className="sidebar__menu__item__icon">
                         <i style={{color: '#FF4646'}} className='bx bx-log-out'></i>
                     </div>

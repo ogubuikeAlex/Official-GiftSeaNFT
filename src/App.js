@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-import HomeScreen from './screen/HomeScreen'
-=======
- import HomeScreen from './screen/HomeScreen'
->>>>>>> efadb3e3371a4088e3ca86f00b7db5f6387277fe
+import {useState} from 'react'
+import Homepage from './Components/Homepage/Homepage'
 import Userdashboard from './screen/Userdashboard'
 import Admindashboard from './screen/Admindashboard'
 import './App.css';
@@ -61,17 +58,11 @@ const App = () => {
 
   return (
     <div className='App'>
-<<<<<<< HEAD
-            <HomeScreen/>
-            <Userdashboard/>
-            <Admindashboard/>
-          </div>    
-=======
       {
-        userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <HomeScreen handleClick={connectWallet} />
+        userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
       }
+      {/* <Admindashboard/> */}
      </div>    
->>>>>>> efadb3e3371a4088e3ca86f00b7db5f6387277fe
   )
 }
 

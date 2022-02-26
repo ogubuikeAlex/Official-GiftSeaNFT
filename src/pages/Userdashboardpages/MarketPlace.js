@@ -8,6 +8,7 @@ import Dashboard from '../../pages/Userdashboardpages/Dashboard'
 import image4 from '../../img/unsplash.png'
 import unsplash from '../../img/unsplashed5.png'
 import unsplashed from '../../img/unsplashedround.png'
+import ClickedButt from "../../Components/clickedButton/ClickedButt";
 
 function MarketPlace() {
   const [toggleState, setToggleState] = useState(1);
@@ -42,34 +43,42 @@ function MarketPlace() {
         <div id="content-tab"
           className={toggleState === 1 ? "content  active-content" : "content"}>
             <div className='dashCards'>
+              <ClickedButt/>
             <img src={unsplash}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image2}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image1}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image4}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={unsplash}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={unsplash}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image1}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={unsplashed}alt=""/>
             <Card/>
             </div>
@@ -77,18 +86,22 @@ function MarketPlace() {
         <div id="content-tab"
           className={toggleState === 2 ? "content  active-content" : "content"}>
               <div className='dashCards'>
+              <ClickedButt/>
             <img src={unsplash}alt=""/>
             <Card/>
             </div>
               <div className='dashCards'>
+              <ClickedButt/>
             <img src={image1}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image3}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image2}alt=""/>
             <Card/>
             </div>
@@ -97,18 +110,22 @@ function MarketPlace() {
         <div id="content-tab"
           className={toggleState === 3 ? "content  active-content" : "content"}>
               <div className='dashCards'>
+              <ClickedButt/>
             <img src={image2}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image4}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image3}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image1}alt=""/>
             <Card/>
             </div>

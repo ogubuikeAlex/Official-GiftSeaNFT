@@ -6,6 +6,7 @@ import image2 from '../../img/unsplashed3.png';
 import Card from '../../Components/Card'
 import Dashboard from '../../pages/Userdashboardpages/Dashboard'
 import unsplash from '../../img/unsplashed5.png'
+import ClickedButt from '../../Components/clickedButton/ClickedButt'
 
 
 
@@ -36,10 +37,12 @@ const Collections = () => {
         <div id="content-tab"
           className={toggleState === 1 ? "content  active-content" : "content"}>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={unsplash}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
+            <ClickedButt/>
             <img src={image2}alt=""/>
             <Card/>
             </div>
@@ -47,10 +50,12 @@ const Collections = () => {
         <div id="content-tab"
           className={toggleState === 2 ? "content  active-content" : "content"}>
               <div className='dashCards'>
+              <ClickedButt/>
             <img src={image1}alt=""/>
             <Card/>
             </div>
               <div className='dashCards'>
+              <ClickedButt/>
             <img src={unsplash}alt=""/>
             <Card/>
             </div>

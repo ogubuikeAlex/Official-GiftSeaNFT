@@ -6,7 +6,8 @@ import AdminHero from '../pages/Admindashboardpages/AdminHero'
 import MarketPlace from '../pages/Admindashboardpages/MarketPlace'
 import Favourites from '../pages/Admindashboardpages/Favourites'
 import Adminsidebar from '../layout/Adminlayout'
-
+import Treasury from '../pages/Admindashboardpages/Treasury'
+import Upload from '../pages/Admindashboardpages/Upload'
 
 function Admindashboard() {
     return (
@@ -16,8 +17,8 @@ function Admindashboard() {
                     <Route index element={<AdminHero/>} />
                     <Route path="marketplace" element={<MarketPlace/>} />
                     <Route path="favourites" element={<Favourites/>}/>
-                    <Route path="treasury" element={<Favourites/>}/>
-                    <Route path="upload" element={<Favourites/>}/>
+                    <Route path="treasury" element={<Treasury/>}/>
+                    <Route path="upload" element={<Upload/>}/>
                     <Route path="transactions" element={<Favourites/>}/>
                     <Route path="push" element={<Favourites/>}/>
                 </Route>
