@@ -4,6 +4,17 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    ::-webkit-scrollbar{
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track{
+        background: rgb(231, 231, 231);
+    }
+    ::-webkit-scrollbar-thumb{
+        background: linear-gradient(180deg, #00ffbf 0%, #1c2324 100%);
+        width: 12px;
+        border-radius: 24px;
+    }
 }
 
 html {
@@ -17,6 +28,7 @@ body {
     line-height: 1.5;
     background-color: $bodyBg;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 a {

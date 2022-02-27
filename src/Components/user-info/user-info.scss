@@ -5,6 +5,12 @@
     padding:0;
     margin-left: -20px;
     width: 100%;
+    @media only screen and (max-width: 1360px){
+        margin-left: -35px;
+    }
+    @media only screen and (max-width: 1328px){
+        margin-left: -45px;
+    }
     @media only screen and (max-width: 1120px){
         margin-left: -45px;
     }
@@ -31,13 +37,17 @@
         padding-left: 40px;
         padding-right: 20px;
         outline: none;
-        
+        @media only screen and (max-width: 1360px){
+            width: 540px;
+        }
+        @media only screen and (max-width: 1328px){
+            width:530px;
+        }
         @media only screen and (max-width: 1165px){
             max-width: 70%;
         }
         @media only screen and (max-width: 1316px){
-            width: 425px;
-            margin-left: -10px;
+            width: 520px;
         }
         @media(max-width: 1080px){
             width:400px;

@@ -1,9 +1,9 @@
 import React from 'react'
 import {Dropdown} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styled, {keyframes} from 'styled-components';
-import history from '../constants/data';
-import DashboardWrapper, {  DashboardWrapperRight } from '../Components/dashboard-wrapper/DashboardWrapper'
+import styled from 'styled-components';
+import history from '../../constants/data';
+import DashboardWrapper, {  DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
 
 const Dashboard = () => {
     return (
