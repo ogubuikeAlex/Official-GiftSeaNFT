@@ -58,7 +58,7 @@ const App = () => {
   return (
     <div className='App'>
       {
-        userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <HomeScreen handleClick={connectWallet} />
+        userHasMetaMask && userHasConnectedccount ? <Userdashboard user={userAccount}/> : <HomeScreen handleClick={connectWallet} />
       }
      </div>    
   )
