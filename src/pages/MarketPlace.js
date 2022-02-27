@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ethers } from "ethers";
 import styled from 'styled-components';
 import image1 from '../img/unsplashed4.png';
 import image2 from '../img/unsplashed3.png';
@@ -8,13 +9,46 @@ import Dashboard, {DashboardRightStyled, HistoryStyled} from '../pages/Dashboard
 import image4 from '../img/unsplash.png'
 import unsplash from '../img/unsplashed5.png'
 import unsplashed from '../img/unsplashedround.png'
+import DashCard from "../Components/dashCard";
 
-function MarketPlace() {
+import { nftAddress, marketAddress } from "../../config";
+import Nft from "../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
+import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
+
+function MarketPlace({marketItems, loadingState}) {
   const [toggleState, setToggleState] = useState(1);
-
+  const [userAccount, setUserAccount] = useState("")
+  
   const toggleTab = (index) => {
     setToggleState(index);
   };
+
+  async function buyNft(nft) {
+    console.log("am in buy")
+    const { ethereum } = window;
+    console.log("am in buy 2")
+    if (ethereum) {
+      console.log("am in buy 3")
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      console.log("am in buy 4")
+      const signer = provider.getSigner();
+      console.log("am in buy 5")
+      const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
+      console.log("am in buy 6")
+      const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
+      console.log("am in buy 7")
+      setUserAccount(signer._address);
+      console.log("am in buy 8")
+      const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
+      console.log("am in buy 9")
+      const transaction = await MARKET.buyNft(nftAddress, nft.itemId, {value: price});
+
+      await transaction.wait();
+     // loadNfts()
+    }
+  }
+
+  // let items = marketItems.map(item => <DashCard />)
 
   return (
       <div>
@@ -43,74 +77,74 @@ function MarketPlace() {
           className={toggleState === 1 ? "content  active-content" : "content"}>
             <div className='dashCards'>
             <img src={unsplash}alt=""/>
-            <Card/>
-            </div>
+            <Card buy={buyNft}/>
+            </div>            
             <div className='dashCards'>
             <img src={image2}alt=""/>
             <Card/>
             </div>
             <div className='dashCards'>
             <img src={image1}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
             <div className='dashCards'>
             <img src={image4}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
             <div className='dashCards'>
             <img src={unsplash}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
             <div className='dashCards'>
             <img src={unsplash}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
             <div className='dashCards'>
             <img src={image1}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
             <div className='dashCards'>
             <img src={unsplashed}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
         </div>
         <div id="content-tab"
           className={toggleState === 2 ? "content  active-content" : "content"}>
               <div className='dashCards'>
             <img src={unsplash}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
               <div className='dashCards'>
             <img src={image1}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
             <div className='dashCards'>
             <img src={image3}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
             <div className='dashCards'>
             <img src={image2}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
         </div>
 
         <div id="content-tab"
           className={toggleState === 3 ? "content  active-content" : "content"}>
-              <div className='dashCards'>
+            <div className='dashCards'>
             <img src={image2}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
             <div className='dashCards'>
             <img src={image4}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
             <div className='dashCards'>
             <img src={image3}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
             <div className='dashCards'>
             <img src={image1}alt=""/>
-            <Card/>
+            <Card buy={buyNft}/>
             </div>
         </div>
         </div>
