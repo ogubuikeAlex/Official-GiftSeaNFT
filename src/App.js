@@ -59,8 +59,8 @@ const App = () => {
   return (
     <div className='App'>
       {
-       // userHasMetaMask && userHasConnectedccount ? <Userdashboard user={userAccount}/> : <Homepage handleClick={connectWallet} />
-        userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
+        userHasMetaMask && userHasConnectedccount ? <Userdashboard user={userAccount}/> : <HomeScreen handleClick={connectWallet} />
+        //userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
       }
       {/* <Admindashboard/> */}
      </div>    
