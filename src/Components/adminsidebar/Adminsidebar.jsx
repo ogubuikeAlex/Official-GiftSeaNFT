@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import './sidebar.scss'
+import './admin.scss'
 import logo from '../../img/logo.png';
 import { Link, useLocation } from 'react-router-dom'
-import sidebarNav from '../../configs/sidebarNav'
+import Adminsidebar from '../../configs/Adminsidebar';
 
 
 const Sidebar = () => {
@@ -10,8 +10,8 @@ const Sidebar = () => {
     const location = useLocation()
 
     useEffect(() => {
-        const curPath = window.location.pathname.split('/')[1]
-        const activeItem = sidebarNav.findIndex(item => item.section === curPath)
+        const curPath = window.location.pathname.split('/admin_dashboard')[1]
+        const activeItem = Adminsidebar.findIndex(item => item.section === curPath)
 
         setActiveIndex(curPath.length === 0 ? 0 : activeItem)
     }, [location])
@@ -34,18 +34,18 @@ const Sidebar = () => {
             </div>
             <div className="sidebar__menu">
                 {
-                    sidebarNav.map((nav, index) => (
-                        <Link to={nav.link} key={`nav-${index}`} className={`sidebar__menu__item ${activeIndex === index && 'active'}`} onClick={closeSidebar}>
+                    Adminsidebar.map((admin, index) => (
+                        <Link to={admin.link} key={`admin-${index}`} className={`sidebar__menu__item ${activeIndex === index && 'active'}`} onClick={closeSidebar}>
                             <div className="sidebar__menu__item__icon">
-                                {nav.icon}
+                                {admin.icon}
                             </div>
                             <div className="sidebar__menu__item__txt">
-                                {nav.text}
+                                {admin.text}
                             </div>
                         </Link>
                     ))
                 }
-                <div className="sidebar__menu__item" style={{marginTop: '70px'}}>
+                <div className="sidebar__menu__item" style={{marginTop: '50px'}}>
                     <div className="sidebar__menu__item__icon">
                         <i style={{color: '#FF4646'}} className='bx bx-log-out'></i>
                     </div>

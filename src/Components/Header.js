@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import logo from '../img/logo.png';
 
@@ -42,6 +42,7 @@ const HeaderStyled = styled.div`
       cursor: pointer;
       @media(max-width: 540px){
         margin-left: -20px;
+        width: 80px;
       }
     }
     i{

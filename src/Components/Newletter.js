@@ -58,6 +58,10 @@ width:100%;
     text-align: center;
     justify-content: center;
     width:100%;
+    img{
+        width: 60%;
+    }
+
 }
 .right-container{
     display: flex;
