@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import Homepage from './Components/Homepage/Homepage'
 import Userdashboard from './screen/Userdashboard'
- import Admindashboard from './screen/Admindashboard'
+// import Admindashboard from './screen/Admindashboard'
 import './App.css';
 
 const App = () => {
@@ -58,11 +58,19 @@ const App = () => {
 
   return (
     <div className='App'>
+<<<<<<< HEAD
       {/* {
         userHasMetaMask && userHasConnectedccount ? <Userdashboard user={userAccount}/> : <Homepage handleClick={connectWallet} />
         //userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
       } */}
       <Admindashboard/>
+=======
+      {
+        userHasMetaMask && userHasConnectedccount ? <Userdashboard user={userAccount}/> : <HomeScreen handleClick={connectWallet} />
+        //userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
+      }
+      {/* <Admindashboard/> */}
+>>>>>>> da178d78daa01b6f7955afbc8266048a6b5e5415
      </div>    
   )
 }
