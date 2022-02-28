@@ -59,6 +59,7 @@ const TrendingStyled = styled.div`
         @media(min-width: 365px) and (max-width: 375px){
             width: 80px;
         }
+
     }
 }
 .increase{
@@ -89,6 +90,10 @@ h5{
     @media(max-width: 900px){
         font-size: 15px;
         }
+    @media only screen and (max-width: 540px){
+             margin-left: 13px;
+         }
+    }
     
 }
 span{
@@ -104,6 +109,9 @@ span{
     }
     @media(max-width: 900px){
         transform: translateX(-5px);
+    }
+    @media only screen and (max-width: 540px){
+        margin-left: 0px;
     }
     
 }

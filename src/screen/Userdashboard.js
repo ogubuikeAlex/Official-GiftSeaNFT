@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import '../assets/libs/boxicons-2.1.1/css/boxicons.min.css'
 import '../scss/App.scss'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import HeroSection from '../pages/HeroSection'
-import MarketPlace from '../pages/MarketPlace'
-import Favourites from '../pages/Favourites'
-import Collections from '../pages/Collections'
-import Contact from '../pages/Contact'
-import About from '../pages/About'
+import HeroSection from '../pages/Userdashboardpages/HeroSection'
+import MarketPlace from '../pages/Userdashboardpages/MarketPlace'
+import Favourites from '../pages/Userdashboardpages/Favourites'
+import Collections from '../pages/Userdashboardpages/Collections'
+import Contact from '../pages/Userdashboardpages/Contact'
+import About from '../pages/Userdashboardpages/About'
 import MainLayout from '../layout/MainLayout'
 import { ethers } from "ethers";
 import axios from "axios"
 
-import { nftAddress, marketAddress } from "../../config";
+import { nftAddress, marketAddress } from "../config";
 import Nft from "../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
 import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
 
@@ -82,13 +82,13 @@ function Userdashboard(props) {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<MainLayout />}>
-                    <Route index element={<HeroSection />} />
-                    <Route path="marketplace" element={<MarketPlace marketItems={marketItems, loadingState} />} />
-                    <Route path="favourites" element={<Favourites />} />
-                    <Route path="collections" element={<Collections myNfts={myMarketItems, loadingState} />} />
-                    <Route path="contact" element={<Contact />} />
-                    <Route path="about" element={<About />} />
+                <Route path="/userdashboard" element={<MainLayout />}>
+                    <Route index element={<HeroSection/>} />
+                    <Route path="marketplace" element={<MarketPlace/>} />
+                    <Route path="favourites" element={<Favourites/>} />
+                    <Route path="collections" element={<Collections/>} />
+                    <Route path="contact" element={<Contact/>} />
+                    <Route path="about" element={<About/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

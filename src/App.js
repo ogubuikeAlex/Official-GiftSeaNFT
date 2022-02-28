@@ -1,6 +1,7 @@
- import HomeScreen from './screen/HomeScreen'
+import {useState} from 'react'
+import Homepage from './Components/Homepage/Homepage'
 import Userdashboard from './screen/Userdashboard'
-import React, {useState} from 'react'
+ import Admindashboard from './screen/Admindashboard'
 import './App.css';
 
 const App = () => {
@@ -57,9 +58,11 @@ const App = () => {
 
   return (
     <div className='App'>
-      {
-        userHasMetaMask && userHasConnectedccount ? <Userdashboard user={userAccount}/> : <HomeScreen handleClick={connectWallet} />
-      }
+      {/* {
+        userHasMetaMask && userHasConnectedccount ? <Userdashboard user={userAccount}/> : <Homepage handleClick={connectWallet} />
+        //userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
+      } */}
+      <Admindashboard/>
      </div>    
   )
 }

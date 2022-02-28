@@ -4,6 +4,16 @@
     padding-left: $sideBarWidth;
     overflow-x: hidden;
     background: $middleBG;
+    ::-webkit-scrollbar{
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track{
+        background: #ccc;
+    }
+    ::-webkit-scrollbar-thumb{
+        background: #02AAB0;
+        border-radius: 24px;
+    }
 
     @include tablet {
         padding-left: 0;
@@ -24,7 +34,8 @@
     }
 }
 
-.sidebar-open .main__content {
+.sidebar-open .main__content
+{
     height: 100vh;
     overflow: hidden;
     border-top-left-radius: 30px;

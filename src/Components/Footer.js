@@ -5,7 +5,7 @@ import logo from '../img/Group 77.png'
 const Footer = () => {
   return (
       <FooterStyled>
-    <div className=''>
+    <div className='footer'>
         <div className='imgCon'>
         <img src={logo} alt=''/>
         </div>
@@ -42,10 +42,16 @@ const FooterStyled = styled.div`
 background: #1A1036;
 color: #fff;
 position: relative;
+height: 80vh;
 top: 300px;
 padding: 3em;
+
+img{
+    width: 150px;
+}
 @media(max-width: 540px){
     top: 130px;
+    height: 100vh;
 }
 .imgCon{
     justify-content: center;
@@ -113,7 +119,7 @@ padding: 3em;
             justify-content: center;
         }
     }
-
+}
 `;
 
 export default Footer;

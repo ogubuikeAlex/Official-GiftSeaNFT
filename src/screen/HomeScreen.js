@@ -1,29 +1,17 @@
-import React from 'react'
-import Header from '../Components/Header';
-import HeroSection from '../Components/HeroSection';
-import CounterSection from '../Components/CounterSection';
-import Features from '../Components/Features';
-import TabToggle from '../Components/TabToggle';
-import Trending from '../Components/Trending'
-import Toggler from '../Components/Toggler'
-import Newsletter from '../Components/Newletter';
-import Footer from '../Components/Footer';
+import React from 'react';
+import '../assets/libs/boxicons-2.1.1/css/boxicons.min.css'
+import '../scss/App.scss'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Homepage from '../Components/Homepage/Homepage'
 
-const HomeScreen = (props) => {
-  return (
-    <div>
-      <Header handleClick={props.handleClick} />
-      <HeroSection/> 
-      <CounterSection/>  
-      <Features/>
-      <TabToggle/>
-      <Trending/>
-      <Toggler/>
-      <Newsletter/>
-      <Footer/>
-
-    </div>
-  )
+function Homescreen() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Homepage />}/>
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
-export default HomeScreen;
+export default Homescreen;
