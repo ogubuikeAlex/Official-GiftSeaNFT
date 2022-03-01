@@ -58,10 +58,19 @@ const App = () => {
 
   return (
     <div className='App'>
+<<<<<<< HEAD
+      {/* {
+        userHasMetaMask && userHasConnectedccount ? <Userdashboard user={userAccount}/> : <Homepage handleClick={connectWallet} />
+        //userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
+      } */}
+      <Admindashboard/>
+=======
       {
-        userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
+        userHasMetaMask && userHasConnectedccount ? <Userdashboard user={userAccount}/> : <HomeScreen handleClick={connectWallet} />
+        //userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
       }
       {/* <Admindashboard/> */}
+>>>>>>> da178d78daa01b6f7955afbc8266048a6b5e5415
      </div>    
   )
 }

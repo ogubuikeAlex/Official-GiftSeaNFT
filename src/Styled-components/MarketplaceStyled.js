@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 const MarketplaceStyled = styled.div`
@@ -8,7 +7,6 @@ const MarketplaceStyled = styled.div`
   @media only screen and (max-width: 1316px){
     margin-left: -50px;
 }
-
 @media only screen and (max-width: 1140px){
     margin-left: -60px;
 }
@@ -37,7 +35,6 @@ const MarketplaceStyled = styled.div`
   }
   }
 }
-
 .bloc-tabs {
   display: flex;
   justify-content: space-between;
@@ -143,14 +140,12 @@ const MarketplaceStyled = styled.div`
     font-size: 13px;
   }
 }
-
 .active-tabs  {
   line-height: 22px;
   background: #02AAB0;
   transition: ease-in-out .4s all;
   color: #FFF;
 }
-
 button {
   border: none;  
   justify-content: center;
@@ -200,7 +195,6 @@ button {
     transform: translateX(60px);
     margin: 0 !important;
   }
-
 }
 `;
 
