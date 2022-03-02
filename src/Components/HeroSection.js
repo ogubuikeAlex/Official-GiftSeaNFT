@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
 import Slider from './Slider';
+// import MySlides from '../Components/MySlides'
 import decoration from '../img/Decoration.png'
 import {slideInUp} from 'react-animations';
 
@@ -27,6 +28,7 @@ const HeroSection = () => {
       <div className='rigth-container'>
         <div className='right-hero'>
         <Slider/>
+        {/* <MySlides/> */}
         </div>
       </div>
       </Slides>

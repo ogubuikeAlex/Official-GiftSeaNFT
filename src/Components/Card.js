@@ -26,7 +26,6 @@ const Card = () => {
       </div>
 
       </div>
-     
       <button className='buyButton'>Buy</button>
     </CardStyled>
   )

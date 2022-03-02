@@ -32,11 +32,12 @@ const Upload = () => {
 }
 
 const UploadStyled = styled.div`
+margin-left: -45px;
+@media only screen and (max-width: 1440px){
+    margin-left: 0px;
+}
 @media only screen and (max-width:1360px){
     margin-left: -20px;
-}
-@media only screen and (max-width: 1328px){
-    margin-left: -30px;
 }
 .items{
     background: #FFF;
