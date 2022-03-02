@@ -17,6 +17,8 @@ h5{
   display: flex;
   justify-content: space-between;
   padding: .5em 0;
+  font-size: 14px;
+  font-weight: 500;
   @media(max-width: 540px){
     width: 100%;
     font-size: 14px;   
@@ -145,5 +147,4 @@ h5{
     }
   }
 `;
-
 export default CardStyled;

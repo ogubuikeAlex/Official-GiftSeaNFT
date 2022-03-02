@@ -5,6 +5,7 @@ import TreasuryStyled from '../../Styled-components/MarketplaceStyled';
 import image1 from '../../img/unsplashed5.png';
 import image2 from '../../img/unsplashed4.png';
 import EditCards from  '../../pages/Admindashboardpages/EditCards'
+import ClickedButt from '../../Components/clickedButton/ClickedButt';
 
 const Treasury = () => {
     return (
@@ -15,18 +16,22 @@ const Treasury = () => {
             <div className="active-content">
             <div className='dashCards'>
             <img src={image1}alt=""/>
+            <ClickedButt/>
             <EditCards/>
             </div>
             <div className='dashCards'>
             <img src={image2}alt=""/>
+            <ClickedButt/>
             <EditCards/>
             </div>
             <div className='dashCards'>
             <img src={image1}alt=""/>
+            <ClickedButt/>
             <EditCards/>
             </div>
             <div className='dashCards'>
             <img src={image2}alt=""/>
+            <ClickedButt/>
             <EditCards/>
             </div>
         </div>

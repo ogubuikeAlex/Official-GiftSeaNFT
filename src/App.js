@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import Admindashboard from './screen/Admindashboard'
-import Userdashboard from './screen/Userdashboard'
+// import Userdashboard from './screen/Userdashboard'
 import Homepage from './screen/HomeScreen'
 import './App.css';
 
@@ -56,16 +56,20 @@ const App = () => {
     setUserHasConnectedAccount(true);
   }  
 
+
+//   useLayoutEffect(() => {
+// if()
+
+//   }, [])
+
   return (
     <div className='App'>
       {/* {
         userHasMetaMask && userHasConnectedccount ? <Userdashboard/> : <Homepage handleClick={connectWallet}/>
       } */}
         
-        {/* <Admindashboard/> */}
-        <Homepage/>
+        <Admindashboard/>
      </div>    
   )
 }
-
 export default App;
