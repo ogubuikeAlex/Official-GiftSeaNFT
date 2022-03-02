@@ -6,7 +6,8 @@ const Upload = () => {
       <UploadStyled>
     <div className='uploadContainer'>
         <div className='items'>
-        <p>Item Name</p>
+        <p>Item Name</p> 
+        {/* use labels for your inputs: here instead of paragraphs */}
         <input type='text'/>
         <p className='descriptionText'>Description</p>
         <textarea className='description' type='search'/>
@@ -24,6 +25,33 @@ const Upload = () => {
             </div>
         </div>
         </div>
+        <section className="items" id="property">
+            <p>Property</p>
+            <div id='property_layer'>
+                <div className='property_layer-InputContainer'>
+                    <label for="price">Item Price</label>
+                    <input className='property_layer-input' type="text" className="price" placeholder='ETH 0.00' />
+                </div>
+                <div className='property_layer-InputContainer'>
+                    <label for="price">Network</label>
+                    <input className='property_layer-input'  type="text" className="price" value='Ethereum' readonly />
+                </div>
+               
+            </div>
+            <hr />
+            <div id='property_layer'>
+                <div className='property_layer-InputContainer'>
+                    <label for="price">Copies</label>
+                    <input className='property_layer-input' type="text" className="price"  placeholder='0000'/>
+                   
+                </div>
+                <div className='property_layer-InputContainer'>
+                    <label for="price">Category</label>
+                    <input className='property_layer-input' type="text" className="price" value='Trending' readonly/>
+                </div>
+            </div>
+            <button>Mint NFT</button>
+        </section>
     </div>
     <AdminUpload/>
     </UploadStyled>
@@ -44,6 +72,7 @@ const UploadStyled = styled.div`
     width: 67%;
     border-radius: 9px;
     padding: 20px;
+    margin-top: 5px;
     p{
         font-family: Inter;
         font-size: 18px;
@@ -71,6 +100,7 @@ const UploadStyled = styled.div`
         border: 1px solid #CECECE;
     }
 }
+
 .uploadCentered{
     height: 204px;
     width: 100%;
@@ -127,6 +157,34 @@ const UploadStyled = styled.div`
             font-weight: 500;
             line-height: 26px;
             text-align: left;
+        }
+    }
+
+    #property {
+        margin-top: 2rem;
+        height: min-content; 
+        padding: 25px 30px;       
+    }
+
+    #property_layer{
+        display: flex;
+    }
+
+    .property_layer-InputContainer{
+        input{
+        width: 90%;
+        height: 54px;
+        border-radius: 5px;
+        padding: 10px;
+        outline: #02AAB0;
+        border: 1px solid #CECECE;
+        margin-top: 1rem;
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+           font-size: 12px;
+            opacity: 0.5; /* Firefox */
+          }
+          
         }
     }
 `;

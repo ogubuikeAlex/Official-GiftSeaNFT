@@ -1,7 +1,8 @@
-import {useState} from 'react'
+import {useLayoutEffect, useState, use} from 'react'
 import Homepage from './Components/Homepage/Homepage'
+import { Navigate } from 'react-router-dom'
 import Userdashboard from './screen/Userdashboard'
-// import Admindashboard from './screen/Admindashboard'
+ import Admindashboard from './screen/Admindashboard'
 import './App.css';
 
 const App = () => {
@@ -56,14 +57,19 @@ const App = () => {
     setUserHasConnectedAccount(true);
   }  
 
+
+//   useLayoutEffect(() => {
+// if()
+
+//   }, [])
+
   return (
     <div className='App'>
-      {
-        userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
-      }
-      {/* <Admindashboard/> */}
+      {/* {
+        userHasMetaMask && userHasConnectedccount ? <Navigate to="/userdashboard" /> : <Homepage handleClick={connectWallet} />        
+      } */}
+      <Admindashboard />
      </div>    
   )
 }
-
 export default App;
