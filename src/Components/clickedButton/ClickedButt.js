@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import Heart from 'react-animated-heart';
 
-
 const ClickedButt = () => {
   const [isClick, setClick] = useState(false);
   return (

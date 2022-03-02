@@ -8,7 +8,7 @@ function Homescreen() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Homepage />}/>
+                <Route path="/userdashboard" element={<Homepage />}/>
             </Routes>
         </BrowserRouter>
     )
