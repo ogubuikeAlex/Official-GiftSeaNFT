@@ -4,8 +4,16 @@ import roundedImgs1 from '../../img/Ellipse 96.png';
 import roundedImgs2 from '../../img/Ellipse 97.png';
 import roundedImgs3 from '../../img/Ellipse 98.png';
 import roundedImgs4 from '../../img/Ellipse 95.png';
+import {useNavigate} from 'react-router-dom'
 
 const Card = () => {
+
+    let navigate = useNavigate();
+    const routeChange = () => {
+      let path = `../upload`;
+      navigate(path);
+    }
+
   return (
     <CardStyled>
       <div className='carousel-info'>
@@ -26,7 +34,7 @@ const Card = () => {
       </div>
 
       </div>
-      <button className='buyButton'>View</button>
+      <button className='buyButton' onClick={routeChange}>View</button>
       <button className='buyButton'>Edit</button>
     </CardStyled>
   )

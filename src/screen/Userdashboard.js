@@ -9,9 +9,8 @@ import Collections from '../pages/Userdashboardpages/Collections'
 import Contact from '../pages/Userdashboardpages/Contact'
 import About from '../pages/Userdashboardpages/About'
 import MainLayout from '../layout/MainLayout'
-import { ethers } from "ethers";
+// import { ethers } from "ethers";
 import axios from "axios"
-
 import { nftAddress, marketAddress } from "../config";
 import Nft from "../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
 import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
@@ -84,7 +83,9 @@ function Userdashboard(props) {
             <Routes>
                 <Route path="/userdashboard" element={<MainLayout />}>
                     <Route index element={<HeroSection/>} />
-                    <Route path="marketplace" element={<MarketPlace/>} />
+                    <Route path="marketplace" element={<MarketPlace/>}>
+                    <Route path="nftmetadata" element={<Metadata/>} />    
+                    </Route>
                     <Route path="favourites" element={<Favourites/>} />
                     <Route path="collections" element={<Collections/>} />
                     <Route path="contact" element={<Contact/>} />

@@ -1,9 +1,14 @@
 import { useState } from "react";
-import styled from 'styled-components';
-import Slider from './Slider';
+import styled, {keyframes} from 'styled-components';
+import TabPagination from './TabPagination';
+import { fadeInDown } from "react-animations";
+
+const Slides = styled.div`
+animation: 2s ${keyframes`${fadeInDown}`}
+`;
 
 function TabToggle() {
-  const [toggleState, setToggleState] = useState(1);
+  const [toggleState, setToggleState] = useState(1,2,3,4,5);
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -44,65 +49,23 @@ function TabToggle() {
       <div className="content-tabs">
         <div id="content-tab"
           className={toggleState === 1 ? "content  active-content" : "content"}>
-        <div className='right-hero'>
-        <Slider/>
-      </div>
-      <div className='right-hero'>
-        <Slider/>
-      </div>
-      <div className='right-hero'>
-        <Slider/>
-      </div>
+        <TabPagination/>
         </div>
         <div id="content-tab"
           className={toggleState === 2 ? "content  active-content" : "content"}>
-        <div className='right-hero'>
-        <Slider/>
-      </div>
-      <div className='right-hero'>
-        <Slider/>
-      </div>
-      <div className='right-hero'>
-        <Slider/>
-      </div>
+        <TabPagination/>
         </div>
-
         <div id="content-tab"
           className={toggleState === 3 ? "content  active-content" : "content"}>
-        <div className='right-hero'>
-        <Slider/>
-      </div>
-      <div className='right-hero'>
-        <Slider/>
-      </div>
-      <div className='right-hero'>
-        <Slider/>
-      </div>
+        <TabPagination/>
         </div>
-
         <div id="content-tab"
           className={toggleState === 4 ? "content  active-content" : "content"}>
-        <div className='right-hero'>
-        <Slider/>
-      </div>
-      <div className='right-hero'>
-        <Slider/>
-      </div>
-      <div className='right-hero'>
-        <Slider/>
-      </div>
+        <TabPagination/>
         </div>
         <div id="content-tab"
           className={toggleState === 5 ? "content  active-content" : "content"}>
-        <div className='right-hero'>
-        <Slider/>
-      </div>
-      <div className='right-hero'>
-        <Slider/>
-      </div>
-      <div className='right-hero'>
-        <Slider/>
-      </div>
+        <TabPagination/>
         </div>
       </div>
     </div>
@@ -114,46 +77,26 @@ const TabToggleStyled = styled.div`
   width: 100%;
   background: #FCFCFC;
   margin-bottom: 50px;
-  .container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  text-align: center;
-  padding-top: 40px;
-  padding-bottom: 60px;
   justify-content: center;
+  align-items: center;
   h1{
     font-weight: bold;
+    text-align: center;
     @media(max-width: 540px){
       font-size: 22px;
   }
   }
 }
-.bloc-tabs {
+ .bloc-tabs {
   display: flex;
   justify-content: center;
+  transform: translateY(30px);
   @media(max-width:540px){
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
 }
-.right-hero{
-  box-shadow: 2px 4px 8px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  width: 70%;
-  object-fit: cover;
-  transform: translateX(-10px);
-  margin: 2rem;
-  background: #fff;
-  padding: .3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  @media(max-width: 540px){
-    margin: 1.6rem; 
-  }
-}
-  
+
 .tabs {
   padding: 15px;
   text-align: center;
@@ -169,13 +112,16 @@ const TabToggleStyled = styled.div`
 }
 
 .active-tabs  {
-  line-height: 22px;
   background: #FCFCFC;
-  letter-spacing: 0em;
-  transition: ease-in-out .4s all;
   color: #00CBAC;
 }
-
+.content-tabs{
+  padding: 2rem;
+  justify-content: center;
+  #content-tab{
+    margin-bottom: 30px;
+  }
+}
 .active-tabs::after {
   content: "";
   display: block;
@@ -196,34 +142,12 @@ button {
   justify-content: center;
 }
 .content {
-  background: #FCFCFC;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
   display: none;
 }
 .active-content {
   display: flex;
   flex-direction: row;
-  margin: 0 !important;
-  padding: 0 !important;
-  @media(max-width: 900px){
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0 !important;
-    width: 100%;
-    font-size: 10px;
-    align-items: center;
-  }
-  @media(max-width: 540px){
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(1, 1fr);
-    width: 80%;
-    transform: translateX(90px);
-    margin: 0 !important;
-  }
+  justify-content: center;
 }
 `;
 

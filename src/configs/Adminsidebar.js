@@ -36,10 +36,10 @@ const Adminsidebar = [
         text: 'Transactions'
     },
     {
-        link: '/admin_dashboard/push',
-        section: 'push',
+        link: '/admin_dashboard/about',
+        section: 'about',
         icon: <i className='bx bx-note'></i>,
-        text: 'Push Notification'
+        text: 'About'
     }
 ]
 
