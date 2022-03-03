@@ -63,7 +63,7 @@ const Collections = () => {
         </div>
         </div>
             </CollectionStyled>
-            <Dashboard/>
+            
         </div>
     )
 }

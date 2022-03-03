@@ -4,7 +4,6 @@ import logo from '../../img/logo.png';
 import { Link, useLocation } from 'react-router-dom'
 import Adminsidebar from '../../configs/Adminsidebar';
 
-
 const Sidebar = () => {
     const [activeIndex, setActiveIndex] = useState(0)
     const location = useLocation()

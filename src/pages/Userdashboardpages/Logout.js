@@ -5,7 +5,7 @@ const Logout = () => {
     return (
         <div>
             This is a blank page
-            <Dashboard/>
+           
         </div>
 
     )

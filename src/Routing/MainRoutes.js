@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import HeroSection from "../Components/HeroSection";
 import Homepage from "../Components/Homepage/Homepage";
 import AdminLayout from "../layout/Adminlayout";
 import MainLayout from "../layout/MainLayout";
@@ -12,6 +11,8 @@ import Contact from "../pages/Userdashboardpages/Contact";
 import Favourites from "../pages/Userdashboardpages/Favourites";
 import MarketPlace from "../pages/Userdashboardpages/MarketPlace";
 import Adminsidebar from '../layout/Adminlayout'
+import Dashboard from "../pages/Userdashboardpages/Dashboard";
+import HeroSection from "../pages/Userdashboardpages/HeroSection";
 
 export default function MainRoutes() {
     return (
@@ -19,7 +20,7 @@ export default function MainRoutes() {
             <Route>
                 <Route path="/" element={<Homepage />} />
                 <Route path="/admindashboard" element={<AdminLayout />}>
-                    <Route index element={<AdminHero />} />
+                    <Route path="admindashboard" element={<AdminHero />} />
                     <Route path="marketplace" element={<MarketPlace />} />
                     <Route path="favourites" element={<Favourites />} />
                     <Route path="treasury" element={<Treasury />} />
@@ -28,7 +29,7 @@ export default function MainRoutes() {
                     <Route path="push" element={<Favourites />} />
                 </Route>
                 <Route path="/userdashboard" element={<MainLayout />}>
-                    <Route index element={<HeroSection/>} />
+                    <Route path="/userdashboard" index element={<HeroSection />} />
                     <Route path="marketplace" element={<MarketPlace />} />
                     <Route path="favourites" element={<Favourites />} />
                     <Route path="collections" element={<Collections />} />
