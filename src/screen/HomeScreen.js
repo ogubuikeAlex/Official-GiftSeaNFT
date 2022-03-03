@@ -8,12 +8,7 @@ function Homescreen() {
     return (
         <div>
             <Homepage />
-        </div>
-        // <BrowserRouter>
-        //     <Routes>
-        //         <Route path="/userdashboard" element={<Homepage />}/>
-        //     </Routes>
-        // </BrowserRouter>
+        </div>        
     )
 }
 
