@@ -1,15 +1,8 @@
-<<<<<<< HEAD
 import {useLayoutEffect, useState, use} from 'react'
 import Homepage from './Components/Homepage/Homepage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Userdashboard from './screen/Userdashboard'
  import Admindashboard from './screen/Admindashboard'
-=======
-import {useState} from 'react'
-import Admindashboard from './screen/Admindashboard'
-// import Userdashboard from './screen/Userdashboard'
-import Homepage from './screen/HomeScreen'
->>>>>>> e2d213b8dc1507202657e44876f24a66543ed217
 import './App.css';
 import Homescreen from './screen/HomeScreen'
 import MainRoutes from './Routing/MainRoutes'
