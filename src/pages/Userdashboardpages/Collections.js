@@ -19,7 +19,7 @@ const Collections = () => {
     return (
         <div>
         <CollectionStyled>
-            <h4 style={{marginLeft: '20px', fontWeight: '600'}}>Our Marketplace</h4>
+            <h4 style={{marginLeft: '20px', fontWeight: '600'}}>Your Collection</h4>
     <div className="container">
       <div className="bloc-tabs">
         <button 
@@ -63,7 +63,7 @@ const Collections = () => {
         </div>
         </div>
             </CollectionStyled>
-            <Dashboard/>
+            
         </div>
     )
 }

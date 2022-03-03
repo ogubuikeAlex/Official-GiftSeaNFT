@@ -133,7 +133,7 @@ function MarketPlace() {
         </div>
         </div>
     </MarketplaceStyled>
-    <Dashboard/>
+   
     </div>
   );
 }

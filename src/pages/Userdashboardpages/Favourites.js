@@ -26,8 +26,7 @@ const Favourites = () => {
             </div>
         </div>
             </FavouriteStyled>
-            </FavouritesAdjusted>
-            <Dashboard/>
+            </FavouritesAdjusted>            
         </div>
 
     )

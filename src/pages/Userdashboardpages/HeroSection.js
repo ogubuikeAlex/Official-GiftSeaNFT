@@ -1,12 +1,12 @@
-import React from 'react'
-import styled, {keyframes} from 'styled-components'
+import React from 'react';
+import styled, {keyframes} from 'styled-components';
 import {fadeInDown} from 'react-animations';
-import attach from '../../img/Vector 1.png'
-import attached from '../../img/Vector 2.png'
+import attach from '../../img/Vector 1.png';
+import attached from '../../img/Vector 2.png';
 import NFTContainerStyled from '../../Styled-components/NFTContainer';
 import NewsletterStyled from '../../Styled-components/NewsletterStyled';
 import Dashboard from '../../pages/Userdashboardpages/Dashboard';
-import Card from '../../Components/Card'
+import Card from '../../Components/Card';
 import image1 from '../../img/unsplashed4.png';
 import image2 from '../../img/unsplashed3.png';
 import image3 from '../../img/unsplashed2.png';
@@ -94,8 +94,7 @@ const HeroSection = () => {
             </div>
             </div>
         </NFTContainerStyled>
-        </Bounce>
-        <Dashboard/>
+        </Bounce>        
         </HeroSectionStyled>
   )
 }

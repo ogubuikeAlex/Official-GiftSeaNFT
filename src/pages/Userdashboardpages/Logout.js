@@ -4,8 +4,10 @@ import Dashboard from './Dashboard'
 const Logout = () => {
     return (
         <div>
-            This is a blank page
-            <Dashboard/>
+            <h1>
+                LogOut
+            </h1>
+           
         </div>
 
     )

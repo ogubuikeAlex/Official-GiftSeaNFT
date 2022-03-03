@@ -1,11 +1,10 @@
-import {useState} from 'react'
-import Admindashboard from './screen/Admindashboard'
-// import Userdashboard from './screen/Userdashboard'
-import Homepage from './screen/HomeScreen'
 import './App.css';
+import React, { useState, useEffect} from 'react';
+import { useNavigate} from 'react-router-dom';
+import Homescreen from './screen/HomeScreen'
+import MainRoutes from './Routing/MainRoutes'
 
 const App = () => {
-
   const { ethereum } = window;
   const [userHasMetaMask, setUserHasMetaMask] = useState(false);
   const [userHasConnectedccount, setUserHasConnectedAccount] = useState(false);
@@ -54,22 +53,32 @@ const App = () => {
     const accounts = await ethereum.request({ method: "eth_requestAccounts" });
     setUserAccount(accounts[0]);
     setUserHasConnectedAccount(true);
+    navigate("/userdashboard")
   }  
 
+  useEffect(() => {
+    const authenticated = localStorage.getItem("isAuthenticated");
+    if (authenticated && JSON.parse(authenticated)){
+      // setUserHasConnectedAccount(true);
+      // setUserHasMetaMask(true);
+      connectWallet();
+    } 
+      }, [])
 
-//   useLayoutEffect(() => {
-// if()
+  useEffect(() => {
+    localStorage.setItem("isAuthenticated", userHasConnectedccount && userHasMetaMask)    
+  }, [userHasConnectedccount && userHasMetaMask])
 
-//   }, [])
+
+let navigate = useNavigate(); 
 
   return (
     <div className='App'>
-      {/* {
-        userHasMetaMask && userHasConnectedccount ? <Userdashboard/> : <Homepage handleClick={connectWallet}/>
-      } */}
-        
-        <Admindashboard/>
-     </div>    
+      <MainRoutes
+        isAuthenticated = {userHasConnectedccount && userHasMetaMask}
+        connect = {connectWallet}
+      />
+    </div>
   )
 }
 export default App;

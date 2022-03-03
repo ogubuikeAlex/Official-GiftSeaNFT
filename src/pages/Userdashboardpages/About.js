@@ -5,10 +5,8 @@ import Dashboard from './Dashboard'
 const About = () => {
     return (
         <div>
-                
-            <Dashboard/>
+            <h1>This is the About Page</h1>   
         </div>
-
     )
 }
 

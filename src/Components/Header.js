@@ -1,9 +1,7 @@
-import React from 'react'
 import styled from 'styled-components'
 import logo from '../img/logo.png';
 
 const Header = (props) => {
-
   return (
     <HeaderStyled>
       <div className='imgCon'><img className='logo' src={logo} alt='' />
