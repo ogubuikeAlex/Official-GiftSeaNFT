@@ -1,9 +1,11 @@
 import {useLayoutEffect, useState, use} from 'react'
 import Homepage from './Components/Homepage/Homepage'
-import { Navigate } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Userdashboard from './screen/Userdashboard'
  import Admindashboard from './screen/Admindashboard'
 import './App.css';
+import Homescreen from './screen/HomeScreen'
+import MainRoutes from './Routing/MainRoutes'
 
 const App = () => {
 
@@ -65,12 +67,12 @@ const App = () => {
 
   return (
     <div className='App'>
-
-      {
+<MainRoutes />
+      {/* {
         userHasMetaMask && userHasConnectedccount ? <Userdashboard user={userAccount}/> : <Homepage handleClick={connectWallet} />
         //userHasMetaMask && userHasConnectedccount ? <Userdashboard /> : <Homepage handleClick={connectWallet} />
       }
-      {/* <Admindashboard/> */}
+      <Admindashboard/> */}
 
      </div>    
   )

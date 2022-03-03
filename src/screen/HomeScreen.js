@@ -6,11 +6,14 @@ import Homepage from '../Components/Homepage/Homepage'
 
 function Homescreen() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/userdashboard" element={<Homepage />}/>
-            </Routes>
-        </BrowserRouter>
+        <div>
+            <Homepage />
+        </div>
+        // <BrowserRouter>
+        //     <Routes>
+        //         <Route path="/userdashboard" element={<Homepage />}/>
+        //     </Routes>
+        // </BrowserRouter>
     )
 }
 
