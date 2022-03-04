@@ -4,12 +4,12 @@ import UploadStyled from '../../Styled-components/UploadStyled'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 
 
-// import {
-//     nftaddress, nftmarketaddress
-// } from '../../config'
+import {
+    nftaddress, nftmarketaddress
+} from '../../config'
 
-// import NFT from '../../artifacts/contracts/GiftSeaNFT.sol/NFT.json'
-// import Market from '../../artifacts/contracts/Market.sol/NFTMarket.json'
+import NFT from '../../artifacts/contracts/GiftSeaNFT.sol/NFT.json'
+import Market from '../../artifacts/contracts/Market.sol/NFTMarket.json'
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 
