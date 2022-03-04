@@ -39,10 +39,14 @@ width: 718.99px;
 @media(max-width: 540px){
     width: 100%;
 }
+.button{
+        width: 100%;
+        border: 2px solid red;
+        margin: 20px;
 
-.items{
-    background: #FFF;
-    height: 387px;
+    }
+.items{      
+    background: #FFF;    
     width: 100%;
     border-radius: 9px;
     padding: 20px;
@@ -160,7 +164,7 @@ width: 718.99px;
           }
           
         }
-    }
+    }    
 `;
 
 export default UploadStyled;
