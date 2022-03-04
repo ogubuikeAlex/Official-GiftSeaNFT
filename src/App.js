@@ -45,7 +45,7 @@ const App = () => {
 
     if (!userHasAuthenticatedWallet) {
       console.log("You do not hve an have an authenticatdmetamask!");
-      //Show page  that ask user to authenticate metamask!
+      //Show modal  that ask user to authenticate metamask!
     }
 
     console.log("You have  an authenticated metamask wallet!");
@@ -77,6 +77,7 @@ let navigate = useNavigate();
       <MainRoutes
         isAuthenticated = {userHasConnectedccount && userHasMetaMask}
         connect = {connectWallet}
+        currentUser = {userAccount}
       />
     </div>
   )

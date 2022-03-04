@@ -11,6 +11,7 @@ import Contact from "../pages/Userdashboardpages/Contact";
 import Favourites from "../pages/Userdashboardpages/Favourites";
 import MarketPlace from "../pages/Userdashboardpages/MarketPlace";
 import HeroSection from "../pages/Userdashboardpages/HeroSection";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function MainRoutes({ isAuthenticated, connect }) {
     return (
@@ -35,7 +36,7 @@ export default function MainRoutes({ isAuthenticated, connect }) {
 
                 {
                     isAuthenticated &&
-                    <Route path="/userdashboard" element={<MainLayout />}>
+                    <Route path="/userdashboard" element={<MainLayout currentUser ={propTypes.currentUser}/>}>
                         <Route path="/userdashboard" index element={<HeroSection />} />
                         <Route path="marketplace" element={<MarketPlace />} />
                         <Route path="favourites" element={<Favourites />} />
