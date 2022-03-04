@@ -35,7 +35,7 @@ const Sidebar = () => {
             <div className="sidebar__menu">
                 {
                     sidebarNav.map((nav, index) => (
-                        <Link to={nav.link} key={`nav-${index}`} className={`sidebar__menu__item ${activeIndex === index && 'active'}`} onClick={closeSidebar}>
+                        <Link to={nav.link} key={`nav-${index}`} className={`sidebar__menu__item`} onClick={closeSidebar}>
                             <div className="sidebar__menu__item__icon">
                                 {nav.icon}
                             </div>

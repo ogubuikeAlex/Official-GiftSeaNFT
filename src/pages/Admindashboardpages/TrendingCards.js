@@ -1,6 +1,5 @@
 import React from 'react'
 import NFTContainerStyled from '../../Styled-components/NFTContainer'
-import ClickedButt from '../../Components/clickedButton/ClickedButt'
 import image1 from '../../img/latestNft.png'
 import Card from '../../Components/Card'
 
@@ -16,12 +15,10 @@ const TrendingCards = () => {
             <div className='NFTCardContainer'>
             <div className='dashCards'>
             <img src={image1}alt=""/>
-            <ClickedButt/>
             <Card/>
             </div>
             <div className='dashCards'>
             <img src={image1}alt=""/>
-            <ClickedButt/>
             <Card/>
             </div>
             </div>
