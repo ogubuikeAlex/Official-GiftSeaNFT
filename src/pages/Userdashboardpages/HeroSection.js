@@ -1,11 +1,10 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
-import {fadeInDown} from 'react-animations';
+import {fadeInUpBig} from 'react-animations';
 import attach from '../../img/Vector 1.png';
 import attached from '../../img/Vector 2.png';
 import NFTContainerStyled from '../../Styled-components/NFTContainer';
 import NewsletterStyled from '../../Styled-components/NewsletterStyled';
-import Dashboard from '../../pages/Userdashboardpages/Dashboard';
 import Card from '../../Components/Card';
 import image1 from '../../img/unsplashed4.png';
 import image2 from '../../img/unsplashed3.png';
@@ -16,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {Col, Row} from 'react-bootstrap'
 
 const Bounce = styled.div`
-animation: 1s ${keyframes`${fadeInDown}`}`;
+animation: 1s ${keyframes`${fadeInUpBig}`}`;
 
 const HeroSection = () => {
   return (

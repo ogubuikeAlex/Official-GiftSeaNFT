@@ -9,7 +9,7 @@ const Sidebar = () => {
     const location = useLocation()
 
     useEffect(() => {
-        const curPath = window.location.pathname.split('/admin_dashboard')[1]
+        const curPath = window.location.pathname.split('/admindashboard')[1]
         const activeItem = Adminsidebar.findIndex(item => item.section === curPath)
 
         setActiveIndex(curPath.length === 0 ? 0 : activeItem)

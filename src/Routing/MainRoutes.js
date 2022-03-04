@@ -24,16 +24,15 @@ export default function MainRoutes({ isAuthenticated, connect }) {
                 {
                     isAuthenticated &&
                     <Route path="/admindashboard" element={<AdminLayout />}>
-                        <Route path="admindashboard" element={<AdminHero />} />
-                        <Route path="marketplace" element={<MarketPlace />} />
+                        <Route path="/admindashboard" index element={<AdminHero />} />
+                        <Route path="marketplace" element={<MarketPlace />}/>
                         <Route path="favourites" element={<Favourites />} />
                         <Route path="treasury" element={<Treasury />} />
                         <Route path="upload" element={<Upload />} />
                         <Route path="transactions" element={<Favourites />} />
-                        <Route path="push" element={<Favourites />} />
+                        <Route path="about" element={<Favourites />} />
                     </Route>
                 }
-
                 {
                     isAuthenticated &&
                     <Route path="/userdashboard" element={<MainLayout currentUser ={propTypes.currentUser}/>}>
@@ -46,7 +45,7 @@ export default function MainRoutes({ isAuthenticated, connect }) {
                     </Route>
                 }
             </Route>
-            <Route path="*" element={<Navigate to={isAuthenticated ? "/userdashboard" : "/"}/>}/>            
+            <Route path="*" element={<Navigate to={isAuthenticated ? "/admindashboard" : "/"}/>}/>            
         </Routes>
     );
 } 
