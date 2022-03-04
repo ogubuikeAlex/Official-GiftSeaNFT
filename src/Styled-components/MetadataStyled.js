@@ -60,6 +60,23 @@ width: 718.99px;
         font-weight: 500;
         line-height: 29px;
         text-align: left;
+        @media(max-width:1045px){
+            font-size: 19px;
+        }
+    }
+    .giftCollection{
+        display: flex;
+        flex-direction: row;
+        @media(max-width: 900px){
+            flex-direction: row;
+            line-height: 15px;
+        }
+        @media(max-width: 768px){
+            flex-direction: row;
+            line-height: 15px;
+        }
+        
+        
     }
     .Buy{
         border: none;
@@ -68,12 +85,30 @@ width: 718.99px;
         background: #02AAB0;
         border-radius: 3px;
         width: 154px;
+        @media(max-width: 1045px){
+            width: 100px;
+        }
+        @media(max-width: 900px){
+            width: 50px;
+        }
+        @media(max-width: 768px){
+            width: 120px;
+        }
+        @media(max-width: 400px){
+            width: 50px;
+        }
     }
 }
 .gridContainer{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     position: relative;
+    @media(max-width:1045px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media(max-width: 400px){
+        grid-template-columns: repeat(1, 1fr);
+    }
     div{
         border: 1px solid rgba(26, 16, 54, 0.4);
         padding: 0.5em;
@@ -98,6 +133,7 @@ width: 718.99px;
         }
     }
 }
+
         .contents{
         .description{
             font-family: Inter;

@@ -16,7 +16,7 @@ const rows = [
   return (
     <TableStyled className='table-responsive'>
     <table className="table">
-    <thead>
+    <thead style={{borderStyle: 'none'}}>
       <tr>
         <th>ID</th>
         <th>Description</th>
@@ -26,7 +26,7 @@ const rows = [
         <th>Time</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody style={{border:'#bbb' }}>
       {rows.map((row) => (
         <tr key={row._id}>
           <td>{row.id}</td>
@@ -44,10 +44,21 @@ const rows = [
 }
 
 const TableStyled = styled.div`
+th{
+  @media(max-width: 900px){
+    font-size: 13px;
+  }
+}
+td{
+  @media(max-width: 900px){
+    font-size: 11px;
+  }
+}
   width: 100%;
   height: fit-content;
   overflow-x: auto;
   background: #FFF;
+  box-shadow: 2px 4px 4px 3px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-top: 20px;
   margin-bottom: 20px;

@@ -19,7 +19,7 @@ const Metadata = () => {
                 <div className='nftContainer'>
                 <div className='text-container' style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                     <p className='listedNFT'>Africana NFTs  &nbsp; <span style={{fontSize: '14px', fontWeight: '600'}}>#128</span></p>
-                    <div>
+                    <div className='giftCollection'>
                     <Link to=''><button className='Buy'>Sell</button></Link>&nbsp;&nbsp;
                     <Link to=''><button className='Buy'>GIft</button></Link>
                     </div>
