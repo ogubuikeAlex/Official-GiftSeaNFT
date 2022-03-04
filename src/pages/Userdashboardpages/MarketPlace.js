@@ -209,7 +209,7 @@ function MarketPlace(props) {
           </div>
         </div>
       </MarketplaceStyled>
-
+<Dashboard />
     </div>
   );
 }
