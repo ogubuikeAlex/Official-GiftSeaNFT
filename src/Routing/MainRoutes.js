@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, Router, Link, Outlet } from "react-router-dom";
 import Homepage from "../Components/Homepage/Homepage";
 import AdminLayout from "../layout/Adminlayout";
 import MainLayout from "../layout/MainLayout";
@@ -11,6 +11,7 @@ import Contact from "../pages/Userdashboardpages/Contact";
 import Favourites from "../pages/Userdashboardpages/Favourites";
 import MarketPlace from "../pages/Userdashboardpages/MarketPlace";
 import HeroSection from "../pages/Userdashboardpages/HeroSection";
+import CollectionMetadata from '../pages/Admindashboardpages/Metadatas/CollectionMetadata'
 import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function MainRoutes({ isAuthenticated, connect }) {
@@ -30,7 +31,7 @@ export default function MainRoutes({ isAuthenticated, connect }) {
                         <Route path="treasury" element={<Treasury />} />
                         <Route path="upload" element={<Upload />} />
                         <Route path="transactions" element={<Favourites />} />
-                        <Route path="about" element={<Favourites />} />
+                        <Route path="about" element={<CollectionMetadata />} />
                     </Route>
                 }
                 {
