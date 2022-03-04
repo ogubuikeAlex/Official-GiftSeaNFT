@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import history from '../../constants/data';
 import DashboardWrapper, {  DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     return (
         <DashboardRightStyled>
         <DashboardWrapper>
@@ -16,6 +16,7 @@ const Dashboard = () => {
                         <div className='metaBroken'>
                         <p>Metamask</p>
                         <small>0x30bf5022C...</small>
+                        {/* <small>{props.currentUser}.splice()+"..."</small> */}
                         </div>
                     <Dropdown>
                         <Dropdown.Toggle id="dropdown-basic" style={{background: '#fff', color: 'black', border:'none', fontSize: '16px', marginLeft: '20px'}}>
