@@ -3,6 +3,7 @@ import React, { useState, useEffect} from 'react';
 import { useNavigate} from 'react-router-dom';
 import Homescreen from './screen/HomeScreen'
 import MainRoutes from './Routing/MainRoutes'
+// import NoMetamask from './pages/Admindashboardpages/Modals/NoMetamask'
 
 const App = () => {
   const { ethereum } = window;
@@ -38,7 +39,7 @@ const App = () => {
     if (!userHasMetaMask) {
       console.log("You do not have metamask!");
       return;
-      //Show up a modal for user to connect metamask
+      // <NoMetamask/>
     }
     console.log("You have metamask!");
     let userHasAuthenticatedWallet = checkForAuthenticatedEthereumWallet();

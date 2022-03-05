@@ -48,7 +48,7 @@ width: 718.99px;
   width: 100%;
   height: fit-content;
   background: #FFF;
-  padding: 0.4rem;
+  padding: 1rem;
   transform: translate(-50% -50%);
   justify-content: center;
   align-items: center;
@@ -56,14 +56,13 @@ width: 718.99px;
     grid-template-columns: repeat(1, 1fr);
     width: 100%;
     grid-gap: 10px;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
     justify-content: center;
   }
   @media(max-width: 768px){
     grid-template-columns: repeat(3, 1fr);
   }
   @media(max-width: 540px){
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   @media(max-width: 400px){
     grid-template-columns: repeat(1, 1fr);
