@@ -9,9 +9,6 @@ body{
     overflow-x: hidden;
 }
 
-h1{
-    font-weight: 900;
-}
 .imgUser{
     border-radius: 20px;
   }
@@ -19,6 +16,7 @@ h1{
       position: absolute;
       top: 500px;
   }
+
 
   @media(max-width: 900px){
     .right-hero{

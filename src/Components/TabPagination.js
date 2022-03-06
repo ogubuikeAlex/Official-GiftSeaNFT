@@ -16,7 +16,7 @@ import 'swiper/css/autoplay';
 
 const TabPagination= () => {
   return (
-    <Swiper style={{padding: '3rem', objectFit:'cover', width: '100%'}}
+    <Swiper style={{padding: '3rem', objectFit:'cover', maxWidth: '100%', minWidth: '100%'}}
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
       slidesPerView={3}
@@ -28,22 +28,22 @@ const TabPagination= () => {
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >
-       <SwiperSlide style={{background: '#FFF', boxShadow: '4px 4px 4px 4px rgba(0,0,0,0.2)', borderRadius:'20px', padding: '.5rem'}}>
+       <SwiperSlide style={{background: '#FFF', width: '350px', minWidth:'320px', boxShadow: '4px 4px 4px 4px rgba(0,0,0,0.2)', borderRadius:'20px', padding: '.5rem'}}>
        <img src={image}
        style={{borderRadius: '20px', objectFit:'cover'}} alt="First slide"/>
        <Card/>
        </SwiperSlide>
-       <SwiperSlide style={{background: '#FFF', boxShadow: '4px 4px 4px 4px rgba(0,0,0,0.2)', borderRadius:'20px', padding: '.5rem'}}>
+       <SwiperSlide style={{background: '#FFF', width: '350px', minWidth:'320px', boxShadow: '4px 4px 4px 4px rgba(0,0,0,0.2)', borderRadius:'20px', padding: '.5rem'}}>
        <img src={image2} style={{borderRadius: '20px', objectFit:'cover'}}
         alt="Second slide"/>
        <Card/>
        </SwiperSlide>
-       <SwiperSlide style={{background: '#FFF', boxShadow: '4px 4px 4px 4px rgba(0,0,0,0.2)', borderRadius:'20px', padding: '.5rem'}}>
+       <SwiperSlide style={{background: '#FFF', width: '350px', minWidth:'320px', boxShadow: '4px 4px 4px 4px rgba(0,0,0,0.2)', borderRadius:'20px', padding: '.5rem'}}>
        <img src={image3} style={{borderRadius: '20px', objectFit:'cover'}}
         alt="Third slide"/>
        <Card/>
        </SwiperSlide>
-       <SwiperSlide style={{background: '#FFF', boxShadow: '4px 4px 4px 4px rgba(0,0,0,0.2)', borderRadius:'20px', padding: '.5rem'}}>
+       <SwiperSlide style={{background: '#FFF', width: '350px', minWidth:'320px', boxShadow: '4px 4px 4px 4px rgba(0,0,0,0.2)', borderRadius:'20px', padding: '.5rem'}}>
        <img src={image4} style={{borderRadius: '20px', objectFit:'cover'}}
         alt="Fourth slide"/>
        <Card/>

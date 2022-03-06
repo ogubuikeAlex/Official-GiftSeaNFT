@@ -34,6 +34,10 @@ const Container = styled.div`
         width: 400px;
         margin: 0 !important;
     }
+    @media(max-width: 540px){
+        width: 350px;
+        margin: 0 !important;
+    }
 `;
 
 const Wrap = styled.div`
@@ -94,15 +98,20 @@ const FrequentQuestions = styled.div`
         @media(max-width: 540px){
             font-size: 18px;
         }
+        }
         h1{
             font-weight: bold;
             @media(max-width: 540px){
-                font-size: 18px;
+                font-size: 24px;
             }
-        }
+            @media(max-width: 400px){
+                font-size: 22px;
+                padding:1rem;
+             }
+            }
     }
     span{
-        color: #00FFB9;
+        color: #02AAB0;
     }
 `;
 

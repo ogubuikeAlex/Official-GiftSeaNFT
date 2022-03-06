@@ -23,6 +23,12 @@ h5{
     width: 100%;
     font-size: 14px;   
   }   
+  @media(max-width: 400px){
+    font-size: 13px;
+  }
+  @media(max-width: 400px){
+    font-size: 11px;
+  }
   
   }
 } 
@@ -56,17 +62,20 @@ h5{
     @media(max-width: 1220px){
       width: 100%;
       font-size: 12px;
-  }
-  @media(max-width: 1138px){
-    width: 100%;
-    font-size: 12px;
-    font-weight:400;
-}
+    }
+    @media(max-width: 1138px){
+      width: 100%;
+      font-size: 12px;
+      font-weight:400;
+    }
     @media(max-width: 1220px){
       width: 100%;
       font-size: 14px;
-  }
-  }
+    }
+    @media(max-width: 400px){
+      font-size: 12px;
+     }   
+    }
     @media(max-width: 1045px){
       width: 100%;
       font-size: 12px;
@@ -86,11 +95,20 @@ h5{
     }
     @media(max-width: 540px){
       font-size: 12px;
-    }    
+    } 
+    @media(max-width: 400px){
+      font-size: 12px;
+  }   
   }
 }
 #stock {
   color: #838383;
+    @media(max-width: 540px){
+      transform: translateX(30px);
+    }
+    @media(max-width: 400px){
+      transform: translateX(18px);
+    }
 }
 
 .carousel-info_top-images{
@@ -98,7 +116,13 @@ h5{
     flex-direction: row;
     @media(max-width: 540px){
       width: 50%;
-      transform: translateX(45px);
+      transform: translateX(65px);
+    }
+    @media(max-width: 400px){
+      transform: translateX(35px);
+    }
+    @media(max-width: 375px){
+      transform: translateX(25px);
     }
 
   }

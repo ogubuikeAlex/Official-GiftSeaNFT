@@ -25,10 +25,9 @@ const HeroSection = () => {
       </div>
       </Slides>
       <Slides>
-      <div className='rigth-container'>
+      <div className='right-container'>
         <div className='right-hero'>
         <Slider/>
-        {/* <MySlides/> */}
         </div>
       </div>
       </Slides>
@@ -124,6 +123,10 @@ h1{
     width:70%;
     transform: translateX(70px) translateY(10px);
   }
+  @media(max-width: 400px){
+    width: 80%;
+    transform: translateX(30px) translateY(20px);
+}
 
 .buyButton{
   padding: 0.5em !important;

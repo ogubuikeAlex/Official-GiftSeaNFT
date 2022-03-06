@@ -1,6 +1,8 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components';
 import {slideInUp} from 'react-animations'
+import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
 
 const Slides = styled.div`
 animation: 2s ${keyframes`${slideInUp}`}`;
@@ -10,18 +12,31 @@ const CounterSection = () => {
       <Slides>
       <CounterSectionStyled>
     <div className='counter'>
-        <div className='willCount'>
-        <h1>700k</h1>
-        <p>MInted NFTS</p>
-        </div>
-        <div className='willCount'>
-        <h1>2.4m</h1>
-        <p>MInted NFTS</p>
-        </div>
-        <div className='willCount'>
-        <h1>100k</h1>
-        <p>Holders</p>
-        </div>
+        {/* <h1><CountUp start={0} end={700}/>k</h1> */}
+        <VisibilitySensor partialVisibility offset={{ bottom: 10 }}>
+        {({ isVisible }) => (
+          <div className='willCount'>
+            <h1>{isVisible ? <CountUp end={700}/> : null}k</h1>
+            <p>MInted NFTS</p>
+          </div>
+        )}
+      </VisibilitySensor>
+      <VisibilitySensor partialVisibility offset={{ bottom: 10 }}>
+        {({ isVisible }) => (
+          <div className='willCount'>
+            <h1>{isVisible ? <CountUp start={1000000} end={2}/> : null}.4m</h1>
+            <p>MInted NFTS</p>
+          </div>
+        )}
+      </VisibilitySensor>
+      <VisibilitySensor partialVisibility offset={{ bottom: 10 }}>
+        {({ isVisible }) => (
+          <div className='willCount'>
+            <h1>{isVisible ? <CountUp end={100}/> : null}k</h1>
+            <p>Holders</p>
+          </div>
+        )}
+      </VisibilitySensor>
     </div>
     </CounterSectionStyled>
     </Slides>

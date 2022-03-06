@@ -45,13 +45,17 @@ position: relative;
 height: 80vh;
 top: 300px;
 padding: 3em;
-
-img{
-    width: 150px;
+width: 100%;
+@media(max-width: 1045px){
+    height: 100vh;
 }
 @media(max-width: 540px){
     top: 130px;
     height: 100vh;
+}
+
+img{
+    width: 150px;
 }
 .imgCon{
     justify-content: center;
