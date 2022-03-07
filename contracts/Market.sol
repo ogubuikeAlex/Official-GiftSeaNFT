@@ -184,8 +184,7 @@ contract NFTMarket is ReentrancyGuard, Ownable {
             "Please submit the asking price in order to complete the purchase"
         );
 
-        IERC721(nftContract).safeTransferFrom(address(this), msg.sender, tokenId);
-        IERC721(nftContract).safeTransferFrom(msg.sender, address(this), tokenId);
+        IERC721(nftContract).safeTransferFrom(address(this), msg.sender, tokenId);     
 
         idToMarketItem[itemId].sold = true;
         idToMarketItem[itemId].owner = msg.sender;
