@@ -75,6 +75,7 @@ function TabToggle() {
  
 const TabToggleStyled = styled.div`
   width: 100%;
+  padding: 20px;
   background: #FCFCFC;
   margin-bottom: 50px;
   justify-content: center;
@@ -91,10 +92,6 @@ const TabToggleStyled = styled.div`
   display: flex;
   justify-content: center;
   transform: translateY(30px);
-  @media(max-width:540px){
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 
 .tabs {

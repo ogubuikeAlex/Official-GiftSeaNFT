@@ -34,13 +34,18 @@ const HeaderStyled = styled.div`
       background: linear-gradient(to right, #02AAB0, #00CBAC);
       color: white;
       padding: .4rem 40px;
+      width: fit-content;
       justify-content: center;
       align-items: center;
       border-radius: 10px;
       cursor: pointer;
       @media(max-width: 540px){
         margin-left: -20px;
-        width: 80px;
+      }
+      @media(max-width: 400px){
+        width: fit-content;
+        font-size: 12px;
+        padding: 1em;
       }
     }
     i{

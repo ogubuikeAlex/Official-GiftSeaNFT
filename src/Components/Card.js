@@ -50,7 +50,7 @@ import { propTypes } from 'react-bootstrap/esm/Image';
           <div className='carousel-info_bottom'>
             <span className='carousel-info_bottom-text'><i class="fa-brands fa-ethereum"></i>&nbsp; <p>0.25ETH</p></span>
             <div className='carousel-info_bottom-text' id="stock">
-              <p>5 of 321 in Stock</p>
+              <p className='bottom_stock'>5 of 321 in Stock</p>
             </div>
           </div>
 
