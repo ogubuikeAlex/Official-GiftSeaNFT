@@ -6,8 +6,9 @@ import Card from '../../Components/Card'
 import ClickedButt from '../../Components/clickedButton/ClickedButt'
 import image1 from '../../img/latestNft.png';
 import DashboardWrapper, {  DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
+import PreviewCard from '../../Components/PreveiwCard';
 
-const Dashboard = () => {
+const Dashboard = ({name, src, price, description}) => {
     return (
         <DashboardRightStyled>
         <DashboardWrapper>
@@ -32,8 +33,13 @@ const Dashboard = () => {
                 <DashStyled>
                 <div id='dash' className='dashCards'>
                 <ClickedButt/>
-                <img src={image1}alt=""/>
-                <Card/>
+                {/* <img src={image1}alt=""/> */}
+                <img src={src}alt=""/>
+                <PreviewCard
+                name = {name}
+                price = {price}
+                description = {description}
+                />
                 </div>
                 </DashStyled>
             </DashboardWrapperRight>

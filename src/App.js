@@ -10,6 +10,7 @@ const App = () => {
   const [userHasMetaMask, setUserHasMetaMask] = useState(false);
   const [userHasConnectedccount, setUserHasConnectedAccount] = useState(false);
   const [userAccount, setUserAccount] = useState();
+  let navigate = useNavigate(); 
 
   const checkForMetaMask = async () => {
     if (!ethereum) {
@@ -69,9 +70,6 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("isAuthenticated", userHasConnectedccount && userHasMetaMask)    
   }, [userHasConnectedccount && userHasMetaMask])
-
-
-let navigate = useNavigate(); 
 
   return (
     <div className='App'>

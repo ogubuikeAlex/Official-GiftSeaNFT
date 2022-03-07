@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ethers from "ethers";
 import MarketplaceStyled from '../../Styled-components/MarketplaceStyled'
 import image1 from '../../img/unsplashed4.png';
@@ -28,6 +28,7 @@ function MarketPlace(props) {
   };
 
   async function loadNFTs() {
+    console.log("i am a bunny")
     const { ethereum } = window;
 
     if (ethereum) {
@@ -76,7 +77,7 @@ function MarketPlace(props) {
       available = {item.available}
     />
   ))
-
+useEffect(()=> {loadNFTs()}, [])
 
   return (
     <div>
@@ -103,10 +104,11 @@ function MarketPlace(props) {
           <div className="content-tabs">
             <div id="content-tab"
               className={toggleState === 1 ? "content  active-content" : "content"}>
-              {/* {
+              {
                 LoadingState == "Not-Loaded" ? <h1>Empty MArket</h1> : {availableItems}
-            } */}
+            }
 
+              {/* <DashCard />
               <DashCard />
               <DashCard />
               <DashCard />
@@ -116,8 +118,7 @@ function MarketPlace(props) {
               <DashCard />
               <DashCard />
               <DashCard />
-              <DashCard />
-              <DashCard />
+              <DashCard /> */}
               {/* <div className='dashCards'>
               <ClickedButt/>
             <img src={unsplash}alt=""/>
