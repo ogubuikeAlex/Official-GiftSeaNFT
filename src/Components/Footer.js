@@ -39,19 +39,15 @@ const Footer = () => {
 }
 
 const FooterStyled = styled.div`
+.footer{
 background: #1A1036;
 color: #fff;
-position: relative;
-height: 80vh;
-top: 300px;
+height: fit-content;
+margin-top: 300px;
 padding: 3em;
 width: 100%;
-@media(max-width: 1045px){
-    height: 100vh;
-}
 @media(max-width: 540px){
-    top: 130px;
-    height: 100vh;
+    margin-top: 200px;
 }
 
 img{
@@ -123,6 +119,7 @@ img{
             justify-content: center;
         }
     }
+  }
 }
 `;
 

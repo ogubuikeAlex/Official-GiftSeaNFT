@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ethers from "ethers";
 import MarketplaceStyled from '../../Styled-components/MarketplaceStyled'
 import image1 from '../../img/unsplashed4.png';
@@ -8,6 +8,7 @@ import Card from '../../Components/Card'
 import Dashboard from '../../pages/Userdashboardpages/Dashboard'
 import image4 from '../../img/unsplash.png'
 import unsplash from '../../img/unsplashed5.png'
+import unsplashed from '../../img/unsplashedround.png'
 import ClickedButt from "../../Components/clickedButton/ClickedButt";
 import DashCard from "../../Components/dashCard";
 import axios from "axios"
@@ -27,20 +28,18 @@ function MarketPlace(props) {
   };
 
   async function loadNFTs() {
-    console.log("i am a bunny")
     const { ethereum } = window;
 
     if (ethereum) {
-      const provider = new ethers.providers.JsonRpcProvider();
-     // const signer = provider.getSigner();
-      const NFT = new ethers.Contract(nftAddress, Nft.abi, provider);
-      const MARKET = new ethers.Contract(marketAddress, Market.abi, provider);
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+      const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
+      const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
       setUserAccount(props.user);
-      console.log(1);
+
       let marketItems = await MARKET.fetchMarketItems();
-      console.log(2);
-      console.log(marketItems)
-      let markeetItems = await Promise.all(marketItems.map(async i => {
+
+      marketItems = await Promise.all(marketitems.map(async i => {
         const tokenUri = await NFT.tokenUri(i.tokenId);
         const meta = await axios.get(tokenUri)
         let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
@@ -56,32 +55,28 @@ function MarketPlace(props) {
           total: meta.data.TotalQuantity,
           available: meta.data.AmountLeft
         }
-        return item;
-      }))
 
-      setMarketItems(markeetItems);
+        return item
+      }));
+      setMarketItems(marketItems);
       setLoadingState("loaded");
-      //return item
     }
   }
-console.log(marketitems)
+
   let availableItems = marketitems.map(item => (
     <DashCard
       url={item.image}
       name={item.name}
-      price={item.price}
-      itemId={item.itemId}
-      owner={item.owner}
-      description={item.description}
-      total={item.total}
-      increase={item.percentIncrease}
-      available={item.available}
+      price={item.price}   
+      itemId= {item.itemId}
+      owner ={item.owner}
+      description ={item.description}
+      total = {item.total}
+      increase = {item.percentIncrease}
+      available = {item.available}
     />
-  ));
+  ))
 
-  useEffect(() => {
-    loadNFTs()
-  }, [])
 
   return (
     <div>
@@ -214,7 +209,7 @@ console.log(marketitems)
           </div>
         </div>
       </MarketplaceStyled>
-      <Dashboard />
+<Dashboard />
     </div>
   );
 }

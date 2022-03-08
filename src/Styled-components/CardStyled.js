@@ -103,11 +103,21 @@ h5{
 }
 #stock {
   color: #838383;
+  @media(max-width: 900px){
+    transform: translateX(18px);
+    font-size: 12px;
+  }
+  @media(max-width: 768px){
+    transform: translateX(13px);
+  }
     @media(max-width: 540px){
-      transform: translateX(30px);
+      transform: translateX(20px);
     }
     @media(max-width: 400px){
       transform: translateX(18px);
+    }
+    @media(max-width: 375px){
+      transform: translateX(12px);
     }
 }
 
@@ -116,7 +126,7 @@ h5{
     flex-direction: row;
     @media(max-width: 540px){
       width: 50%;
-      transform: translateX(65px);
+      transform: translateX(48px);
     }
     @media(max-width: 400px){
       transform: translateX(35px);

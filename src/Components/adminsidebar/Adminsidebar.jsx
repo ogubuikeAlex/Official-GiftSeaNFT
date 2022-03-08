@@ -9,9 +9,8 @@ const Sidebar = () => {
     const location = useLocation()
 
     useEffect(() => {
-        const curPath = window.location.pathname.split('/admindashboard')[1]
-        const activeItem = Adminsidebar.findIndex(item => item.section === curPath)
-
+        const curPath = window.location.pathname.split(`/admindashboard`)[1]
+        const activeItem = Adminsidebar.findIndex(item => item.section === curPath) 
         setActiveIndex(curPath.length === 0 ? 0 : activeItem)
     }, [location])
 
@@ -34,7 +33,7 @@ const Sidebar = () => {
             <div className="sidebar__menu">
                 {
                     Adminsidebar.map((admin, index) => (
-                        <Link to={admin.link} key={`admin-${index}`} className={`sidebar__menu__item ${activeIndex === index && 'active'}`} onClick={closeSidebar}>
+                        <Link to={admin.link} key={`admin${index}`} className={`sidebar__menu__item ${activeIndex === index && 'active'}`} onClick={closeSidebar}>
                             <div className="sidebar__menu__item__icon">
                                 {admin.icon}
                             </div>

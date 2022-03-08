@@ -6,6 +6,7 @@
     flex-direction: column;
     color: $txtColor;
     width: $sideBarWidth;
+    font-size: 13px;
     background-color: $mainBg;
     height: 100vh;
     position: fixed;
@@ -14,6 +15,16 @@
     &.active {
         font-weight: 600;
         color: $sideactive;
+    }
+    .sidebar__menu__item{
+        &:active{
+            color: $sideactive;
+            font-weight: 500;
+        }
+        &:focus{
+            color: $sideactive !important;
+            font-weight: 600;
+        }
     }
     @media(max-width: 1220px){
         width: 240px;
@@ -129,7 +140,7 @@
 
                     @include tablet {
                         color: $sideactive;
-                        left: 0;
+                        right: 0;
                     }
                 }
             }
