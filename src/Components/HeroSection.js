@@ -17,7 +17,7 @@ const HeroSection = () => {
       <Slides>
       <div className='left-hero'>
         <p className='left-hero_tagline'>Buy, Gift and sell</p>
-        <h1 className="left-hero_h1">Lorem Ipsum dolor sit amet, consecteur adispiscing elit.</h1>
+        <h1 className="left-hero_h1">GiftSeaNft is the world's first and largest NFT gift place</h1>
         <p className='left-hero_description'>Access a pool of Non-fungible Tokens which can either be gifted
           or held for profit overtime.
         </p>

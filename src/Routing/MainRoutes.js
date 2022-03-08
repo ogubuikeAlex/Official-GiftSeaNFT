@@ -46,7 +46,7 @@ export default function MainRoutes({ isAuthenticated, connect }) {
                     </Route>
                 }
             </Route>
-            <Route path="*" element={<Navigate to={isAuthenticated ? "/admindashboard" : "/"}/>}/>            
+            <Route path="*" element={<Navigate to={isAuthenticated ? "/userdashboard" : "/"}/>}/>            
         </Routes>
     );
 } 
