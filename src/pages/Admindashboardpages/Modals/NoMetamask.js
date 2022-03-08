@@ -6,7 +6,7 @@ function Example() {
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-  
+
     return (
       <>
         <Modal
@@ -27,9 +27,6 @@ function Example() {
             </Button>
           </div>
         </Modal>
-        <Button variant="primary" onClick={handleShow}>
-          Purchase Button
-        </Button>
       </>
     );
   }

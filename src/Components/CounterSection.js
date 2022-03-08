@@ -12,7 +12,6 @@ const CounterSection = () => {
       <Slides>
       <CounterSectionStyled>
     <div className='counter'>
-        {/* <h1><CountUp start={0} end={700}/>k</h1> */}
         <VisibilitySensor partialVisibility offset={{ bottom: 10 }}>
         {({ isVisible }) => (
           <div className='willCount'>
@@ -24,7 +23,7 @@ const CounterSection = () => {
       <VisibilitySensor partialVisibility offset={{ bottom: 10 }}>
         {({ isVisible }) => (
           <div className='willCount'>
-            <h1>{isVisible ? <CountUp start={1000000} end={2}/> : null}.4m</h1>
+            <h1>{isVisible ? <CountUp start={0} end={2}/> : null}.4m</h1>
             <p>MInted NFTS</p>
           </div>
         )}
@@ -41,7 +40,7 @@ const CounterSection = () => {
     </CounterSectionStyled>
     </Slides>
   )
-}
+} 
 
 const CounterSectionStyled = styled.div`
 background: #FDFDFD;

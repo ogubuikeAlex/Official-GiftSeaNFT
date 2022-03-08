@@ -16,8 +16,6 @@ body{
       position: absolute;
       top: 500px;
   }
-
-
   @media(max-width: 900px){
     .right-hero{
         transform: translateX(-80px);

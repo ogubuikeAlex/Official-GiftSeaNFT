@@ -68,7 +68,7 @@ const Wrap = styled.div`
         padding: 2rem;
         font-size: 1.2rem;
         @media(max-width: 540px){
-            font-size: 16px;
+            font-size: 14px;
             padding:1rem;
         }
     }
@@ -80,6 +80,7 @@ const Dropdown = styled.div`
     p{
         border-left:3px solid #00FFB9;
         padding-left: 1.2em;
+        text-align: justify;
         transition: ease-in-out .6s all;
     }
 `;
