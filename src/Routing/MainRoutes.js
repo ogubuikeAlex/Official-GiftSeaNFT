@@ -11,7 +11,7 @@ import Contact from "../pages/Userdashboardpages/Contact";
 import Favourites from "../pages/Userdashboardpages/Favourites";
 import MarketPlace from "../pages/Userdashboardpages/MarketPlace";
 import HeroSection from "../pages/Userdashboardpages/HeroSection";
-import TreasuryMetadata from '../pages/Admindashboardpages/Metadatas/TreasuryMeta'
+import CollectionMetadata from '../pages/Admindashboardpages/Metadatas/CollectionMetadata'
 import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function MainRoutes({ isAuthenticated, connect }) {
@@ -31,7 +31,7 @@ export default function MainRoutes({ isAuthenticated, connect }) {
                         <Route path="treasury" element={<Treasury />} />
                         <Route path="upload" element={<Upload />} />
                         <Route path="transactions" element={<Favourites />} />
-                        <Route path="about" element={<TreasuryMetadata />} />
+                        <Route path="about" element={<CollectionMetadata />} />
                     </Route>
                 }
                 {

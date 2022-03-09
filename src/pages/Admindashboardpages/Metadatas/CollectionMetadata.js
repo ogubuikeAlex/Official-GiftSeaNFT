@@ -1,11 +1,43 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
+import successful from '../Modals/Modals_Images/Vector.png'
 import Dashboard from '../../Userdashboardpages/Dashboard'
 import {Link} from 'react-router-dom'
 import woman from '../../../img/woman.png';
 import CollectionStyled from '../../../Styled-components/MetadataStyled'
+import {Modal, Form, Button} from 'react-bootstrap'
 
 const Metadata = () => {
+
+    const [show, setShow] = useState(false);
+    const [displayGift, setGift] = useState(false)
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const handleGift = () => setGift(false);
+    const handleGiftShow = () => setGift(true);
+
+    // (function () {
+        // 'use strict'
+      
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //     var forms = document.querySelectorAll('.needs-validation')
+      
+    //     // Loop over them and prevent submission
+    //     Array.prototype.slice.call(forms)
+    //       .forEach(function (form) {
+    //         form.addEventListener('submit', function (event) {
+    //           if (!form.checkValidity()) {
+    //             event.preventDefault()
+    //             event.stopPropagation()
+    //           }
+      
+    //           form.classList.add('was-validated')
+    //         }, false)
+    //       })
+    //   })()
+
     return (
         <div>
             <CollectionStyled>
@@ -20,8 +52,8 @@ const Metadata = () => {
                 <div className='text-container' style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                     <p className='listedNFT'>Africana NFTs  &nbsp; <span style={{fontSize: '14px', fontWeight: '600'}}>#128</span></p>
                     <div className='giftCollection'>
-                    <Link to=''><button className='Buy'>Sell</button></Link>&nbsp;&nbsp;
-                    <Link to=''><button className='Buy'>GIft</button></Link>
+                    <Link to=''><button className='Buy' onClick={handleShow}>Sell</button></Link>&nbsp;&nbsp;
+                    <Link to=''><button className='Buy' onClick={handleGiftShow}>GIft</button></Link>
                     </div>
                 </div>
                 <div className='gridContainer'>
@@ -48,6 +80,91 @@ const Metadata = () => {
                     This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him<br></br><br></br>
                     This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to himThis beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him.
                     </p>
+                    <Modal
+                  show={show}
+                  onHide={handleClose}
+                  backdrop="static"
+                  keyboard={false}>
+                  <Modal.Header style={{border: 'none'}} closeButton></Modal.Header>
+                  <div style={{display: 'block', textAlign: 'center', marginBottom: '10px'}}>
+                    <h4 style={{textAlign: 'center'}}>Sell your NFT</h4><br/>
+                    <small>Please confirm that all infos supplied are correct</small>
+                  </div>
+                  <FormStyled>
+                  <Form style={{margin: '20px'}}>
+                      <span>
+                      <label for='typeValidation' class='form-label'>
+                     <small>Wallet type</small> 
+                     </label><br/>
+                        <select id='typeValidation' required style={{width: '100%', cursor:'pointer'}}>
+                            <option value='' disabled selected hidden>Select your receiver wallet type</option>
+                            <option value='ETH'>ETH</option>
+                        </select>
+                        <div className='invalid-feedback'>
+                            Please select a valid wallet type
+                        </div>
+                        </span>
+                        <span>
+                      <label for='typeValidation' class='form-label'>
+                     <small>Wallet Address</small> 
+                     </label><br/>
+                        <input type='text' placeholder='Type your receiver wallet address' class='form-text address' id='typeValidation' required style={{width: '100%'}}/>
+                        <div className='invalid-feedback'>
+                            Please select a valid wallet address
+                        </div>
+                        </span>
+                  </Form>
+                  </FormStyled>
+                  <ButtonStyled>
+                    <Button className='button'>
+                      Send
+                    </Button><br/>
+                    <Button className='button'onClick={handleShow}>Cancel</Button><br/><br/><br/>
+                  </ButtonStyled>
+                </Modal>
+                <Modal
+                  show={displayGift}
+                  onHide={handleGift}
+                  backdrop="static"
+                  keyboard={false}>
+                  <Modal.Header style={{border: 'none'}} closeButton></Modal.Header>
+                  <div style={{display: 'block', textAlign: 'center', marginBottom: '10px'}}>
+                    <h4 style={{textAlign: 'center'}}>Gift someone an NFT</h4><br/>
+                    <small>Please confirm that all infos supplied are correct</small>
+                  </div>
+                  <FormStyled>
+                  <Form style={{margin: '20px'}}>
+                      <span>
+                      <label for='typeValidation' class='form-label'>
+                     <small>Wallet type</small> 
+                     </label><br/>
+                        <select id='typeValidation' required style={{width: '100%', cursor:'pointer'}}>
+                            <option value='' disabled selected hidden>Select your receiver wallet type</option>
+                            <option value='ETH'>ETH</option>
+
+                        </select>
+                        <div className='invalid-feedback'>
+                            Please select a valid wallet type
+                        </div>
+                        </span>
+                        <span>
+                      <label for='typeValidation' class='form-label'>
+                     <small>Wallet Address</small> 
+                     </label><br/>
+                        <input type='text' class='form-select address' id='typeValidation' placeholder='Type your receiver wallet address here' required style={{width: '100%'}}/>
+                        <div className='invalid-feedback'>
+                            Please select a valid wallet type
+                        </div>
+                        </span>
+                  </Form>
+                  </FormStyled>
+                  <ButtonStyled>
+                    <Button className='button'>
+                      Send
+                    </Button><br/>
+                    <Button className='button'onClick={handleGiftShow}>Cancel</Button><br/><br/><br/>
+                  </ButtonStyled>
+                </Modal>
                 </div>
             </div> 
             </div>
@@ -59,5 +176,51 @@ const Metadata = () => {
     )
 }
 
+const FormStyled = styled.div`
+    select,
+    .address{
+        border: 1px solid #02AAB0;
+        background: #FFF;
+        padding:0.5em;
+        outline: none;
+        border-radius: 3px;
+        :hover{
+            outline: none;
+        }
+    }
+    
+`;
+
+const ButtonStyled = styled.div`
+display: flex;
+flex-direction: column;
+line-height: 10px;
+color: #02AAB0 !important;
+margin-right: 20px;
+margin-left: 20px;
+
+.button{
+    border: 1px solid #02AAB0;
+    background: #FFF;
+    color: #02AAB0;
+    &:last-child{
+        color: #02AAB0;
+        :hover{
+            color: #FFF;
+        }
+    }
+    :hover{
+        background: #02AAB0;
+        color: #FFF;
+    }
+    .link{
+        padding: 1em;
+        :hover{
+            color: #FFF;
+        }
+    }
+    
+}
+`;
 
 export default Metadata;

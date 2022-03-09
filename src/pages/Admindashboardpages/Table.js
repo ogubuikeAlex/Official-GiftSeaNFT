@@ -50,6 +50,10 @@ th{
   }
 }
 td{
+  font-size: 13px;
+  @media(max-width: 1045px){
+    font-size: 9px;
+  }
   @media(max-width: 900px){
     font-size: 11px;
   }
