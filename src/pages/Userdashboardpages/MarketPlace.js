@@ -102,11 +102,12 @@ function MarketPlace(props) {
           </div>
           <div className="content-tabs">
             <div id="content-tab"
-              className={toggleState === 1 ? "content  active-content" : "content"}>
-              {/* {
-                LoadingState == "Not-Loaded" ? <h1>Empty MArket</h1> : {availableItems}
-            } */}
+               className={toggleState === 1 ? "content  active-content" : "content"}>
+              {/* // {
+              //   LoadingState === "Not-Loaded" ? <h1>Empty MArket</h1> : { availableItems }
+              // } */} 
 
+               <DashCard />
               <DashCard />
               <DashCard />
               <DashCard />
@@ -116,8 +117,7 @@ function MarketPlace(props) {
               <DashCard />
               <DashCard />
               <DashCard />
-              <DashCard />
-              <DashCard />
+              <DashCard /> 
               {/* <div className='dashCards'>
               <ClickedButt/>
             <img src={unsplash}alt=""/>
