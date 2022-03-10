@@ -45,7 +45,7 @@ const Wrap = styled.div`
     color: black;
     display: flex;
     flex-direction: row;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
     justify-content: space-between;
     transition: all ease-in-out .4s;
     align-items: center;
@@ -78,7 +78,7 @@ const Dropdown = styled.div`
     background: #FDFDFD;
     padding: 2rem;
     p{
-        border-left:3px solid #00FFB9;
+        border-left: 1.2px solid #02AAB0;
         padding-left: 1.2em;
         text-align: justify;
         transition: ease-in-out .6s all;
@@ -129,11 +129,11 @@ const Toggler= () => {
     }
     
     return (
-        <IconContext.Provider value={{color: '#00FFB9', size: '25px'}}>
+        <IconContext.Provider value={{color: '#02AAB0', size: '25px'}}>
             <TogglerStyled>
             <FrequentQuestions>
             <h4>Quick answers to your questions</h4>
-            <h1>Frequently Asked <span>Questions</span></h1>
+            <h1>Frequently Asked<span>Questions</span></h1>
             </FrequentQuestions>
                     <Bounce>
                     <Container>
@@ -160,7 +160,6 @@ const Toggler= () => {
         </IconContext.Provider>
     );
 };
-
 
 
 export default Toggler;
