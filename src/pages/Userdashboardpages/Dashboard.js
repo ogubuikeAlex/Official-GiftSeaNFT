@@ -1,71 +1,70 @@
 import React from 'react'
-import {Dropdown} from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import history from '../../constants/data';
-import DashboardWrapper, {  DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
+import DashboardWrapper, { DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
 
 const Dashboard = (props) => {
     return (
         <DashboardRightStyled>
-        <DashboardWrapper>
-            <DashboardWrapperRight>
-                <div className="metamask-top">
-                    <div><i className='far fa-bell'></i></div>
-                    <div className='drop'>
-                        <div className='metaBroken'>
-                        <p>Metamask</p>
-                        <small>0x30bf5022C...</small>
-                        {/* <small>{props.currentUser}.splice()+"..."</small> */}
+            <DashboardWrapper>
+                <DashboardWrapperRight>
+                    <div className="metamask-top">
+                        <div><i className='far fa-bell'></i></div>
+                        <div className='drop'>
+                            <div className='metaBroken'>
+                                <p>Metamask</p>
+                                {/* <p> {props.currentUser.currentUser.slice(0, 6)}...{props.currentUser.currentUser.slice(-3)}</p> */}
+                            </div>
+                            <Dropdown>
+                                <Dropdown.Toggle id="dropdown-basic" style={{ background: '#fff', color: 'black', border: 'none', fontSize: '16px', marginLeft: '20px' }}>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu style={{ padding: '1em', boxShadow: '2px 1px 2px 2px #bbb', marginTop: '20px', marginRight: '-50px' }}>
+                                    <Dropdown.Item href="#/action-1">0x30bf5022C23461mtwe</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </div>
-                    <Dropdown>
-                        <Dropdown.Toggle id="dropdown-basic" style={{background: '#fff', color: 'black', border:'none', fontSize: '16px', marginLeft: '20px'}}>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu style={{padding: '1em', boxShadow:'2px 1px 2px 2px #bbb', marginTop:'20px', marginRight: '-50px'}}>
-                          <Dropdown.Item href="#/action-1">0x30bf5022C23461mtwe</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
+                    </div><br></br><br></br>
+                    <div className='myBalance'>Your Balance</div>
+                    <div className="balanceContainer">
+                        <div><p className='portBal'>Portfolio Balance</p></div>
+                        <div><p className='ethBal'>$23,300.00</p></div>
+                        <div className='ethcontainer'>
+                            <div>
+                                <div className='brands'>
+                                    <i className='fa-brands fa-ethereum'></i>
+                                </div>
+                            </div>
+                            <div className='myEth'>
+                                <p>4.48ETH</p>
+                            </div>
+                        </div>
                     </div>
-                </div><br></br><br></br>
-                <div className='myBalance'>Your Balance</div>
-                <div className="balanceContainer">
-                    <div><p className='portBal'>Portfolio Balance</p></div>
-                    <div><p className='ethBal'>$23,300.00</p></div>
-                    <div className='ethcontainer'>
-                        <div>
-                            <div className='brands'>
-                            <i className='fa-brands fa-ethereum'></i>
-                            </div>
+                    <HistoryStyled>
+                        <p className='history-title'>History</p>
+                        <div className='history'>
+                            {
+                                history.map((details) => {
+                                    return <div className='details' key={details.id}>
+                                        <div className='img'>
+                                            <img className='imgUrl' src={details.imgUrl} alt='' />
+                                            <div className='user'>
+                                                <p className='title'>{details.title}</p>
+                                                <p className='subtitle'>{details.subtitle}</p>
+                                            </div>
+                                        </div>
+                                        <div className='myDuration'>
+                                            <p className='duration'>{details.duration}</p>
+                                        </div>
+                                    </div>
+                                })
+                            }
                         </div>
-                        <div className='myEth'>
-                            <p>4.48ETH</p>
-                        </div>
-                    </div>
-                </div>
-                <HistoryStyled>
-                    <p className='history-title'>History</p>
-                <div className='history'>
-                    {
-                        history.map((details) => {
-                            return <div className='details' key={details.id}>
-                            <div className='img'>
-                                <img className='imgUrl' src={details.imgUrl} alt=''/>
-                            <div className='user'>
-                            <p className='title'>{details.title}</p>
-                            <p className='subtitle'>{details.subtitle}</p>
-                            </div>
-                            </div>
-                            <div className='myDuration'>
-                                <p className='duration'>{details.duration}</p>
-                            </div>
-                            </div>
-                        })                        
-                    }
-                </div>
-                <button className='seeall_btn'>See all</button>
-                </HistoryStyled>
-            </DashboardWrapperRight>
-        </DashboardWrapper>
+                        <button className='seeall_btn'>See all</button>
+                    </HistoryStyled>
+                </DashboardWrapperRight>
+            </DashboardWrapper>
         </DashboardRightStyled>
     )
 }

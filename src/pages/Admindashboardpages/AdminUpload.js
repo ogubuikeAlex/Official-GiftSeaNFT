@@ -6,8 +6,9 @@ import Card from '../../Components/Card'
 import ClickedButt from '../../Components/clickedButton/ClickedButt'
 import image1 from '../../img/latestNft.png';
 import DashboardWrapper, {  DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
+import PreviewCard from '../../Components/PreviewCard';
 
-const Dashboard = () => {
+const Dashboard = ({name, description, price, imageUrl}) => {
     return (
         <DashboardRightStyled>
         <DashboardWrapper>
@@ -23,7 +24,7 @@ const Dashboard = () => {
                         <Dropdown.Toggle id="dropdown-basic" style={{background: '#fff', color: 'black', border:'none', fontSize: '16px', marginLeft: '20px'}}>
                         </Dropdown.Toggle>
                         <Dropdown.Menu style={{padding: '1em', boxShadow:'2px 1px 2px 2px #bbb', marginTop:'20px', marginRight: '-50px'}}>
-                          <Dropdown.Item href="#/action-1">0x30bf5022C23461mtwe</Dropdown.Item>
+                          <Dropdown.Item href="#/action-1">0x30bf5022C23461456...</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     </div>
@@ -32,8 +33,12 @@ const Dashboard = () => {
                 <DashStyled>
                 <div id='dash' className='dashCards'>
                 <ClickedButt/>
-                <img src={image1}alt=""/>
-                <Card/>
+                <img src={imageUrl} alt=""/>
+                <PreviewCard
+                name = {name}
+                description = {description}
+                price = {price}
+                />
                 </div>
                 </DashStyled>
             </DashboardWrapperRight>

@@ -4,15 +4,15 @@ import Card from '../Components/Card'
 
 export default function DashCard (props) {
  return (
-    <div className='dashCards'>
-    <img src={unsplash}alt=""/>
-    {/* <img src={props.url}alt=""/> */}
+    <div className='dashCards'>    
+    <img src={props.url}alt=""/>
     <Card 
-    itemId = {props.itemId}
+        itemId = {props.itemId}
         name = {props.name}
         price = {props.price}
         total = {props.total}
         available = {props.available}
+        loadNFTs = {props.loadNFTs}
     />
     </div>
  )

@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, Router, Link, Outlet } from "react-router-dom";
+import { Navigate, Route, Routes} from "react-router-dom";
 import Homepage from "../Components/Homepage/Homepage";
 import AdminLayout from "../layout/Adminlayout";
 import MainLayout from "../layout/MainLayout";
@@ -14,7 +14,7 @@ import HeroSection from "../pages/Userdashboardpages/HeroSection";
 import CollectionMetadata from '../pages/Admindashboardpages/Metadatas/CollectionMetadata'
 import { propTypes } from "react-bootstrap/esm/Image";
 
-export default function MainRoutes({ isAuthenticated, connect }) {
+export default function MainRoutes({ isAuthenticated, connect, currentUser}) {
     return (
         <Routes>
             <Route>
@@ -22,21 +22,21 @@ export default function MainRoutes({ isAuthenticated, connect }) {
                     !isAuthenticated &&
                     <Route path="/" element={<Homepage connect={connect} />} />
                 }
-                {
+                {/* {
                     isAuthenticated &&
                     <Route path="/admindashboard" element={<AdminLayout />}>
                         <Route path="/admindashboard" index element={<AdminHero />} />
-                        <Route path="marketplace" element={<MarketPlace />}/>
+                        <Route path="marketplace" element={<MarketPlace />} />
                         <Route path="favourites" element={<Favourites />} />
                         <Route path="treasury" element={<Treasury />} />
                         <Route path="upload" element={<Upload />} />
                         <Route path="transactions" element={<Favourites />} />
                         <Route path="about" element={<CollectionMetadata />} />
                     </Route>
-                }
+                } */}
                 {
                     isAuthenticated &&
-                    <Route path="/userdashboard" element={<MainLayout currentUser ={propTypes.currentUser}/>}>
+                    <Route path="/userdashboard" element={<MainLayout currentUser={currentUser} />}>
                         <Route path="/userdashboard" index element={<HeroSection />} />
                         <Route path="marketplace" element={<MarketPlace />} />
                         <Route path="favourites" element={<Favourites />} />
@@ -46,7 +46,7 @@ export default function MainRoutes({ isAuthenticated, connect }) {
                     </Route>
                 }
             </Route>
-            <Route path="*" element={<Navigate to={isAuthenticated ? "/userdashboard" : "/"}/>}/>            
+            <Route path="*" element={<Navigate to={isAuthenticated ? "/userdashboard" : "/"} />} />
         </Routes>
     );
 } 

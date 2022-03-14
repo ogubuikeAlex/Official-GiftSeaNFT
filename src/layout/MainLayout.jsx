@@ -6,7 +6,9 @@ import TopNav from '../Components/topnav/TopNav'
 import Dashboard from '../pages/Userdashboardpages/Dashboard'
 import { propTypes } from 'react-bootstrap/esm/Image'
 
-const MainLayout = (props) => {
+const MainLayout = (currentUser) => {
+  //  console.log("@userLayout", currentUser)
+
     return (
         <>
             <Sidebar />
@@ -14,7 +16,7 @@ const MainLayout = (props) => {
                 <div className="main__content">
                     <TopNav />
                     <Outlet />
-                    <Dashboard currentUser={props.currentUser}/>
+                    <Dashboard currentUser={currentUser}/>
                 </div>
             </div>
         </>
