@@ -94,6 +94,7 @@ contract NFTMarket is ReentrancyGuard, Ownable {
         require(price > 0, "Price must be at least 1 wei");
 
         _itemIds.increment();
+        console.log(_itemIds.current());
         uint256 itemId = _itemIds.current();
 
         idToMarketItem[itemId] = MarketItem(

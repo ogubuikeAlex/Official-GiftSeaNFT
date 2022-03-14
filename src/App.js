@@ -28,6 +28,7 @@ const App = () => {
 
     if (accounts.length !== 0) {
       console.log(`Authorized Account found: ${accounts[0]}`);
+      setUserAccount(accounts[0])
       return true;
     }
     console.log("no account found ");
@@ -53,8 +54,9 @@ const App = () => {
     console.log("You have  an authenticated metamask wallet!");
 
     const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+    
     setUserAccount(accounts[0]);
-    setUserHasConnectedAccount(true);
+    setUserHasConnectedAccount(true);    
     navigate("/userdashboard")
   }  
 
