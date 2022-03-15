@@ -65,8 +65,8 @@ const MyCollectionCard = ({ name, available, total, price, url, itemId, descript
                     apy: "stuff",
                     weeklyValue: "weeklyValue",
                     total: "12",
-                    available: "2",                   
-            }
+                    available: "2",
+                }
             })} className='buyButton'>View</button>
 
         </CardStyled >
