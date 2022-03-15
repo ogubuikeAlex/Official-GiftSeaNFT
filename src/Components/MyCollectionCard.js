@@ -6,13 +6,14 @@ import roundedImgs1 from '../img/Ellipse 96.png';
 import roundedImgs2 from '../img/Ellipse 97.png';
 import roundedImgs3 from '../img/Ellipse 98.png';
 import roundedImgs4 from '../img/Ellipse 95.png';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { nftAddress, marketAddress } from "../config";
 import Nft from "../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
 import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
-const MyCollectionCard = ({ name, available, total, price, loadNfts, itemId, description }) => {
+const MyCollectionCard = ({ name, available, total, price, url, itemId, description }) => {
     let navigate = useNavigate();
+    console.log("MycollectionCard", description)
 
     //   async function buyNft(itemId, priice) {
     //     console.log("tryna buy");
@@ -53,18 +54,22 @@ const MyCollectionCard = ({ name, available, total, price, loadNfts, itemId, des
                     </div>
                 </div>
             </div>
-            
+
             <button onClick={() => navigate("metadata", {
-                name, 
-                dailyValue : "dailyValue",
-                apy : "apy",
-                weeklyValue: "weeklyValue",
-                total : "12",
-                available : "2",
-                description,
+                state: {
+                    name,
+                    url,
+                    description,
+                    itemId,
+                    dailyValue: "dailyValue",
+                    apy: "stuff",
+                    weeklyValue: "weeklyValue",
+                    total: "12",
+                    available: "2",                   
+            }
             })} className='buyButton'>View</button>
 
-        </CardStyled>
+        </CardStyled >
     )
 }
 

@@ -73,7 +73,6 @@ const UserCollection = (props) => {
       total={item.total}
       increase={item.percentIncrease}
       available={item.available}
-      loadNFTs={loadNFTs}
     />
   )
 

@@ -2,13 +2,15 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import successful from '../Modals/Modals_Images/Vector.png'
 import Dashboard from '../AdminUpload'
-import {Link} from 'react-router-dom'
+import {Link, useLocation } from 'react-router-dom'
 import woman from '../../../img/woman.png';
 import CollectionStyled from '../../../Styled-components/MetadataStyled'
 import {Modal, Form, Button} from 'react-bootstrap'
 
-const Metadata = (props) => {
-console.log(props)
+const Metadata = () => {
+    const location = useLocation();
+    console.log("---location", location.state);
+
     const [show, setShow] = useState(false);
     const [displayGift, setGift] = useState(false)
 
@@ -16,27 +18,7 @@ console.log(props)
     const handleShow = () => setShow(true);
 
     const handleGift = () => setGift(false);
-    const handleGiftShow = () => setGift(true);
-
-    // (function () {
-        // 'use strict'
-      
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    //     var forms = document.querySelectorAll('.needs-validation')
-      
-    //     // Loop over them and prevent submission
-    //     Array.prototype.slice.call(forms)
-    //       .forEach(function (form) {
-    //         form.addEventListener('submit', function (event) {
-    //           if (!form.checkValidity()) {
-    //             event.preventDefault()
-    //             event.stopPropagation()
-    //           }
-      
-    //           form.classList.add('was-validated')
-    //         }, false)
-    //       })
-    //   })()
+    const handleGiftShow = () => setGift(true);   
 
     return (
         <div>
