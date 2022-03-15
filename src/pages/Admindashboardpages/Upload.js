@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Navigate } from "react-router-dom";
 import AdminUpload from '../Admindashboardpages/AdminUpload'
 import UploadStyled from '../../Styled-components/UploadStyled'
 import { create as ipfsHttpClient } from 'ipfs-http-client';
@@ -79,8 +80,8 @@ const Upload = () => {
 
             transaction = await contract.createMarketItem(nftAddress, tokenId, price)
             await transaction.wait()
-            console.log("oya go to market place")
-            // router.push('/')
+            console.log("oya go to market place");           
+            <Navigate to={"/"} />
         }
     }
 

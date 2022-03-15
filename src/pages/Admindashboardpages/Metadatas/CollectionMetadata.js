@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import successful from '../Modals/Modals_Images/Vector.png'
-import Dashboard from '../../Userdashboardpages/Dashboard'
+import Dashboard from '../AdminUpload'
 import {Link} from 'react-router-dom'
 import woman from '../../../img/woman.png';
 import CollectionStyled from '../../../Styled-components/MetadataStyled'
 import {Modal, Form, Button} from 'react-bootstrap'
 
-const Metadata = () => {
-
+const Metadata = (props) => {
+console.log(props)
     const [show, setShow] = useState(false);
     const [displayGift, setGift] = useState(false)
 
@@ -42,7 +42,7 @@ const Metadata = () => {
         <div>
             <CollectionStyled>
             <div style={{display: 'flex'}}>
-            <Link to='../collections'><i className='fas fa-arrow-left' style={{marginLeft: '10px', cursor: 'pointer', fontWeight: '600', width: '21px', marginTop:'10px'}}></i>&nbsp; &nbsp; </Link>
+            <Link to='./collections'><i className='fas fa-arrow-left' style={{marginLeft: '10px', cursor: 'pointer', fontWeight: '600', width: '21px', marginTop:'10px'}}></i>&nbsp; &nbsp; </Link>
             <p style={{fontFamily: 'Inter', fontSize: '24px', fontWeight: '500' }}>My Collection / NFT Metadata</p>
             </div>
             <div className='metadata_container'>

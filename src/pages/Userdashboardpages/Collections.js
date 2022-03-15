@@ -15,126 +15,142 @@ import DashCard from "../../Components/dashCard"; import axios from "axios"
 import { nftAddress, marketAddress } from "../../config";
 import Nft from "../../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
 import Market from "../../artifacts/contracts/Market.sol/NFTMarket.json";
+import MyCollectionCard from '../../Components/collectionDashCard';
+import CollectionDashCard from '../../Components/collectionDashCard';
+import { Outlet } from 'react-router-dom';
 
 const Collections = (props) => {
-  const [toggleState, setToggleState] = useState(1);
-  const [marketitems, setMarketItems] = useState([]);
-  const [LoadingState, setLoadingState] = useState("Not-Loaded");
-  const [userAccount, setUserAccount] = useState("")
 
-  async function loadNFTs() {
-    console.log(1)
-    const { ethereum } = window;
+  return ( <Outlet />)
+  // const [toggleState, setToggleState] = useState(1);
+  // const [marketitems, setMarketItems] = useState([]);
+  // const [LoadingState, setLoadingState] = useState("Not-Loaded");
+  // const [userAccount, setUserAccount] = useState("")
 
-    if (ethereum) {
-      const provider = new ethers.providers.Web3Provider(ethereum);
-      const signer = provider.getSigner();
-      const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
-      const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
-      setUserAccount(props.user);
-      console.log(props.user)
+  // async function loadNFTs() {
+  //   console.log(1)
+  //   const { ethereum } = window;
 
-      let marketItems = await MARKET.fetchMyNFTs(props.user);
+  //   if (ethereum) {
+  //     console.log(2)
+  //     const provider = new ethers.providers.Web3Provider(ethereum);
+  //     console.log(3)
+  //     const signer = provider.getSigner();
+  //     console.log(4)
+  //     const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
+  //     console.log(4)
+  //     const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
+  //     console.log(5)
+  //     setUserAccount(props.currentUser);
+  //     console.log(6)
+  //     console.log("uhmm", props.currentUser)
+  //     console.log(7)
+  //     let marketItems = await MARKET.fetchMyNFTs(props.currentUser);
+  //     console.log(8)
+  //     let items = await Promise.all(marketItems.map(async i => {
 
-      let items = await Promise.all(marketItems.map(async i => {
+  //       const tokenUri = await NFT.tokenURI(i.tokenId);
+  //       const meta = await axios.get(tokenUri)
+  //       console.log("from marketPlace", meta.data)
+  //       console.log("from marketPlace", tokenUri)
+  //       let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
 
-        const tokenUri = await NFT.tokenURI(i.tokenId);
-        const meta = await axios.get(tokenUri)
-        console.log("from marketPlace", meta.data)
-        console.log("from marketPlace", tokenUri)
-        let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
+  //       let item = {
+  //         price,
+  //         itemId: i.itemId.toNumber(),
+  //         owner: i.owner,
+  //         image: meta.data.image,
+  //         name: meta.data.name,
+  //         description: meta.data.description,
+  //         percentIncrease: meta.data.PercentIncrease,
+  //         total: meta.data.TotalQuantity,
+  //         available: meta.data.AmountLeft
+  //       }
 
-        let item = {
-          price,
-          itemId: i.itemId.toNumber(),
-          owner: i.owner,
-          image: meta.data.image,
-          name: meta.data.name,
-          description: meta.data.description,
-          percentIncrease: meta.data.PercentIncrease,
-          total: meta.data.TotalQuantity,
-          available: meta.data.AmountLeft
-        }
+  //       return item
+  //     }));
 
-        return item
-      }));
+  //     setMarketItems(items);
+  //     setLoadingState("loaded");
+  //   }
+  // }
 
-      setMarketItems(items);
-      setLoadingState("loaded");
-    }
-  }
+  // let availableItems = marketitems.map(item =>
+  //   <CollectionDashCard
+  //     url={item.image}
+  //     name={item.name}
+  //     price={item.price}
+  //     itemId={item.itemId}
+  //     owner={item.owner}
+  //     description={item.description}
+  //     total={item.total}
+  //     increase={item.percentIncrease}
+  //     available={item.available}
+  //     loadNFTs={loadNFTs}
+  //   />
+  // )
 
-  let availableItems = marketitems.map(item =>
-    <DashCard
-      url={item.image}
-      name={item.name}
-      price={item.price}
-      itemId={item.itemId}
-      owner={item.owner}
-      description={item.description}
-      total={item.total}
-      increase={item.percentIncrease}
-      available={item.available}
-      loadNFTs={loadNFTs}
-    />
-  )
+  // console.log(availableItems)
+  // useEffect(() => loadNFTs(), []);
 
-  console.log(availableItems)
-  useEffect(() => loadNFTs(), []);
+  // const toggleTab = (index) => {
+  //   setToggleState(index);
+  // };
+  // return (
+  //   <div>
+  //     <CollectionStyled>
+  //       <h4 style={{ marginLeft: '20px', fontWeight: '600' }}>Your Collection</h4>
+  //       <div className="container">
+  //         <div className="bloc-tabs">
+  //           <button
+  //             className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+  //             onClick={() => toggleTab(1)}>
+  //             Unmatured NFTs
+  //           </button>
+  //           <button
+  //             className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+  //             onClick={() => toggleTab(2)}>
+  //             Mature NFTs
+  //           </button>
+  //         </div>
+  //         <div className="content-tabs">
+  //           <div id="content-tab"
+  //             className={toggleState === 1 ? "content  active-content" : "content"}>
+  //             {/* <div className='dashCards'>
+  //               <ClickedButt />
+  //               <img src={unsplash} alt="" />
+  //               <Card />
+  //             </div>
+  //             <div className='dashCards'>
+  //               <ClickedButt />
+  //               <img src={image2} alt="" />
+  //               <Card />
+  //             </div> */}
 
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
-  return (
-    <div>
-      <CollectionStyled>
-        <h4 style={{ marginLeft: '20px', fontWeight: '600' }}>Your Collection</h4>
-        <div className="container">
-          <div className="bloc-tabs">
-            <button
-              className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
-              onClick={() => toggleTab(1)}>
-              Unmatured NFTs
-            </button>
-            <button
-              className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-              onClick={() => toggleTab(2)}>
-              Mature NFTs
-            </button>
-          </div>
-          <div className="content-tabs">
-            <div id="content-tab"
-              className={toggleState === 1 ? "content  active-content" : "content"}>
-              <div className='dashCards'>
-                <ClickedButt />
-                <img src={unsplash} alt="" />
-                <Card />
-              </div>
-              <div className='dashCards'>
-                <ClickedButt />
-                <img src={image2} alt="" />
-                <Card />
-              </div>
-            </div>
-            <div id="content-tab"
-              className={toggleState === 2 ? "content  active-content" : "content"}>
-              <div className='dashCards'>
-                <ClickedButt />
-                <img src={image1} alt="" />
-                <Card />
-              </div>
-              <div className='dashCards'>
-                <ClickedButt />
-                <img src={unsplash} alt="" />
-                <Card />
-              </div>
-            </div>
-          </div>
-        </div>
-      </CollectionStyled>
+  //             {
+  //               LoadingState === "Not-Loaded" ? <h1>Empty MArket</h1> : availableItems
+  //             }
+  //           </div>
+  //           <div id="content-tab"
+  //             className={toggleState === 2 ? "content  active-content" : "content"}>
+  //             {/* <div className='dashCards'>
+  //               <ClickedButt />
+  //               <img src={image1} alt="" />
+  //               <Card />
+  //             </div>
+  //             <div className='dashCards'>
+  //               <ClickedButt />
+  //               <img src={unsplash} alt="" />
+  //               <Card />
+  //             </div> */}
 
-    </div>
-  )
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </CollectionStyled>
+
+  //   </div>
+  // )
 }
 
 export default Collections

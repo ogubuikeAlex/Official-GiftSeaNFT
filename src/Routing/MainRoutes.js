@@ -11,8 +11,9 @@ import Contact from "../pages/Userdashboardpages/Contact";
 import Favourites from "../pages/Userdashboardpages/Favourites";
 import MarketPlace from "../pages/Userdashboardpages/MarketPlace";
 import HeroSection from "../pages/Userdashboardpages/HeroSection";
-import CollectionMetadata from '../pages/Admindashboardpages/Metadatas/CollectionMetadata'
 import { propTypes } from "react-bootstrap/esm/Image";
+import UserCollection from "../pages/Userdashboardpages/Collection/UserCollection";
+import Metadata from "../pages/Admindashboardpages/Metadatas/CollectionMetadata";
 
 export default function MainRoutes({ isAuthenticated, connect, currentUser}) {
     return (
@@ -40,7 +41,10 @@ export default function MainRoutes({ isAuthenticated, connect, currentUser}) {
                         <Route path="/userdashboard" index element={<HeroSection />} />
                         <Route path="marketplace" element={<MarketPlace />} />
                         <Route path="favourites" element={<Favourites />} />
-                        <Route path="collections" element={<Collections />} />
+                        <Route path="collections">
+                            <Route index element={<UserCollection currentUser ={currentUser}/>} />                            
+                            <Route path="metadata" element={<Metadata />} />
+                        </Route>
                         <Route path="contact" element={<Contact />} />
                         <Route path="about" element={<About />} />
                     </Route>
