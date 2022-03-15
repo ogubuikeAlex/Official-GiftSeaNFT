@@ -1,14 +1,25 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import successful from '../Modals/Modals_Images/Vector.png'
 import Dashboard from '../AdminUpload'
-import {Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import woman from '../../../img/woman.png';
 import CollectionStyled from '../../../Styled-components/MetadataStyled'
-import {Modal, Form, Button} from 'react-bootstrap'
+import { Modal, Form, Button } from 'react-bootstrap'
 
 const Metadata = () => {
     const location = useLocation();
+    const {
+        name,
+        url,
+        description,
+        itemId,
+        dailyValue,
+        apy,
+        weeklyValue,
+        total,
+        available
+    } = location.state;
     console.log("---location", location.state);
 
     const [show, setShow] = useState(false);
@@ -18,141 +29,141 @@ const Metadata = () => {
     const handleShow = () => setShow(true);
 
     const handleGift = () => setGift(false);
-    const handleGiftShow = () => setGift(true);   
+    const handleGiftShow = () => setGift(true);
 
     return (
         <div>
             <CollectionStyled>
-            <div style={{display: 'flex'}}>
-            <Link to='./collections'><i className='fas fa-arrow-left' style={{marginLeft: '10px', cursor: 'pointer', fontWeight: '600', width: '21px', marginTop:'10px'}}></i>&nbsp; &nbsp; </Link>
-            <p style={{fontFamily: 'Inter', fontSize: '24px', fontWeight: '500' }}>My Collection / NFT Metadata</p>
-            </div>
-            <div className='metadata_container'>
-            <div style={{display: 'block'}}>
-                <img src={woman} alt='woman'/>
-                <div className='nftContainer'>
-                <div className='text-container' style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <p className='listedNFT'>Africana NFTs  &nbsp; <span style={{fontSize: '14px', fontWeight: '600'}}>#128</span></p>
-                    <div className='giftCollection'>
-                    <Link to=''><button className='Buy' onClick={handleShow}>Sell</button></Link>&nbsp;&nbsp;
-                    <Link to=''><button className='Buy' onClick={handleGiftShow}>GIft</button></Link>
-                    </div>
+                <div style={{ display: 'flex' }}>
+                    <Link to='./collections'><i className='fas fa-arrow-left' style={{ marginLeft: '10px', cursor: 'pointer', fontWeight: '600', width: '21px', marginTop: '10px' }}></i>&nbsp; &nbsp; </Link>
+                    <p style={{ fontFamily: 'Inter', fontSize: '24px', fontWeight: '500' }}>My Collection / NFT Metadata</p>
                 </div>
-                <div className='gridContainer'>
-                    <div style={{display: 'block'}}>
-                        <p className='title'>APY/ROI</p>
-                        <p className='details'>0.530ETH</p>
-                    </div>
-                    <div style={{display: 'block'}}>
-                        <p className='title'>Daily Value</p>
-                        <p className='details'>0.530ETH</p>
-                    </div>
-                    <div style={{display: 'block'}}>
-                        <p className='title'>Weekly Value</p>
-                        <p className='details'>0.530ETH</p>
-                    </div>
-                    <div style={{display: 'block'}}>
-                        <p className='title'>Holders</p>
-                        <p className='details'>2 out of 12</p>
-                    </div>
-                </div>
-                <div className='contents'>
-                    <p className='description'>Description</p>
-                    <p>
-                    This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him<br></br><br></br>
-                    This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to himThis beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him.
-                    </p>
-                    <Modal
-                  show={show}
-                  onHide={handleClose}
-                  backdrop="static"
-                  keyboard={false}>
-                  <Modal.Header style={{border: 'none'}} closeButton></Modal.Header>
-                  <div style={{display: 'block', textAlign: 'center', marginBottom: '10px'}}>
-                    <h4 style={{textAlign: 'center'}}>Sell your NFT</h4><br/>
-                    <small>Please confirm that all infos supplied are correct</small>
-                  </div>
-                  <FormStyled>
-                  <Form style={{margin: '20px'}}>
-                      <span>
-                      <label for='typeValidation' class='form-label'>
-                     <small>Wallet type</small> 
-                     </label><br/>
-                        <select id='typeValidation' required style={{width: '100%', cursor:'pointer'}}>
-                            <option value='' disabled selected hidden>Select your receiver wallet type</option>
-                            <option value='ETH'>ETH</option>
-                        </select>
-                        <div className='invalid-feedback'>
-                            Please select a valid wallet type
-                        </div>
-                        </span>
-                        <span>
-                      <label for='typeValidation' class='form-label'>
-                     <small>Wallet Address</small> 
-                     </label><br/>
-                        <input type='text' placeholder='Type your receiver wallet address' class='form-text address' id='typeValidation' required style={{width: '100%'}}/>
-                        <div className='invalid-feedback'>
-                            Please select a valid wallet address
-                        </div>
-                        </span>
-                  </Form>
-                  </FormStyled>
-                  <ButtonStyled>
-                    <Button className='button'>
-                      Send
-                    </Button><br/>
-                    <Button className='button'onClick={handleShow}>Cancel</Button><br/><br/><br/>
-                  </ButtonStyled>
-                </Modal>
-                <Modal
-                  show={displayGift}
-                  onHide={handleGift}
-                  backdrop="static"
-                  keyboard={false}>
-                  <Modal.Header style={{border: 'none'}} closeButton></Modal.Header>
-                  <div style={{display: 'block', textAlign: 'center', marginBottom: '10px'}}>
-                    <h4 style={{textAlign: 'center'}}>Gift someone an NFT</h4><br/>
-                    <small>Please confirm that all infos supplied are correct</small>
-                  </div>
-                  <FormStyled>
-                  <Form style={{margin: '20px'}}>
-                      <span>
-                      <label for='typeValidation' class='form-label'>
-                     <small>Wallet type</small> 
-                     </label><br/>
-                        <select id='typeValidation' required style={{width: '100%', cursor:'pointer'}}>
-                            <option value='' disabled selected hidden>Select your receiver wallet type</option>
-                            <option value='ETH'>ETH</option>
+                <div className='metadata_container'>
+                    <div style={{ display: 'block' }}>
+                        <img src={woman} alt='woman' />
+                        <div className='nftContainer'>
+                            <div className='text-container' style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <p className='listedNFT'>Africana NFTs  &nbsp; <span style={{ fontSize: '14px', fontWeight: '600' }}>#128</span></p>
+                                <div className='giftCollection'>
+                                    <Link to=''><button className='Buy' onClick={handleShow}>Sell</button></Link>&nbsp;&nbsp;
+                                    <Link to=''><button className='Buy' onClick={handleGiftShow}>GIft</button></Link>
+                                </div>
+                            </div>
+                            <div className='gridContainer'>
+                                <div style={{ display: 'block' }}>
+                                    <p className='title'>APY/ROI</p>
+                                    <p className='details'>0.530ETH</p>
+                                </div>
+                                <div style={{ display: 'block' }}>
+                                    <p className='title'>Daily Value</p>
+                                    <p className='details'>0.530ETH</p>
+                                </div>
+                                <div style={{ display: 'block' }}>
+                                    <p className='title'>Weekly Value</p>
+                                    <p className='details'>0.530ETH</p>
+                                </div>
+                                <div style={{ display: 'block' }}>
+                                    <p className='title'>Holders</p>
+                                    <p className='details'>2 out of 12</p>
+                                </div>
+                            </div>
+                            <div className='contents'>
+                                <p className='description'>Description</p>
+                                <p>
+                                    This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him<br></br><br></br>
+                                    This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to himThis beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him.
+                                </p>
+                                <Modal
+                                    show={show}
+                                    onHide={handleClose}
+                                    backdrop="static"
+                                    keyboard={false}>
+                                    <Modal.Header style={{ border: 'none' }} closeButton></Modal.Header>
+                                    <div style={{ display: 'block', textAlign: 'center', marginBottom: '10px' }}>
+                                        <h4 style={{ textAlign: 'center' }}>Sell your NFT</h4><br />
+                                        <small>Please confirm that all infos supplied are correct</small>
+                                    </div>
+                                    <FormStyled>
+                                        <Form style={{ margin: '20px' }}>
+                                            <span>
+                                                <label for='typeValidation' class='form-label'>
+                                                    <small>Wallet type</small>
+                                                </label><br />
+                                                <select id='typeValidation' required style={{ width: '100%', cursor: 'pointer' }}>
+                                                    <option value='' disabled selected hidden>Select your receiver wallet type</option>
+                                                    <option value='ETH'>ETH</option>
+                                                </select>
+                                                <div className='invalid-feedback'>
+                                                    Please select a valid wallet type
+                                                </div>
+                                            </span>
+                                            <span>
+                                                <label for='typeValidation' class='form-label'>
+                                                    <small>Wallet Address</small>
+                                                </label><br />
+                                                <input type='text' placeholder='Type your receiver wallet address' class='form-text address' id='typeValidation' required style={{ width: '100%' }} />
+                                                <div className='invalid-feedback'>
+                                                    Please select a valid wallet address
+                                                </div>
+                                            </span>
+                                        </Form>
+                                    </FormStyled>
+                                    <ButtonStyled>
+                                        <Button className='button'>
+                                            Send
+                                        </Button><br />
+                                        <Button className='button' onClick={handleShow}>Cancel</Button><br /><br /><br />
+                                    </ButtonStyled>
+                                </Modal>
+                                <Modal
+                                    show={displayGift}
+                                    onHide={handleGift}
+                                    backdrop="static"
+                                    keyboard={false}>
+                                    <Modal.Header style={{ border: 'none' }} closeButton></Modal.Header>
+                                    <div style={{ display: 'block', textAlign: 'center', marginBottom: '10px' }}>
+                                        <h4 style={{ textAlign: 'center' }}>Gift someone an NFT</h4><br />
+                                        <small>Please confirm that all infos supplied are correct</small>
+                                    </div>
+                                    <FormStyled>
+                                        <Form style={{ margin: '20px' }}>
+                                            <span>
+                                                <label for='typeValidation' class='form-label'>
+                                                    <small>Wallet type</small>
+                                                </label><br />
+                                                <select id='typeValidation' required style={{ width: '100%', cursor: 'pointer' }}>
+                                                    <option value='' disabled selected hidden>Select your receiver wallet type</option>
+                                                    <option value='ETH'>ETH</option>
 
-                        </select>
-                        <div className='invalid-feedback'>
-                            Please select a valid wallet type
+                                                </select>
+                                                <div className='invalid-feedback'>
+                                                    Please select a valid wallet type
+                                                </div>
+                                            </span>
+                                            <span>
+                                                <label for='typeValidation' class='form-label'>
+                                                    <small>Wallet Address</small>
+                                                </label><br />
+                                                <input type='text' class='form-select address' id='typeValidation' placeholder='Type your receiver wallet address here' required style={{ width: '100%' }} />
+                                                <div className='invalid-feedback'>
+                                                    Please select a valid wallet type
+                                                </div>
+                                            </span>
+                                        </Form>
+                                    </FormStyled>
+                                    <ButtonStyled>
+                                        <Button className='button'>
+                                            Send
+                                        </Button><br />
+                                        <Button className='button' onClick={handleGiftShow}>Cancel</Button><br /><br /><br />
+                                    </ButtonStyled>
+                                </Modal>
+                            </div>
                         </div>
-                        </span>
-                        <span>
-                      <label for='typeValidation' class='form-label'>
-                     <small>Wallet Address</small> 
-                     </label><br/>
-                        <input type='text' class='form-select address' id='typeValidation' placeholder='Type your receiver wallet address here' required style={{width: '100%'}}/>
-                        <div className='invalid-feedback'>
-                            Please select a valid wallet type
-                        </div>
-                        </span>
-                  </Form>
-                  </FormStyled>
-                  <ButtonStyled>
-                    <Button className='button'>
-                      Send
-                    </Button><br/>
-                    <Button className='button'onClick={handleGiftShow}>Cancel</Button><br/><br/><br/>
-                  </ButtonStyled>
-                </Modal>
+                    </div>
                 </div>
-            </div> 
-            </div>
-            </div>
             </CollectionStyled>
-            <Dashboard/>
+            <Dashboard />
         </div>
 
     )
