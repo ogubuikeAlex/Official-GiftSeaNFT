@@ -9,6 +9,10 @@ const NFTContainerStyled = styled.div`
     background: #FFF;
     padding: 0.8em;
     transform: translateX(10px);
+    @media only screen and (max-width: 1440px) and (min-width: 1366px){
+        height: fit-content;
+        width: 100%;
+    }
     @media only screen and (max-width: 1316px){
         width: 100%;
         height: fit-content;
@@ -23,11 +27,22 @@ const NFTContainerStyled = styled.div`
         grid-template-columns: repeat(1, 1fr);
 
     }
+    @media only screen and (max-width: 1045px){
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+    @media only screen and (max-width: 1000px){
+        grid-template-columns: repeat(1, 1fr);
+      }
     @media only screen and (max-width: 768px){
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    
+    @media only screen and (max-width: 600px){
+        grid-template-columns: repeat(1, 1fr);
+    }
     @media only screen and (max-width: 540px){
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -35,6 +50,11 @@ const NFTContainerStyled = styled.div`
         :hover{
             box-shadow: 0px 20px 20px 0px #3333331A;
         }
+    }
+    @media only screen and (max-width: 375px){
+        width: calc(100% + 30px);
+        transform: translateX(0px);
+
     }
 }
 
@@ -49,18 +69,31 @@ const NFTContainerStyled = styled.div`
     @media(max-width: 1220px){
         width: 100%;
     }
-    @media(max-width: 1045px)and(min-width: 900px){
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: calc(100% + 17%);
-    }
     @media (max-width: 1080px){
         display: grid;
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (max-width: 1045px){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (max-width: 1000px){
         grid-template-columns: repeat(1, 1fr);
+        height: fit-content;
+        width: 65%;
+        transform: translateX(75px);
+      }
+    @media(max-width: 900px){
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        transform: translateX(65px);
+        width: 70%;
     }
     @media only screen and (max-width: 849px){
         grid-template-columns: repeat(2, 1fr);
-        margin-left: -30px;
+        width: calc(100% + 30%);
+        transform: translateX(-30px);
     }
     @media only screen and (max-width: 825px){
         grid-template-columns: repeat(1, 1fr);
@@ -76,15 +109,19 @@ const NFTContainerStyled = styled.div`
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
+    @media only screen and (max-width: 600px){
+        width: 60%;
+        transform: translateX(95px);
+    }
     @media only screen and (max-width: 540px){
         grid-template-columns: repeat(1, 1fr);
         width: 80%;
-        transform: translateX(80px);
+        transform: translateX(30px);
         justify-content: center;
     }
     @media(max-width:400px){
         width: 100%;
-        transform: translateX(30px);
+        transform: translateX(-40px);
     }
     .dashCards{
         padding:0.6em;
@@ -92,9 +129,17 @@ const NFTContainerStyled = styled.div`
         border-radius: 20px;
         margin: 10px;
         box-shadow: 0px 10px 30px 0px #0000001A;
+        @media(max-width: 1366px){
+            width: 90%;
+            transform: translateX(-10px);
+        }
+        @media only screen and (max-width: 1280px){
+            transform: translateX(8px);
+        }
         @media(max-width: 1220px){
             width: 100%;
             font-size: 14px;
+            transform: translateX(-15px);
         }
         @media(max-width: 1138px){
             width: 100%;
@@ -102,11 +147,11 @@ const NFTContainerStyled = styled.div`
             font-weight: 500;
         }
         @media(max-width: 1080px){
-            width: 65%;
-            transform: translateX(55px);
+            width: 100%;
+            transform: translateX(-10px);
             font-size: 16px;
             font-weight: 600;
-        }
+        }        
         @media(max-width: 950px){
             font-size: 13px;
             width: 70%;
@@ -116,8 +161,8 @@ const NFTContainerStyled = styled.div`
             font-size: 10px;
         }
         @media(max-width: 918px){
-            width: 85%;
-            margin-left: -35px;
+            width: 100%;
+            margin-left: 0;
         }
         @media(max-width: 849px){
             width: 100%;
@@ -147,6 +192,7 @@ const NFTContainerStyled = styled.div`
         }
 }
 .text-container{
+    text-align: justify;
     @media only screen and (max-width: 1316px){
         width: 100%;
     }
@@ -159,12 +205,16 @@ const NFTContainerStyled = styled.div`
 }
 .woman{
     height: 316px;
-    width: 320px;
+    width: 100%;
+    object-fit: cover;
     border-radius: 3px;
     @media only screen and (max-width: 1316px){
         width: 100%;
     }
     @media(max-width: 1220px){
+        width: 100%;
+    }
+    @media only screen and (max-width: 1045px){
         width: 100%;
     }
     @media(max-width: 540px){
@@ -173,12 +223,18 @@ const NFTContainerStyled = styled.div`
 }
 .listedNFT{
     width: 175px;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 500;
     font-family: 'inter';
     line-height: 29px;
 }
 .ether{
+    @media only screen and (max-width: 1045px){
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+
+    }
     @media(max-width: 540px){
         margin-top:40px;
     }
@@ -194,7 +250,7 @@ const NFTContainerStyled = styled.div`
     height: 29px;
     width: 162px;
     font-family: 'Inter';
-    font-size: 24px;
+    font-size: 16x;
     font-weight: 500;
     line-height: 29px;
     text-align: left;
@@ -210,7 +266,7 @@ const NFTContainerStyled = styled.div`
     font-size: 12px;
     font-weight: 400;
     line-height: 20px;
-    text-align: left;
+    text-align: justify;
     color: #888888;
     @media only screen and (max-width: 1165px){
         width: 100%;
@@ -236,7 +292,7 @@ const NFTContainerStyled = styled.div`
     height: 30px;
     width: 120px;
     font-family: 'inter';
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: 30px;

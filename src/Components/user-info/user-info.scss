@@ -2,34 +2,76 @@
 
 .search{
     @include flex(center, flex-start);
-    padding:0;
+    object-fit: contain;
     margin-left: -20px;
+    width: 718.99px;
+    @media only screen and (max-width: 1400px){
+        transform: translateX(-14px);
+        width: 690px;
+    }
+    @media only screen and (max-width: 1377px){
+        transform: translateX(-10px);
+        width: 600px;
+    }
+@media only screen and (max-width: 1366px){
+    width: 590px;
+}
+@media only screen and (max-width: 1340px){
+    transform: translateX(-25px);
+}
+@media only screen and (max-width: 1316px){
+    height: fit-content;
+    margin-left:-15px;
+}
+@media only screen and (max-width: 1310px){
+    margin-left:-17px;
+}
+@media only screen and (max-width: 1280px){
+    margin-left: -16px;
+}
+@media only screen and (max-width: 1255px){
+    margin-left:-18px;
+  }
+@media only screen and (max-width: 1165px){
+    margin-left: -45px;
+}
+@media only screen and (max-width: 1120px){
+    margin-left: -55px;
+}
+@media only screen and (max-width: 1100px){
+    margin-left: -28px;
+  }
+@media(max-width: 1080px){
+    margin-left: -35px;
+}
+@media only screen and (max-width: 1045px){
+    margin-left: -110px;
+    width: 87%;
+}
+@media only screen and (max-width: 1000px){
+    margin-left: -110px;
+}
+@media(max-width: 918px){
+    margin-left: -118px;
+}
+@media(max-width: 900px){
+    margin-left: -125px;
+    width: 86%;
+}
+@media(max-width: 849px){
     width: 100%;
-    @media only screen and (max-width: 1360px){
-        margin-left: -35px;
-    }
-    @media only screen and (max-width: 1328px){
-        margin-left: -45px;
-    }
-    @media only screen and (max-width: 1316px){
-        width: 100%;
-    }
-    @media only screen and (max-width: 1120px){
-        margin-left: -45px;
-    }
-    @media(max-width: 1080px){
-        margin-left: -55px;
-    }
-    @media(max-width: 890px){
-        width:100%;
-    }
-    @media only screen and (max-width: 768px){
-        margin-left: -30px;
-    }
+    transform: translateX(40px);
+}
+@media only screen and (max-width: 768px){
+    margin-left: -70px;
+}
+@media(max-width: 540px){
+    width: 100%;
+}
     
     
     input{
-        width: 591.59px;
+        width: 600px;
         height: 44px;
         margin-right: 4px;
         border-radius: 3px;
@@ -38,60 +80,112 @@
         padding-right: 20px;
         outline: none;
         @media only screen and (max-width: 1360px){
-            width: 540px;
+            width: 560px;
         }
         @media only screen and (max-width: 1328px){
             width:530px;
         }
         @media only screen and (max-width: 1316px){
+            width: 530px;
+        }
+        @media only screen and (max-width: 1340px){
+            width: 510px;
+        }
+        @media only screen and (max-width: 1280px){
+            width: 496px;
+        }
+        @media only screen and (max-width: 1260px){
             width: 480px;
+        }
+        @media only screen and (max-width: 1250px){
+            width: 470px;
+        }
+        @media only screen and (max-width: 1230px){
+            width: 445px;
         }
         @media only screen and (max-width: 1220px){
             width: 440px;
         }
-        @media only screen and (max-width: 1165px){
-            max-width: 70%;
-        }
-        @media(max-width: 1080px){
-            width:400px;
-        }
-        @media(max-width: 1045px){
-            width: calc(100% + 20px);
-        }
-        @media only screen and (max-width: 1040px){
+        @media only screen and (max-width: 1185px){
             width: 420px;
         }
-        @media(max-width: 932px){
-            margin-left: -25px;
+        @media only screen and (max-width: 1165px){
+            width: 400px;
         }
-        @media(max-width: 918px){
-            margin-left: -35px;
+        @media only screen and (max-width: 1138px){
+            width: 380px;
+        }
+        @media only screen and (max-width: 1100px){
+            width: 360px;
+        }
+        @media(max-width: 1080px){
+            width:340px;
+        }
+        @media only screen and (max-width: 1066px){
+            width: 330px;
+        }
+        @media(max-width: 1045px){
+            width: 450px;
+        }
+        @media only screen and (max-width: 1040px){
+            width: 450px;
+        }
+        @media only screen and (max-width: 1000px){
+            width: 400px;
+        }
+        @media only screen and (max-width: 950px){
+            width: 350px;
+        }
+        @media only screen and (max-width: 900px){
+            width: 330px;
+        }
+        @media only screen and (max-width: 860px){
+            width: 290px;
         }
         @media(max-width: 849px){
-            width: 400px;
+            width: 340px;
             margin-left: 5px;
         }
+        @media only screen and (max-width: 825px){
+            width: 320px;
+        }
+        @media only screen and (max-width: 800px){
+            width: 300px;
+        }
+        @media only screen and (max-width: 775px){
+            width: 280px;
+        }
         @media only screen and (max-width: 768px){
-            width: 600px;
+            width: 570px;
         }
         @media only screen and (max-width: 600px){
-            width: 500px;
+            width: 380px;
             margin-left:15px;
           }
         @media (max-width: 540px) {
-            width: 100%;
-            margin-left:20px;
+            width: 340px;
+            margin-left: 5px;
+        }
+        @media only screen and (max-width: 414px){
+            width: 220px;
         }
         @media only screen and (max-width: 400px){
             margin-left:10px;
-            width: 300px;
+            width: 190px;
             margin-right: 10px;
           }
+          @media only screen and (max-width: 375px){
+            width: 170px;
+        }
+        @media only screen and (max-width: 360px){
+            width: 150px;
+        }
 
     }
     .searchAlign{
         display: flex;
         flex-direction:row;
+        width: 100%;
         i{
             position: relative;
             top: 13px;
@@ -99,9 +193,6 @@
             left: 30px;
             @media (max-width: 1220px) {
                 left: 20px;
-            }
-            @media(max-width: 900px){
-                left: -10px;
             }
             @media only screen and (max-width: 849px){
              left:30px;
@@ -115,39 +206,66 @@
         }
     }
     button{
-        width: 124.6px;
+        max-width: 124.6px;
+        min-width: 100.6px;
         height: 44px;
         color: $white;
         background: $sideactive;
         border-radius: 3px;
         border: none;
+        @media only screen and (max-width: 1230px){
+            transform: translateX(-15px);
+        }
+        @media only screen and (max-width: 1185px){
+            transform: translateX(-45px);
+        }
         @media only screen and (max-width: 1165px){
-            max-width: 40%;
-            margin-left: -70px;
+            transform: translateX(-57px);
         }
-        @media only screen and (max-width: 1040px){
-            margin-left: 13px;
+        @media only screen and (max-width: 1138px){
+            transform: translateX(-75px);
         }
-        @media only screen and (max-width: 1040px){
-            margin-left: -20px;
+        @media only screen and (max-width: 1100px){
+            transform: translateX(-100px);
         }
-        @media only screen and (max-width: 950px){
-            font-size: 13px;
-            margin-left: -60px;
-          }
-          @media(max-width: 918px){
-            margin-left: -75px;
+        @media only screen and (max-width: 1080px){
+            transform: translateX(-115px);
         }
-        @media(max-width: 900px){
-            margin-left: -90px;
+        @media only screen and (max-width: 1185px){
+            transform: translateX(-125px);
         }
-        @media(max-width: 850px){
-            margin-left: -100px;
+        @media only screen and (max-width: 1045px){
+            transform: translateX(-20px);
         }
+        // @media only screen and (max-width: 1300px){
+        //     margin-left: -13px;
+        // }
+        // @media only screen and (max-width: 1165px){
+        //     margin-left: -70px;
+        // }
+        // @media only screen and (max-width: 1045px){
+        //     transform: translateX(-90px);
+        // }
+        // @media only screen and (max-width: 1040px){
+        //     margin-left: -60px;
+        // }
+        // @media only screen and (max-width: 950px){
+        //     font-size: 13px;
+        //     margin-left: -60px;
+        //   }
+        //   @media(max-width: 918px){
+        //     margin-left: -75px;
+        // }
+        // @media(max-width: 900px){
+        //     margin-left: -90px;
+        // }
+        // @media(max-width: 850px){
+        //     margin-left: -100px;
+        // }
         
-        @media(max-width: 540px){
-            width: 50%;
-        }
+        // @media(max-width: 540px){
+        //     width: 50%;
+        // }
 
     }
 

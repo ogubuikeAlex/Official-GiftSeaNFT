@@ -4,10 +4,10 @@ import './user-info.scss'
 const UserInfo = () => {
     return (
         <div className='search'>
-            <span className='searchAlign'>
+            <div className='searchAlign'>
                 <i className='fas fa-search'/>
             <input type='search' placeholder='Search Something'/>
-            </span>
+            </div>
             <button type='button'>Search</button>
         </div>
     )

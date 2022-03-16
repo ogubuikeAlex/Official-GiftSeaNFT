@@ -95,7 +95,7 @@ overflow-y:auto;
     height: 29px;
     margin-bottom: 20px;
     font-family: Inter;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 29px;
     text-align: left;
@@ -103,9 +103,8 @@ overflow-y:auto;
 }
 .ethBal{
     height: 39px;
-    width: 148px;
     font-family: Inter;
-    font-size: 26px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 39px;
     text-align: left;
@@ -199,12 +198,11 @@ overflow-y:auto;
 `;
 const HistoryStyled = styled.div`
 margin-top: 50px;
-overflow-x: hidden;
 .history-title{
         height: 24px;
         width: 70px;
         font-family: Inter;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 500;
         margin-bottom: 20px;
         text-align: left;
@@ -219,17 +217,19 @@ overflow-x: hidden;
         display:flex;
         flex-direction: row;
         justify-content: space-between;
+        font-size: 13px;
         @media(max-width: 900px){
             font-size: 13px;
         }
         .imgUrl{
-            height: 44px;
-            width: 44px;
+            height: 30px;
+            width: 30px;
             border-radius: 22px;
         }
         .user{
             display: block;
-            margin-left: 20px;
+            margin-left: 10px;
+            font-size: 11px;
             @media(max-width: 900px){
                 margin-left: 5px;
             }
@@ -237,7 +237,7 @@ overflow-x: hidden;
                 height: 17px;
                 width: 140px;
                 font-family: Inter;
-                font-size: 14px;
+                font-size: 11px;
                 font-weight: 500;
                 line-height: 17px;
                 text-align: left;
@@ -258,15 +258,19 @@ overflow-x: hidden;
         }
         .duration{
             height: 12px;
-            width: 60px;
+            transform: translateX(-22px);
             color: #351347;
             font-family: Inter;
             font-size: 10px;
             font-weight: 600;
             line-height: 12px;
             text-align: left;
-            @media(max-width: 900px){
-                margin-left: -20px;
+            @media only screen and (max-width: 1045px){
+                width: 60px;
+                margin-left:-10px;
+            }
+            @media only screen and (max-width: 900px){
+                width: 60px;
             }
         }
     }

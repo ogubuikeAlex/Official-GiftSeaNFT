@@ -16,6 +16,34 @@
         font-weight: 600;
         color: $sideactive;
     }
+    .sidebar__menu__item{
+        @media (max-width:1220px) {
+            margin-top: -20px;
+            .sidebar__menu__item__txt{
+                margin-left: -20px;
+            }
+            i{
+                font-size: 18px;
+            }
+        }
+        @media (max-width:1045px) {
+            margin-top: -20px;
+            .sidebar__menu__item__txt{
+                margin-left: -20px;
+            }
+            i{
+                font-size: 18px;
+            }
+        }
+    }
+    @media (max-width:400px) {
+        .sidebar__menu__item__txt{
+            margin-left: -10px;
+        }
+        i{
+            font-size: 15px;
+        }
+    }
     @media(max-width: 1220px){
         width: 240px;
         &.active {
@@ -23,17 +51,31 @@
             color: $sideactive;
         }
     }
-    @media(max-width: 900px){
-        width: 220px;
+    @media(max-width: 1045px){
+        width: 190px;
         justify-content: center;
         text-align: center;
         font-size: 13px;
         &.active {
             font-weight: 600;
             color: $sideactive;
+            
         }
     }
-
+    @media(max-width: 900px){
+        width: 180px;
+        justify-content: center;
+        text-align: center;
+        font-size: 13px;
+        &.active {
+            font-weight: 600;
+            color: $sideactive;
+            
+        }
+    }
+    @media only screen and (max-width: 849px){
+        width: 200px;
+      }
     @include tablet {
         width: 100vw;
         background-color: $mainBg;
@@ -60,13 +102,18 @@
                 margin-left: -70px;
             }
             @media(max-width: 1220px){
-                margin-left: 40px;
+                margin-left: -30px;
+                margin-top: 40px;
+            }
+            @media(max-width: 1045px){
+                transform: translateX(0px) translateY(10px);
+                width: 100px;
             }
             @media(max-width: 900px){
-                transform: translateY(30px) translateX(-20px);
+                transform: translateY(30px) translateX(5px);
             }
-            @media(max-width: 540px){
-                margin-left: 0;
+            @media only screen and (max-width: 768px){
+                margin-left: 5px;
             }
         }
         .sidebar-close {
@@ -74,6 +121,7 @@
             display: none;
             i {
                 font-size: 2rem;
+                transform: translateY(-30px);
             }
 
             @include tablet {

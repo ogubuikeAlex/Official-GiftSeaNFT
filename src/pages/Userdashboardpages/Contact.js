@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Data} from '../../Components/Data'
 import styled, {keyframes} from 'styled-components'
-import FrequentStyled from '../../Styled-components/AdminHeroStyled'
+import FrequentStyled from '../../Styled-components/MarketplaceStyled'
 import {fadeInUp} from 'react-animations';
 import {IconContext} from 'react-icons'
 import {IoIosArrowDown, IoIosArrowUp} from 'react-icons/io'
@@ -22,7 +22,6 @@ const TogglerStyled = styled.div`
     }
 `;
 const Container = styled.div`
-    width: 600px;
     background: #FFF;
     transition: all ease-in-out .4s;
     box-shadow: 10px 24px 54px 0px #0000000A;

@@ -99,39 +99,54 @@ const HeroSection = () => {
 }
 const HeroSectionStyled = styled.div`
 width: 718.99px;
+@media only screen and (max-width: 1366px){
+    transform: translateX(-25px);
+    width: 690px;
+}
 @media only screen and (max-width: 1316px){
     width: 70%;
     height: fit-content;
-    margin-left:-35px;
+    margin-left:-10px;
     padding: 1em;
 }
+@media only screen and (max-width: 1280px){
+    margin-left: -15px;
+}
+@media only screen and (max-width: 1255px){
+    margin-left:-18px;
+  }
 @media only screen and (max-width: 1165px){
     margin-left: -45px;
 }
 @media only screen and (max-width: 1120px){
     margin-left: -55px;
 }
+@media only screen and (max-width: 1100px){
+    margin-left: -28px;
+  }
 @media(max-width: 1080px){
-    margin-left: -65px;
+    margin-left: -35px;
+}
+@media only screen and (max-width: 1045px){
+    margin-left: -110px;
+    width: 87%;
 }
 @media only screen and (max-width: 1000px){
-    margin-left: -80px;
-}
-@media only screen and (max-width: 1000px){
-    margin-left: -80px;
+    margin-left: -110px;
 }
 @media(max-width: 918px){
-    margin-left: -85px;
+    margin-left: -118px;
 }
 @media(max-width: 900px){
-    margin-left: -95px;
+    margin-left: -125px;
+    width: 86%;
 }
 @media(max-width: 849px){
     width: 100%;
     transform: translateX(40px);
 }
 @media only screen and (max-width: 768px){
-    transform: translateX(90px);       
+    margin-left: -40px;
 }
 @media(max-width: 540px){
     width: 100%;
