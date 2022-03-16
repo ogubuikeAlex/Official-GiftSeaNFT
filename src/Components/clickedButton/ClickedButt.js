@@ -8,7 +8,8 @@ const ClickedButt = () => {
       <ClickedStyled>
           <span className='heart'>
           <span className='spanned'></span>
-          <span><Heart isClick={isClick} onClick={() => setClick(!isClick)}/></span>
+          <span><Heart onClick={() => setClick(!isClick)}/></span>
+          {/* <span><Heart isClick={isClick} onClick={() => setClick(!isClick)}/></span> */}
           </span>
         </ClickedStyled>
   )

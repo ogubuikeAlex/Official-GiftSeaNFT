@@ -20,6 +20,7 @@ const Metadata = () => {
         total,
         available
     } = location.state;
+    console.log("At name", name)
     console.log("---location", location.state);
 
     const [show, setShow] = useState(false);
@@ -35,18 +36,18 @@ const Metadata = () => {
         <div>
             <CollectionStyled>
                 <div style={{ display: 'flex' }}>
-                    <Link to='./collections'><i className='fas fa-arrow-left' style={{ marginLeft: '10px', cursor: 'pointer', fontWeight: '600', width: '21px', marginTop: '10px' }}></i>&nbsp; &nbsp; </Link>
+                    <Link to='/userdashboard/collections'><i className='fas fa-arrow-left' style={{ marginLeft: '10px', cursor: 'pointer', fontWeight: '600', width: '21px', marginTop: '10px' }}></i>&nbsp; &nbsp; </Link>
                     <p style={{ fontFamily: 'Inter', fontSize: '24px', fontWeight: '500' }}>My Collection / NFT Metadata</p>
                 </div>
                 <div className='metadata_container'>
                     <div style={{ display: 'block' }}>
-                        <img src={woman} alt='woman' />
+                        <img src={url} alt='woman' />
                         <div className='nftContainer'>
                             <div className='text-container' style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                                <p className='listedNFT'>Africana NFTs  &nbsp; <span style={{ fontSize: '14px', fontWeight: '600' }}>#128</span></p>
+                                <p className='listedNFT'>{"African NFT" && name}  &nbsp; <span style={{ fontSize: '14px', fontWeight: '600' }}>{"#128" && `#${itemId}`}</span></p>
                                 <div className='giftCollection'>
-                                    <Link to=''><button className='Buy' onClick={handleShow}>Sell</button></Link>&nbsp;&nbsp;
-                                    <Link to=''><button className='Buy' onClick={handleGiftShow}>GIft</button></Link>
+                                    <button className='Buy' onClick={handleShow}>Sell</button>&nbsp;&nbsp;
+                                    <button className='Buy' onClick={handleGiftShow}>GIft</button>
                                 </div>
                             </div>
                             <div className='gridContainer'>
