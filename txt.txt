@@ -1,4 +1,0 @@
-the home page, the 
-
-Use Context to wrap the pages togther
-Use redirection 
