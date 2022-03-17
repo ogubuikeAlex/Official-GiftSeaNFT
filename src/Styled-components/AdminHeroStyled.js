@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 
 const AdminHeroStyled = styled.div`
-width: 718.99px;
+width: 708px;
+// @media only screen and (max-width: 1440px){
+//   transform: translateX()
+// }
 
 @media only screen and (max-width: 1366px){
-  transform: translateX(-20px);
+  margin-left: 0px;
 }
 @media only screen and (max-width: 1360px){
-  transform: translateX(-25px);
+  margin-left: -20px;
 }
 @media only screen and (max-width: 1316px){
     width: 70%;

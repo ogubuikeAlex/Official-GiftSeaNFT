@@ -25,15 +25,70 @@ const Container = styled.div`
     background: #FFF;
     transition: all ease-in-out .4s;
     box-shadow: 10px 24px 54px 0px #0000000A;
-    border-radius: 30px;
+    border-radius: 20px;
     justify-content: center;
-    @media(max-width: 540px){
-        width: 400px;
-        margin: 0 !important;
+    @media(max-width: 1440px){
+        width: 705px;
+        transform: translateX(20px);
+    }
+    @media(max-width: 1366px){
+        width: 665px;
+        margin-left: -10px;
+    }
+    @media(max-width: 1330px){
+        width: 600px;
+    }
+    @media(max-width: 1316px){
+        margin-left: 20px;
+    }
+    @media(max-width: 1280px){
+        margin-left: 10px;
+        width: 595px;
+    }
+    @media(max-width: 1250px){
+        width: 570px;
+    }
+    @media(max-width: 1200px){
+        width: 570px;
+        margin-left: -5px;
+    }
+    @media(max-width: 1100px){
+        width: 470px;
+    }
+    @media(max-width: 1170px){
+        width: 450px;
+    }
+    @media(max-width: 1045px){
+        transform: translateX(-50px);
+        width: 540px;
+    }
+    @media(max-width: 1024px){
+        width: 525px;
+    }
+    @media(max-width: 1000px){
+        width: 515px;
+    }
+    @media(max-width: 980px){
+        width: 495px;
+    }
+    @media(max-width: 950px){
+        width: 465px;
+    }
+    @media(max-width: 930px){
+        width: 445px;
+    }
+    @media(max-width: 900px){
+        width: 405px;
+    }
+    @media(max-width: 768px){
+        transform: translateX(20px);
+        width: 95%;
     }
     @media(max-width: 540px){
-        width: 350px;
-        margin: 0 !important;
+        margin-top: -35px;
+    }
+    @media(max-width: 425px){
+        margin-left: -13px;
     }
 `;
 
@@ -91,9 +146,16 @@ const FrequentQuestions = styled.div`
     h4{
         text-align: left;
         font-size: 20px;
+        margin-left: 20px;
         margin-bottom: 15px;
         font-weight: 700;
         justify-content: left;
+        @media(max-width: 1045px){
+            margin-left: -50px;
+        }
+        @media(max-width: 768px){
+            margin-left: 15px;
+        }
         @media(max-width: 540px){
             font-size: 14px;
         }

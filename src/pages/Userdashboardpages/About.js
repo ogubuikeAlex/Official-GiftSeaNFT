@@ -1,6 +1,6 @@
 import React from 'react'
 import Dashboard from './Dashboard'
-import AboutpageStyled from '../../Styled-components/AdminHeroStyled'
+import AboutpageStyled from '../../Styled-components/MarketplaceStyled'
 
 const About = () => {
     return (

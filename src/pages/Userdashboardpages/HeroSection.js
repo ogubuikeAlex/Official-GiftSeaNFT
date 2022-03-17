@@ -99,6 +99,9 @@ const HeroSection = () => {
 }
 const HeroSectionStyled = styled.div`
 width: 718.99px;
+@media only screen and (max-width: 1440px){
+    width: 700px;
+}
 @media only screen and (max-width: 1366px){
     transform: translateX(-25px);
     width: 690px;
