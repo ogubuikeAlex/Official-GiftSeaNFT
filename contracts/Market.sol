@@ -94,7 +94,7 @@ contract NFTMarket is ReentrancyGuard, Ownable {
         require(price > 0, "Price must be at least 1 wei");
 
         _itemIds.increment();
-        console.log(_itemIds.current());
+        // console.log(_itemIds.current());
         uint256 itemId = _itemIds.current();
 
         idToMarketItem[itemId] = MarketItem(
@@ -185,7 +185,9 @@ contract NFTMarket is ReentrancyGuard, Ownable {
             "Please submit the asking price in order to complete the purchase"
         );
 
-        IERC721(nftContract).safeTransferFrom(address(this), msg.sender, tokenId);     
+        IERC721(nftContract).safeTransferFrom(address(this), msg.sender, tokenId);  
+       // IERC721(nftContract).approve(msg.sender, tokenId); 
+       // console.log(IERC721(nftContract).ownerOf(tokenId));  
 
         idToMarketItem[itemId].sold = true;
         idToMarketItem[itemId].owner = msg.sender;
@@ -204,6 +206,7 @@ contract NFTMarket is ReentrancyGuard, Ownable {
     ) external nonReentrant {
         uint256 totalMarketItems = _itemIds.current();
         uint256 tokenId = idToMarketItem[itemId].tokenId;
+       // console.log(IERC721(nftContract).ownerOf(tokenId));
         //get total nos of marketItems
         address holder;
         uint256 buyId;
@@ -231,8 +234,14 @@ contract NFTMarket is ReentrancyGuard, Ownable {
             holder == msg.sender,
             "You do not have permission to Gift this NFT as you are not the owner"
         );
-
-        IERC721(nftContract).safeTransferFrom(holder, to, tokenId);
+//console.log(msg.sender);
+console.log("///");
+         console.log(IERC721(nftContract).ownerOf(tokenId));
+         console.log(msg.sender);
+         console.log("///");
+        IERC721(nftContract).transferFrom(msg.sender, to, tokenId);
+       
+        //Approve the new owner to !!
         //change owner IERC721
         // //change status of former holder to false
         if (isGifted) {
