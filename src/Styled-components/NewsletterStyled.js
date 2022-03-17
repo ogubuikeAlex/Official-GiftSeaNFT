@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const NewsletterStyled = styled.div`
+transform:translateY(-15px);
 background: #02AAB0;
 border-radius: 10px;
 width: 100%;
@@ -11,25 +12,9 @@ margin-bottom: 15px;
 }
 .attach{
     position: absolute;
-    width: 710.19px;
+    width: 100%;
+    right: 0;
     height: 181px;
-    @media only screen and (max-width: 1316px){
-        width: 46.7%;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
-    @media(max-width: 1220px){
-        width: 44.8%;
-    }
-    @media only screen and (max-width: 849px){
-        width: 91%;
-    }
-    @media only screen and (max-width: 768px){
-        width: 94%;
-    }
-    @media only screen and (max-width: 400px){
-        width: 88%;
-      }
 }
 .center-container{
     justify-content: left;

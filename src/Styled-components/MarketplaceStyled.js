@@ -123,12 +123,16 @@ const MarketplaceStyled = styled.div`
     transform: translateX(-85px);
   }
 }
-  
+  img{
+    border-radius: 15px;
+    object-fit: cover;
+    height: 200px;
+  }
 .tabs {
   padding: 15px;
   text-align: center;
   background: #FFF;
-  font-size: 18px;
+  font-size: 13px;
   justify-content: center;
   cursor: pointer;
   position: relative;
@@ -179,6 +183,7 @@ button {
   }
   @media only screen and (max-width: 1045px){
     grid-template-columns: repeat(1, 1fr);
+
   }
   @media only screen and (max-width: 1020px){
     grid-template-columns: repeat(1, 1fr);
