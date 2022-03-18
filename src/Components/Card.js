@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { ethers } from 'ethers';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom'
 import CardStyled from '../Styled-components/CardStyled'
 import roundedImgs1 from '../img/Ellipse 96.png';
 import roundedImgs2 from '../img/Ellipse 97.png';
@@ -37,7 +38,7 @@ const Card = ({ name, available, total, price, loadNfts, itemId}) => {
     <CardStyled>
       <div className='carousel-info'>
         <div className='carousel-info_top'>
-          <p>{name ? name : "Africana"}</p>
+          <Link style={{cursor:'pointer'}} to=''><p>{name ? name : "Africana"}</p></Link>
           <div className='carousel-info_top-images'>
             <img className='roundImg1' src={roundedImgs1} alt='pics' />
             <img className='roundImg2' src={roundedImgs2} alt='pics' />

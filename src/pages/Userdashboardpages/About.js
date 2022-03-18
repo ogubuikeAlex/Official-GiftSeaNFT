@@ -1,13 +1,14 @@
 import React from 'react'
 import Dashboard from './Dashboard'
-import AboutpageStyled from '../../Styled-components/MarketplaceStyled'
+import AboutpageStyled from '../../Styled-components/AdminHeroStyled'
 
 const About = () => {
     return (
+        <div className='aboutStyled'>
         <AboutpageStyled>
             <h4>About Us</h4>
 
-            <div>
+            <div style={{textAlign: 'justify'}}>
                 <small>
                 Building an open digital economy
                 At GiftseaNFT, we're excited about a brand-new type of digital good called a non-fungible token, or NFT. NFTs have exciting new properties: they’re unique, provably scarce, tradeable, and usable across multiple applications. Just like physical goods, you can do whatever you want with them! 
@@ -16,6 +17,8 @@ const About = () => {
                 </small>
             </div>
         </AboutpageStyled>
+        <Dashboard/>
+        </div>
     )
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import successful from '../Modals/Modals_Images/Vector.png'
-import Dashboard from '../AdminUpload'
+// import Dashboard from '../AdminUpload'
 import { Link, useLocation } from 'react-router-dom'
 import woman from '../../../img/woman.png';
 import CollectionStyled from '../../../Styled-components/MetadataStyled'
@@ -70,7 +70,7 @@ const Metadata = () => {
                             </div>
                             <div className='contents'>
                                 <p className='description'>Description</p>
-                                <p>
+                                <p style={{textAlign:'justify'}}>
                                     This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him<br></br><br></br>
                                     This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to himThis beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him.
                                 </p>
@@ -135,7 +135,6 @@ const Metadata = () => {
                                                 <select id='typeValidation' required style={{ width: '100%', cursor: 'pointer' }}>
                                                     <option value='' disabled selected hidden>Select your receiver wallet type</option>
                                                     <option value='ETH'>ETH</option>
-
                                                 </select>
                                                 <div className='invalid-feedback'>
                                                     Please select a valid wallet type
@@ -164,7 +163,7 @@ const Metadata = () => {
                     </div>
                 </div>
             </CollectionStyled>
-            <Dashboard />
+            {/* <Dashboard /> */}
         </div>
 
     )

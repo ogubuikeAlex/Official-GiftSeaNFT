@@ -10,6 +10,7 @@ import Collections from "../pages/Userdashboardpages/Collections";
 import Contact from "../pages/Userdashboardpages/Contact";
 import Favourites from "../pages/Userdashboardpages/Favourites";
 import MarketPlace from "../pages/Userdashboardpages/MarketPlace";
+import Transactions from "../pages/Admindashboardpages/Transactions";
 import HeroSection from "../pages/Userdashboardpages/HeroSection";
 import { propTypes } from "react-bootstrap/esm/Image";
 import UserCollection from "../pages/Userdashboardpages/Collection/UserCollection";
@@ -31,8 +32,9 @@ export default function MainRoutes({ isAuthenticated, connect, currentUser}) {
                         <Route path="favourites" element={<Favourites />} />
                         <Route path="treasury" element={<Treasury />} />
                         <Route path="upload" element={<Upload />} />
-                        <Route path="transactions" element={<Favourites />} />
-                        <Route path="metadata" element={<Metadata />} />
+                        <Route path="transactions" element={<Transactions />} />
+                        <Route path="about" element={<About />} />
+
                     </Route>
                 }
                 {/* {

@@ -136,8 +136,8 @@ const Upload = () => {
                             <input className='property_layer-input price' type="text" value='Trending' readonly />
                         </div>
                     </div>
-                    <div id='property_layer button'>
-                        <button onClick={createMarket}>Mint NFT</button>
+                    <div style={{marginTop: '15px'}} id='property_layer button'>
+                        <button style={{padding: '.5em 35px', background:'#02AAB0', border: 'none', borderRadius:'5px', color: '#FFF'}} onClick={createMarket}>Mint NFT</button>
                     </div>
                 </section>
             </div>
