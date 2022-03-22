@@ -11,7 +11,6 @@ const DashboardWrapper = props => {
 
 export default DashboardWrapper
 
-
 export const DashboardWrapperRight = props => {
     return (
         <div className='dashboard-wrapper__right'>

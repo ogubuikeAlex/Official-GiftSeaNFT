@@ -13,11 +13,19 @@ import image4 from '../../img/unsplash.png';
 import woman from '../../img/woman.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Col, Row} from 'react-bootstrap'
+import {useNavigate} from 'react-router-dom'
 
 const Bounce = styled.div`
 animation: 1s ${keyframes`${fadeInUpBig}`}`;
 
 const HeroSection = () => {
+
+    let navigate = useNavigate();
+    const routeChange = () => {
+      let path = `marketplace`;
+      navigate(path);
+    }
+
   return (
       <HeroSectionStyled>
         <Bounce>
@@ -27,7 +35,7 @@ const HeroSection = () => {
         <img className='attach' src={attached} alt=''/>
         <div className='center-container'>
             <p>Own an NFT with just four steps</p>
-            <button className='explore'>Explore Marketplace</button>
+            <button className='explore' onClick={routeChange}>Explore Marketplace</button>
         </div>
         </div>
         </NewsletterStyled>
