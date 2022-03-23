@@ -19,8 +19,17 @@ align-items: center;
 .empty_history{
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 768px){
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
   p{
     font-size: 13px;
+    @media only screen and (max-width: 768px){
+      text-align: center;
+    }
+
   }
   img{
     width:100px;
@@ -30,6 +39,24 @@ align-items: center;
     margin-top: -40px;
     transform: translateX(100%);
     align-items: center;
+    @media only screen and (max-width: 1045px){
+      transform: translateX(50%);
+    }
+    @media only screen and (max-width: 768px){
+      transform: translateX(300%);
+    }
+    @media only screen and (max-width: 600px){
+      transform: translateX(200%);
+    }
+    @media only screen and (max-width: 540px){
+      transform: translateX(150%);
+    }
+    @media only screen and (max-width: 425px){
+      transform: translateX(100%);
+    }
+    @media only screen and (max-width: 375px){
+      transform: translateX(75%);
+    }
   }
 }
 `;

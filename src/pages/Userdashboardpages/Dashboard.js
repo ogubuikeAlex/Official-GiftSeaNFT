@@ -102,6 +102,9 @@ overflow-y:auto;
     line-height: 29px;
     text-align: left;
     color: #110617;
+    @media(max-width: 768px){
+        text-align: center;
+    }
 }
 .ethBal{
     height: 39px;
@@ -123,11 +126,14 @@ overflow-y:auto;
     @media(max-width: 1220px){
         width: 200px;
     }
-    @media(max-width:540px){
-        width: 100%;
-        justify-content: center;
-        align-items: center;
+    @media only screen and (max-width: 768px){
+        width: 50%;
+        transform: translateX(50%);
     }
+    @media only screen and (max-width: 400px){
+        width: 60%;
+        transform: translateX(35%);
+      }
 }
 .myEth{
     margin-top: 10px;
@@ -209,6 +215,10 @@ margin-top: 50px;
         margin-bottom: 20px;
         text-align: left;
         color: #110617;
+        @media(max-width: 768px){
+            width: 100%;
+            text-align: center;
+        }
     }
     .img{
         display: flex;
