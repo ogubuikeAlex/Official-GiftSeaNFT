@@ -2,13 +2,16 @@ import React, {useState} from 'react'
 import AboutDropdown from '../../constants/AboutDetails'
 import styled, {keyframes} from 'styled-components'
 import FrequentStyled from '../../Styled-components/MarketplaceStyled'
-import {fadeInUp} from 'react-animations';
+import {fadeInUp, fadeInRightBig} from 'react-animations';
 import {IconContext} from 'react-icons'
 import {IoIosArrowDown, IoIosArrowUp} from 'react-icons/io'
 import Dashboard from '../../pages/Userdashboardpages/Dashboard'
 
 const Bounce = styled.div`
-animation: 1s ${keyframes`${fadeInUp}`}`;
+animation: 2s ${keyframes`${fadeInUp}`}`;
+
+const ContentSlide = styled.div`
+animation: .6s ${keyframes`${fadeInRightBig}`}`;
 
 const TogglerStyled = styled.div`
     display: flex;
@@ -45,7 +48,7 @@ const Container = styled.div`
         margin-left: 20px;
     }
     @media(max-width: 1280px){
-        margin-left: 10px;
+        margin-left: 5px;
         width: 595px;
     }
     @media(max-width: 1250px){
@@ -224,9 +227,9 @@ const Toggler= () => {
                             </Wrap>
                             {clicked === index ? (
                             <Dropdown>
-                            <Bounce>
+                            <ContentSlide>
                             <p>{item.terms}</p>
-                            </Bounce>
+                            </ContentSlide>
                             </Dropdown>
                             ): null }
                             </>
