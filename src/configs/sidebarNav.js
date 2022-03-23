@@ -26,7 +26,7 @@ const sidebarNav = [
     {
         link: '/userdashboard/contact',
         section: 'contact',
-        icon: <i className='bx bx-chat'></i>,
+        icon: <i className="fa-regular fa-message"></i>,
         text: 'Contact Support'
     },
     {

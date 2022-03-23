@@ -1,44 +1,44 @@
 const Adminsidebar = [
     {
         link: '/admindashboard',
-        section: 'dashboard',
+        adminsection: 'dashboard',
         icon: <i className='bx bx-grid-alt'></i>,
         text: 'Dashboard'
     },
     {
         link: '/admindashboard/marketplace',
-        section: 'marketplace',
+        adminsection: 'marketplace',
         icon: <i className='bx bx-cart' ></i>,
         text: 'Marketplace'
     },
     {
         link: '/admindashboard/favourites',
-        section: 'favourites',
+        adminsection: 'favourites',
         icon: <i className='bx bx-heart'></i>,
         text: 'Favourites'
     },
     {
         link: '/admindashboard/treasury',
-        section: 'treasury',
-        icon: <i className='fas fa-chess'></i>,
+        adminsection: 'treasury',
+        icon: <i className='far fa-chess-rook'></i>,
         text: 'Treasury'
     },
     {
         link: '/admindashboard/upload',
-        section: 'upload',
-        icon: <i className='bx bx-upload'></i>,
+        adminsection: 'upload',
+        icon: <i className="fas fa-arrow-up-from-bracket"></i>,
         text: 'Upload NFT'
     },
     {
         link: '/admindashboard/transactions',
-        section: 'transactions',
-        icon: <i className='bx bx-money'></i>,
+        adminsection: 'transactions',
+        icon: <i className='bx bx-sort'></i>,
         text: 'Transactions'
     },
     {
         link: '/admindashboard/about',
-        section: 'about',
-        icon: <i className='bx bx-note'></i>,
+        adminsection: 'about',
+        icon: <i className="bx bx-detail"></i>,
         text: 'About'
     }
 ]

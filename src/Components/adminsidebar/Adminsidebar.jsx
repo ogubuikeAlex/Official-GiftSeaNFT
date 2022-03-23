@@ -5,13 +5,13 @@ import { Link, useLocation } from 'react-router-dom'
 import Adminsidebar from '../../configs/Adminsidebar';
 
 const Sidebar = () => {
-    const [activeIndex, setActiveIndex] = useState(0)
+    const [adminIndex, setAdminIndex] = useState(0)
     const location = useLocation()
 
     useEffect(() => {
-        const curPath = window.location.pathname.split(`/admindashboard`)[1]
-        const activeItem = Adminsidebar.findIndex(item => item.section === curPath) 
-        setActiveIndex(curPath.length === 0 ? 0 : activeItem)
+        const AdminPath = window.location.pathname.split('/admindashboard')[1]
+        const adminActiveItem = Adminsidebar.findIndex(item => item.adminsection === AdminPath) 
+        setAdminIndex(AdminPath.length === 0 ? 0 : adminActiveItem)
     }, [location])
 
     const closeSidebar = () => {
@@ -32,8 +32,8 @@ const Sidebar = () => {
             </div>
             <div className="sidebar__menu">
                 {
-                    Adminsidebar.map((admin, index) => (
-                        <Link to={admin.link} key={`admin${index}`} className={`sidebar__menu__item ${activeIndex === index && 'active'}`} onClick={closeSidebar}>
+                    Adminsidebar.map((admin, adminsIndex) => (
+                        <Link to={admin.link} key={`admin${adminsIndex}`} className={`sidebar__menu__item ${adminIndex === adminsIndex && 'active'}`} onClick={closeSidebar}>
                             <div className="sidebar__menu__item__icon">
                                 {admin.icon}
                             </div>
