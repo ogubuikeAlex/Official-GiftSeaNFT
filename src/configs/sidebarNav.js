@@ -20,7 +20,7 @@ const sidebarNav = [
     {
         link: '/userdashboard/collections',
         section: 'collections',
-        icon: <i className='fas fa-chess'></i>,
+        icon: <i className='far fa-chess-rook'></i>,
         text: 'My Collection'
     },
     {
@@ -32,7 +32,7 @@ const sidebarNav = [
     {
         link: '/userdashboard/about',
         section: 'about',
-        icon: <i className='bx bx-note'></i>,
+        icon: <i className='bx bx-detail'></i>,
         text: 'About'
     }
 ]
