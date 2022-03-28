@@ -1,25 +1,43 @@
 import React from 'react'
-import styled from 'styled-components'
 import Dashboard from '../../Userdashboardpages/Dashboard'
-import {Link} from 'react-router-dom'
-import woman from '../../../img/woman.png';
+import { Link, useLocation } from 'react-router-dom';
 import MarketMetaStyled from '../../../Styled-components/MetadataStyled'
+import { buyNft } from '../../Userdashboardpages/Collection/metadataMethods';
+import { ethers } from 'ethers';
 
-const Metadata = () => {
+const MarketMetadata = () => {
+    const location = useLocation();
+        
+    const {
+        name,
+        price,
+        url,
+        description,
+        itemId,
+        dailyValue,
+        apy,
+        weeklyValue,
+        total,
+        available
+    } = location.state;
+
+    const priice = ethers.utils.parseUnits(price.toString(), "ether");
+
     return (
         <div>
+            
             <MarketMetaStyled>
             <div style={{display: 'flex'}}>
-            <Link to='../marketplace'><i className='fas fa-arrow-left' style={{marginLeft: '10px', cursor: 'pointer', fontWeight: '600', width: '21px', marginTop:'10px'}}></i>&nbsp; &nbsp; </Link>
+            <Link to='/userdashboard/marketplace'><i className='fas fa-arrow-left' style={{marginLeft: '10px', cursor: 'pointer', fontWeight: '600', width: '21px', marginTop:'10px'}}></i>&nbsp; &nbsp; </Link>
             <p style={{fontFamily: 'Inter', fontSize: '24px', fontWeight: '500' }}>Marketplace / NFT Metadata</p>
             </div>
             <div className='metadata_container'>
             <div style={{display: 'block'}}>
-                <img src={woman} alt='woman'/>
+                <img src={url} alt='woman'/>
                 <div className='nftContainer'>
                 <div className='text-container' style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <p className='listedNFT'>Africana NFTs  &nbsp; <span style={{fontSize: '14px', fontWeight: '600'}}>#128</span></p>
-                    <button className='Buy'>Buy</button>
+                    <p className='listedNFT'>{"African NFT" && name} &nbsp; <span style={{fontSize: '14px', fontWeight: '600'}}>{"##" && `#${itemId}`}</span></p>
+                    <button onClick={() => buyNft(itemId,priice)} className='Buy'>Buy</button>
                 </div>
                 <div className='gridContainer'>
                     <div style={{display: 'block'}}>
@@ -42,8 +60,9 @@ const Metadata = () => {
                 <div className='contents'>
                     <p className='description'>Description</p>
                     <p>
-                    This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him<br></br><br></br>
-                    This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to himThis beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him.
+                        {
+                            description
+                        }
                     </p>
                 </div>
             </div> 
@@ -56,4 +75,4 @@ const Metadata = () => {
     )
 }
 
-export default Metadata;
+export default MarketMetadata;

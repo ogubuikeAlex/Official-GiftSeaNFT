@@ -26,6 +26,7 @@ const Upload = () => {
                     progress: (prog) => console.log(`received: ${prog}`)
                 }
             )
+            console.log("Image Uploaded")
             const url = `https://ipfs.infura.io/ipfs/${added.path}`
             setFileUrl(url)
         } catch (error) {

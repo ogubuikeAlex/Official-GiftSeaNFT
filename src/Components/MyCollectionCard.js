@@ -13,27 +13,7 @@ import Nft from "../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
 import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
 const MyCollectionCard = ({ name, available, total, price, url, itemId, description }) => {
     let navigate = useNavigate();
-    console.log("MycollectionCard", description)
-
-    //   async function buyNft(itemId, priice) {
-    //     console.log("tryna buy");
-    //     const { ethereum } = window;
-    // //if (!etehreum throw a modal error to connect to metamask)
-    //     if (ethereum) {
-    //       const provider = new ethers.providers.Web3Provider(ethereum);
-    //       const signer = provider.getSigner();
-    //       const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
-    //       const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
-    //       console.log("tryna buy2");
-    //       const price = ethers.utils.parseUnits(priice.toString(), "ether");
-    //       console.log("tryna buy3");
-    //       const transaction = await MARKET.buyNft(nftAddress, itemId, { value: price });
-    //       console.log("tryna buy4");
-
-    //       await transaction.wait();
-    //       loadNfts()
-    //     }
-    //   }
+    console.log("MycollectionCard", description)   
 
     return (
         <CardStyled>

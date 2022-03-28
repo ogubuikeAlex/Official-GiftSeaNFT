@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import Heart from 'react-animated-heart';
 
 const ClickedButt = () => {
-  const [isClick, setClick] = useState(false);
+  const [isclick, setClick] = useState(false);
   return (
       <ClickedStyled>
           <span className='heart'>
           <span className='spanned'></span>
-          <span><Heart onClick={() => setClick(!isClick)}/></span>
+          <span><Heart onClick={() => setClick(!isclick)}/></span>
           {/* <span><Heart isClick={isClick} onClick={() => setClick(!isClick)}/></span> */}
           </span>
         </ClickedStyled>

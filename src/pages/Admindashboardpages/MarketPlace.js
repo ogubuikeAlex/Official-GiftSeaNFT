@@ -8,7 +8,6 @@ import Card from '../../Components/Card'
 import Dashboard from '../../pages/Userdashboardpages/Dashboard'
 import image4 from '../../img/unsplash.png'
 import unsplash from '../../img/unsplashed5.png'
-import unsplashed from '../../img/unsplashedround.png'
 import ClickedButt from "../../Components/clickedButton/ClickedButt";
 import DashCard from "../../Components/dashCard";
 import axios from "axios"
@@ -17,7 +16,7 @@ import { nftAddress, marketAddress } from "../../config";
 import Nft from "../../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
 import Market from "../../artifacts/contracts/Market.sol/NFTMarket.json";
 
-function MarketPlace(props) {
+function AdminMarketPlace(props) {
   const [toggleState, setToggleState] = useState(1);
   const [marketitems, setMarketItems] = useState([]);
   const [LoadingState, setLoadingState] = useState("Not-Loaded")
@@ -57,7 +56,7 @@ function MarketPlace(props) {
           total: meta.data.TotalQuantity,
           available: meta.data.AmountLeft
         }
-
+console.log("In market palce", item);
         return item
       }));
 
@@ -222,4 +221,4 @@ function MarketPlace(props) {
 }
 
 
-export default MarketPlace;
+export default AdminMarketPlace;

@@ -19,21 +19,14 @@ const UserCollection = (props) => {
     const { ethereum } = window;
 
     if (ethereum) {
-      console.log(2)
       const provider = new ethers.providers.Web3Provider(ethereum);
-      console.log(3)
       const signer = provider.getSigner();
-      console.log(4)
+
       const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
-      console.log(4)
       const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
-      console.log(5)
+
       setUserAccount(props.currentUser);
-      console.log(6)
-      console.log("uhmm", props.currentUser)
-      console.log(7)
       let marketItems = await MARKET.fetchMyNFTs(props.currentUser);
-      console.log(8)
       let items = await Promise.all(marketItems.map(async i => {
 
         const tokenUri = await NFT.tokenURI(i.tokenId);
@@ -102,6 +95,7 @@ const UserCollection = (props) => {
           <div className="content-tabs">
             <div id="content-tab"
               className={toggleState === 1 ? "content  active-content" : "content"}>
+
               {/* <div className='dashCards'>
                 <ClickedButt />
                 <img src={unsplash} alt="" />

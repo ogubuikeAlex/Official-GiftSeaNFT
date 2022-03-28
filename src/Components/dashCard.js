@@ -1,8 +1,8 @@
 import React from 'react'
-import unsplash from '../img/unsplashed5.png'
 import Card from '../Components/Card'
 
 export default function DashCard (props) {
+    console.log("props", props)
  return (
     <div className='dashCards'>    
     <img src={props.url}alt=""/>
@@ -13,6 +13,7 @@ export default function DashCard (props) {
         total = {props.total}
         available = {props.available}
         loadNFTs = {props.loadNFTs}
+        url = {props.url}
     />
     </div>
  )

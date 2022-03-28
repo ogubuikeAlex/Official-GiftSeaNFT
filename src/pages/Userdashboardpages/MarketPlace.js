@@ -8,7 +8,6 @@ import Card from '../../Components/Card'
 import Dashboard from '../../pages/Userdashboardpages/Dashboard'
 import image4 from '../../img/unsplash.png'
 import unsplash from '../../img/unsplashed5.png'
-import unsplashed from '../../img/unsplashedround.png'
 import ClickedButt from "../../Components/clickedButton/ClickedButt";
 import DashCard from "../../Components/dashCard";
 import axios from "axios"

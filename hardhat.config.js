@@ -7,8 +7,8 @@ module.exports = {
       chainId: 1337
     },
     ropsten : {
-      url : "https://eth-ropsten.alchemyapi.io/v2/XhU0k1Ez-tRHJGULpJCPCd5WPF6cWMnv",
-      accounts : ["5d00cef7a5705a1db1262c2b3ab5afe7d6b39259d464c927ccf8a804009f5419"]
+      url : "https://eth-ropsten.alchemyapi.io/v2/16k_1ASgiyJh18bnYvV8sW6aADZ7TQMm",
+      accounts : ["1a4823d90bc72d354903a8b4ec71ec9c953393fcc87455e7b6145e3aefb9fdc2"]
     }
   },
   solidity: "0.8.4",

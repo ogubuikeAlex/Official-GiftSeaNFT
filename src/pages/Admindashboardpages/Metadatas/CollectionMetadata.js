@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import successful from '../Modals/Modals_Images/Vector.png'
-import Dashboard from '../AdminUpload'
-import { Link, useLocation } from 'react-router-dom'
-import woman from '../../../img/woman.png';
-import CollectionStyled from '../../../Styled-components/MetadataStyled'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Dashboard from '../AdminUpload';
+import { Link, useLocation } from 'react-router-dom';
+import CollectionStyled from '../../../Styled-components/MetadataStyled';
 import { Modal, Form, Button } from 'react-bootstrap'
+import { sellNft, giftNft } from '../../Userdashboardpages/Collection/metadataMethods';
 
 const Metadata = () => {
+    const [receiver, setReceiver] = useState("")
     const location = useLocation();
     const {
         name,
@@ -20,8 +20,6 @@ const Metadata = () => {
         total,
         available
     } = location.state;
-    console.log("At name", name)
-    console.log("---location", location.state);
 
     const [show, setShow] = useState(false);
     const [displayGift, setGift] = useState(false)
@@ -31,6 +29,21 @@ const Metadata = () => {
 
     const handleGift = () => setGift(false);
     const handleGiftShow = () => setGift(true);
+
+    async function sendGift() {
+        if (!receiver)
+            return;
+
+        await giftNft(receiver, itemId)
+    }
+
+    async function sendSell() {
+        console.log("Am here")
+        if (!receiver)
+            return;
+        console.log("Am here2")
+        await sellNft(itemId)
+    }
 
     return (
         <div>
@@ -44,7 +57,7 @@ const Metadata = () => {
                         <img src={url} alt='woman' />
                         <div className='nftContainer'>
                             <div className='text-container' style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                                <p className='listedNFT'>{"African NFT" && name}  &nbsp; <span style={{ fontSize: '14px', fontWeight: '600' }}>{"#128" && `#${itemId}`}</span></p>
+                                <p className='listedNFT'>{"African NFT" && name}  &nbsp; <span style={{ fontSize: '14px', fontWeight: '600' }}>{"##" && `#${itemId}`}</span></p>
                                 <div className='giftCollection'>
                                     <button className='Buy' onClick={handleShow}>Sell</button>&nbsp;&nbsp;
                                     <button className='Buy' onClick={handleGiftShow}>GIft</button>
@@ -102,7 +115,8 @@ const Metadata = () => {
                                                 <label for='typeValidation' class='form-label'>
                                                     <small>Wallet Address</small>
                                                 </label><br />
-                                                <input type='text' placeholder='Type your receiver wallet address' class='form-text address' id='typeValidation' required style={{ width: '100%' }} />
+                                                <input type='text' placeholder='Type your receiver wallet address' class='form-text address' id='typeValidation' required style={{ width: '100%' }} onChange={e => setReceiver(e.target.value)} />
+
                                                 <div className='invalid-feedback'>
                                                     Please select a valid wallet address
                                                 </div>
@@ -110,8 +124,8 @@ const Metadata = () => {
                                         </Form>
                                     </FormStyled>
                                     <ButtonStyled>
-                                        <Button className='button'>
-                                            Send
+                                        <Button onClick={sendSell} className='button'>
+                                            Sell
                                         </Button><br />
                                         <Button className='button' onClick={handleShow}>Cancel</Button><br /><br /><br />
                                     </ButtonStyled>
@@ -135,7 +149,6 @@ const Metadata = () => {
                                                 <select id='typeValidation' required style={{ width: '100%', cursor: 'pointer' }}>
                                                     <option value='' disabled selected hidden>Select your receiver wallet type</option>
                                                     <option value='ETH'>ETH</option>
-
                                                 </select>
                                                 <div className='invalid-feedback'>
                                                     Please select a valid wallet type
@@ -145,7 +158,14 @@ const Metadata = () => {
                                                 <label for='typeValidation' class='form-label'>
                                                     <small>Wallet Address</small>
                                                 </label><br />
-                                                <input type='text' class='form-select address' id='typeValidation' placeholder='Type your receiver wallet address here' required style={{ width: '100%' }} />
+                                                <input
+                                                    type='text'
+                                                    class='form-select address'
+                                                    id='typeValidation'
+                                                    placeholder='Type your receiver wallet address here'
+                                                    required style={{ width: '100%' }}
+                                                    onChange={e => setReceiver(e.target.value)}
+                                                />
                                                 <div className='invalid-feedback'>
                                                     Please select a valid wallet type
                                                 </div>
@@ -153,8 +173,8 @@ const Metadata = () => {
                                         </Form>
                                     </FormStyled>
                                     <ButtonStyled>
-                                        <Button className='button'>
-                                            Send
+                                        <Button onClick={sendGift} className='button'>
+                                            Gift
                                         </Button><br />
                                         <Button className='button' onClick={handleGiftShow}>Cancel</Button><br /><br /><br />
                                     </ButtonStyled>

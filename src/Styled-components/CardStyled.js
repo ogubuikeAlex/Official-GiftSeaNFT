@@ -180,5 +180,18 @@ h5{
       cursor: pointer;
     }
   }
+
+  .metadatabtn{
+    border: none;
+    width : 2px;
+    padding: 0px;
+    background-color: #fff;
+
+    
+    :hover{
+      text-decoration:underline;
+      cursor: pointer
+    }
+  }
 `;
 export default CardStyled;
