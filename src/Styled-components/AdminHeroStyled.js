@@ -7,15 +7,15 @@ width: 708px;
 // }
 
 @media only screen and (max-width: 1366px){
-  margin-left: 0px;
-}
-@media only screen and (max-width: 1360px){
-  margin-left: -20px;
+  margin-left: -35px;
 }
 @media only screen and (max-width: 1316px){
     width: 70%;
     height: fit-content;
     padding: 1em;
+}
+@media only screen and (max-width: 1280px){
+  margin-left: -40px;
 }
 @media only screen and (max-width: 1165px){
     margin-left: -45px;
@@ -29,27 +29,27 @@ width: 708px;
 @media(max-width: 1080px){
     margin-left: -65px;
 }
-@media only screen and (max-width: 1000px){
-    margin-left: -80px;
-}
-@media only screen and (max-width: 1000px){
-    margin-left: -80px;
+@media(max-width: 1045px){
+  width: 85%;
+  height: fit-content;
+  margin-left:-130px;
 }
 @media(max-width: 918px){
-    margin-left: -85px;
+    margin-left: -140px;
 }
 @media(max-width: 900px){
-    margin-left: -95px;
+    margin-left: -145px;
 }
 @media(max-width: 849px){
-    width: 100%;
-    transform: translateX(40px);
+    width: calc(100% + 5%);
+    transform: translateX(50px);
 }
 @media only screen and (max-width: 768px){
-    transform: translateX(90px);       
+    margin-left: -65px;
 }
 @media(max-width: 540px){
     width: 100%;
+    margin-left: -50px;
 }
 
 .Hero{
@@ -72,6 +72,9 @@ width: 708px;
   }
   @media(max-width: 768px){
     grid-template-columns: repeat(3, 1fr);
+  }
+  @media(max-width: 600px){
+    grid-template-columns: repeat(1, 1fr);
   }
   @media(max-width: 540px){
     grid-template-columns: repeat(1, 1fr);
@@ -99,7 +102,7 @@ width: 708px;
       text-align: center;
       font-size: 18px;
       border-radius: 10px;
-      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.03);
     }
     @media(max-width: 540px){
       font-size: 14px;
@@ -122,7 +125,7 @@ width: 708px;
       justify-content: center;
       width: 100%;
       font-weight: 400;
-      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.03);
       border-radius: 10px;
       font-size: 16px;
       text-align: center;

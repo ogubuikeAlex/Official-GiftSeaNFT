@@ -10,7 +10,7 @@ const Sidebar = () => {
     const location = useLocation()
 
     useEffect(() => {
-        const curPath = window.location.pathname.split('/')[1]
+        const curPath = window.location.pathname.split('/userdashboard')[1]
         const activeItem = sidebarNav.findIndex(item => item.section === curPath)
 
         setActiveIndex(curPath.length === 0 ? 0 : activeItem)

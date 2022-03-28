@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import history from '../../constants/data';
 import DashboardWrapper, { DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
+import Nohistory from '../EmptyState/Nohistory';
 
 const Dashboard = (props) => {
     return (
@@ -21,7 +22,7 @@ const Dashboard = (props) => {
                                 <Dropdown.Toggle id="dropdown-basic" style={{ background: '#fff', color: 'black', border: 'none', fontSize: '16px', marginLeft: '20px' }}>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu style={{ padding: '1em', boxShadow: '2px 1px 2px 2px #bbb', marginTop: '20px', marginRight: '-50px' }}>
-                                    <Dropdown.Item href="#/action-1">0x30bf5022C23461mtwe</Dropdown.Item>
+                                    <Dropdown.Item href="">0x30bf5022C23461mtwe</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
@@ -44,7 +45,7 @@ const Dashboard = (props) => {
                     <HistoryStyled>
                         <p className='history-title'>History</p>
                         <div className='history'>
-                            {
+                            {/* {
                                 history.map((details) => {
                                     return <div className='details' key={details.id}>
                                         <div className='img'>
@@ -59,9 +60,10 @@ const Dashboard = (props) => {
                                         </div>
                                     </div>
                                 })
-                            }
+                                <button className='seeall_btn'>See all</button>
+                            } */}
+                            <Nohistory/>
                         </div>
-                        <button className='seeall_btn'>See all</button>
                     </HistoryStyled>
                 </DashboardWrapperRight>
             </DashboardWrapper>
@@ -100,6 +102,9 @@ overflow-y:auto;
     line-height: 29px;
     text-align: left;
     color: #110617;
+    @media(max-width: 768px){
+        text-align: center;
+    }
 }
 .ethBal{
     height: 39px;
@@ -121,11 +126,14 @@ overflow-y:auto;
     @media(max-width: 1220px){
         width: 200px;
     }
-    @media(max-width:540px){
-        width: 100%;
-        justify-content: center;
-        align-items: center;
+    @media only screen and (max-width: 768px){
+        width: 50%;
+        transform: translateX(50%);
     }
+    @media only screen and (max-width: 400px){
+        width: 60%;
+        transform: translateX(35%);
+      }
 }
 .myEth{
     margin-top: 10px;
@@ -207,6 +215,10 @@ margin-top: 50px;
         margin-bottom: 20px;
         text-align: left;
         color: #110617;
+        @media(max-width: 768px){
+            width: 100%;
+            text-align: center;
+        }
     }
     .img{
         display: flex;

@@ -15,7 +15,7 @@ const Favourites = () => {
             <h4 style={{marginLeft: '10px', fontWeight: '600'}}>My Favourites</h4>
             <div className="active-content">
             <div className='dashCards'>
-                <Clickedbutt/>
+            <Clickedbutt/>
             <img src={image1}alt=""/>
             <Card/>
             </div>

@@ -7,6 +7,7 @@ import Nft from "../../../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
 import Market from "../../../artifacts/contracts/Market.sol/NFTMarket.json";
 import CollectionDashCard from '../../../Components/collectionDashCard';
 import axios from "axios"
+import Nodata from '../../EmptyState/Nodata'
 
 const UserCollection = (props) => {
   const [toggleState, setToggleState] = useState(1);
@@ -108,7 +109,7 @@ const UserCollection = (props) => {
               </div> */}
 
               {
-                LoadingState === "Not-Loaded" ? <h1>Empty MArket</h1> : availableItems
+                LoadingState === "Not-Loaded" ? <div style={{width: '800px', transform: 'translateX(60px)', marginTop: '50px', objectFit:'cover', height: '800px'}}><Nodata/></div> : availableItems
               }
             </div>
             <div id="content-tab"

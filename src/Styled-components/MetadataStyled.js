@@ -45,6 +45,13 @@ width: 718.99px;
     padding: 0.8em;
     margin-top: 15px;
     object-fit: cover;
+    @media(max-width: 1280px){
+        margin-left:-7px;
+    }
+    @media(max-width: 768px){
+        transform: translateX(10px);
+    }
+
     img{
         height: 316px;
         width: 100%;

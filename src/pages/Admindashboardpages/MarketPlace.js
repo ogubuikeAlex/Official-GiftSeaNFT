@@ -11,7 +11,7 @@ import unsplash from '../../img/unsplashed5.png'
 import ClickedButt from "../../Components/clickedButton/ClickedButt";
 import DashCard from "../../Components/dashCard";
 import axios from "axios"
-
+import Nodata from "../EmptyState/Nodata";
 import { nftAddress, marketAddress } from "../../config";
 import Nft from "../../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
 import Market from "../../artifacts/contracts/Market.sol/NFTMarket.json";
@@ -110,7 +110,7 @@ console.log("In market palce", item);
             <div id="content-tab"
               className={toggleState === 1 ? "content  active-content" : "content"}>
               {
-                LoadingState === "Not-Loaded" ? <h1>Empty MArket</h1> : availableItems
+                LoadingState === "Not-Loaded" ? <div style={{width: '800px', transform: 'translateX(60px)', marginTop: '50px', objectFit:'cover', height: '800px'}}><Nodata/></div> : availableItems
               }
 
               {/* <DashCard />

@@ -20,19 +20,19 @@ const sidebarNav = [
     {
         link: '/userdashboard/collections',
         section: 'collections',
-        icon: <i className='fas fa-chess'></i>,
+        icon: <i className='far fa-chess-rook'></i>,
         text: 'My Collection'
     },
     {
         link: '/userdashboard/contact',
         section: 'contact',
-        icon: <i className='bx bx-chat'></i>,
+        icon: <i className="fa-regular fa-message"></i>,
         text: 'Contact Support'
     },
     {
         link: '/userdashboard/about',
         section: 'about',
-        icon: <i className='bx bx-note'></i>,
+        icon: <i className='bx bx-detail'></i>,
         text: 'About'
     }
 ]

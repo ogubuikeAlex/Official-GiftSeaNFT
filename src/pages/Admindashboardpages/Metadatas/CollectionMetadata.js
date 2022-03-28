@@ -83,7 +83,7 @@ const Metadata = () => {
                             </div>
                             <div className='contents'>
                                 <p className='description'>Description</p>
-                                <p>
+                                <p style={{textAlign:'justify'}}>
                                     This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him<br></br><br></br>
                                     This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to himThis beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him This beautiful artwork represents the heritage of us made with earnest and soulful this art means a lot to him.
                                 </p>
@@ -184,7 +184,7 @@ const Metadata = () => {
                     </div>
                 </div>
             </CollectionStyled>
-            <Dashboard />
+            {/* <Dashboard /> */}
         </div>
 
     )
