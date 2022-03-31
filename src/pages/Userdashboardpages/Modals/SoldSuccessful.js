@@ -16,7 +16,7 @@ const SoldSuccessful = () => {
     let path = `marketplace`;
     navigateToMarketPlace(path);
    }
-
+   
   return (
     <div>
       <Modal
