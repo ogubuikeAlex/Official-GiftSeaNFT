@@ -25,10 +25,11 @@ const Favourites = () => {
             <img src={image2}alt=""/>
             <Card/>
             </div>
-        </div> */}
-            </FavouriteStyled>
+    </div> */}
             <Nodata/>
+            </FavouriteStyled>
             </FavouritesAdjusted>            
+            <Dashboard/>
         </div>
 
     )

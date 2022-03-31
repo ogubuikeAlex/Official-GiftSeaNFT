@@ -3,6 +3,8 @@ import {
     nftAddress, marketAddress
 } from '../../../config'
 import Market from '../../../artifacts/contracts/Market.sol/NFTMarket.json'
+import SentSuccessful from '../Modals/SentSuccessful'
+import SoldSuccessful from '../Modals/SoldSuccessful'
 
 
 
@@ -22,6 +24,7 @@ import Market from '../../../artifacts/contracts/Market.sol/NFTMarket.json'
         let transaction = await contract.giftNft(nftAddress, receiver, itemId);
         await transaction.wait();
         //Navigate to gifted Successfully modal
+        // <SentSuccessful/>
     }
 
     async function sellNft(itemId) {
@@ -30,6 +33,7 @@ import Market from '../../../artifacts/contracts/Market.sol/NFTMarket.json'
 
         if (!ethereum) {
             //return a modal and redirect person to landingPage
+
         }
 
         const provider = new ethers.providers.Web3Provider(ethereum);
@@ -39,6 +43,7 @@ import Market from '../../../artifacts/contracts/Market.sol/NFTMarket.json'
         let transaction = await contract.sellNft(itemId, nftAddress);
         await transaction.wait();
         //Navigate to sold Successfully modal
+        // <SoldSuccessful/>
     }
 
     async function buyNft(itemId, priice) {
