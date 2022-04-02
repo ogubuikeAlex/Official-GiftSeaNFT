@@ -7,6 +7,7 @@ export default function DashCard (props) {
     <div className='dashCards'>    
     <img src={props.url}alt=""/>
     <Card 
+        tokenId = {props.tokenId}
         itemId = {props.itemId}
         name = {props.name}
         price = {props.price}

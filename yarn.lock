@@ -2309,6 +2309,29 @@
   "resolved" "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-4.5.0.tgz"
   "version" "4.5.0"
 
+"@openzeppelin/hardhat-upgrades@^1.17.0":
+  "integrity" "sha512-GNxR3/3fCKQsFpBi/r+5ib6U81UM9KCypmcOQxuCkVp9JKJ80/3hQdg1R+AQku/dlnhutPsfkCokH2LZFc5mNA=="
+  "resolved" "https://registry.npmjs.org/@openzeppelin/hardhat-upgrades/-/hardhat-upgrades-1.17.0.tgz"
+  "version" "1.17.0"
+  dependencies:
+    "@openzeppelin/upgrades-core" "^1.14.1"
+    "chalk" "^4.1.0"
+    "proper-lockfile" "^4.1.1"
+
+"@openzeppelin/upgrades-core@^1.14.1":
+  "integrity" "sha512-iKlh1mbUxyfdjdEiUFyhMkqirfas+DMUu7ED53nZbHEyhcYsm+5Fl/g0Bv6bZA+a7k8kO8+22DNEKsqaDUBc2Q=="
+  "resolved" "https://registry.npmjs.org/@openzeppelin/upgrades-core/-/upgrades-core-1.14.1.tgz"
+  "version" "1.14.1"
+  dependencies:
+    "bn.js" "^5.1.2"
+    "cbor" "^8.0.0"
+    "chalk" "^4.1.0"
+    "compare-versions" "^4.0.0"
+    "debug" "^4.1.1"
+    "ethereumjs-util" "^7.0.3"
+    "proper-lockfile" "^4.1.1"
+    "solidity-ast" "^0.4.15"
+
 "@pmmmwh/react-refresh-webpack-plugin@^0.5.3":
   "integrity" "sha512-zZbZeHQDnoTlt2AF+diQT0wsSXpvWiaIOZwBRdltNFhG1+I3ozyaw7U/nBiUwyJ0D+zwdXp0E3bWOl38Ag2BMw=="
   "resolved" "https://registry.npmjs.org/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.5.4.tgz"
@@ -5972,6 +5995,13 @@
   "resolved" "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
   "version" "0.12.0"
 
+"cbor@^8.0.0":
+  "integrity" "sha512-DwGjNW9omn6EwP70aXsn7FQJx5kO12tX0bZkaTjzdVFM6/7nhA4t0EENocKGx6D2Bch9PE2KzCUf5SceBdeijg=="
+  "resolved" "https://registry.npmjs.org/cbor/-/cbor-8.1.0.tgz"
+  "version" "8.1.0"
+  dependencies:
+    "nofilter" "^3.1.0"
+
 "cborg@^1.5.4", "cborg@^1.6.0":
   "integrity" "sha512-x49Vf1DUrS9rc+ar8QwOqfvA48H9YRn6UzcvlXpd1jKIzq2ebSR1R/yegu7MsskJew4+yc+3znWmud0PMJkR1Q=="
   "resolved" "https://registry.npmjs.org/cborg/-/cborg-1.8.1.tgz"
@@ -6434,6 +6464,11 @@
   "integrity" "sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs="
   "resolved" "https://registry.npmjs.org/commondir/-/commondir-1.0.1.tgz"
   "version" "1.0.1"
+
+"compare-versions@^4.0.0":
+  "integrity" "sha512-WQfnbDcrYnGr55UwbxKiQKASnTtNnaAWVi8jZyy8NTpVAXWACSne8lMD1iaIo9AiU6mnuLvSVshCzewVuWxHUg=="
+  "resolved" "https://registry.npmjs.org/compare-versions/-/compare-versions-4.1.3.tgz"
+  "version" "4.1.3"
 
 "component-emitter@^1.2.1":
   "integrity" "sha512-Rd3se6QB+sO1TwqZjscQrurpEPIfO0/yYnSin6Q/rD3mOutHvUrCAhJub3r90uNb+SESBuE0QYoB90YdfatsRg=="
@@ -8900,7 +8935,7 @@
     "ethjs-util" "0.1.6"
     "rlp" "^2.2.4"
 
-"ethereumjs-util@^7.1.0", "ethereumjs-util@^7.1.1", "ethereumjs-util@^7.1.3", "ethereumjs-util@^7.1.4":
+"ethereumjs-util@^7.0.3", "ethereumjs-util@^7.1.0", "ethereumjs-util@^7.1.1", "ethereumjs-util@^7.1.3", "ethereumjs-util@^7.1.4":
   "integrity" "sha512-p6KmuPCX4mZIqsQzXfmSx9Y0l2hqf+VkAiwSisW3UKUFdk8ZkAt+AYaor83z2nSi6CU2zSsXMlD80hAbNEGM0A=="
   "resolved" "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-7.1.4.tgz"
   "version" "7.1.4"
@@ -10242,7 +10277,7 @@
   "resolved" "https://registry.npmjs.org/hard-rejection/-/hard-rejection-2.1.0.tgz"
   "version" "2.1.0"
 
-"hardhat@^2.0.0", "hardhat@^2.8.3":
+"hardhat@^2.0.0", "hardhat@^2.0.2", "hardhat@^2.8.3":
   "integrity" "sha512-q0AkYXV7R26RzyAkHGQRhhQjk508pseVvH3wSwZwwPUbvA+tjl0vMIrD4aFQDonRXkrnXX4+5KglozzjSd0//Q=="
   "resolved" "https://registry.npmjs.org/hardhat/-/hardhat-2.9.1.tgz"
   "version" "2.9.1"
@@ -14296,6 +14331,11 @@
     "stdout-stream" "^1.4.0"
     "true-case-path" "^1.0.2"
 
+"nofilter@^3.1.0":
+  "integrity" "sha512-l2NNj07e9afPnhAhvgVrCD/oy2Ai1yfLpuo3EpiO1jFTsB4sFz6oIfAfSZyQzVpkZQ9xS8ZS5g1jCBgq4Hwo0g=="
+  "resolved" "https://registry.npmjs.org/nofilter/-/nofilter-3.1.0.tgz"
+  "version" "3.1.0"
+
 "nopt@^5.0.0":
   "integrity" "sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ=="
   "resolved" "https://registry.npmjs.org/nopt/-/nopt-5.0.0.tgz"
@@ -16478,6 +16518,15 @@
     "loose-envify" "^1.3.1"
     "object-assign" "^4.1.1"
 
+"proper-lockfile@^4.1.1":
+  "integrity" "sha512-TjNPblN4BwAWMXU8s9AEz4JmQxnD1NNL7bNOY/AKUzyamc379FWASUhc/K1pL2noVb+XmZKLL68cjzLsiOAMaA=="
+  "resolved" "https://registry.npmjs.org/proper-lockfile/-/proper-lockfile-4.1.2.tgz"
+  "version" "4.1.2"
+  dependencies:
+    "graceful-fs" "^4.2.4"
+    "retry" "^0.12.0"
+    "signal-exit" "^3.0.2"
+
 "protobufjs@^6.10.2":
   "integrity" "sha512-4BQJoPooKJl2G9j3XftkIXjoC9C0Av2NOrWmbLWT1vH32GcSUHjM0Arra6UfTsVyfMAuFzaLucXn1sadxJydAw=="
   "resolved" "https://registry.npmjs.org/protobufjs/-/protobufjs-6.11.2.tgz"
@@ -18585,6 +18634,11 @@
     "require-from-string" "^2.0.0"
     "semver" "^5.5.0"
     "tmp" "0.0.33"
+
+"solidity-ast@^0.4.15":
+  "integrity" "sha512-kX6o4XE4ihaqENuRRTMJfwQNHoqWusPENZUlX4oVb19gQdfi7IswFWnThONHSW/61umgfWdKtCBgW45iuOTryQ=="
+  "resolved" "https://registry.npmjs.org/solidity-ast/-/solidity-ast-0.4.31.tgz"
+  "version" "0.4.31"
 
 "sort-keys@^1.0.0":
   "integrity" "sha1-RBttTTRnmPG05J6JIK37oOVD+a0="

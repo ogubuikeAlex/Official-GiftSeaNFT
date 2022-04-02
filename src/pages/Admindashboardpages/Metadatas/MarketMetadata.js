@@ -18,7 +18,8 @@ const MarketMetadata = () => {
         apy,
         weeklyValue,
         total,
-        available
+        available,
+        tokenId
     } = location.state;
 
     const priice = ethers.utils.parseUnits(price.toString(), "ether");

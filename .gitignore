@@ -33,4 +33,9 @@ typechain
 #Hardhat files
 cache
 src/config.js
+.config.js
+
+test/sample-test.js
+test/sum.js
+src/config.js
 hardhat.config.js

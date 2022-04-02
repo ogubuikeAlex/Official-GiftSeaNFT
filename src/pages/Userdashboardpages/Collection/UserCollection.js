@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ethers from "ethers";
 import { nftAddress, marketAddress } from "../../../config";
 import Nft from "../../../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
-import Market from "../../../artifacts/contracts/Market.sol/NFTMarket.json";
+import Market from "../../../artifacts/contracts/Market2.sol/NFTMarketTwo.json";
 import CollectionDashCard from '../../../Components/collectionDashCard';
 import axios from "axios"
 import Nodata from '../../EmptyState/Nodata'
@@ -38,6 +38,7 @@ const UserCollection = (props) => {
 
         let item = {
           price,
+          tokenId: i.tokenId.toNumber(),
           itemId: i.itemId.toNumber(),
           owner: i.owner,
           image: meta.data.image,
@@ -58,6 +59,7 @@ const UserCollection = (props) => {
 
   let availableItems = marketitems.map(item =>
     <CollectionDashCard
+      tokenId={item.tokenId}
       url={item.image}
       name={item.name}
       price={item.price}
@@ -109,7 +111,7 @@ const UserCollection = (props) => {
               </div> */}
 
               {
-                LoadingState === "Not-Loaded" ? <div style={{width: '800px', transform: 'translateX(60px)', marginTop: '50px', objectFit:'cover', height: '800px'}}><Nodata/></div> : availableItems
+                LoadingState === "Not-Loaded" ? <div style={{ width: '800px', transform: 'translateX(60px)', marginTop: '50px', objectFit: 'cover', height: '800px' }}><Nodata /></div> : availableItems
               }
             </div>
             <div id="content-tab"

@@ -9,6 +9,7 @@ export default function CollectionDashCard (props) {
     <div className='dashCards'>    
     <img src={props.url}alt=""/>
     <MyCollectionCard
+        tokenId = {props.tokenId}
         itemId = {props.itemId}
         url = {props.url}
         name = {props.name}

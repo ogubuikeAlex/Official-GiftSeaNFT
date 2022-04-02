@@ -15,7 +15,7 @@ import Nodata from '../../pages/EmptyState/Nodata'
 
 import { nftAddress, marketAddress } from "../../config";
 import Nft from "../../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
-import Market from "../../artifacts/contracts/Market.sol/NFTMarket.json";
+import Market from "../../artifacts/contracts/Market2.sol/NFTMarketTwo.json";
 
 function MarketPlace(props) {
   const [toggleState, setToggleState] = useState(1);
@@ -40,12 +40,13 @@ function MarketPlace(props) {
       let marketItems = await MARKET.fetchMarketItems();
 
       let items = await Promise.all(marketItems.map(async i => {
-       
+
         const tokenUri = await NFT.tokenURI(i.tokenId);
         const meta = await axios.get(tokenUri)
         let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
 
         let item = {
+          tokenId: i.tokenId.toNumber(),
           price,
           itemId: i.itemId.toNumber(),
           owner: i.owner,
@@ -67,6 +68,7 @@ function MarketPlace(props) {
 
   let availableItems = marketitems.map(item =>
     <DashCard
+      tokenId={item.tokenId}
       url={item.image}
       name={item.name}
       price={item.price}
@@ -109,7 +111,7 @@ function MarketPlace(props) {
             <div id="content-tab"
               className={toggleState === 1 ? "content  active-content" : "content"}>
               {
-                LoadingState === "Not-Loaded" ? <div style={{width: '800px', transform: 'translateX(60px)', marginTop: '50px', objectFit:'cover', height: '800px'}}><Nodata/></div> : availableItems
+                LoadingState === "Not-Loaded" ? <div style={{ width: '800px', transform: 'translateX(60px)', marginTop: '50px', objectFit: 'cover', height: '800px' }}><Nodata /></div> : availableItems
               }
 
               {/* <DashCard />

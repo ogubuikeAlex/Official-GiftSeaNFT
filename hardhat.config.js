@@ -1,4 +1,8 @@
+require('dotenv').config();
 require("@nomiclabs/hardhat-waffle");
+require('@openzeppelin/hardhat-upgrades');
+
+const { API_URL, PRIVATE_KEY } = process.env;
 
 module.exports = {
   defaultNetwork: "hardhat",
@@ -6,9 +10,10 @@ module.exports = {
     hardhat: {
       chainId: 1337
     },
-    ropsten : {
-      url : "https://eth-ropsten.alchemyapi.io/v2/16k_1ASgiyJh18bnYvV8sW6aADZ7TQMm",
-      accounts : ["1a4823d90bc72d354903a8b4ec71ec9c953393fcc87455e7b6145e3aefb9fdc2"]
+
+    mainnet : {
+      url : `${API_URL}`,
+      accounts : [PRIVATE_KEY]
     }
   },
   solidity: "0.8.4",

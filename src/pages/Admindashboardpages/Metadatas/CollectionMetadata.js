@@ -12,8 +12,10 @@ const Metadata = () => {
     const {
         name,
         url,
+        tokenId,
         description,
         itemId,
+        price,
         dailyValue,
         apy,
         weeklyValue,
@@ -34,7 +36,7 @@ const Metadata = () => {
         if (!receiver)
             return;
 
-        await giftNft(receiver, itemId)
+        await giftNft(receiver, itemId, tokenId)
     }
 
     async function sendSell() {
@@ -42,7 +44,7 @@ const Metadata = () => {
         if (!receiver)
             return;
         console.log("Am here2")
-        await sellNft(itemId)
+        await sellNft(itemId, price)
     }
 
     return (

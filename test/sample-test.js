@@ -4,7 +4,7 @@
 // describe("NFTMARKET", function () {
 //   it("Should create market Item", async function () {
 
-//   const Market = await hre.ethers.getContractFactory("NFTMarket");
+//   const Market = await hre.ethers.getContractFactory("NFTMarketTwo");
 //   const market =await Market.deploy();
 //   await market.deployed();   
 
@@ -22,12 +22,12 @@
 //   await market.createMarketItem(nftContractAddress, 2, auctionPrice)    
 
 //   const [_, buyerAddress] = await ethers.getSigners()
-//   console.log(buyerAddress)
+// //   console.log(buyerAddress)
 //   await market.connect(buyerAddress).buyNft(nftContractAddress, 1, { value: auctionPrice})
 
 //   let items = await market.fetchMarketItems();
 //   //iunj
-//   console.log(items);
+//   console.log(await items);
   
 //   });
 // });

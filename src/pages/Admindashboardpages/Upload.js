@@ -10,7 +10,7 @@ import {
 } from '../../config'
 
 import NFT from '../../artifacts/contracts/GiftSeaNFT.sol/NFT.json'
-import Market from '../../artifacts/contracts/Market.sol/NFTMarket.json'
+import Market from '../../artifacts/contracts/Market2.sol/NFTMarketTwo.json'
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 const Upload = () => {
@@ -72,7 +72,7 @@ const Upload = () => {
             console.log(event)
             let value = event.args[2]
             let tokenId = value.toNumber();
-            console.log(tokenId);
+            console.log("tokenIdstuff", tokenId);
 
             const price = ethers.utils.parseUnits(formInput.price, 'ether')
 

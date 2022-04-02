@@ -4,14 +4,20 @@ pragma solidity ^0.8.3;
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
+import "./other.sol";
 import "hardhat/console.sol";
 
-contract NFTMarketTwo is ReentrancyGuard, Ownable {
+contract NFTMarket is ReentrancyGuard, ERC721Holder, Other {
+
     using Counters for Counters.Counter;
     Counters.Counter private _itemIds;
     Counters.Counter private _itemsSold; //When a person sells back to the market place increment this number
     Counters.Counter private _buyIds; //When a person buys from the market place increment this number
+
+    constructor(address admin) {
+        _admin = payable(admin);
+    }
 
     event NftBought(
         address indexed acquirer,
@@ -45,9 +51,7 @@ contract NFTMarketTwo is ReentrancyGuard, Ownable {
         uint256 indexed tokenId,
         uint256 price,
         bool sold
-    );   
-
-    constructor() {}
+    );
 
     struct Holder {
         uint256 itemId; //market item id to link to a specific market Item
@@ -75,11 +79,11 @@ contract NFTMarketTwo is ReentrancyGuard, Ownable {
         address nftContract,
         uint256 tokenId,
         uint256 price
-    ) external onlyOwner nonReentrant {
+    ) external isAdmin nonReentrant {
         require(price > 0, "Price must be at least 1 wei");
 
         _itemIds.increment();
-        // console.log(_itemIds.current());
+
         uint256 itemId = _itemIds.current();
 
         idToMarketItem[itemId] = MarketItem(
@@ -104,13 +108,12 @@ contract NFTMarketTwo is ReentrancyGuard, Ownable {
     }
 
     /* Returns all unsold market items */
-    function fetchMarketItems() external view returns (MarketItem[] memory) {
+    function fetchMarketItems() public view returns (MarketItem[] memory) {
         uint256 itemCount = _itemIds.current();
-        uint256 unsoldItemCount = _itemIds.current() - _buyIds.current();
+        uint256 unsoldItemCount = _itemIds.current() - _itemsSold.current();
         uint256 currentIndex = 0;
 
         MarketItem[] memory items = new MarketItem[](unsoldItemCount);
-
         for (uint256 i = 0; i < itemCount; i++) {
             if (idToMarketItem[i + 1].owner == address(0)) {
                 uint256 currentId = i + 1;
@@ -171,7 +174,7 @@ contract NFTMarketTwo is ReentrancyGuard, Ownable {
         );
 
         idToMarketItem[itemId].sold = true;
-        idToMarketItem[itemId].owner = msg.sender;
+        idToMarketItem[itemId].owner = payable(msg.sender);
         _buyIds.increment();
         uint256 buyId = _buyIds.current();
 
@@ -183,6 +186,7 @@ contract NFTMarketTwo is ReentrancyGuard, Ownable {
             payable(msg.sender),
             true
         );
+        Holder memory x = buyIdToHolder[buyId];
 
         emit NftBought(msg.sender, itemId, block.timestamp);
     }
@@ -196,6 +200,7 @@ contract NFTMarketTwo is ReentrancyGuard, Ownable {
             idToMarketItem[itemId].owner == msg.sender,
             "You do not have permission to Gift this NFT as you are not the owner"
         );
+
         uint256 totalBoughtItems = _buyIds.current();
         uint256 tokenId = idToMarketItem[itemId].tokenId;
         address holder = idToMarketItem[itemId].owner;
@@ -217,87 +222,74 @@ contract NFTMarketTwo is ReentrancyGuard, Ownable {
         emit NftGifted(msg.sender, to, tokenId, block.timestamp);
     }
 
-    function sellNft(uint256 itemId, address nftContract)
-        external
-        nonReentrant
-    {
-        //Selling will revert buy
-        uint256 price = idToMarketItem[itemId].price;
+    function sellNft(
+        uint256 itemId,
+        address nftContract,
+        uint256 price
+    ) external nonReentrant {
         uint256 tokenId = idToMarketItem[itemId].tokenId;
         uint256 totalBoughtItems = _buyIds.current();
-        uint256 datePurchased;
 
         require(
             idToMarketItem[itemId].owner == msg.sender,
             "You do not have permission to Gift this NFT as you are not the owner"
         );
 
+        IERC721(nftContract).safeTransferFrom(
+            msg.sender,
+            address(this),
+            tokenId
+        );
+
         //get the current holder and deactivate him
         for (uint256 i = 0; i < totalBoughtItems; i++) {
             if (
-                buyIdToHolder[i + 1].itemId == itemId &&
-                buyIdToHolder[i + 1].isActiveHolder
+                buyIdToHolder[i].itemId == itemId &&
+                buyIdToHolder[i].isActiveHolder
             ) {
-                datePurchased = buyIdToHolder[i + 1].timeGotten;
-                buyIdToHolder[i + 1].timeGivenOut = block.timestamp;
-                buyIdToHolder[i + 1].isActiveHolder = false;
-                buyIdToHolder[i + 1].owner = payable(address(0));
+                //datePurchased = buyIdToHolder[i + 1].timeGotten;
+                buyIdToHolder[i].timeGivenOut = block.timestamp;
+                buyIdToHolder[i].isActiveHolder = false;
+                buyIdToHolder[i].owner = payable(address(0));
             }
         }
 
         idToMarketItem[itemId].sold = false;
         idToMarketItem[itemId].owner = address(0);
-        //Calculate Cashout amount and emit premature Nft if isPrematureNft
-        uint256 cashoutAmount = _calculateCashoutAmount(
-            price,
-            datePurchased,
-            tokenId
-        );
-
-        //transfer to contract
-        IERC721(nftContract).transferFrom(msg.sender, address(this), tokenId);
-
+        _buyIds.decrement();
         //send money to user
-        payable(msg.sender).transfer(cashoutAmount);
+        payable(msg.sender).transfer(price);
 
-        _itemsSold.increment();
         //emit event
         emit NftSold(msg.sender, tokenId, block.timestamp);
     }
 
-    function _getHoldTimeAndMaturityStatus(uint256 datePurchased)
-        private
-        view
-        returns (bool, uint256)
-    {
-        uint256 holdTime = block.timestamp - datePurchased;
-        if (holdTime > 183 days) {
-            return (true, holdTime);
+    function GetTimeBought(uint256 itemId) external view returns (uint256) {
+        uint256 totalBoughtItems = _buyIds.current();
+
+        for (uint256 i = 0; i < totalBoughtItems; i++) {
+            if (
+                buyIdToHolder[i + 1].itemId == itemId &&
+                buyIdToHolder[i + 1].isActiveHolder
+            ) {
+                return buyIdToHolder[i + 1].timeGotten;
+            }
         }
-        return (false, holdTime);
     }
 
-    function _calculateCashoutAmount(
-        uint256 initialPrice,
-        uint256 datePurchased,
-        uint256 tokenId
-    ) private returns (uint256) {
-        uint256 amountPerday = initialPrice / 365 days;
-        bool isUpToSixMonths;
-        uint256 timeOfHold;
+    function getAllHolders() external view isAdmin returns (Holder[] memory) {
+        // get current value of buyIds.
+        uint256 holderCount = _buyIds.current();
+        uint256 currentIndex = 0;
+        // declare empty array with length ofv buyid.current
+        Holder[] memory items = new Holder[](holderCount);
 
-        (isUpToSixMonths, timeOfHold) = _getHoldTimeAndMaturityStatus(
-            datePurchased
-        );
-        //convert timeOfHold to days
-        uint256 daysHeld = timeOfHold / 1 days; //86400sec //convert to a round number
-        if (isUpToSixMonths) {
-            return amountPerday * daysHeld;
-        } else {
-            // uint cashoutAmount = (30 / 100) * initialPrice;
-            uint256 cashoutAmount = amountPerday * daysHeld;
-            emit TryingToSellPrematureNFT(msg.sender, tokenId, cashoutAmount);
-            return cashoutAmount;
+        // loop throught the empty array
+        for (uint256 i = 0; i > holderCount; i++) {
+            items[currentIndex] = (buyIdToHolder[i + 1]);
+            currentIndex += 1;
         }
+
+        return items;
     }
 }

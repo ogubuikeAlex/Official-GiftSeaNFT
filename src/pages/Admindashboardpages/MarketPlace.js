@@ -14,7 +14,7 @@ import axios from "axios"
 import Nodata from "../EmptyState/Nodata";
 import { nftAddress, marketAddress } from "../../config";
 import Nft from "../../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
-import Market from "../../artifacts/contracts/Market.sol/NFTMarket.json";
+import Market from "../../artifacts/contracts/Market2.sol/NFTMarketTwo.json";
 
 function AdminMarketPlace(props) {
   const [toggleState, setToggleState] = useState(1);

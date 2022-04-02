@@ -8,10 +8,8 @@ import roundedImgs3 from '../img/Ellipse 98.png';
 import roundedImgs4 from '../img/Ellipse 95.png';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { nftAddress, marketAddress } from "../config";
-import Nft from "../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
-import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
-const MyCollectionCard = ({ name, available, total, price, url, itemId, description }) => {
+
+const MyCollectionCard = ({ name, available, total, price, url, itemId, description, tokenId }) => {
     let navigate = useNavigate();
     console.log("MycollectionCard", description)   
 
@@ -37,10 +35,12 @@ const MyCollectionCard = ({ name, available, total, price, url, itemId, descript
 
             <button onClick={() => navigate("metadata", {
                 state: {
+                    tokenId,
                     name,
                     url,
                     description,
                     itemId,
+                    price,
                     dailyValue: "dailyValue",
                     apy: "stuff",
                     weeklyValue: "weeklyValue",

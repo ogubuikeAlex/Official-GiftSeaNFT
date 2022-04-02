@@ -6,33 +6,35 @@ import roundedImgs1 from '../img/Ellipse 96.png';
 import roundedImgs2 from '../img/Ellipse 97.png';
 import roundedImgs3 from '../img/Ellipse 98.png';
 import roundedImgs4 from '../img/Ellipse 95.png';
+import { buyNft } from '../pages/Userdashboardpages/Collection/metadataMethods';
 
 import { nftAddress, marketAddress } from "../config";
-import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
+import Market from "../artifacts/contracts/Market2.sol/NFTMarketTwo.json";
 
-const Card = ({ name, available, total, price, url, itemId, description, loadNfts }) => {
-  console.log(name, available, total, price, url, itemId, description)
+const Card = ({ name, available, total, price, url, itemId, description, loadNfts, tokenId }) => {
+  console.log(name, available, total, price, url, itemId, description, tokenId)
+  console.log("tokenId", tokenId)
   const navigate = useNavigate();
 
-  async function buyNft(itemId, priice) {
-    console.log("tryna buy");
-    const { ethereum } = window;
-    //if (!etehreum throw a modal error to connect to metamask)
-    if (ethereum) {
-      const provider = new ethers.providers.Web3Provider(ethereum);
-      const signer = provider.getSigner();
+  // async function buyNft(itemId, priice) {
+  //   console.log("tryna buy");
+  //   const { ethereum } = window;
+  //   //if (!etehreum throw a modal error to connect to metamask)
+  //   if (ethereum) {
+  //     const provider = new ethers.providers.Web3Provider(ethereum);
+  //     const signer = provider.getSigner();
 
-      const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
-      console.log("tryna buy2");
-      const price = ethers.utils.parseUnits(priice.toString(), "ether");
-      console.log("tryna buy3");
-      const transaction = await MARKET.buyNft(nftAddress, itemId, { value: price });
-      console.log("tryna buy4");
+  //     const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
+  //     console.log("tryna buy2");
+  //     const price = ethers.utils.parseUnits(priice.toString(), "ether");
+  //     console.log("tryna buy3");
+  //     const transaction = await MARKET.buyNft(nftAddress, itemId, { value: price });
+  //     console.log("tryna buy4");
 
-      await transaction.wait();
-      loadNfts()
-    }
-  }
+  //     await transaction.wait();
+  //     loadNfts()
+  //   }
+  // }
 
   return (
     <CardStyled>
@@ -50,6 +52,7 @@ const Card = ({ name, available, total, price, url, itemId, description, loadNft
               total: "12",
               available: "2",
               price,
+              tokenId
             }
           })} className='metadatabtn'>
             {name ? name : "Africana"}
@@ -69,10 +72,14 @@ const Card = ({ name, available, total, price, url, itemId, description, loadNft
         </div>
 
       </div>
-      <button className='buyButton' onClick={() => buyNft(itemId, price)}>Buy</button>
-      {/* <button className='buyButton'>Buy</button> */}
+      {/* <button className='buyButton' onClick={() => buyNft(itemId, price,)}>Buy</button> */}
+      <button className='buyButton' onClick={() => buyNft(itemId, price, nftAddress, tokenId)}>Buy</button>
+      
+      {/* buyNft(itemId, priice, address, tokenId) */}
+      
     </CardStyled>
   )
 }
 
 export default Card
+

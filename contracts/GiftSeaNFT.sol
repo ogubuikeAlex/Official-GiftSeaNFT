@@ -16,12 +16,21 @@ contract NFT is ERC721URIStorage {
         contractAddress = marketplaceAddress;
     }
 
-    function createToken(string memory tokenURI) public returns (uint) {
+    function createToken(string memory tokenURI) public isAdmin returns (uint256) {
         _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
         _safeMint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
         setApprovalForAll(contractAddress, true);
         return newItemId;
-    }     
+    }
+
+    function giveResaleApproval(uint256 tokenId) public {
+        require(
+            ownerOf(tokenId) == msg.sender,
+            "You must own this NFT in order to resell it"
+        );
+        setApprovalForAll(contractAddress, true);
+        return;
+    }
 }
