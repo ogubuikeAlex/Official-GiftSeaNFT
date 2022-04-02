@@ -5,6 +5,8 @@ import {
 import Nft from "../../../artifacts/contracts/GiftSeaNFT.sol/NFT.json"
 import Market from '../../../artifacts/contracts/Market2.sol/NFTMarketTwo.json'
 import { CalculateCashoutAmount } from "./Calculator";
+import SentSuccessful from '../Modals/SentSuccessful'
+import SoldSuccessful from '../Modals/SoldSuccessful'
 
 async function giftNft(receiver, itemId, tokenId) {
     console.log("Am here")
