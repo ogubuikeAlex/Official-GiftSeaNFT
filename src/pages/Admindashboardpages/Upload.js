@@ -10,7 +10,7 @@ import {
 } from '../../config'
 
 import NFT from '../../artifacts/contracts/GiftSeaNFT.sol/NFT.json'
-import Market from '../../artifacts/contracts/Market2.sol/NFTMarketTwo.json'
+import Market from '../../artifacts/contracts/Market2.sol/NFTMarket.json'
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 const Upload = () => {

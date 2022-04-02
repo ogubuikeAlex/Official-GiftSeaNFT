@@ -15,7 +15,7 @@ import Nodata from '../../pages/EmptyState/Nodata'
 
 import { nftAddress, marketAddress } from "../../config";
 import Nft from "../../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
-import Market from "../../artifacts/contracts/Market2.sol/NFTMarketTwo.json";
+import Market from "../../artifacts/contracts/Market2.sol/NFTMarket.json";
 
 function MarketPlace(props) {
   const [toggleState, setToggleState] = useState(1);

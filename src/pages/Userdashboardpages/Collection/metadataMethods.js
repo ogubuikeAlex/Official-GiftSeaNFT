@@ -3,7 +3,7 @@ import {
     nftAddress, marketAddress
 } from '../../../config'
 import Nft from "../../../artifacts/contracts/GiftSeaNFT.sol/NFT.json"
-import Market from '../../../artifacts/contracts/Market2.sol/NFTMarketTwo.json'
+import Market from '../../../artifacts/contracts/Market2.sol/NFTMarket.json'
 import { CalculateCashoutAmount } from "./Calculator";
 import SentSuccessful from '../Modals/SentSuccessful'
 import SoldSuccessful from '../Modals/SoldSuccessful'

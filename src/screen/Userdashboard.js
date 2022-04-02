@@ -13,7 +13,7 @@ import { ethers } from "ethers";
 import axios from "axios"
 import { nftAddress, marketAddress } from "../config";
 import Nft from "../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
-import Market from "../artifacts/contracts/Market2.sol/NFTMarketTwo.json";
+import Market from "../artifacts/contracts/Market2.sol/NFTMarket.json";
 
 function Userdashboard(props) {
     const [marketItems, setMarketItems] = useState([]);

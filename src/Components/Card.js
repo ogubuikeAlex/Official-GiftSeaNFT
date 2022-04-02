@@ -9,7 +9,7 @@ import roundedImgs4 from '../img/Ellipse 95.png';
 import { buyNft } from '../pages/Userdashboardpages/Collection/metadataMethods';
 
 import { nftAddress, marketAddress } from "../config";
-import Market from "../artifacts/contracts/Market2.sol/NFTMarketTwo.json";
+import Market from "../artifacts/contracts/Market2.sol/NFTMarket.json";
 
 const Card = ({ name, available, total, price, url, itemId, description, loadNfts, tokenId }) => {
   console.log(name, available, total, price, url, itemId, description, tokenId)
