@@ -14,8 +14,9 @@ import axios from "axios"
 import Nodata from '../../pages/EmptyState/Nodata'
 
 import { nftAddress, marketAddress } from "../../config";
-import Nft from "../../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
-import Market from "../../artifacts/contracts/Market2.sol/NFTMarket.json";
+import Nft from "../../artifacts/contracts/erc1155nft.sol/ERC1155NFT.json";
+import Market from "../../artifacts/contracts/Erc115market.sol/NFTMarket1155.json";
+import { splitArray } from "./Collection/metadataMethods";
 
 function MarketPlace(props) {
   const [toggleState, setToggleState] = useState(1);
@@ -66,6 +67,52 @@ function MarketPlace(props) {
     }
   }
 
+  async function loadNftTwo() {
+    const { ethereum } = window;
+
+    if (!ethereum) {
+      return;
+    }
+
+    const provider = new ethers.providers.Web3Provider(ethereum);
+    const signer = provider.getSigner();
+    const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
+    const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
+    setUserAccount(props.user);
+
+    let marketItems = await MARKET.fetchMarketItems();
+    console.log(marketItems);
+    let groupedMarketItems = splitArray(marketItems);
+
+    let items = await Promise.all(groupedMarketItems.map(async i => {
+      let currentItem = i[0];
+      let totalAmountOfCurrent = i.length; 
+      let TotalMinted = (await MARKET.GetTotalSupply(currentItem.tokenId)).toNumber();
+      const tokenUri = (await NFT.uri(currentItem.tokenId)).toString();
+    
+      const meta = await axios.get(tokenUri)
+      let price = ethers.utils.formatUnits(currentItem.price.toString(), 'ether')
+
+      let item = {
+        tokenId: currentItem.tokenId.toNumber(),
+        price,
+        itemId: currentItem.itemId.toNumber(),
+        owner: currentItem.owner,
+        image: meta.data.image,
+        name: meta.data.name,
+        description: meta.data.description,
+        percentIncrease: meta.data.PercentIncrease,
+        total: TotalMinted,
+        available: totalAmountOfCurrent
+      }
+
+      return item
+    }));
+   
+    setMarketItems(items);
+    setLoadingState("loaded");
+  }
+
   let availableItems = marketitems.map(item =>
     <DashCard
       tokenId={item.tokenId}
@@ -83,7 +130,7 @@ function MarketPlace(props) {
   )
 
   console.log(availableItems)
-  useEffect(() => loadNFTs(), []);
+  useEffect(() => loadNftTwo(), []);
 
   return (
     <div>
@@ -111,7 +158,7 @@ function MarketPlace(props) {
             <div id="content-tab"
               className={toggleState === 1 ? "content  active-content" : "content"}>
               {
-                LoadingState === "Not-Loaded" ? <div style={{ width: '800px', transform: 'translateX(60px)', marginTop: '50px', objectFit: 'cover', height: '800px' }}><Nodata /></div> : availableItems
+                LoadingState === "Not-Loaded" && !marketitems ? <div style={{ width: '800px', transform: 'translateX(60px)', marginTop: '50px', objectFit: 'cover', height: '800px' }}><Nodata /></div> : availableItems
               }
 
               {/* <DashCard />

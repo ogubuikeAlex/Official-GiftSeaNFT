@@ -12,8 +12,8 @@ import MainLayout from '../layout/MainLayout'
 import { ethers } from "ethers";
 import axios from "axios"
 import { nftAddress, marketAddress } from "../config";
-import Nft from "../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
-import Market from "../artifacts/contracts/Market2.sol/NFTMarket.json";
+import Nft from "../artifacts/contracts/erc1155nft.sol/ERC1155NFT.json";
+import Market from "../artifacts/contracts/Erc115market.sol/NFTMarket1155.json";
 
 function Userdashboard(props) {
     const [marketItems, setMarketItems] = useState([]);
@@ -28,6 +28,7 @@ function Userdashboard(props) {
         const { ethereum } = window;
 
         if (ethereum) {
+            console.log("In ;oad")
             const provider = new ethers.providers.Web3Provider(ethereum);
             const signer = provider.getSigner();
             const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
@@ -36,7 +37,7 @@ function Userdashboard(props) {
 
             let marketitems = await MARKET.fetchMarketItems();
             let mymarketitems = await MARKET.fetchMyNFTs(userAccount);
-
+                console.log(marketItems);
             marketitems = await Promise.all(marketitems.map(async i => {
                 const tokenUri = await NFT.tokenUri(i.tokenId);
                 const meta = await axios.get(tokenUri)

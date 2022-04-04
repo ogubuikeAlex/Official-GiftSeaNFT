@@ -3,8 +3,8 @@ import CollectionStyled from '../../../Styled-components/MarketplaceStyled';
 import { useEffect, useState } from "react";
 import ethers from "ethers";
 import { nftAddress, marketAddress } from "../../../config";
-import Nft from "../../../artifacts/contracts/GiftSeaNFT.sol/NFT.json";
-import Market from "../../../artifacts/contracts/Market2.sol/NFTMarket.json";
+import Nft from "../../../artifacts/contracts/erc1155nft.sol/ERC1155NFT.json";
+import Market from "../../../artifacts/contracts/Erc115market.sol/NFTMarket1155.json";
 import CollectionDashCard from '../../../Components/collectionDashCard';
 import axios from "axios"
 import Nodata from '../../EmptyState/Nodata'
@@ -30,7 +30,7 @@ const UserCollection = (props) => {
       let marketItems = await MARKET.fetchMyNFTs(props.currentUser);
       let items = await Promise.all(marketItems.map(async i => {
 
-        const tokenUri = await NFT.tokenURI(i.tokenId);
+        const tokenUri = await NFT.uri(i.tokenId);
         const meta = await axios.get(tokenUri)
         console.log("from marketPlace", meta.data)
         console.log("from marketPlace", tokenUri)

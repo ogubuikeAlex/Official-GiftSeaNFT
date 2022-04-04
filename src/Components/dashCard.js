@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '../Components/Card'
 
 export default function DashCard (props) {
-    console.log("props", props)
+    // console.log("props", props)
  return (
     <div className='dashCards'>    
     <img src={props.url}alt=""/>

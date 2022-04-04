@@ -45,7 +45,7 @@ const Metadata = () => {
         if (!receiver)
             return;
         console.log("Am here2")
-        await sellNft(itemId, price)
+        await sellNft(itemId, price, tokenId)
     }
 
     return (

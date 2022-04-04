@@ -9,11 +9,11 @@ import roundedImgs4 from '../img/Ellipse 95.png';
 import { buyNft } from '../pages/Userdashboardpages/Collection/metadataMethods';
 
 import { nftAddress, marketAddress } from "../config";
-import Market from "../artifacts/contracts/Market2.sol/NFTMarket.json";
+import Market from "../artifacts/contracts/Erc115market.sol/NFTMarket1155.json";
 
 const Card = ({ name, available, total, price, url, itemId, description, loadNfts, tokenId }) => {
-  console.log(name, available, total, price, url, itemId, description, tokenId)
-  console.log("tokenId", tokenId)
+  // console.log(name, available, total, price, url, itemId, description, tokenId)
+  // console.log("tokenId", tokenId)
   const navigate = useNavigate();
 
   // async function buyNft(itemId, priice) {

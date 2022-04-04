@@ -2,8 +2,8 @@ import { ethers } from "ethers";
 import {
     nftAddress, marketAddress
 } from '../../../config'
-import Nft from "../../../artifacts/contracts/GiftSeaNFT.sol/NFT.json"
-import Market from '../../../artifacts/contracts/Market2.sol/NFTMarket.json'
+import Nft from "../../../artifacts/contracts/erc1155nft.sol/ERC1155NFT.json"
+import Market from '../../../artifacts/contracts/Erc115market.sol/NFTMarket1155.json'
 import { CalculateCashoutAmount } from "./Calculator";
 import SentSuccessful from '../Modals/SentSuccessful'
 import SoldSuccessful from '../Modals/SoldSuccessful'
@@ -15,7 +15,7 @@ async function giftNft(receiver, itemId, tokenId) {
     if (!ethereum) {
         //return a modal and redirect person to landingPage
     }
-   
+
 
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
@@ -36,6 +36,7 @@ async function sellNft(itemId, priice, tokenId) {
     console.log("am here")
     const { ethereum } = window;
 
+    console.log("its done")
     if (!ethereum) {
         //return a modal and redirect person to landingPage
     }
@@ -47,12 +48,15 @@ async function sellNft(itemId, priice, tokenId) {
     const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
 
     let timeGotten = (await contract.GetTimeBought(itemId)).toNumber();
+    console.log("time", timeGotten)
     let price = CalculateCashoutAmount(priice, timeGotten);
-
+console.log("price", price)
     let cashOutPrice = ethers.utils.parseUnits(price.toString(), "ether");
+    console.log(45)
+    console.log(tokenId)
     const approvetx = await NFT.giveResaleApproval(tokenId)
     await approvetx.wait();
-
+console.log(46)
     let transaction = await contract.sellNft(itemId, nftAddress, cashOutPrice);
     await transaction.wait();
     //Navigate to sold Successfully modal
@@ -70,14 +74,37 @@ async function buyNft(itemId, priice, address, tokenId) {
         console.log("tryna buy2")
 
         const price = ethers.utils.parseUnits(priice.toString(), "ether");
-       
+
         const transaction = await MARKET.buyNft(nftAddress, itemId, { value: price });
         let tx = await transaction.wait();
-      
+
         console.log(tx);
 
         //loadNfts()
     }
 }
 
-export { giftNft, sellNft, buyNft }
+async function splitArray(marketItems) {
+    let tokenIds = [];
+    let arrOfMarItems = [];    
+
+    marketItems.forEach(x => {
+        if (!tokenIds.includes(x.tokenId)) {
+            tokenIds.push(x.tokenId)
+        }
+    });
+
+    tokenIds.forEach(x => {
+        let group = [];
+        marketItems.forEach(y => {
+            if (y.tokenId === x){
+                group.push(y)
+            }
+        })
+    arrOfMarItems.push(group)  
+    })
+
+    return arrOfMarItems;
+}
+
+export { giftNft, sellNft, buyNft, splitArray }
