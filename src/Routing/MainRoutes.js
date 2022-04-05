@@ -1,3 +1,4 @@
+
 import { Navigate, Route, Routes } from "react-router-dom";
 import Homepage from "../Components/Homepage/Homepage";
 import AdminLayout from "../layout/Adminlayout";
@@ -20,6 +21,8 @@ import MarketMetadata from "../pages/Admindashboardpages/Metadatas/MarketMetadat
 import AdminMarketPlace from "../pages/Admindashboardpages/MarketPlace";
 import AdminMarketMetadata from "../pages/Admindashboardpages/Metadatas/AdminMarketdata";
 
+const { ADMIN_ADDRESS, SUPER_ADMIN} = process.env;
+
 export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
     return (
         <Routes>
@@ -29,7 +32,7 @@ export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
                     <Route path="/" element={<Homepage connect={connect} />} />
                 }
                 {
-                    isAuthenticated &&
+                     ( isAuthenticated && (currentUser === ADMIN_ADDRESS || currentUser === SUPER_ADMIN)) &&
                     <Route path="/admindashboard" element={<AdminLayout />}>
                         <Route path="/admindashboard" index element={<AdminHero />} />
                         <Route path="marketplace">
@@ -61,6 +64,7 @@ export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
                         <Route path="about" element={<About />} />
                     </Route>
                 }
+                
             </Route>
             <Route path="*" element={<Navigate to={isAuthenticated ? "/userdashboard" : "/"} />} />
         </Routes>

@@ -59,7 +59,8 @@ const Metadata = () => {
             <div style={{ display: 'block' }}>
              <img src={url} alt='woman' />
                <div className='nftContainer'>
-                <div className='text-container' style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>                    <p className='listedNFT'>{"African NFT" && name}  &nbsp; <span style={{ fontSize: '14px', fontWeight: '600' }}>{"##" && `#${itemId}`}</span></p>
+                <div className='text-container' style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>              
+                      <p className='listedNFT'>{"African NFT" && name}  &nbsp; <span style={{ fontSize: '14px', fontWeight: '600' }}>{"##" && `#${itemId}`}</span></p>
                 <div className='giftCollection'>
                     <button className='Buy' onClick={handleShow}>Sell</button>&nbsp;&nbsp;
                     <button className='Buy' onClick={handleGiftShow}>GIft</button>

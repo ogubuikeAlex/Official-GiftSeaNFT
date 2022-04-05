@@ -31,61 +31,64 @@ function AdminMarketPlace(props) {
     console.log("Am here")
     const { ethereum } = window;
 
-    if (ethereum) {
+    if (!ethereum) {
+      return;
+    }
 
-      const provider = new ethers.providers.Web3Provider(ethereum);
-      const signer = provider.getSigner();
-      const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
-      const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
-      setUserAccount(props.user);
+    const provider = new ethers.providers.Web3Provider(ethereum);
+    const signer = provider.getSigner();
+    const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
+    const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
+    setUserAccount(props.user);
 
-      let marketItems = await MARKET.fetchMarketItems();
-      console.log(marketItems, "MarketItems")
-      let items = await Promise.all(marketItems.map(async i => {
+    let marketItems = await MARKET.fetchMarketItems();
+    
+    let items = await Promise.all(marketItems.map(async i => {
 
-        console.log(i, "iiii")
-        const tokenUri = await NFT.uri(i.tokenId.toNumber());
+     
+      const tokenUri = await NFT.uri(i.tokenId.toNumber());
 
-        console.log("tokenUri :", tokenUri, "and tokenId:", i.tokenId.toNumber())
-        if (tokenUri) {
-          const meta = await axios.get(tokenUri);
+      console.log("tokenUri :", tokenUri, "and tokenId:", i.tokenId.toNumber())
+      if (tokenUri) {
+        const meta = await axios.get(tokenUri);
 
-          let price = ethers.utils.formatUnits(i.price.toString(), 'ether');
+        let price = ethers.utils.formatUnits(i.price.toString(), 'ether');
 
-          let totalAmountOfCurrent = i.length - 1;
+        let totalAmountOfCurrent = i.length - 1;
 
-          let totalMinted = await MARKET.GetTotalSupply(i.tokenId.toNumber());
+        let totalMinted = await MARKET.GetTotalSupply(i.tokenId.toNumber());
 
-          let item = {
-            price,
-            itemId: i.itemId.toNumber(),
-            tokenId: i.tokenId.toNumber(),
-            owner: i.owner,
-            image: meta.data.image,
-            name: meta.data.Name,
-            description: meta.data.Description,
-            percentIncrease: meta.data.PercentIncrease,
-            total: totalMinted.toNumber(),
-            available: totalAmountOfCurrent
-          }
-
-          return item
+        let item = {
+          price,
+          itemId: i.itemId.toNumber(),
+          tokenId: i.tokenId.toNumber(),
+          owner: i.owner,
+          image: meta.data.image,
+          name: meta.data.Name,
+          description: meta.data.Description,
+          percentIncrease: meta.data.PercentIncrease,
+          total: totalMinted.toNumber(),
+          available: totalAmountOfCurrent
         }
 
-      }));
-      //SplitArray
-      let finalArr = items.filter(x => typeof (x) != "undefined")
-      let allItems = await splitArray(finalArr);
+        return item
+      }
 
-      setMarketItems(allItems);
-      setLoadingState("loaded");
+    }));
+    //SplitArray
+    let finalArr = items.filter(x => typeof (x) != "undefined")
+    let allItems = await splitArray(finalArr);
 
-      console.log(allItems, "bhds")
-    }
+    setMarketItems(allItems);
+    setLoadingState("loaded");
+
+    console.log(allItems, "bhds")
+
   }
 
   let availableItems = marketitems.map(item =>
     <DashCard
+    tokenId={item.tokenId}
       url={item[0].image}
       name={item[0].name}
       price={item[0].price}

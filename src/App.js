@@ -63,8 +63,8 @@ const App = () => {
   useEffect(() => {
     const authenticated = localStorage.getItem("isAuthenticated");
     if (authenticated && JSON.parse(authenticated)){
-      // setUserHasConnectedAccount(true);
-      // setUserHasMetaMask(true);
+       setUserHasConnectedAccount(true);
+       setUserHasMetaMask(true);
       connectWallet();
     } 
       }, [])

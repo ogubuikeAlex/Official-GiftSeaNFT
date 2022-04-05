@@ -28,46 +28,7 @@ function MarketPlace(props) {
     setToggleState(index);
   };
 
-  async function loadNFTs() {
-    const { ethereum } = window;
-
-    if (ethereum) {
-      const provider = new ethers.providers.Web3Provider(ethereum);
-      const signer = provider.getSigner();
-      const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
-      const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
-      setUserAccount(props.user);
-
-      let marketItems = await MARKET.fetchMarketItems();
-
-      let items = await Promise.all(marketItems.map(async i => {
-
-        const tokenUri = await NFT.tokenURI(i.tokenId);
-        const meta = await axios.get(tokenUri)
-        let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
-
-        let item = {
-          tokenId: i.tokenId.toNumber(),
-          price,
-          itemId: i.itemId.toNumber(),
-          owner: i.owner,
-          image: meta.data.image,
-          name: meta.data.name,
-          description: meta.data.description,
-          percentIncrease: meta.data.PercentIncrease,
-          total: meta.data.TotalQuantity,
-          available: meta.data.AmountLeft
-        }
-
-        return item
-      }));
-
-      setMarketItems(items);
-      setLoadingState("loaded");
-    }
-  }
-
-  async function loadNftTwo() {
+  async function loadNft() {
     const { ethereum } = window;
 
     if (!ethereum) {
@@ -81,56 +42,62 @@ function MarketPlace(props) {
     setUserAccount(props.user);
 
     let marketItems = await MARKET.fetchMarketItems();
-    console.log(marketItems);
-    let groupedMarketItems = splitArray(marketItems);
-
-    let items = await Promise.all(groupedMarketItems.map(async i => {
-      let currentItem = i[0];
-      let totalAmountOfCurrent = i.length; 
-      let TotalMinted = (await MARKET.GetTotalSupply(currentItem.tokenId)).toNumber();
-      const tokenUri = (await NFT.uri(currentItem.tokenId)).toString();
     
-      const meta = await axios.get(tokenUri)
-      let price = ethers.utils.formatUnits(currentItem.price.toString(), 'ether')
+    let items = await Promise.all(marketItems.map(async i => {
+      const tokenUri = await NFT.uri(i.tokenId.toNumber());
+     
+      if (tokenUri) {
+        const meta = await axios.get(tokenUri);
 
-      let item = {
-        tokenId: currentItem.tokenId.toNumber(),
-        price,
-        itemId: currentItem.itemId.toNumber(),
-        owner: currentItem.owner,
-        image: meta.data.image,
-        name: meta.data.name,
-        description: meta.data.description,
-        percentIncrease: meta.data.PercentIncrease,
-        total: TotalMinted,
-        available: totalAmountOfCurrent
+        let price = ethers.utils.formatUnits(i.price.toString(), 'ether');
+
+        let totalAmountOfCurrent = i.length - 1;
+
+        let totalMinted = await MARKET.GetTotalSupply(i.tokenId.toNumber());
+
+        let item = {
+          price,
+          itemId: i.itemId.toNumber(),
+          tokenId: i.tokenId.toNumber(),
+          owner: i.owner,
+          image: meta.data.image,
+          name: meta.data.name,
+          description: meta.data.description,
+          percentIncrease: meta.data.PercentIncrease,
+          total: totalMinted.toNumber(),
+          available: totalAmountOfCurrent
+        }
+
+        return item
       }
 
-      return item
     }));
-   
-    setMarketItems(items);
+
+    let finalArr = items.filter(x => typeof (x) != "undefined")
+    let allItems = await splitArray(finalArr);
+
+    setMarketItems(allItems);
     setLoadingState("loaded");
   }
 
   let availableItems = marketitems.map(item =>
     <DashCard
-      tokenId={item.tokenId}
-      url={item.image}
-      name={item.name}
-      price={item.price}
-      itemId={item.itemId}
-      owner={item.owner}
-      description={item.description}
-      total={item.total}
-      increase={item.percentIncrease}
-      available={item.available}
-      loadNFTs={loadNFTs}
+      tokenId={item[0].tokenId}
+      url={item[0].image}
+      name={item[0].name}
+      price={item[0].price}
+      itemId={item[0].itemId}
+      owner={item[0].owner}
+      description={item[0].description}
+      total={item[0].total}
+      increase={item[0].percentIncrease}
+      available={item[0].available}
+      loadNFTs={loadNft}
     />
   )
 
   console.log(availableItems)
-  useEffect(() => loadNftTwo(), []);
+  useEffect(() => loadNft(), []);
 
   return (
     <div>
@@ -161,57 +128,6 @@ function MarketPlace(props) {
                 LoadingState === "Not-Loaded" && !marketitems ? <div style={{ width: '800px', transform: 'translateX(60px)', marginTop: '50px', objectFit: 'cover', height: '800px' }}><Nodata /></div> : availableItems
               }
 
-              {/* <DashCard />
-              <DashCard />
-              <DashCard />
-              <DashCard />
-              <DashCard />
-              <DashCard />
-              <DashCard />
-              <DashCard />
-              <DashCard />
-              <DashCard />
-              <DashCard />  */}
-              {/* <div className='dashCards'>
-              <ClickedButt/>
-            <img src={unsplash}alt=""/>
-            <Card/>
-            </div>
-            <div className='dashCards'>
-            <ClickedButt/>
-            <img src={image2}alt=""/>
-            <Card/>
-            </div>
-            <div className='dashCards'>
-            <ClickedButt/>
-            <img src={image1}alt=""/>
-            <Card/>
-            </div>
-            <div className='dashCards'>
-            <ClickedButt/>
-            <img src={image4}alt=""/>
-            <Card/>
-            </div>
-            <div className='dashCards'>
-            <ClickedButt/>
-            <img src={unsplash}alt=""/>
-            <Card/>
-            </div>
-            <div className='dashCards'>
-            <ClickedButt/>
-            <img src={unsplash}alt=""/>
-            <Card/>
-            </div>
-            <div className='dashCards'>
-            <ClickedButt/>
-            <img src={image1}alt=""/>
-            <Card/>
-            </div>
-            <div className='dashCards'>
-            <ClickedButt/>
-            <img src={unsplashed}alt=""/>
-            <Card/>
-            </div> */}
             </div>
             <div id="content-tab"
               className={toggleState === 2 ? "content  active-content" : "content"}>
