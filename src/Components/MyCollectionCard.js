@@ -28,7 +28,7 @@ const MyCollectionCard = ({ name, available, total, price, url, itemId, descript
                 <div className='carousel-info_bottom'>
                     <span className='carousel-info_bottom-text'><i class="fa-brands fa-ethereum"></i>&nbsp; <p>{price ? price : 3} ETH</p></span>
                     <div className='carousel-info_bottom-text' id="stock">
-                        <p className='bottom_stock'>{available ? available : 5} of {total ? total : 321} in Stock</p>
+                        {/* <p className='bottom_stock'>{available ? available : 5} of {total ? total : 321} in Stock</p> */}
                     </div>
                 </div>
             </div>

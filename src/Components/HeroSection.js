@@ -19,9 +19,11 @@ const HeroSection = () => {
         <p className='left-hero_tagline'>Buy, Gift and sell</p>
         <h1 className="left-hero_h1">GiftSeaNft is the world's first and largest NFT gift place</h1>
         <p className='left-hero_description'>Access a pool of Non-fungible Tokens which can either be gifted
-          or held for profit overtime.
+          or held for profit overtime.<br />
+          
         </p>
-        <button className='left-hero_button'>See Collections</button>
+        <h2>PRE-SALE COMING SOON</h2>
+        {/* <button className='left-hero_button'>See Collections</button> */}
       </div>
       </Slides>
       <Slides>

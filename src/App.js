@@ -1,8 +1,12 @@
 import './App.css';
-import React, { useState, useEffect} from 'react';
-import { useNavigate} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Homescreen from './screen/HomeScreen'
 import MainRoutes from './Routing/MainRoutes'
+
+import {
+  adminAddress 
+} from './config'
 // import NoMetamask from './pages/Admindashboardpages/Modals/NoMetamask'
 
 const App = () => {
@@ -10,14 +14,14 @@ const App = () => {
   const [userHasMetaMask, setUserHasMetaMask] = useState(false);
   const [userHasConnectedccount, setUserHasConnectedAccount] = useState(false);
   const [userAccount, setUserAccount] = useState();
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
 
   const checkForMetaMask = async () => {
     if (!ethereum) {
       console.log("You need to install metamask");
       return false;
     }
-        
+
     setUserHasMetaMask(true);
     await checkForAuthenticatedEthereumWallet();
     return true;
@@ -36,7 +40,7 @@ const App = () => {
   }
 
   const connectWallet = async () => {
-    let userHasMetaMask = checkForMetaMask();
+    let userHasMetaMask = await checkForMetaMask();
 
     if (!userHasMetaMask) {
       console.log("You do not have metamask!");
@@ -44,41 +48,47 @@ const App = () => {
       // <NoMetamask/>
     }
     console.log("You have metamask!");
-    let userHasAuthenticatedWallet = checkForAuthenticatedEthereumWallet();
+    let userHasAuthenticatedWallet = await checkForAuthenticatedEthereumWallet();
 
     if (!userHasAuthenticatedWallet) {
       console.log("You do not hve an have an authenticatdmetamask!");
-      //Show modal  that ask user to authenticate metamask!
+      //Show modal  that ask user to authenticate metamak! ==> No need for this    
     }
 
     console.log("You have  an authenticated metamask wallet!");
 
     const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-    
+
     setUserAccount(accounts[0]);
-    setUserHasConnectedAccount(true);    
-    navigate("/userdashboard")
-  }  
+    setUserHasConnectedAccount(true);
+    console.log("This is accounto[", accounts[0].toString().toLowerCase(), "and adminadress:", adminAddress)    
+    if (accounts[0].toString().toLowerCase() === adminAddress.toLowerCase()) {
+      navigate("/admindashboard")
+    }
+    else {
+      navigate("/userdashboard")
+    }
+  }
 
   useEffect(() => {
     const authenticated = localStorage.getItem("isAuthenticated");
-    if (authenticated && JSON.parse(authenticated)){
-       setUserHasConnectedAccount(true);
-       setUserHasMetaMask(true);
+    if (authenticated && JSON.parse(authenticated)) {
+      setUserHasConnectedAccount(true);
+      setUserHasMetaMask(true);
       connectWallet();
-    } 
-      }, [])
+    }
+  }, [])
 
   useEffect(() => {
-    localStorage.setItem("isAuthenticated", userHasConnectedccount && userHasMetaMask)    
+    localStorage.setItem("isAuthenticated", userHasConnectedccount && userHasMetaMask)
   }, [userHasConnectedccount && userHasMetaMask])
 
   return (
     <div className='App'>
       <MainRoutes
-        isAuthenticated = {userHasConnectedccount && userHasMetaMask}
-        connect = {connectWallet}
-        currentUser = {userAccount}
+        isAuthenticated={userHasConnectedccount && userHasMetaMask}
+        connect={connectWallet}
+        currentUser={userAccount}
       />
     </div>
   )

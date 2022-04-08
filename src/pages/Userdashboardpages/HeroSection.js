@@ -14,6 +14,7 @@ import woman from '../../img/woman.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Col, Row} from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
+import Cardx from '../../Components/CardX';
 
 const Bounce = styled.div`
 animation: 1s ${keyframes`${fadeInUpBig}`}`;
@@ -69,10 +70,10 @@ const HeroSection = () => {
                     </Row>
                         <Row className='transactionButton'>
                             <Col>
-                            <button className='view'>View NFT</button>
+                            {/* <button className='view' onClick={console.log("fgh")}>View NFT</button> */}
                             </Col>
                             <Col>
-                            <button className='buy'>Buy</button>
+                            {/* <button className='buy'>Buy</button> */}
                             </Col>
                         </Row>
                 </Col>
@@ -84,19 +85,19 @@ const HeroSection = () => {
             <div className='NFTCardContainer'>
             <div className='dashCards'>
             <img src={image1}alt=""/>
-            <Card/>
+            <Cardx/>
             </div>
             <div className='dashCards'>
             <img src={image2}alt=""/>
-            <Card/>
+            <Cardx/>
             </div>
             <div className='dashCards'>
             <img src={image3}alt=""/>
-            <Card/>
+            <Cardx/>
             </div>
             <div className='dashCards'>
             <img src={image4}alt=""/>
-            <Card/>
+            <Cardx/>
             </div>
             </div>
             </div>

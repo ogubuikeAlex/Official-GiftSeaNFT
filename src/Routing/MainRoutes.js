@@ -20,53 +20,64 @@ import Metadata from "../pages/Admindashboardpages/Metadatas/CollectionMetadata"
 import MarketMetadata from "../pages/Admindashboardpages/Metadatas/MarketMetadata";
 import AdminMarketPlace from "../pages/Admindashboardpages/MarketPlace";
 import AdminMarketMetadata from "../pages/Admindashboardpages/Metadatas/AdminMarketdata";
-
-const { ADMIN_ADDRESS, SUPER_ADMIN} = process.env;
+import {
+    adminAddress
+} from '../config'
+import Administrator from "../pages/Admindashboardpages/Administrator";
 
 export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
+console.log("curr",currentUser)
+console.log(adminAddress)
     return (
         <Routes>
-            <Route>
-                {
-                    !isAuthenticated &&
-                    <Route path="/" element={<Homepage connect={connect} />} />
-                }
-                {
-                     ( isAuthenticated && (currentUser === ADMIN_ADDRESS || currentUser === SUPER_ADMIN)) &&
-                    <Route path="/admindashboard" element={<AdminLayout />}>
-                        <Route path="/admindashboard" index element={<AdminHero />} />
-                        <Route path="marketplace">
-                            <Route index element={<AdminMarketPlace />} />
-                            <Route path="adminMarketMetadata" element={<AdminMarketMetadata /> } /> 
-                        </Route>
-                        <Route path="favourites" element={<Favourites />} />
-                        <Route path="treasury" element={<Treasury />} />
-                        <Route path="upload" element={<Upload />} />
-                        <Route path="transactions" element={<Transactions />} />
-                        <Route path="about" element={<About />} />
 
+            {
+                isAuthenticated &&
+                <Route path="/" element={<Homepage connect={connect} />} />
+            }
+            {
+                isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() &&
+
+                <Route path="/admindashboard" element={<AdminLayout />}>
+                    <Route path="/admindashboard" index element={<AdminHero />} />
+                    <Route path="marketplace">
+                        <Route index element={<AdminMarketPlace />} />
+                        <Route path="adminMarketMetadata" element={<AdminMarketMetadata />} />
                     </Route>
-                }
-                {
-                    isAuthenticated &&
-                    <Route path="/userdashboard" element={<MainLayout currentUser={currentUser} />}>
-                        <Route path="/userdashboard" index element={<HeroSection />} />
-                        <Route path="marketplace">
-                            <Route index element={<MarketPlace />} />
-                            <Route path="marketMetadata" element={<MarketMetadata /> } /> 
-                        </Route>
-                        <Route path="favourites" element={<Favourites />} />
-                        <Route path="collections">
-                            <Route index element={<UserCollection currentUser={currentUser} />} />
-                            <Route path="metadata" element={<Metadata />} />
-                        </Route>
-                        <Route path="contact" element={<Contact />} />
-                        <Route path="about" element={<About />} />
+                    <Route path="favourites" element={<Favourites />} />
+                    <Route path="treasury" element={<Administrator />} />
+                    <Route path="upload" element={<Upload />} />
+                    <Route path="transactions" element={<Transactions />} />
+                    <Route path="about" element={<About />} />
+                </Route>
+            }
+
+            {
+                isAuthenticated &&
+                <Route path="/userdashboard" element={<MainLayout currentUser={currentUser} />}>
+                    <Route path="/userdashboard" index element={<HeroSection />} />
+                    <Route path="marketplace">
+                        <Route index element={<MarketPlace />} />
+                        <Route path="marketMetadata" element={<MarketMetadata />} />
                     </Route>
-                }
-                
-            </Route>
-            <Route path="*" element={<Navigate to={isAuthenticated ? "/userdashboard" : "/"} />} />
+                    <Route path="favourites" element={<Favourites />} />
+                    <Route path="collections">
+                        <Route index element={<UserCollection currentUser={currentUser} />} />
+                        <Route path="metadata" element={<Metadata />} />
+                    </Route>
+                    <Route path="contact" element={<Contact />} />
+                    <Route path="about" element={<About />} />
+                </Route>
+            }
+
+            <Route path="*" element={<Navigate to={
+                isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() 
+                ? "/admindashboard" : isAuthenticated 
+                ? "/userdashboard" : "/"
+
+            } />} 
+            />
+
         </Routes>
     );
 } 

@@ -3,7 +3,6 @@ pragma solidity ^0.8.3;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-// import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 
@@ -13,8 +12,8 @@ import "hardhat/console.sol";
 contract NFTMarket1155 is ReentrancyGuard, ERC1155Holder, OtherTwo {
     using Counters for Counters.Counter;
     uint256 private _itemIds;
-    Counters.Counter private _itemsSold; //When a person sells back to the market place increment this number
-    Counters.Counter private _buyIds; //When a person buys from the market place increment this number
+    Counters.Counter private _itemsSold; 
+    Counters.Counter private _buyIds; 
 
     constructor(address admin) {
         _admin = payable(admin);
@@ -37,13 +36,7 @@ contract NFTMarket1155 is ReentrancyGuard, ERC1155Holder, OtherTwo {
         address indexed to,
         uint256 indexed tokenId,
         uint256 timeGifted
-    );
-
-    event TryingToSellPrematureNFT(
-        address indexed sender,
-        uint256 indexed tokenId,
-        uint256 indexed amount
-    );
+    );  
 
     event MarketItemCreated(
         uint256 itemId,
@@ -112,11 +105,8 @@ contract NFTMarket1155 is ReentrancyGuard, ERC1155Holder, OtherTwo {
                 false
             );
         }
-        tokenIdToInitialAmountMinted[tokenId] = amount;
+        tokenIdToInitialAmountMinted[tokenId] = amount;        
 
-        uint x = tokenIdToInitialAmountMinted[tokenId];
-console.log("....");
-console.log(x);
         IERC1155(nftContract).safeTransferFrom(
             msg.sender,
             address(this),
@@ -126,13 +116,10 @@ console.log(x);
         );
     }
 
+    //Will give you initial amount minted
     function GetTotalSupply(uint256 tokenId) external view returns (uint256) {
         return tokenIdToInitialAmountMinted[tokenId];
-    }
-
-    // function GetCurrentMarketcount() external view isAdmin returns (uint256) {
-    //     return _itemIds;
-    // }
+    }    
 
     /* Returns all unsold market items */
     function fetchMarketItems() public view returns (MarketItem[] memory) {
@@ -152,7 +139,7 @@ console.log(x);
         return items;
     }
 
-    /* Returns onlyl items that a user has purchased */
+    /* Returns Nfts of current Caller */
     function fetchMyNFTs(address loggedInUser)
         external
         view
@@ -185,8 +172,6 @@ console.log(x);
         payable
         nonReentrant
     {
-        //When a person buys an nft create a nw holder
-        //change market owner
         uint256 price = idToMarketItem[itemId].price;
         uint256 tokenId = idToMarketItem[itemId].tokenId;
         require(
@@ -214,8 +199,7 @@ console.log(x);
             buyId,
             payable(msg.sender),
             true
-        );
-        Holder memory x = buyIdToHolder[buyId];
+        );      
 
         emit NftBought(msg.sender, itemId, block.timestamp);
     }
@@ -270,14 +254,12 @@ console.log(x);
             1,
             ""
         );
-
-        //get the current holder and deactivate him
+        
         for (uint256 i = 0; i < totalBoughtItems; i++) {
             if (
                 buyIdToHolder[i].itemId == itemId &&
                 buyIdToHolder[i].isActiveHolder
-            ) {
-                //datePurchased = buyIdToHolder[i + 1].timeGotten;
+            ) {               
                 buyIdToHolder[i].timeGivenOut = block.timestamp;
                 buyIdToHolder[i].isActiveHolder = false;
                 buyIdToHolder[i].owner = payable(address(0));
@@ -307,19 +289,17 @@ console.log(x);
         }
     }
 
-    function getAllHolders() external view isAdmin returns (Holder[] memory) {
-        // get current value of buyIds.
+    function GetAllHolders() external view isAdmin returns (Holder[] memory) {        
         uint256 holderCount = _buyIds.current();
         uint256 currentIndex = 0;
-        // declare empty array with length ofv buyid.current
+        
         Holder[] memory items = new Holder[](holderCount);
-
-        // loop throught the empty array
+        
         for (uint256 i = 0; i > holderCount; i++) {
             items[currentIndex] = (buyIdToHolder[i + 1]);
+            
             currentIndex += 1;
         }
-
         return items;
     }
 }

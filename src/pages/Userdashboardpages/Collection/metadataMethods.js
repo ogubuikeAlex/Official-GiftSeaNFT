@@ -45,8 +45,8 @@ async function sellNft(itemId, priice, tokenId) {
     const signer = provider.getSigner();
 
     let contract = new ethers.Contract(marketAddress, Market.abi, signer)
-    const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
-
+    let NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
+console.log("before")
     let timeGotten = (await contract.GetTimeBought(itemId)).toNumber();
     console.log("time", timeGotten)
     let price = CalculateCashoutAmount(priice, timeGotten);

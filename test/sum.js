@@ -24,7 +24,8 @@ await nft.createToken(10,
     console.log("uri", await nft.uri(1))
     //console.log("txm", (await txm.wait()).events[0]) //GetTokenId
 //     await nft.mint(2)
-
+  let owner = await market.owner();
+  console.log(owner, "owner")
     await market.createMarketItem(nftContractAddress, 1, 3, auctionPrice)
     await market.createMarketItem(nftContractAddress, 2, 2, auctionPrice)
 // console.log( (await market.GetCurrentMarketcount()).toNumber())
@@ -56,6 +57,9 @@ await nft.createToken(10,
 // // let n = await nft.balanceOf(buyerAddress.address, 1);
 // // console.log(n.toNumber());
 //   //   //   console.log('items: ', items)
+
+let holders = await market.GetAllHolders();
+console.log("holders", holders)
         let ap = await nft.connect(buyerAddress).giveResaleApproval(2);
         console.log("7a")
 
@@ -67,14 +71,15 @@ await nft.createToken(10,
              let items = await market.fetchMarketItems()
     console.log(items)
   //   //     //console.log("t", t)
+let timeg = await market.GetTimeBought(1)
+console.log("timeg", timeg.toNumber())
+        let apx = await nft.connect(buyerAddress).giveResaleApproval(1);
+        await apx.wait()
+        console.log(12)
 
-//         let apx = await nft.connect(buyerAddress).giveResaleApproval(1);
-//         await apx.wait()
-//         console.log(12)
-
-//         let guf = await market.connect(buyerAddress).sellNft(1, nftContractAddress, auctionPrice);
-//         console.log("yes")
-//         let init = await guf.wait();
+        let guf = await market.connect(buyerAddress).sellNft(1, nftContractAddress, auctionPrice);
+        console.log("yes")
+        let init = await guf.wait();
 
 //         let ap2 = await nft.connect(thirdAddress).giveResaleApproval(2);
 //         await ap2.wait()

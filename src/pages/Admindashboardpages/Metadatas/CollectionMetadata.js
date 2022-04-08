@@ -79,10 +79,10 @@ const Metadata = () => {
                 <p className='title'>Weekly Value</p>
                 <p className='details'>0.530ETH</p>
             </div>
-              <div style={{ display: 'block' }}>
+              {/* <div style={{ display: 'block' }}>
                   <p className='title'>Holders</p>
                   <p className='details'>2 out of 12</p>
-              </div>
+              </div> */}
              </div>
              <div className='contents'>
                 <p className='description'>Description</p>
@@ -115,15 +115,7 @@ const Metadata = () => {
                                  Please select a valid wallet type
                              </div>
                          </span>
-                         <span>
-                             <label for='typeValidation' class='form-label'>
-                                 <small>Wallet Address</small>
-                             </label><br />
-                             <input type='text' placeholder='Type your receiver wallet address' class='form-text address' id='typeValidation' required style={{ width: '100%' }} onChange={e => setReceiver(e.target.value)}/>
-                             <div className='invalid-feedback'>
-                                 Please select a valid wallet address
-                             </div>
-                         </span>
+                        
                      </Form>
                         </FormStyled>
                         <ButtonStyled>

@@ -30,7 +30,7 @@ const Dashboard = (props) => {
                     <div className='myBalance'>Your Balance</div>
                     <div className="balanceContainer">
                         <div><p className='portBal'>Portfolio Balance</p></div>
-                        <div><p className='ethBal'>$23,300.00</p></div>
+                        <div><p className='ethBal'>$0.00</p></div>
                         <div className='ethcontainer'>
                             <div>
                                 <div className='brands'>
@@ -38,7 +38,7 @@ const Dashboard = (props) => {
                                 </div>
                             </div>
                             <div className='myEth'>
-                                <p>4.48ETH</p>
+                                <p>0 ETH</p>
                             </div>
                         </div>
                     </div>

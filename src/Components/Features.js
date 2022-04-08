@@ -17,33 +17,29 @@ const Features = () => {
                     <div className='groupImg'><img src={firstImg} alt=''/></div>
                     <div className='rowContainer'>
                         <h4>Buy NFT</h4>
-                        <p>You can buy NFT with us. You can buy NFT with us. 
-                            You can buy NFT with us. You can buy NFT with us.
+                        <p>You can buy NFT with us. 
                         </p>
                     </div>
                 </div>
                 <div className='align'>
                     <div className='groupImg'><img src={group3} alt=''/></div>
                     <div className='rowContainer'>
-                        <h4>Buy NFT</h4>
-                        <p>You can buy NFT with us. You can buy NFT with us. 
-                            You can buy NFT with us You can buy NFT with us.
+                        <h4>Gift NFT</h4>
+                        <p>You can Gift NFT with us. 
                         </p>
                     </div>
                 </div>
                 <div className='align'>
                     <div className='groupImg'><img src={group1} alt=''/></div>
                     <div className='rowContainer'>
-                        <h4>Buy NFT</h4>
-                        <p>You can buy NFT with us. You can buy NFT with us. 
-                            You can buy NFT with us. You can buy NFT with us 
+                        <h4>Sell NFT</h4>
+                        <p>You can sell NFT with us. 
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </FeatureStyled>
-
   )
 }
 const FeatureStyled = styled.div`
