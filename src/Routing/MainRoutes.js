@@ -33,7 +33,7 @@ export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
                 isAuthenticated &&
                 <Route path="/" element={<Homepage connect={connect} />} />
             }
-            {
+            {/* {
                 isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() &&
 
                 <Route path="/admindashboard" element={<AdminLayout />}>
@@ -48,7 +48,7 @@ export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
                     <Route path="transactions" element={<Transactions />} />
                     <Route path="about" element={<About />} />
                 </Route>
-            }
+            } */}
 
             {
                 isAuthenticated &&
