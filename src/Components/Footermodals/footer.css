@@ -1,0 +1,44 @@
+.pterms {
+    margin-top: 2em;
+  }
+  
+
+.list{
+    list-style-type: decimal;
+    font-weight: bold;
+    margin-top: .5em;
+  }
+
+  .list2{
+    list-style-type: decimal;
+    /* font-weight: bold; */
+    margin-bottom: .5em;
+  }
+
+  .modal-header {
+    background-color: #02AAB0;
+    color: white;
+    /* border: none; */
+    /* text-align: center;
+    font-size: 30px; */
+  }
+
+  .listpsc {
+    list-style-type: lower-alpha;
+    font-weight: bold;
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+
+  .listpsc2 {
+    list-style-type: lower-alpha;
+    /* font-weight: bold; */
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+
+  .listsubtype {
+    list-style-type: lower-roman;
+    /* font-weight: bold; */
+    margin-top: .5em;
+  }
