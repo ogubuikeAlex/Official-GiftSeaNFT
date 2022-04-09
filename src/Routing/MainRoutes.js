@@ -1,101 +1,9 @@
-// import React, { useEffect } from 'react';
-// import { Navigate, Route, Routes } from "react-router-dom";
-// import Homepage from "../Components/Homepage/Homepage";
-// import AdminLayout from "../layout/Adminlayout";
-// import MainLayout from "../layout/MainLayout";
-// import AdminHero from "../pages/Admindashboardpages/AdminHero";
-// import Treasury from "../pages/Admindashboardpages/TreasuryCard";
-// import Upload from "../pages/Admindashboardpages/Upload";
-// import About from "../pages/Userdashboardpages/About";
-// import Collections from "../pages/Userdashboardpages/Collections";
-// import Contact from "../pages/Userdashboardpages/Contact";
-// import Favourites from "../pages/Userdashboardpages/Favourites";
-// import Adminfavourites from "../pages/Admindashboardpages/Favourites";
-// import MarketPlace from "../pages/Userdashboardpages/MarketPlace";
-// import Transactions from "../pages/Admindashboardpages/Transactions";
-// import HeroSection from "../pages/Userdashboardpages/HeroSection";
-// import { propTypes } from "react-bootstrap/esm/Image";
-// import UserCollection from "../pages/Userdashboardpages/Collection/UserCollection";
-// import Metadata from "../pages/Admindashboardpages/Metadatas/CollectionMetadata";
-// import MarketMetadata from "../pages/Admindashboardpages/Metadatas/MarketMetadata";
-// import AdminMarketPlace from "../pages/Admindashboardpages/MarketPlace";
-// import AdminMarketMetadata from "../pages/Admindashboardpages/Metadatas/AdminMarketdata";
-// import {
-//     adminAddress
-// } from '../config'
-// import Administrator from "../pages/Admindashboardpages/Administrator";
-
-// export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
-// console.log("curr",currentUser)
-// console.log(adminAddress)
-// // useEffect(() => {
-
-// // //     console.log("curr",currentUser)
-// // // console.log(adminAddress)
-// //     // eslint-disable-next-line
-// // }, [])
-//     return (
-//         <Routes>
-
-//             {
-//                 isAuthenticated &&
-//                 <Route path="/" element={<Homepage connect={connect} />} />
-//             }
-//             {
-//                 isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() &&
-
-//                 <Route path="/admindashboard" element={<AdminLayout />}>
-//                     <Route path="/admindashboard" index element={<AdminHero />} />
-//                     <Route path="marketplace">
-//                         <Route index element={<AdminMarketPlace />} />
-//                         <Route path="adminMarketMetadata" element={<AdminMarketMetadata />} />
-//                     </Route>
-//                     <Route path="favourites" element={<Favourites />} />
-//                     <Route path="treasury" element={<Administrator />} />
-//                     <Route path="upload" element={<Upload />} />
-//                     <Route path="transactions" element={<Transactions />} />
-//                     <Route path="about" element={<About />} />
-//                 </Route>
-//             }
-
-//             {
-//                 isAuthenticated &&
-//                 <Route path="/userdashboard" element={<MainLayout currentUser={currentUser} />}>
-//                     <Route path="/userdashboard" index element={<HeroSection />} />
-//                     <Route path="marketplace">
-//                         <Route index element={<MarketPlace />} />
-//                         <Route path="marketMetadata" element={<MarketMetadata />} />
-//                     </Route>
-//                     <Route path="favourites" element={<Favourites />} />
-//                     <Route path="collections">
-//                         <Route index element={<UserCollection currentUser={currentUser} />} />
-//                         <Route path="metadata" element={<Metadata />} />
-//                     </Route>
-//                     <Route path="contact" element={<Contact />} />
-//                     <Route path="about" element={<About />} />
-//                 </Route>
-//             }
-
-//             <Route path="*" element={<Navigate to={
-//                 isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() 
-//                 ? "/admindashboard" : isAuthenticated 
-//                 ? "/userdashboard" : "/"
-
-//             } />} 
-//             />
-
-//         </Routes>
-//     );
-// } 
-
-
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Navigate, Route, Routes } from "react-router-dom";
 import Homepage from "../Components/Homepage/Homepage";
 import AdminLayout from "../layout/Adminlayout";
 import MainLayout from "../layout/MainLayout";
 import AdminHero from "../pages/Admindashboardpages/AdminHero";
-import Treasury from "../pages/Admindashboardpages/TreasuryCard";
 import Upload from "../pages/Admindashboardpages/Upload";
 import About from "../pages/Userdashboardpages/About";
 import Collections from "../pages/Userdashboardpages/Collections";
@@ -116,62 +24,59 @@ import {
 } from '../config'
 import Administrator from "../pages/Admindashboardpages/Administrator";
 
-export default function MainRoutes() {
-    // console.log("curr",currentUser)
-    // console.log(adminAddress)
-    // useEffect(() => {
+export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
 
-    // //     console.log("curr",currentUser)
-    // // console.log(adminAddress)
-    //     // eslint-disable-next-line
-    // }, [])
     return (
         <Routes>
 
+            {
+                isAuthenticated &&
+                <Route path="/" element={<Homepage connect={connect} />} />
+            }
+            {
+                isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() &&
 
-
-            <Route path="/" element={<Homepage />} />
-
-
-
-
-            <Route path="/admindashboard" element={<AdminLayout />}>
-                <Route path="/admindashboard" index element={<AdminHero />} />
-                <Route path="marketplace">
-                    <Route index element={<AdminMarketPlace />} />
-                    <Route path="adminMarketMetadata" element={<AdminMarketMetadata />} />
+                <Route path="/admindashboard" element={<AdminLayout />}>
+                    <Route path="/admindashboard" index element={<AdminHero />} />
+                    <Route path="marketplace">
+                        <Route index element={<AdminMarketPlace />} />
+                        <Route path="adminMarketMetadata" element={<AdminMarketMetadata />} />
+                    </Route>
+                    <Route path="favourites" element={<Favourites />} />
+                    <Route path="treasury" element={<Administrator />} />
+                    <Route path="upload" element={<Upload />} />
+                    <Route path="transactions" element={<Transactions />} />
+                    <Route path="about" element={<About />} />
                 </Route>
-                <Route path="favourites" element={<Favourites />} />
-                <Route path="treasury" element={<Administrator />} />
-                <Route path="upload" element={<Upload />} />
-                <Route path="transactions" element={<Transactions />} />
-                <Route path="about" element={<About />} />
-            </Route>
+            }
 
-
-
-
-            <Route path="/userdashboard" element={<MainLayout />}>
-                <Route path="/userdashboard" index element={<HeroSection />} />
-                <Route path="marketplace">
-                    <Route index element={<MarketPlace />} />
-                    <Route path="marketMetadata" element={<MarketMetadata />} />
+            {
+                isAuthenticated &&
+                <Route path="/userdashboard" element={<MainLayout currentUser={currentUser} />}>
+                    <Route path="/userdashboard" index element={<HeroSection />} />
+                    <Route path="marketplace">
+                        <Route index element={<MarketPlace />} />
+                        <Route path="marketMetadata" element={<MarketMetadata />} />
+                    </Route>
+                    <Route path="favourites" element={<Favourites />} />
+                    <Route path="collections">
+                        <Route index element={<UserCollection currentUser={currentUser} />} />
+                        <Route path="metadata" element={<Metadata />} />
+                    </Route>
+                    <Route path="contact" element={<Contact />} />
+                    <Route path="about" element={<About />} />
                 </Route>
-                <Route path="favourites" element={<Favourites />} />
-                <Route path="collections">
-                    <Route index element={<UserCollection />} />
-                    <Route path="metadata" element={<Metadata />} />
-                </Route>
-                <Route path="contact" element={<Contact />} />
-                <Route path="about" element={<About />} />
-            </Route>
+            }
 
+            <Route path="*" element={<Navigate to={
+                isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() 
+                ? "/admindashboard" : isAuthenticated 
+                ? "/userdashboard" : "/"
 
-            <Route path="*" element={<Navigate to={"/"
-
-            } />}
+            } />} 
             />
 
         </Routes>
     );
 } 
+
