@@ -40,6 +40,7 @@ const App = () => {
   }
 
   const connectWallet = async () => {
+    // debugger
     let userHasMetaMask = await checkForMetaMask();
 
     if (!userHasMetaMask) {
@@ -71,6 +72,7 @@ const App = () => {
   }
 
   useEffect(() => {
+    // debugger
     const authenticated = localStorage.getItem("isAuthenticated");
     if (authenticated && JSON.parse(authenticated)) {
       setUserHasConnectedAccount(true);
@@ -80,7 +82,9 @@ const App = () => {
   }, [])
 
   useEffect(() => {
+    // debugger
     localStorage.setItem("isAuthenticated", userHasConnectedccount && userHasMetaMask)
+
   }, [userHasConnectedccount && userHasMetaMask])
 
   return (

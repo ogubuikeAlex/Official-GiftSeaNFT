@@ -4,6 +4,7 @@ import Homepage from "../Components/Homepage/Homepage";
 import AdminLayout from "../layout/Adminlayout";
 import MainLayout from "../layout/MainLayout";
 import AdminHero from "../pages/Admindashboardpages/AdminHero";
+import Treasury from "../pages/Admindashboardpages/TreasuryCard";
 import Upload from "../pages/Admindashboardpages/Upload";
 import About from "../pages/Userdashboardpages/About";
 import Collections from "../pages/Userdashboardpages/Collections";
@@ -27,13 +28,14 @@ import Administrator from "../pages/Admindashboardpages/Administrator";
 export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
 
     return (
+        
         <Routes>
 
             {
-                isAuthenticated &&
-                <Route path="/" element={<Homepage connect={connect} />} />
+                isAuthenticated !== null && isAuthenticated !== undefined ?
+                <Route path="/" element={<Homepage connect={connect} />} /> :  <Route path="/" element={<Homepage connect={connect} />} />
             }
-            {/* {
+            {
                 isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() &&
 
                 <Route path="/admindashboard" element={<AdminLayout />}>
@@ -48,7 +50,7 @@ export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
                     <Route path="transactions" element={<Transactions />} />
                     <Route path="about" element={<About />} />
                 </Route>
-            } */}
+            }
 
             {
                 isAuthenticated &&
@@ -79,4 +81,3 @@ export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
         </Routes>
     );
 } 
-
