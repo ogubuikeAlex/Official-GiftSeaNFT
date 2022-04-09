@@ -8,28 +8,33 @@ import PrivacyPolicy from './Footermodals/PrivacyPolicy';
 import TermsofService from './Footermodals/TermsofService';
 import TermsandContions from './Footermodals/TermsandConditions';
 import { Link } from 'react-router-dom';
+import Help from './Footermodals/Help';
 
 const Footer = () => {
-    const [lgShow, setLgShow] = useState(false);
-    const [lgShow1, setLgShow1] = useState(false);
-    const [lgShow2, setLgShow2] = useState(false);
+    const [lgShowPP, setLgShowPP] = useState(false);
+    const [lgShowTS, setLgShowTS] = useState(false);
+    const [lgTC, setLgTC] = useState(false);
+    const [lgShowHelp, setLgShowHelp] = useState(false);
 
 
-    const handleClose = () => setLgShow(false);
-  const handleShow = () => setLgShow(true);
+    const handleClosePP = () => setLgShowPP(false);
+    const handleShowPP = () => setLgShowPP(true);
 
-  const handleClose1 = () => setLgShow1(false);
-  const handleShow1 = () => setLgShow1(true);
+    const handleCloseTS = () => setLgShowTS(false);
+    const handleShowTS = () => setLgShowTS(true);
 
-  const handleClose2 = () => setLgShow2(false);
-  const handleShow2 = () => setLgShow2(true);
+    const handleCloseTC = () => setLgTC(false);
+    const handleShowTC = () => setLgTC(true);
 
-  const handleTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
+    const handleCloseHelp = () => setLgShowHelp(false);
+    const handleShowHelp = () => setLgShowHelp(true);
+
+    const handleTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
 
     return (
         <FooterStyled>
@@ -39,16 +44,40 @@ const Footer = () => {
                 </div>
                 <div className='listItems'>
                     <ul className='lists'>
-                        <li onClick={handleTop}>Home</li>
+                        <li onClick={handleTop}><Link to='/'>Home</Link></li>
                         {/* <li>How it works</li> */}
-                        <li>Trending NFT</li>
+                        {/* <li>Trending NFT</li> */}
                         {/* <li>Blog</li> */}
-                        <li><Link to='/userdashboard/contact'>Help</Link></li>
-                        <li onClick={() => setLgShow(true)}>Privacy Policy</li>
+
+
+                        <li onClick={() => setLgShowHelp(true)}>Help</li>
                         <Modal
                             size="xl"
-                            show={lgShow}
-                            onHide={() => setLgShow(false)}
+                            show={lgShowHelp}
+                            onHide={() => setLgShowHelp(false)}
+                            aria-labelledby="example-modal-sizes-title-lg"
+                        >
+                            <Modal.Header closeButton>
+                                <Modal.Title id="example-modal-sizes-title-lg">
+                                    Frequently Asked Questions
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body style={{ textAlign: 'justify' }}>
+                                <Help />
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleCloseHelp}>
+                                    Close
+                                </Button>
+                                {/* <Button style={{background: '#02AAB0', border: 'none'}} onClick={handleCloseHelp}>Understood</Button> */}
+                            </Modal.Footer>
+                        </Modal>
+
+                        <li onClick={() => setLgShowPP(true)}>Privacy Policy</li>
+                        <Modal
+                            size="xl"
+                            show={lgShowPP}
+                            onHide={() => setLgShowPP(false)}
                             aria-labelledby="example-modal-sizes-title-lg"
                         >
                             <Modal.Header closeButton>
@@ -56,22 +85,22 @@ const Footer = () => {
                                     Privacy Policy
                                 </Modal.Title>
                             </Modal.Header>
-                            <Modal.Body style={{textAlign: 'justify'}}> 
+                            <Modal.Body style={{ textAlign: 'justify' }}>
                                 <PrivacyPolicy />
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
+                                <Button variant="secondary" onClick={handleClosePP}>
                                     Close
                                 </Button>
-                                <Button style={{background: '#02AAB0', border: 'none'}} onClick={handleClose}>Understood</Button>
+                                <Button style={{ background: '#02AAB0', border: 'none' }} onClick={handleClosePP}>Understood</Button>
                             </Modal.Footer>
                         </Modal>
 
-                        <li onClick={() => setLgShow1(true)}>Terms of Service</li>
+                        <li onClick={() => setLgShowTS(true)}>Terms of Service</li>
                         <Modal
                             size="xl"
-                            show={lgShow1}
-                            onHide={() => setLgShow1(false)}
+                            show={lgShowTS}
+                            onHide={() => setLgShowTS(false)}
                             aria-labelledby="example-modal-sizes-title-lg"
                         >
                             <Modal.Header closeButton>
@@ -79,22 +108,22 @@ const Footer = () => {
                                     Terms of Service
                                 </Modal.Title>
                             </Modal.Header>
-                            <Modal.Body style={{textAlign: 'justify'}}> 
+                            <Modal.Body style={{ textAlign: 'justify' }}>
                                 <TermsofService />
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose1}>
+                                <Button variant="secondary" onClick={handleCloseTS}>
                                     Close
                                 </Button>
-                                <Button style={{background: '#02AAB0', border: 'none'}} onClick={handleClose1}>Understood</Button>
+                                <Button style={{ background: '#02AAB0', border: 'none' }} onClick={handleCloseTS}>Understood</Button>
                             </Modal.Footer>
                         </Modal>
 
-                        <li onClick={() => setLgShow2(true)}>Terms and Conditions</li>
+                        <li onClick={() => setLgTC(true)}>Terms and Conditions</li>
                         <Modal
                             size="xl"
-                            show={lgShow2}
-                            onHide={() => setLgShow2(false)}
+                            show={lgTC}
+                            onHide={() => setLgTC(false)}
                             aria-labelledby="example-modal-sizes-title-lg"
                         >
                             <Modal.Header closeButton>
@@ -102,14 +131,14 @@ const Footer = () => {
                                     Terms and Conditions
                                 </Modal.Title>
                             </Modal.Header>
-                            <Modal.Body style={{textAlign: 'justify'}}> 
+                            <Modal.Body style={{ textAlign: 'justify' }}>
                                 <TermsandContions />
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose1}>
+                                <Button variant="secondary" onClick={handleCloseTC}>
                                     Close
                                 </Button>
-                                <Button style={{background: '#02AAB0', border: 'none'}} onClick={handleClose1}>Understood</Button>
+                                <Button style={{ background: '#02AAB0', border: 'none' }} onClick={handleCloseTC}>Understood</Button>
                             </Modal.Footer>
                         </Modal>
                     </ul>
