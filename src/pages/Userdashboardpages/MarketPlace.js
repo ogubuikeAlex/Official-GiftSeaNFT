@@ -103,6 +103,9 @@ function MarketPlace(props) {
 
   return (
     <div>
+      {/* <p>
+        hello
+      </p> */}
       <MarketplaceStyled>
         <h4 style={{ marginLeft: '20px', fontWeight: '600' }}>Our Marketplace</h4>
         <div className="container">
@@ -181,7 +184,7 @@ function MarketPlace(props) {
           </div>
         </div>
       </MarketplaceStyled>
-      <Dashboard />
+      {/* <Dashboard /> */}
     </div>
   );
 }

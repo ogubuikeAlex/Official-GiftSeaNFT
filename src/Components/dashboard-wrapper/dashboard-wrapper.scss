@@ -17,34 +17,34 @@
     }
 
     &__right {
-        width: 356px;
+        // width: 356px;
         background-color: $mainBg;
         height: 100vh;
-        overflow-y: auto;
+        overflow-wrap: break-word;
         padding: 1.5rem;
         position: fixed;
         top: 0;
         right: 0;
         @media(max-width: 1220px){
-            width: 300px;
+            // width: 300px;
         }
         @media(max-width: 1045px){
-            width: 270px;
+            // width: 270px;
         }
         @media(max-width: 900px){
-            width: 270px;
+            // width: 270px;
         }
         @media(max-width: 849px){
             width: 100%;
             margin-top: 30px;
             position: relative;
-            overflow-y: auto;
+             overflow-wrap: break-word;
             border-radius: 10px;
         }
         @include tablet {
             position: relative;
             padding: $mobileSpacing;
-            overflow-y: auto;
+             overflow-wrap: break-word;
             margin-top: 60px;
             border-radius: 10px;
             justify-content: center;

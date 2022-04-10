@@ -3,10 +3,12 @@ import { Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import history from '../../constants/data';
+import Card from 'react-bootstrap/Card'
 import DashboardWrapper, { DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
 import Nohistory from '../EmptyState/Nohistory';
 
 const Dashboard = (props) => {
+    // console.log(props.currentUser.currentUser)
     return (
         <DashboardRightStyled>
             <DashboardWrapper>
@@ -16,13 +18,17 @@ const Dashboard = (props) => {
                         <div className='drop'>
                             <div className='metaBroken'>
                                 <p>Metamask</p>
-                                {/* <p> {props.currentUser.currentUser.slice(0, 6)}...{props.currentUser.currentUser.slice(-3)}</p> */}
+                                <p> {props.currentUser.currentUser.slice(0, 12)}...</p>
+                                {/* sdfghjklasdfghjklsdfghjkl */}
                             </div>
                             <Dropdown>
                                 <Dropdown.Toggle id="dropdown-basic" style={{ background: '#fff', color: 'black', border: 'none', fontSize: '16px', marginLeft: '20px' }}>
                                 </Dropdown.Toggle>
-                                <Dropdown.Menu style={{ padding: '1em', boxShadow: '2px 1px 2px 2px #bbb', marginTop: '20px', marginRight: '-50px' }}>
-                                    <Dropdown.Item href="">0x30bf5022C23461mtwe</Dropdown.Item>
+                                <Dropdown.Menu style={{ marginTop: '30px', marginRight: '-50px' }}>
+                                    <Dropdown.ItemText>
+                                        {props.currentUser.currentUser}
+                                        {/* asdfghjklsdfghjklsdfghjkl */}
+                                    </Dropdown.ItemText>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
@@ -62,7 +68,7 @@ const Dashboard = (props) => {
                                 })
                                 <button className='seeall_btn'>See all</button>
                             } */}
-                            <Nohistory/>
+                            <Nohistory />
                         </div>
                     </HistoryStyled>
                 </DashboardWrapperRight>
