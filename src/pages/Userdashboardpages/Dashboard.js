@@ -9,6 +9,7 @@ import Nohistory from '../EmptyState/Nohistory';
 
 const Dashboard = (props) => {
     // console.log(props.currentUser.currentUser)
+    
     return (
         <DashboardRightStyled>
             <DashboardWrapper>
