@@ -13,6 +13,7 @@ const Dashboard = (props) => {
 
     const userBal = JSON.parse(sessionStorage.getItem('TotalBal'));
     const history = JSON.parse(sessionStorage.getItem('availableItems'));
+    console.log("res", history)
     
     return (
         <DashboardRightStyled>
@@ -55,8 +56,8 @@ const Dashboard = (props) => {
                     </div>
                     <HistoryStyled>
                         <p className='history-title'>History</p>
-                        <div className='history'>
-                            {history.length === 0 && history.length === undefined && history.length === null && history === '' ? <Nohistory/> :
+                        {/* <div className='history'>
+                            {history === null && history === 0 ? <Nohistory/> :
                                 history.map((details) => {
                                     return <div className='details' key={details.itemId}>
                                         <div className='img'>
@@ -72,7 +73,7 @@ const Dashboard = (props) => {
                                     </div>
                                 })
                             }                      
-                        </div>
+                        </div> */}
                     </HistoryStyled>
                 </DashboardWrapperRight>
             </DashboardWrapper>
