@@ -72,6 +72,18 @@ const UserCollection = (props) => {
     />
   )
 
+  let total = 0;  
+
+  availableItems.forEach(x => {
+    total += Number(x.props.price)
+  })
+
+  console.log(total, "total");
+  sessionStorage.setItem('TotalBal', JSON.stringify(total));
+
+  console.log(marketitems)
+  sessionStorage.setItem('availableItems', JSON.stringify(marketitems));
+
   console.log(availableItems)
   useEffect(() => loadNFTs(), []);
 

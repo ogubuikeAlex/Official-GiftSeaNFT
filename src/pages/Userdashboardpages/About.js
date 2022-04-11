@@ -240,7 +240,7 @@ const Toggler= () => {
             </TogglerStyled>
         </IconContext.Provider>
         </FrequentStyled>
-        <Dashboard/>
+        {/* <Dashboard/> */}
         </div>
     );
 };

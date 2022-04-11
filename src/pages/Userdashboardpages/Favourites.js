@@ -29,7 +29,7 @@ const Favourites = () => {
             <Nodata/>
             </FavouriteStyled>
             </FavouritesAdjusted>            
-            <Dashboard/>
+            {/* <Dashboard/> */}
         </div>
 
     )

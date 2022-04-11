@@ -2,11 +2,19 @@ import React from 'react'
 import { Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
-import history from '../../constants/data';
+// import history from '../../constants/data';
+// import Card from 'react-bootstrap/Card'
 import DashboardWrapper, { DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
 import Nohistory from '../EmptyState/Nohistory';
+// import History from '../../constants/data';
 
 const Dashboard = (props) => {
+    // console.log(props.currentUser.currentUser)
+
+    const userBal = JSON.parse(sessionStorage.getItem('TotalBal'));
+    const history = JSON.parse(sessionStorage.getItem('availableItems'));
+    console.log("res", history)
+    
     return (
         <DashboardRightStyled>
             <DashboardWrapper>
@@ -16,13 +24,17 @@ const Dashboard = (props) => {
                         <div className='drop'>
                             <div className='metaBroken'>
                                 <p>Metamask</p>
-                                {/* <p> {props.currentUser.currentUser.slice(0, 6)}...{props.currentUser.currentUser.slice(-3)}</p> */}
+                                <p> {props.currentUser.currentUser.slice(0, 12)}...</p>
+                                {/* sdfghjklasdfghjklsdfghjkl */}
                             </div>
                             <Dropdown>
                                 <Dropdown.Toggle id="dropdown-basic" style={{ background: '#fff', color: 'black', border: 'none', fontSize: '16px', marginLeft: '20px' }}>
                                 </Dropdown.Toggle>
-                                <Dropdown.Menu style={{ padding: '1em', boxShadow: '2px 1px 2px 2px #bbb', marginTop: '20px', marginRight: '-50px' }}>
-                                    <Dropdown.Item href="">0x30bf5022C23461mtwe</Dropdown.Item>
+                                <Dropdown.Menu style={{ marginTop: '30px', marginRight: '-50px' }}>
+                                    <Dropdown.ItemText>
+                                        {props.currentUser.currentUser}
+                                        {/* asdfghjklsdfghjklsdfghjkl */}
+                                    </Dropdown.ItemText>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
@@ -38,31 +50,29 @@ const Dashboard = (props) => {
                                 </div>
                             </div>
                             <div className='myEth'>
-                                <p>0 ETH</p>
+                                <p>{userBal}ETH</p>
                             </div>
                         </div>
                     </div>
                     <HistoryStyled>
                         <p className='history-title'>History</p>
                         <div className='history'>
-                            {/* {
+                            {history &&
                                 history.map((details) => {
-                                    return <div className='details' key={details.id}>
+                                    return <div className='details' key={details.itemId}>
                                         <div className='img'>
-                                            <img className='imgUrl' src={details.imgUrl} alt='' />
+                                            <img className='imgUrl' src={details.image} alt='' />
                                             <div className='user'>
-                                                <p className='title'>{details.title}</p>
-                                                <p className='subtitle'>{details.subtitle}</p>
+                                                <p className='title'>{details.name}</p>
+                                                <p className='subtitle'>{details.description}</p>
                                             </div>
                                         </div>
                                         <div className='myDuration'>
-                                            <p className='duration'>{details.duration}</p>
+                                            <p className='duration'>{details.price}</p>
                                         </div>
                                     </div>
                                 })
-                                <button className='seeall_btn'>See all</button>
-                            } */}
-                            <Nohistory/>
+                            }                      
                         </div>
                     </HistoryStyled>
                 </DashboardWrapperRight>
@@ -204,6 +214,7 @@ overflow-y:auto;
     }
 }
 `;
+
 const HistoryStyled = styled.div`
 margin-top: 50px;
 .history-title{

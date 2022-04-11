@@ -150,7 +150,7 @@ const Footer = () => {
                     </div>
                     <div className='icons-container'>
                         <ul className='iconsbottom'>
-                            <li><a target='_blank' href='https://www.instagram.com/nft_sea/'><i class="fab fa-instagram"></i></a></li>
+                            <li><a target='_blank' href='https://www.instagram.com/giftseanft/'><i class="fab fa-instagram"></i></a></li>
                             {/* <li><i class="fab fa-linkedin"></i></li> */}
                             <li><a target='_blank' href='https://twitter.com/giftseanft?s=20&t=pSVgxH-7KYVGhGfzlopDQA'><i class="fab fa-twitter"></i></a></li>
                             {/* <li><i class="fab fa-youtube"></i></li> */}
