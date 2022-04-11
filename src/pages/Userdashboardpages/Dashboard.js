@@ -56,8 +56,8 @@ const Dashboard = (props) => {
                     </div>
                     <HistoryStyled>
                         <p className='history-title'>History</p>
-                        {/* <div className='history'>
-                            {history === null && history === 0 ? <Nohistory/> :
+                        <div className='history'>
+                            {history &&
                                 history.map((details) => {
                                     return <div className='details' key={details.itemId}>
                                         <div className='img'>
@@ -73,7 +73,7 @@ const Dashboard = (props) => {
                                     </div>
                                 })
                             }                      
-                        </div> */}
+                        </div>
                     </HistoryStyled>
                 </DashboardWrapperRight>
             </DashboardWrapper>
