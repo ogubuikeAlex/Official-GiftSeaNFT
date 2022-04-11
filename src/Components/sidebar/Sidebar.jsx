@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './sidebar.scss'
 import logo from '../../img/logo.png';
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate} from 'react-router-dom'
 import sidebarNav from '../../configs/sidebarNav'
 
 
 const Sidebar = () => {
     const [activeIndex, setActiveIndex] = useState(0)
     const location = useLocation()
+    const navigate = useNavigate();
 
     useEffect(() => {
         const curPath = window.location.pathname.split('/userdashboard')[1]
@@ -23,6 +24,14 @@ const Sidebar = () => {
             document.querySelector('.main__content').style = ''
         }, 500);
     }
+
+    const logOut = () => {
+        debugger
+        localStorage.clear();
+        sessionStorage.clear();
+        navigate('/', { replace: true });
+        // window.location.reload();
+      };
 
     return (
         <div className='sidebar'>
@@ -45,7 +54,7 @@ const Sidebar = () => {
                         </Link>
                     ))
                 }
-                <div className="sidebar__menu__item" style={{marginTop: '70px'}}>
+                <div className="sidebar__menu__item" style={{marginTop: '70px'}} onClick={logOut}>
                     <div className="sidebar__menu__item__icon">
                         <i style={{color: '#FF4646'}} className='bx bx-log-out'></i>
                     </div>

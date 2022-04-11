@@ -2,13 +2,17 @@ import React from 'react'
 import { Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
-import history from '../../constants/data';
-import Card from 'react-bootstrap/Card'
+// import history from '../../constants/data';
+// import Card from 'react-bootstrap/Card'
 import DashboardWrapper, { DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
 import Nohistory from '../EmptyState/Nohistory';
+// import History from '../../constants/data';
 
 const Dashboard = (props) => {
     // console.log(props.currentUser.currentUser)
+
+    const userBal = JSON.parse(sessionStorage.getItem('TotalBal'));
+    const history = JSON.parse(sessionStorage.getItem('availableItems'));
     
     return (
         <DashboardRightStyled>
@@ -45,31 +49,29 @@ const Dashboard = (props) => {
                                 </div>
                             </div>
                             <div className='myEth'>
-                                <p>0 ETH</p>
+                                <p>{userBal}ETH</p>
                             </div>
                         </div>
                     </div>
                     <HistoryStyled>
                         <p className='history-title'>History</p>
                         <div className='history'>
-                            {/* {
+                            {history.length === 0 && history.length === undefined && history.length === null && history === '' ? <Nohistory/> :
                                 history.map((details) => {
-                                    return <div className='details' key={details.id}>
+                                    return <div className='details' key={details.itemId}>
                                         <div className='img'>
-                                            <img className='imgUrl' src={details.imgUrl} alt='' />
+                                            <img className='imgUrl' src={details.image} alt='' />
                                             <div className='user'>
-                                                <p className='title'>{details.title}</p>
-                                                <p className='subtitle'>{details.subtitle}</p>
+                                                <p className='title'>{details.name}</p>
+                                                <p className='subtitle'>{details.description}</p>
                                             </div>
                                         </div>
                                         <div className='myDuration'>
-                                            <p className='duration'>{details.duration}</p>
+                                            <p className='duration'>{details.price}</p>
                                         </div>
                                     </div>
                                 })
-                                <button className='seeall_btn'>See all</button>
-                            } */}
-                            <Nohistory />
+                            }                      
                         </div>
                     </HistoryStyled>
                 </DashboardWrapperRight>
@@ -211,6 +213,7 @@ overflow-y:auto;
     }
 }
 `;
+
 const HistoryStyled = styled.div`
 margin-top: 50px;
 .history-title{
