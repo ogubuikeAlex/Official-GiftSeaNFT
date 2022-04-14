@@ -1,7 +1,7 @@
 import React from 'react'
 import CollectionStyled from '../../../Styled-components/MarketplaceStyled';
 import { useEffect, useState } from "react";
-import ethers from "ethers";
+import { ethers } from "ethers";
 import { nftAddress, marketAddress } from "../../../config";
 import Nft from "../../../artifacts/contracts/erc1155nft.sol/ERC1155NFT.json";
 import Market from "../../../artifacts/contracts/Erc115market.sol/NFTMarket1155.json";

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@coinbase/wallet-sdk": "^3.0.6",
     "@openzeppelin/contracts": "^4.5.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
@@ -25,22 +26,22 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
+    "react-scripts": "4.0.3",
     "react-visibility-sensor": "^5.1.1",
     "sass": "^1.49.8",
     "scss": "^0.2.4",
     "serve": "^13.0.2",
     "styled-components": "^5.3.3",
-    "swiper": "^8.0.6",
+    "swiper": "^6.8.4",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4",
     "web3modal": "^1.9.6"
   },
   "scripts": {
     "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build"
   },
@@ -66,9 +67,19 @@
     "@nomiclabs/hardhat-ethers": "^2.0.0",
     "@nomiclabs/hardhat-waffle": "^2.0.0",
     "@openzeppelin/hardhat-upgrades": "^1.17.0",
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
     "chai": "^4.2.0",
+    "crypto-browserify": "^3.12.0",
     "ethereum-waffle": "^3.0.0",
     "ethers": "^5.0.0",
-    "hardhat": "^2.8.3"
+    "hardhat": "^2.8.3",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0"
   }
 }
