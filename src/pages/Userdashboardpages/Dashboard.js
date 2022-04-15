@@ -24,7 +24,7 @@ const Dashboard = (props) => {
                         <div className='drop'>
                             <div className='metaBroken'>
                                 <p>Metamask</p>
-                                <p> {props.currentUser.currentUser.slice(0, 12)}...</p>
+                                {/* <p> {props.currentUser.currentUser.slice(0, 12)}...</p> */}
                                 {/* sdfghjklasdfghjklsdfghjkl */}
                             </div>
                             <Dropdown>
@@ -32,7 +32,7 @@ const Dashboard = (props) => {
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu style={{ marginTop: '30px', marginRight: '-50px' }}>
                                     <Dropdown.ItemText>
-                                        {props.currentUser.currentUser}
+                                        {/* {props.currentUser.currentUser} */}
                                         {/* asdfghjklsdfghjklsdfghjkl */}
                                     </Dropdown.ItemText>
                                 </Dropdown.Menu>

@@ -26,9 +26,7 @@ async function giftNft(receiver, itemId, tokenId) {
     const approvetx = await NFT.giveResaleApproval(tokenId)
     await approvetx.wait();
     let transaction = await contract.giftNft(nftAddress, receiver, itemId);
-    await transaction.wait();
-    // const approvetx2 = await NFT.giveResaleApproval(tokenId)
-    // await approvetx2.wait();
+    await transaction.wait();    
     //Navigate to gifted Successfully modal
 }
 
@@ -76,9 +74,7 @@ async function buyNft(itemId, priice, address, tokenId) {
         const price = ethers.utils.parseUnits(priice.toString(), "ether");
 
         const transaction = await MARKET.buyNft(nftAddress, itemId, { value: price });
-        let tx = await transaction.wait();
-
-        console.log(tx);
+        let tx = await transaction.wait();       
 
         //loadNfts()
     }

@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Modal, Form, Button } from 'react-bootstrap'
 import successful from '../Modals/Modals_Images/Vector.png'
+import ButtonStyled from '../../../Styled-components/ButtonStyled'
 
 const PaymentSuccessful = () => {
-
+  const [show, setShow] = useState(false);
+  
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <div>
       <Modal

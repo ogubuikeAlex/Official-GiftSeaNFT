@@ -37,7 +37,6 @@ export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
             }
             {
                 isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() &&
-
                 <Route path="/admindashboard" element={<AdminLayout />}>
                     <Route path="/admindashboard" index element={<AdminHero />} />
                     <Route path="marketplace">

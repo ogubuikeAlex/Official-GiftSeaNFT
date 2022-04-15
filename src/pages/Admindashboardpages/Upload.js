@@ -111,6 +111,7 @@ const Upload = () => {
             await transaction.wait()
             console.log("oya go to market place");
             <Navigate to={"/"} />
+            //Navigate to marketPlace
         }
     }
 
