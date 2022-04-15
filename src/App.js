@@ -67,9 +67,9 @@ const App = () => {
   const checkForAuthenticatedEthereumWallet = async () => {
     // debugger
     var accounts = await web3Modal.connect();
-    console("web3acct",accounts)
+    console.log("web3acct",accounts)
     
-    await window.ethereum.send('eth_requestAccounts');
+    // await window.ethereum.send('eth_requestAccounts');
     // var accounts = await web3.eth.getAccounts();
 
     if (accounts.length !== 0) {
@@ -100,7 +100,9 @@ const App = () => {
 
     console.log("You have  an authenticated metamask wallet!");
 
-    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+    // const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+    var accounts = await web3Modal.connect();
+    console.log("web3acct",accounts)
 
     setUserAccount(accounts[0]);
     setUserHasConnectedAccount(true);
