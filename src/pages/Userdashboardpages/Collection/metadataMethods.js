@@ -7,6 +7,7 @@ import Market from '../../../artifacts/contracts/Erc115market.sol/NFTMarket1155.
 import { CalculateCashoutAmount } from "./Calculator";
 import SentSuccessful from '../Modals/SentSuccessful'
 import SoldSuccessful from '../Modals/SoldSuccessful'
+import PurchaseSuccessful from "../Modals/PurchaseSuccessful";
 
 async function giftNft(receiver, itemId, tokenId) {
     console.log("Am here")
@@ -79,6 +80,12 @@ async function buyNft(itemId, priice, address, tokenId) {
         let tx = await transaction.wait();
 
         console.log(tx);
+
+        if (tx.status === 1) {
+            <PurchaseSuccessful />
+        } else {
+            <h1> Transaction Failed </h1>
+        }
 
         //loadNfts()
     }
