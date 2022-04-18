@@ -8,6 +8,7 @@ import { CalculateCashoutAmount } from "./Calculator";
 import SentSuccessful from '../Modals/SentSuccessful'
 import SoldSuccessful from '../Modals/SoldSuccessful'
 import PurchaseSuccessful from "../Modals/PurchaseSuccessful";
+import Swal from 'sweetalert2';
 
 async function giftNft(receiver, itemId, tokenId) {
     console.log("Am here")
@@ -30,7 +31,32 @@ async function giftNft(receiver, itemId, tokenId) {
     await transaction.wait();
     // const approvetx2 = await NFT.giveResaleApproval(tokenId)
     // await approvetx2.wait();
+
+    console.log("giftapp", approvetx)
+    console.log("transaction", transaction)
     //Navigate to gifted Successfully modal
+
+    if (transaction.gasPrice._isBigNumber === true) {
+        Swal.fire({
+            title: 'Gift Successful',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              },
+            text: 'You have successfully gifted '+ transaction.gasPrice._hex.toString(),
+            icon: 'success',
+            customClass: 'swal-wide',
+            confirmButtonText: '<a href="/userdashboard/collections" class="confirmButtonText">See my collections</a>',
+            denyButtonText: `<a href="#" class="denyButtonText">Back to marketplace</a>`,
+            showDenyButton: true,
+            confirmButtonColor: '#02AAB0',
+            denyButtonColor: '#bfc1cb',               
+        });
+    } else {
+       return alert("Payment Processing");
+    }
 }
 
 async function sellNft(itemId, priice, tokenId) {
@@ -61,6 +87,25 @@ console.log(46)
     let transaction = await contract.sellNft(itemId, nftAddress, cashOutPrice);
     await transaction.wait();
     //Navigate to sold Successfully modal
+
+    console.log("transaction", transaction)
+
+    console.log("approve", approvetx)
+
+    // if (transaction.status === 1) {
+    //     Swal.fire({
+    //         title: 'Purchase Successful',
+    //         icon: 'success',
+    //         customClass: 'swal-wide',
+    //         confirmButtonText: '<a href="/userdashboard/collections" class="confirmButtonText">See my collections</a>',
+    //         denyButtonText: `<a href="#" class="denyButtonText">Back to marketplace</a>`,
+    //         showDenyButton: true,
+    //         confirmButtonColor: '#02AAB0',
+    //         denyButtonColor: '#bfc1cb',               
+    //     });
+    // } else {
+    //    return alert("Payment Processing");
+    // }
 }
 
 async function buyNft(itemId, priice, address, tokenId) {
@@ -72,19 +117,36 @@ async function buyNft(itemId, priice, address, tokenId) {
         const signer = provider.getSigner();
 
         const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
-        console.log("tryna buy2")
+        console.log(MARKET)
 
         const price = ethers.utils.parseUnits(priice.toString(), "ether");
 
         const transaction = await MARKET.buyNft(nftAddress, itemId, { value: price });
+        console.log(transaction)
         let tx = await transaction.wait();
 
-        console.log(tx);
+        console.log("resss", tx);
 
         if (tx.status === 1) {
-            <PurchaseSuccessful />
+            Swal.fire({
+                title: 'Purchase Successful',
+                text: 'You have successfully purchased'+ ' ' + MARKET.address,
+                icon: 'success',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                  },
+                  hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                  },
+                customClass: 'swal-wide',
+                confirmButtonText: '<a href="/userdashboard/collections" class="confirmButtonText">See my collections</a>',
+                denyButtonText: `<a href="#" class="denyButtonText">Back to marketplace</a>`,
+                showDenyButton: true,
+                confirmButtonColor: '#02AAB0',
+                denyButtonColor: '#bfc1cb',               
+            });
         } else {
-            <h1> Transaction Failed </h1>
+           return alert("Payment Processing");
         }
 
         //loadNfts()
