@@ -130,7 +130,7 @@ async function buyNft(itemId, priice, address, tokenId) {
         if (tx.status === 1) {
             Swal.fire({
                 title: 'Purchase Successful',
-                text: 'You have successfully purchased'+ ' ' + MARKET.address,
+                text: 'You have successfully purchased ' + MARKET.address,
                 icon: 'success',
                 showClass: {
                     popup: 'animate__animated animate__fadeInDown'

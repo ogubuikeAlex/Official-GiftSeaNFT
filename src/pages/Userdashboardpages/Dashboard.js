@@ -13,7 +13,9 @@ const Dashboard = (props) => {
 
     const userBal = JSON.parse(sessionStorage.getItem('TotalBal'));
     const history = JSON.parse(sessionStorage.getItem('availableItems'));
-    console.log("res", history)
+    // console.log("res", history)
+    // console.log("ressse",props)
+    // console.log("ressse",props.currentUser.currentUser.selectedAddress)
     
     return (
         <DashboardRightStyled>
@@ -24,7 +26,7 @@ const Dashboard = (props) => {
                         <div className='drop'>
                             <div className='metaBroken'>
                                 <p>Metamask</p>
-                                <p> {props.currentUser && props.currentUser.currentUser.slice(0, 12)}...</p>
+                                <p> {props.currentUser.currentUser.selectedAddress && props.currentUser.currentUser.selectedAddress.slice(0, 12)}...</p>
                                 {/* sdfghjklasdfghjklsdfghjkl */}
                             </div>
                             <Dropdown>
@@ -32,7 +34,7 @@ const Dashboard = (props) => {
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu style={{ marginTop: '30px', marginRight: '-50px' }}>
                                     <Dropdown.ItemText>
-                                        {props.currentUser && props.currentUser.currentUser}
+                                        {props.currentUser.currentUser.selectedAddress && props.currentUser.currentUser.selectedAddress}
                                         {/* asdfghjklsdfghjklsdfghjkl */}
                                     </Dropdown.ItemText>
                                 </Dropdown.Menu>
