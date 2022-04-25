@@ -35,7 +35,7 @@ const AdminHero = () => {
             </div>
         <Table/>
         <Trending/>
-        <Dashboard/>
+        {/* <Dashboard/> */}
         </AdminHeroStyled>
   )
 }

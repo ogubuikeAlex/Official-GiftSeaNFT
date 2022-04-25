@@ -8,15 +8,10 @@ import DashboardWrapper, { DashboardWrapperRight } from '../../Components/dashbo
 import Nohistory from '../EmptyState/Nohistory';
 // import History from '../../constants/data';
 
-const Dashboard = (props) => {
-    // console.log(props.currentUser.currentUser)
-
+const Dashboard = ({currentUser}) => {
     const userBal = JSON.parse(sessionStorage.getItem('TotalBal'));
-    const history = JSON.parse(sessionStorage.getItem('availableItems'));
-    // console.log("res", history)
-    // console.log("ressse",props)
-    // console.log("ressse",props.currentUser.currentUser.selectedAddress)
-    
+    const history = JSON.parse(sessionStorage.getItem('availableItems'));    
+       
     return (
         <DashboardRightStyled>
             <DashboardWrapper>
@@ -26,16 +21,14 @@ const Dashboard = (props) => {
                         <div className='drop'>
                             <div className='metaBroken'>
                                 <p>Metamask</p>
-                                <p> {props.currentUser.currentUser.selectedAddress && props.currentUser.currentUser.selectedAddress.slice(0, 12)}...</p>
-                                {/* sdfghjklasdfghjklsdfghjkl */}
+                                <p> {currentUser && currentUser.slice(0, 12)}...</p>                               
                             </div>
                             <Dropdown>
                                 <Dropdown.Toggle id="dropdown-basic" style={{ background: '#fff', color: 'black', border: 'none', fontSize: '16px', marginLeft: '20px' }}>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu style={{ marginTop: '30px', marginRight: '-50px' }}>
                                     <Dropdown.ItemText>
-                                        {props.currentUser.currentUser.selectedAddress && props.currentUser.currentUser.selectedAddress}
-                                        {/* asdfghjklsdfghjklsdfghjkl */}
+                                        {currentUser && currentUser}                                        
                                     </Dropdown.ItemText>
                                 </Dropdown.Menu>
                             </Dropdown>

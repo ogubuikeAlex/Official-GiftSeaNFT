@@ -67,7 +67,7 @@ const AdminMarketMetadata = () => {
             </div>
             </div>
             </MarketMetaStyled>
-            <Dashboard/>
+            {/* <Dashboard/> */}
         </div>
 
     )

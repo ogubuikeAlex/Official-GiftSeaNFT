@@ -234,7 +234,7 @@ function AdminMarketPlace(props) {
           </div>
         </div>
       </MarketplaceStyled>
-      <Dashboard />
+      {/* <Dashboard /> */}
     </div>
   );
 }

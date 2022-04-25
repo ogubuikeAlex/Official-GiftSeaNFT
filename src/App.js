@@ -120,7 +120,7 @@ const App = () => {
     const authenticated = localStorage.getItem("isAuthenticated");
     if (authenticated && JSON.parse(authenticated)) {
       setUserHasConnectedAccount(true);
-      setUserHasMetaMask(true);
+      setUserHasMetaMask(true);      
       // connectWallet();  commented out to see other wallet options on load of the Home page
     }
   }, [])
