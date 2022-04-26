@@ -41,26 +41,11 @@ const web3Modal = new Web3Modal({
     providerOptions // required
 });
 
-// var web3 = new Web3(provider);
-
-const App2 = () => {
-    const { ethereum } = window;
-    const [userHasMetaMask, setUserHasMetaMask] = useState(false);
+const App = () => {
     const [userHasConnectedccount, setUserHasConnectedAccount] = useState(false);
     const [userAccount, setUserAccount] = useState();
+
     let navigate = useNavigate();
-
-    //   const checkForMetaMask = async () => {
-    //     // debugger
-    //     if (!ethereum) {
-    //       console.log("You need to install metamask");
-    //       return false;
-    //     }
-
-    //     setUserHasMetaMask(true);
-    //     await checkForAuthenticatedEthereumWallet();
-    //     return true;
-    //   }
 
     const connectWallet = async () => {
         try {
@@ -87,30 +72,27 @@ const App2 = () => {
         }
     };
 
-    useEffect(() => {
-        // debugger
+    useEffect(() => {       
         const authenticated = localStorage.getItem("isAuthenticated");
         if (authenticated && JSON.parse(authenticated)) {
-            setUserHasConnectedAccount(true);
-            setUserHasMetaMask(true);
-            //connectWallet();  //commented out to see other wallet options on load of the Home page
+            setUserHasConnectedAccount(true);           
+            connectWallet();  //commented out to see other wallet options on load of the Home page
         }
     }, [])
 
-    useEffect(() => {
-        // debugger
-        localStorage.setItem("isAuthenticated", userHasConnectedccount && userHasMetaMask)
+    useEffect(() => {        
+        localStorage.setItem("isAuthenticated", userHasConnectedccount)
 
-    }, [userHasConnectedccount && userHasMetaMask])
+    }, [userHasConnectedccount])
 
     return (
         <div className='App'>
             <MainRoutes
-                isAuthenticated={userHasConnectedccount && userHasMetaMask}
+                isAuthenticated={userHasConnectedccount}
                 connect={connectWallet}
                 currentUser={userAccount}
             />
         </div>
     )
 }
-export default App2;
+export default App;
