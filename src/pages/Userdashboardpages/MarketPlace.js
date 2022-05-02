@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ethers from "ethers";
+import { ethers } from "ethers";
 import MarketplaceStyled from '../../Styled-components/MarketplaceStyled'
 import image1 from '../../img/unsplashed4.png';
 import image2 from '../../img/unsplashed3.png';

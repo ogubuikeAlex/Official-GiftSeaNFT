@@ -8,13 +8,10 @@ import DashboardWrapper, { DashboardWrapperRight } from '../../Components/dashbo
 import Nohistory from '../EmptyState/Nohistory';
 // import History from '../../constants/data';
 
-const Dashboard = (props) => {
-    // console.log(props.currentUser.currentUser)
-
+const Dashboard = ({currentUser}) => {
     const userBal = JSON.parse(sessionStorage.getItem('TotalBal'));
-    const history = JSON.parse(sessionStorage.getItem('availableItems'));
-    console.log("res", history)
-    
+    const history = JSON.parse(sessionStorage.getItem('availableItems'));    
+       
     return (
         <DashboardRightStyled>
             <DashboardWrapper>
@@ -24,16 +21,14 @@ const Dashboard = (props) => {
                         <div className='drop'>
                             <div className='metaBroken'>
                                 <p>Metamask</p>
-                                {/* <p> {props.currentUser.currentUser.slice(0, 12)}...</p> */}
-                                {/* sdfghjklasdfghjklsdfghjkl */}
+                                <p> {currentUser && currentUser.slice(0, 12)}...</p>                               
                             </div>
                             <Dropdown>
                                 <Dropdown.Toggle id="dropdown-basic" style={{ background: '#fff', color: 'black', border: 'none', fontSize: '16px', marginLeft: '20px' }}>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu style={{ marginTop: '30px', marginRight: '-50px' }}>
                                     <Dropdown.ItemText>
-                                        {/* {props.currentUser.currentUser} */}
-                                        {/* asdfghjklsdfghjklsdfghjkl */}
+                                        {currentUser && currentUser}                                        
                                     </Dropdown.ItemText>
                                 </Dropdown.Menu>
                             </Dropdown>
@@ -50,13 +45,13 @@ const Dashboard = (props) => {
                                 </div>
                             </div>
                             <div className='myEth'>
-                                <p>{userBal}ETH</p>
+                                <p>{userBal && userBal}ETH</p>
                             </div>
                         </div>
                     </div>
                     <HistoryStyled>
                         <p className='history-title'>History</p>
-                        <div className='history'>
+                        <div className='history' style={{ maxHeight: '47vh', overflow: 'auto' }}>
                             {history &&
                                 history.map((details) => {
                                     return <div className='details' key={details.itemId}>
@@ -186,13 +181,13 @@ overflow-y:auto;
     display: flex;
     background: #F5F5F5;
     height: 40px;
-    width: 110px;
+    // width: 110px;
     border-radius: 50px;
     p{
        color: #252F40;
        font-weight: 600;
        font-size: 12px;
-       width: 52px;
+    //    width: 52px;
        height: 18px;
     }
     .brands{
