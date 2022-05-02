@@ -1,0 +1,30 @@
+.swal-wide{
+    width:40% !important;
+    height:30% !important;
+    font-size:4px !important;
+  }
+
+  .confirmButtonText{
+    color: #02AAB0;
+    text-decoration:none;
+    font-weight: 700;
+    letter-spacing: 2px;
+    width: 100%;
+  }
+
+  .confirmButtonText:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .denyButtonText{
+    color: #282E52;
+    text-decoration:none;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  .denyButtonText:hover {
+    text-decoration: none;
+    color: #282E52;
+  }

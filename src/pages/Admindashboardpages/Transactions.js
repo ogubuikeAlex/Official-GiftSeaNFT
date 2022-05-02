@@ -12,7 +12,7 @@ const Transactions = () => {
         <p className='SeeAll' style={{cursor: 'pointer', background:'#fff', padding: '0.4em', borderRadius: '10px'}}>Monthly <i className='fas fa-angle-right'></i></p>
       </div>
         <Table/>
-        <Dashboard/>
+        {/* <Dashboard/> */}
     </TransactionStyled>
     </div>
   )

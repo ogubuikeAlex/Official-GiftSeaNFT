@@ -26,19 +26,17 @@ import {
 import Administrator from "../pages/Admindashboardpages/Administrator";
 
 export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
-
+console.log(currentUser, "currentUSer")
     return (
         
         <Routes>
-
             {
                 isAuthenticated !== null && isAuthenticated !== undefined ?
                 <Route path="/" element={<Homepage connect={connect} />} /> :  <Route path="/" element={<Homepage connect={connect} />} />
             }
             {
                 isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() &&
-
-                <Route path="/admindashboard" element={<AdminLayout />}>
+                <Route path="/admindashboard" element={<AdminLayout currentUser={currentUser}/>}>
                     <Route path="/admindashboard" index element={<AdminHero />} />
                     <Route path="marketplace">
                         <Route index element={<AdminMarketPlace />} />
@@ -51,7 +49,6 @@ export default function MainRoutes({ isAuthenticated, connect, currentUser }) {
                     <Route path="about" element={<About />} />
                 </Route>
             }
-
             {
                 isAuthenticated &&
                 <Route path="/userdashboard" element={<MainLayout currentUser={currentUser} />}>

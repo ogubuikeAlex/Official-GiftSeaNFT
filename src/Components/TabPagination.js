@@ -8,11 +8,8 @@ import image3 from '../img/unsplashcolor.png';
 import image4 from '../img/unsplashed4.png';
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/css/autoplay';
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
 
 const TabPagination= () => {
   return (
