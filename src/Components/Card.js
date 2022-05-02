@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 import CardStyled from '../Styled-components/CardStyled'
@@ -12,6 +12,19 @@ import { nftAddress } from "../config";
 
 const Card = ({ name, available, total, price, url, itemId, description, loadNfts, tokenId }) => {
   const navigate = useNavigate();
+  const [buyStateChange, setBuyStateChange] = useState(false);
+
+  const handlebuydisable = () => {
+    // debugger
+    const buyStateChange = JSON.parse(localStorage.getItem('buyButton'));
+    setBuyStateChange(buyStateChange);
+    console.log("buyButton", buyStateChange)
+    if (buyStateChange === true) {
+      return true
+    } else {
+      return false
+    }
+};
 
   return (
     <CardStyled>
@@ -50,9 +63,24 @@ const Card = ({ name, available, total, price, url, itemId, description, loadNft
         </div>
 
       </div>
-
-      <button className='buyButton' onClick={() => buyNft(itemId, price, nftAddress, tokenId)}>Buy</button>
-
+{buyStateChange === true ?
+      <button className='buyButton' 
+      style={{backgroundColor: '#FFF', color: '#000'}} 
+      disabled
+      // onClick={() =>
+      //   [buyNft(itemId, price, nftAddress, tokenId),
+      //   handlebuydisable()]
+      // }   
+      >Please wait...</button>
+      :
+      <button className='buyButton'
+      onClick={() =>
+        [buyNft(itemId, price, nftAddress, tokenId),
+        handlebuydisable()
+      ]
+      }   
+      >Buy</button>
+}
     </CardStyled>
   )
 }

@@ -30,6 +30,29 @@ margin-left: 20px;
     }
     
 }
+
+.buttondis{
+    border: 1px solid #D1D1D1;
+    background: #F5F7FB;
+    color: #02AAB0;
+    cursor: default;
+    &:last-child{
+        color: #02AAB0;
+        :hover{
+            color: #FFF;
+        }
+    }
+    :hover{
+        cursur: pointer;
+    }
+    .link{
+        padding: 1em;
+        :hover{
+            color: #FFF;
+        }
+    }
+    
+}
 `;
 
 export default ButtonStyled
