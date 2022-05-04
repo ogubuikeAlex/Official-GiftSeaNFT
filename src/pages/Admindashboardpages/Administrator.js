@@ -29,7 +29,6 @@ const Administrator = () => {
                             <input className='property_layer-input price' type="text" placeholder='0000'
                                 onChange={e => setFormInput({ ...formInput, amount: e.target.value })} />
                         </div>
-
                     </div>
 
                 </section>

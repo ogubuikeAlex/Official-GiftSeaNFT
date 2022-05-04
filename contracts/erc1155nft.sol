@@ -35,7 +35,7 @@ contract ERC1155NFT is ERC1155, Ownable {
    function setTokenUri(uint256 tokenId, string memory _uri) external onlyOwner{
        _uris[tokenId] = _uri;
    }
-
+//Chage to external
      function giveResaleApproval(uint256 tokenId) public {
         require(
             balanceOf(msg.sender, tokenId) != 0,            

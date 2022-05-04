@@ -87,7 +87,6 @@ async function sellNft(itemId, priice, tokenId) {
     let cashOutPrice = ethers.utils.parseUnits(price.toString(), "ether");
     console.log(45)
     console.log(tokenId)
-
     
     const approvetx = await NFT.giveResaleApproval(tokenId)
     await approvetx.wait();
