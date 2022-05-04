@@ -10,12 +10,7 @@ import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 
 import {
     adminAddress
-} from './config'
-const x = require("dotenv");
-
-
-
-x.config({path: "/.env"})
+} from './config';
 
 const providerOptions = {
     walletconnect: {
