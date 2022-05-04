@@ -5,9 +5,9 @@ import {
 import Nft from "../../../artifacts/contracts/erc1155nft.sol/ERC1155NFT.json"
 import Market from '../../../artifacts/contracts/Erc115market.sol/NFTMarket1155.json'
 import { CalculateCashoutAmount } from "./Calculator";
-import SentSuccessful from '../Modals/SentSuccessful'
-import SoldSuccessful from '../Modals/SoldSuccessful'
-import PurchaseSuccessful from "../Modals/PurchaseSuccessful";
+// import SentSuccessful from '../Modals/SentSuccessful'
+// import SoldSuccessful from '../Modals/SoldSuccessful'
+// import PurchaseSuccessful from "../Modals/PurchaseSuccessful";
 import Swal from 'sweetalert2';
 
 async function giftNft(receiver, itemId, tokenId) {
@@ -25,7 +25,10 @@ async function giftNft(receiver, itemId, tokenId) {
     /* next, create the item */
     const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
     let contract = new ethers.Contract(marketAddress, Market.abi, signer)
+    console.log("res",contract)
+    localStorage.setItem("giftcanceldisable", JSON.stringify(contract.signer.provider._isProvider))
     const approvetx = await NFT.giveResaleApproval(tokenId)
+    console.log("approve", approvetx)
     await approvetx.wait();
     let transaction = await contract.giftNft(nftAddress, receiver, itemId);
     await transaction.wait();
@@ -54,6 +57,7 @@ async function giftNft(receiver, itemId, tokenId) {
             confirmButtonColor: '#02AAB0',
             denyButtonColor: '#bfc1cb',               
         });
+        localStorage.removeItem("giftcanceldisable");
     } else {
        return alert("Payment Processing");
     }
@@ -72,40 +76,53 @@ async function sellNft(itemId, priice, tokenId) {
     const signer = provider.getSigner();
 
     let contract = new ethers.Contract(marketAddress, Market.abi, signer)
+    console.log("res",contract)
+    localStorage.setItem("contract", JSON.stringify(contract.interface._isInterface))
     let NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
-console.log("before")
+    console.log("before")
     let timeGotten = (await contract.GetTimeBought(itemId)).toNumber();
     console.log("time", timeGotten)
     let price = CalculateCashoutAmount(priice, timeGotten);
-console.log("price", price)
+    console.log("price", price)
     let cashOutPrice = ethers.utils.parseUnits(price.toString(), "ether");
     console.log(45)
     console.log(tokenId)
+    
     const approvetx = await NFT.giveResaleApproval(tokenId)
     await approvetx.wait();
-console.log(46)
+    console.log(46)
     let transaction = await contract.sellNft(itemId, nftAddress, cashOutPrice);
     await transaction.wait();
     //Navigate to sold Successfully modal
-
+    localStorage.setItem("transaction", JSON.stringify(transaction.gasPrice._isBigNumber))
+    
     console.log("transaction", transaction)
 
     console.log("approve", approvetx)
 
-    // if (transaction.status === 1) {
-    //     Swal.fire({
-    //         title: 'Purchase Successful',
-    //         icon: 'success',
-    //         customClass: 'swal-wide',
-    //         confirmButtonText: '<a href="/userdashboard/collections" class="confirmButtonText">See my collections</a>',
-    //         denyButtonText: `<a href="#" class="denyButtonText">Back to marketplace</a>`,
-    //         showDenyButton: true,
-    //         confirmButtonColor: '#02AAB0',
-    //         denyButtonColor: '#bfc1cb',               
-    //     });
-    // } else {
-    //    return alert("Payment Processing");
-    // }
+    if (transaction.gasPrice._isBigNumber === true) {
+        Swal.fire({
+            title: 'Sale Successful',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              },
+            text: 'You have successfully gifted '+ transaction.gasPrice._hex.toString(),
+            icon: 'success',
+            customClass: 'swal-wide',
+            confirmButtonText: '<a href="/userdashboard/collections" class="confirmButtonText">See my collections</a>',
+            denyButtonText: '<a href="/userdashboard/marketplace" class="confirmButtonText">Back to market place</a>',
+            showDenyButton: true,
+            confirmButtonColor: '#02AAB0',
+            denyButtonColor: '#bfc1cb',   
+            allowOutsideClick: false,            
+        });
+        localStorage.removeItem("contract");
+    } else {
+       return alert("Payment Processing");
+    }
 }
 
 async function buyNft(itemId, priice, address, tokenId) {
@@ -117,6 +134,7 @@ async function buyNft(itemId, priice, address, tokenId) {
         const signer = provider.getSigner();
 
         const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
+        localStorage.setItem("buyButton", JSON.stringify(MARKET.interface._isInterface))
         console.log(MARKET)
 
         const price = ethers.utils.parseUnits(priice.toString(), "ether");
@@ -140,11 +158,12 @@ async function buyNft(itemId, priice, address, tokenId) {
                   },
                 customClass: 'swal-wide',
                 confirmButtonText: '<a href="/userdashboard/collections" class="confirmButtonText">See my collections</a>',
-                denyButtonText: `<a href="#" class="denyButtonText">Back to marketplace</a>`,
+                denyButtonText: `<a href="/userdashboard/marketplace" class="denyButtonText">Back to marketplace</a>`,
                 showDenyButton: true,
                 confirmButtonColor: '#02AAB0',
                 denyButtonColor: '#bfc1cb',               
             });
+            localStorage.removeItem("buyButton");
         } else {
            return alert("Payment Processing");
         }

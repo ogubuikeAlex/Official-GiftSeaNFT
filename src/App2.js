@@ -10,38 +10,26 @@ import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 
 import {
     adminAddress
-} from './config'
+} from './config';
 
 const providerOptions = {
     walletconnect: {
         package: WalletConnectProvider, // required
         options: {
-            infuraId: "t-srm7MtDdWCoJDtTH0i8QikmsD-yZKz" // required
+            infuraId: 'de9a9830af4543319109af396e1ae734' // required            
         },
-    },
-    binancechainwallet: {
-        package: true
-    },
-    coinbasewallet: {
-        package: WalletConnectProvider, // Required
-        options: {
-            appName: "gift_nft_app", // Required
-            infuraId: "t-srm7MtDdWCoJDtTH0i8QikmsD-yZKz", // Required
-            rpc: "", // Optional if `infuraId` is provided; otherwise it's required
-            chainId: 1, // Optional. It defaults to 1 if not provided
-            darkMode: false // Optional. Use dark theme, defaults to false
-        }
     }
 };
 
 const web3Modal = new Web3Modal({
-    network: "mainnet",
+   // network: "mainnet",
     theme: "dark", // optional
     cacheProvider: true, // optional
     providerOptions // required
 });
 
 const App = () => {
+    console.log(process.env.INFURA_ID, "Infuraid")
     const [userHasConnectedccount, setUserHasConnectedAccount] = useState(false);
     const [userAccount, setUserAccount] = useState();
 

@@ -29,6 +29,9 @@ const Metadata = () => {
         total,
         available
     } = location.state;
+    const [cancelgiftdisable, setCanceliftdisable] = useState(false);
+    const [cancelselldisable, setCancelselldisable] = useState(false);
+    
 
     const [show, setShow] = useState(false);
     const [displayGift, setGift] = useState(false)
@@ -40,15 +43,33 @@ const Metadata = () => {
     const handleGiftShow = () => setGift(true);
 
     async function sendGift() {
+        // debugger
+        
         if (!receiver)
-            return;
-
-        await giftNft(receiver, itemId, tokenId)
+        return; 
+        
+        await giftNft(receiver, itemId, tokenId)   
     }
 
+    //function to handle disabling cancel button for gift
+    const handlegiftdisable = () => {
+        // debugger
+        const cancelgiftdisable = JSON.parse(localStorage.getItem('giftcanceldisable'));
+        setCanceliftdisable(cancelgiftdisable);
+        console.log("cancelgiftdisable", cancelgiftdisable)
+    };
+    
     async function sendSell() {
+        debugger
         await sellNft(itemId, price, tokenId)
     }
+
+    const handleselldisable = () => {
+        debugger
+        const cancelselldisable = JSON.parse(localStorage.getItem('contract'));
+        setCancelselldisable(cancelselldisable);
+        console.log("cancelselldisable", cancelselldisable)
+    };
 
     return (
         <div>
@@ -94,17 +115,31 @@ const Metadata = () => {
                                     onHide={handleClose}
                                     backdrop="static"
                                     keyboard={false}>
+                                    {cancelselldisable === true ?
+                                    <Modal.Header style={{ border: 'none' }}></Modal.Header> 
+                                    : 
                                     <Modal.Header style={{ border: 'none' }} closeButton></Modal.Header>
+                                    }
+                                    {/* <Modal.Header style={{ border: 'none' }} closeButton></Modal.Header> */}
                                     <div style={{ display: 'block', textAlign: 'center', marginBottom: '10px' }}>
                                         <h4 style={{ textAlign: 'center' }}>Sell your NFT</h4><br />
                                         {/* <small>Please confirm that all infos supplied are correct</small> 
                                         Incase of a warning for premature selling of the nft*/} 
                                     </div>
                                     <ButtonStyled>
-                                        <Button onClick={sendSell} className='button'>
+                                        <Button onClick={() =>
+                                            [sendSell(),
+                                            handleselldisable()]
+                                        } 
+                                        className='button'>
                                             Sell
                                         </Button><br />
-                                        <Button className='button' onClick={handleClose}>Cancel</Button><br /><br /><br />
+                                        {cancelselldisable === true ?
+                                        <Button className='buttondis' disable>Please wait...</Button> 
+                                        : 
+                                        <Button className='button' onClick={handleClose}>Cancel</Button>
+                                        }
+                                        <br /><br /><br />
                                     </ButtonStyled>
                                 </Modal>
                                 <Modal
@@ -112,7 +147,11 @@ const Metadata = () => {
                                     onHide={handleGift}
                                     backdrop="static"
                                     keyboard={false}>
+                                    {cancelgiftdisable === true ?
+                                    <Modal.Header style={{ border: 'none' }}></Modal.Header> 
+                                    : 
                                     <Modal.Header style={{ border: 'none' }} closeButton></Modal.Header>
+                                    }
                                     <div style={{ display: 'block', textAlign: 'center', marginBottom: '10px' }}>
                                         <h4 style={{ textAlign: 'center' }}>Gift someone an NFT</h4><br />
                                         <small>Please confirm that all infos supplied are correct</small>
@@ -150,10 +189,21 @@ const Metadata = () => {
                                         </Form>
                                     </FormStyled>
                                     <ButtonStyled>
-                                        <Button onClick={sendGift} className='button'>
+                                        <Button 
+                                        onClick={() =>
+                                            [sendGift(),
+                                            handlegiftdisable()]
+                                        }
+                                        className='button'
+                                        >
                                             Gift
                                         </Button><br />
-                                        <Button className='button' onClick={handleGift}>Cancel</Button><br /><br /><br />
+                                        {cancelgiftdisable === true ?
+                                        <Button className='buttondis' disable>Please wait...</Button> 
+                                        : 
+                                        <Button className='button' onClick={handleGift}>Cancel</Button>
+                                        }
+                                        <br /><br /><br />
                                     </ButtonStyled>
                                 </Modal>
                             </div>

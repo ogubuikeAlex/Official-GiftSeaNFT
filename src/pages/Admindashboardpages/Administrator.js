@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navigate } from "react-router-dom";
 import AdminUpload from '../Admindashboardpages/AdminUpload'
 import UploadStyled from '../../Styled-components/UploadStyled'
@@ -8,11 +8,26 @@ import { ethers } from 'ethers';
 import {
     nftAddress, marketAddress
 } from '../../config'
+import { getBalance, getCurrentAdmins, withdrawBalance } from './Metadatas/AdmistratorMethods';
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 const Administrator = () => {
+    const [balance, setBalance] = useState('')
+    const [admin, setAdmin] = useState("");
     const [fileUrl, setFileUrl] = useState(null);
     const [formInput, setFormInput] = useState({ price: '', name: '', description: '', amount: '' })
+
+    let setPage = async () => {
+        var sum = await getBalance();        
+        setBalance(sum);        
+
+        var admins = await getCurrentAdmins();
+        setAdmin(admins.admin)
+    }
+
+    useEffect(() => {
+        setPage();
+    }, [])
 
     return (
         <UploadStyled>
@@ -26,10 +41,8 @@ const Administrator = () => {
                         </div>
                         <div className='property_layer-InputContainer'>
                             <label for="price">Balance</label>
-                            <input className='property_layer-input price' type="text" placeholder='0000'
-                                onChange={e => setFormInput({ ...formInput, amount: e.target.value })} />
+                            <input className='property_layer-input price' type="text" placeholder={balance && balance} readOnly />
                         </div>
-
                     </div>
 
                 </section>
@@ -42,7 +55,9 @@ const Administrator = () => {
                         </div>
                     </div>
                     <div style={{ marginTop: '15px' }} id='property_layer button'>
-                        <button style={{ padding: '.5em 35px', background: '#02AAB0', border: 'none', borderRadius: '5px', color: '#FFF' }} >Withdraw Contract Balance</button>
+                        <button 
+                        style={{ padding: '.5em 35px', background: '#02AAB0', border: 'none', borderRadius: '5px', color: '#FFF' }}
+                        onClick={() => withdrawBalance()} >Withdraw Contract Balance</button>
                     </div>
                 </section>
 
@@ -54,7 +69,7 @@ const Administrator = () => {
                         </div>
                         <div className='property_layer-InputContainer'>
                             <label for="price">Admin</label>
-                            <input className='property_layer-input price' type="text" placeholder='0000' />
+                            <input className='property_layer-input price' type="text" placeholder={admin && admin} readonly />
                         </div>
                     </div>
 

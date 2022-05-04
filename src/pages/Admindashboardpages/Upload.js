@@ -56,37 +56,6 @@ const Upload = () => {
         }
     }
 
-    // async function createSale(url) {
-    //     const { ethereum } = window;
-
-    //     if (ethereum) {
-    //         const provider = new ethers.providers.Web3Provider(ethereum);
-    //         const signer = provider.getSigner();
-
-    //         /* next, create the item */
-    //         let contract = new ethers.Contract(nftAddress, NFT.abi, signer)
-    //         let transaction = await contract.createToken(url)
-    //         let tx = await transaction.wait()
-    //         console.log(tx)
-    //         let event = tx.events[0]
-    //         console.log(event)
-    //         let value = event.args[2]
-    //         let tokenId = value.toNumber();
-    //         console.log("tokenIdstuff", tokenId);
-    //         // console.log("txm", ((await txm.wait()).events[0].args[4]).toNumber()) //GetTokenId
-
-    //         const price = ethers.utils.parseUnits(formInput.price, 'ether')
-
-    //         /* then list the item for sale on the marketplace */
-    //         contract = new ethers.Contract(marketAddress, Market.abi, signer)
-
-    //         transaction = await contract.createMarketItem(nftAddress, tokenId, price)
-    //         await transaction.wait()
-    //         console.log("oya go to market place");           
-    //         <Navigate to={"/"} />
-    //     }
-    // }
-
     async function createSale(url) {
         const { ethereum } = window;
 
@@ -111,6 +80,7 @@ const Upload = () => {
             await transaction.wait()
             console.log("oya go to market place");
             <Navigate to={"/"} />
+            //Navigate to marketPlace
         }
     }
 

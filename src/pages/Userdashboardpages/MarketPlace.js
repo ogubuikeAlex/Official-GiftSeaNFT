@@ -34,13 +34,15 @@ function MarketPlace(props) {
     if (!ethereum) {
       return;
     }
+
+    
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
     const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
     setUserAccount(props.user);
 
-    let marketItems = await MARKET.fetchMarketItems();
+    let marketItems = await MARKET.fetchMarketItems();   
     
     let items = await Promise.all(marketItems.map(async i => {
       const tokenUri = await NFT.uri(i.tokenId.toNumber());
@@ -72,14 +74,14 @@ function MarketPlace(props) {
       }
 
     }));
-    console.log("babely1")
+   
 
     let finalArr = items.filter(x => typeof (x) != "undefined")
     let allItems = await splitArray(finalArr);
 
     setMarketItems(allItems);
     setLoadingState("loaded");
-    console.log("babely")
+    
   }
 
   let availableItems = marketitems.map(item =>
