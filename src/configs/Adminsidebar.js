@@ -11,12 +11,12 @@ const Adminsidebar = [
         icon: <i className='bx bx-cart' ></i>,
         text: 'Marketplace'
     },
-    {
-        link: '/admindashboard/favourites',
-        adminsection: 'favourites',
-        icon: <i className='bx bx-heart'></i>,
-        text: 'Favourites'
-    },
+    // {
+    //     link: '/admindashboard/favourites',
+    //     adminsection: 'favourites',
+    //     icon: <i className='bx bx-heart'></i>,
+    //     text: 'Favourites'
+    // },
     {
         link: '/admindashboard/treasury',
         adminsection: 'treasury',

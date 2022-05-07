@@ -10,7 +10,7 @@ import {
 } from '../../config'
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
-const Administrator = () => {
+const Administrator = ({currentUser}) => {
     const [fileUrl, setFileUrl] = useState(null);
     const [formInput, setFormInput] = useState({ price: '', name: '', description: '', amount: '' })
 
@@ -66,6 +66,7 @@ const Administrator = () => {
                 description={formInput.description}
                 price={formInput.price}
                 imageUrl={fileUrl}
+                currentUser={currentUser}
             />
         </UploadStyled>
     )

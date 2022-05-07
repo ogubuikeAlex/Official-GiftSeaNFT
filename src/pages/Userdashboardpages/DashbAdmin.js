@@ -10,8 +10,7 @@ import Nohistory from '../EmptyState/Nohistory';
 
 const Dashboard = ({currentUser}) => {
     const userBal = JSON.parse(sessionStorage.getItem('TotalBal'));
-    const history = JSON.parse(sessionStorage.getItem('availableItems'));  
-    console.log(currentUser)  
+    const history = JSON.parse(sessionStorage.getItem('availableItems'));    
        
     return (
         <DashboardRightStyled>

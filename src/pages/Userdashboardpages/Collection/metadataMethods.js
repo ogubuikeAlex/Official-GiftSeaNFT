@@ -103,7 +103,7 @@ async function sellNft(itemId, priice, tokenId) {
 
     if (transaction.gasPrice._isBigNumber === true) {
         Swal.fire({
-            title: 'Sale Successful',
+            title: 'Sales Successful',
             showClass: {
                 popup: 'animate__animated animate__fadeInDown'
               },

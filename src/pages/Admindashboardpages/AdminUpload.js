@@ -8,7 +8,7 @@ import image1 from '../../img/latestNft.png';
 import DashboardWrapper, {  DashboardWrapperRight } from '../../Components/dashboard-wrapper/DashboardWrapper'
 import PreviewCard from '../../Components/PreviewCard';
 
-const Dashboard = ({name, description, price, imageUrl}) => {
+const Dashboard = ({name, description, price, imageUrl, currentUser}) => {
     return (
         <DashboardRightStyled>
         <DashboardWrapper>
@@ -18,13 +18,13 @@ const Dashboard = ({name, description, price, imageUrl}) => {
                     <div className='drop'>
                         <div className='metaBroken'>
                         <p>Metamask</p>
-                        <small>0x30bf5022C...</small>
+                        <small>{currentUser && currentUser.slice(0, 12)}...</small>
                         </div>
                     <Dropdown>
                         <Dropdown.Toggle id="dropdown-basic" style={{background: '#fff', color: 'black', border:'none', fontSize: '16px', marginLeft: '20px'}}>
                         </Dropdown.Toggle>
                         <Dropdown.Menu style={{padding: '1em', boxShadow:'2px 1px 2px 2px #bbb', marginTop:'20px', marginRight: '-50px'}}>
-                          <Dropdown.Item href="#/action-1">0x30bf5022C23461456...</Dropdown.Item>
+                          <Dropdown.Item href="#/action-1">{currentUser && currentUser}</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     </div>

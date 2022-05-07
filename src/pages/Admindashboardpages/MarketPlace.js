@@ -17,7 +17,7 @@ import Nft from "../../artifacts/contracts/erc1155nft.sol/ERC1155NFT.json";
 import Market from "../../artifacts/contracts/Erc115market.sol/NFTMarket1155.json";
 import { splitArray } from "../Userdashboardpages/Collection/metadataMethods";
 
-function AdminMarketPlace(props) {
+function AdminMarketPlace({props, currentUser}) {
   const [toggleState, setToggleState] = useState(1);
   const [marketitems, setMarketItems] = useState([]);
   const [LoadingState, setLoadingState] = useState("Not-Loaded")
@@ -39,7 +39,7 @@ function AdminMarketPlace(props) {
     const signer = provider.getSigner();
     const NFT = new ethers.Contract(nftAddress, Nft.abi, signer);
     const MARKET = new ethers.Contract(marketAddress, Market.abi, signer);
-    setUserAccount(props.user);
+    setUserAccount(currentUser);
 
     let marketItems = await MARKET.fetchMarketItems();
     
@@ -234,7 +234,7 @@ function AdminMarketPlace(props) {
           </div>
         </div>
       </MarketplaceStyled>
-      {/* <Dashboard /> */}
+      <Dashboard currentUser={currentUser} />
     </div>
   );
 }

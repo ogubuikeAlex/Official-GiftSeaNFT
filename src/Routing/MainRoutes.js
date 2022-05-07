@@ -37,16 +37,16 @@ console.log(currentUser, "currentUSer")
             {
                 isAuthenticated && currentUser?.toString().toLowerCase() === adminAddress.toLowerCase() &&
                 <Route path="/admindashboard" element={<AdminLayout currentUser={currentUser}/>}>
-                    <Route path="/admindashboard" index element={<AdminHero />} />
+                    <Route path="/admindashboard" index element={<AdminHero currentUser={currentUser}/>} />
                     <Route path="marketplace">
-                        <Route index element={<AdminMarketPlace />} />
+                        <Route index element={<AdminMarketPlace currentUser={currentUser}/>} />
                         <Route path="adminMarketMetadata" element={<AdminMarketMetadata />} />
                     </Route>
                     <Route path="favourites" element={<Favourites />} />
-                    <Route path="treasury" element={<Administrator />} />
-                    <Route path="upload" element={<Upload />} />
-                    <Route path="transactions" element={<Transactions />} />
-                    <Route path="about" element={<About />} />
+                    <Route path="treasury" element={<Administrator currentUser={currentUser} />} />
+                    <Route path="upload" element={<Upload currentUser={currentUser} />} />
+                    <Route path="transactions" element={<Transactions currentUser={currentUser}/>} />
+                    <Route path="about" element={<About currentUser={currentUser} />} />
                 </Route>
             }
             {

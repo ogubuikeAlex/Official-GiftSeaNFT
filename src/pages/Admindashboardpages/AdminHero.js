@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom'
 import AdminHeroStyled from '../../Styled-components/AdminHeroStyled'
 import Trending from '../Admindashboardpages/TrendingCards'
 
-const AdminHero = () => {
+const AdminHero = ({currentUser}) => {
 
   let navigate = useNavigate();
   const routeChange = () => {
@@ -35,7 +35,7 @@ const AdminHero = () => {
             </div>
         <Table/>
         <Trending/>
-        {/* <Dashboard/> */}
+        <Dashboard currentUser={currentUser} />
         </AdminHeroStyled>
   )
 }

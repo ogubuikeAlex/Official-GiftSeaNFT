@@ -3,7 +3,7 @@ import Table from '../../pages/Admindashboardpages/Table'
 import Dashboard from '../../pages/Userdashboardpages/Dashboard'
 import TransactionStyled from '../../Styled-components/AdminHeroStyled'
 
-const Transactions = () => {
+const Transactions = ({currentUser}) => {
   return (
     <div style={{marginTop: '-20px'}} className='transactions__container'>
     <TransactionStyled>
@@ -12,7 +12,7 @@ const Transactions = () => {
         <p className='SeeAll' style={{cursor: 'pointer', background:'#fff', padding: '0.4em', borderRadius: '10px'}}>Monthly <i className='fas fa-angle-right'></i></p>
       </div>
         <Table/>
-        {/* <Dashboard/> */}
+        <Dashboard currentUser={currentUser} />
     </TransactionStyled>
     </div>
   )

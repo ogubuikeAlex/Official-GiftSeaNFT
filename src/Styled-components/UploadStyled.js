@@ -92,6 +92,7 @@ width: 718.99px;
         outline: none;
         text-decoration: none;
         background: #FFF;
+        cursor: pointer;
     }
     .centered{
         display: flex;

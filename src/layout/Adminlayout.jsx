@@ -3,7 +3,7 @@ import './main-layout.scss'
 import { Outlet } from 'react-router-dom'
 import Adminsidebar from '../Components/adminsidebar/Adminsidebar'
 import TopNav from '../Components/topnav/TopNav'
-import Dashboard from '../pages/Userdashboardpages/Dashboard';
+import DashbAdmin from '../pages/Userdashboardpages/DashbAdmin';
 
 const AdminLayout = ({currentUser}) => {
     console.log(currentUser)
@@ -14,7 +14,7 @@ const AdminLayout = ({currentUser}) => {
                 <div className="main__content">
                     <TopNav />
                     <Outlet />
-                    <Dashboard currentUser = {currentUser}/>
+                    {/* <DashbAdmin currentUser = {currentUser}/> */}
                 </div>
             </div>
         </>

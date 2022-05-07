@@ -4,6 +4,8 @@ import AdminUpload from '../Admindashboardpages/AdminUpload'
 import UploadStyled from '../../Styled-components/UploadStyled'
 import { create as ipfsHttpClient } from 'ipfs-http-client';
 import { ethers } from 'ethers';
+import Swal from 'sweetalert2';
+import * as ReactBootStrap from 'react-bootstrap';
 
 import {
     nftAddress, marketAddress
@@ -13,12 +15,15 @@ import NFT from '../../artifacts/contracts/erc1155nft.sol/ERC1155NFT.json'
 import Market from '../../artifacts/contracts/Erc115market.sol/NFTMarket1155.json'
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
-const Upload = () => {
+const Upload = ({currentUser}) => {
     const [fileUrl, setFileUrl] = useState(null);
+    const [propertyform, setPropertyform] = useState('');
+    const [loading, setLoading] = useState(false);
     const [formInput, setFormInput] = useState({ price: '', name: '', description: '', amount: '' })
 
     async function setImageUrlOnChange(e) {
         const file = e.target.files[0]
+        setLoading(true)
         try {
             const added = await client.add(
                 file,
@@ -27,8 +32,30 @@ const Upload = () => {
                 }
             )
             console.log("Image Uploaded")
+            const propertyform = added.cid;
+            setPropertyform(propertyform)
+            // console.log(propertyform)
+            if (propertyform) {
+                Swal.fire({
+                    title: 'Upload Successful',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                      },
+                      hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                      },
+                    text: 'You have successfully Uploaded your image',
+                    icon: 'success',
+                    customClass: 'swal-wide',
+                    confirmButtonColor: '#02AAB0',           
+                });
+            } else {
+               return alert("Upload Processing");
+            };
+
             const url = `https://ipfs.infura.io/ipfs/${added.path}`
             setFileUrl(url)
+            setLoading(false)
         } catch (error) {
             console.log('Error uploading file: ', error)
         }
@@ -51,6 +78,8 @@ const Upload = () => {
 
             createSale(url)
             console.log("This is the url", url)
+            console.log("This is the data", data)
+            console.log("This mint success", added)
         } catch (error) {
             console.log('Error uploading file: ', error)
         }
@@ -128,6 +157,7 @@ const Upload = () => {
                 <div className='uploadnft'>
                     <p>NFT image</p>
                     <div className='uploadCentered'>
+                        {loading ? <ReactBootStrap.Spinner animation="border" /> :
                         <div className='centered'>
                             <i className='fas fa-arrow-up'></i>
                             <label htmlFor="filePicker">
@@ -136,8 +166,11 @@ const Upload = () => {
                             <input id="filePicker" style={{ visibility: "hidden" }} type={"file"} onChange={setImageUrlOnChange} />
                             <p className='filesTitle'>PNG, GIF, WEBP, MP4 max 50mb</p>
                         </div>
+                        }
                     </div>
                 </div>
+                
+                { propertyform ? 
                 <section className="items" id="property">
                     <p>Property</p>
                     <div id='property_layer'>
@@ -170,6 +203,40 @@ const Upload = () => {
                         <button style={{ padding: '.5em 35px', background: '#02AAB0', border: 'none', borderRadius: '5px', color: '#FFF' }} onClick={createMarket}>Mint NFT</button>
                     </div>
                 </section>
+                : 
+                <section className="items" id="property" style={{pointerEvents: 'none', backgroundColor: '#F4F4F4'}}>
+                    <p>Property</p>
+                    <div id='property_layer'>
+                        <div className='property_layer-InputContainer'>
+                            <label for="price">Item Price</label>
+                            <input className='property_layer-input price' type="text" placeholder='ETH 0.00'
+                                onChange={e => setFormInput({ ...formInput, price: e.target.value })} disabled />
+
+                        </div>
+                        <div className='property_layer-InputContainer '>
+                            <label for="price">Network</label>
+                            <input className='property_layer-input price' type="text" value='Ethereum' readonly disabled />
+                        </div>
+
+                    </div>
+                    <hr />
+                    <div id='property_layer'>
+                        <div className='property_layer-InputContainer'>
+                            <label for="price">Copies</label>
+                            <input className='property_layer-input price' type="text" placeholder='0000'
+                                onChange={e => setFormInput({ ...formInput, amount: e.target.value })} disabled />
+                        </div>
+
+                        <div className='property_layer-InputContainer'>
+                            <label for="price">Category</label>
+                            <input className='property_layer-input price' type="text" value='Trending' readonly disabled />
+                        </div>
+                    </div>
+                    <div style={{ marginTop: '15px' }} id='property_layer button'>
+                        <button style={{ padding: '.5em 35px', background: 'rgba(2, 170, 176, 0.2)', border: 'none', borderRadius: '5px', color: '#FFF' }} disabled >Mint NFT</button>
+                    </div>
+                </section>
+                }
             </div>
 
             <AdminUpload
@@ -177,6 +244,7 @@ const Upload = () => {
                 description={formInput.description}
                 price={formInput.price}
                 imageUrl={fileUrl}
+                currentUser={currentUser}
             />
         </UploadStyled>
     )
