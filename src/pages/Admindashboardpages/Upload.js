@@ -18,6 +18,7 @@ const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 const Upload = ({currentUser}) => {
     const [fileUrl, setFileUrl] = useState(null);
     const [propertyform, setPropertyform] = useState('');
+    const [mintNftsuccess, setMintNftsuccess] = useState('');
     const [loading, setLoading] = useState(false);
     const [formInput, setFormInput] = useState({ price: '', name: '', description: '', amount: '' })
 
@@ -37,7 +38,7 @@ const Upload = ({currentUser}) => {
             // console.log(propertyform)
             if (propertyform) {
                 Swal.fire({
-                    title: 'Upload Successful',
+                    title: 'Image Upload Successful',
                     showClass: {
                         popup: 'animate__animated animate__fadeInDown'
                       },
@@ -62,6 +63,7 @@ const Upload = ({currentUser}) => {
     }
 
     async function createMarket() {
+        setLoading(true)
         const { name, description, price, amount } = formInput
         if (!name || !description || !price || !fileUrl || !amount) return
         /* first, upload to IPFS */
@@ -80,6 +82,27 @@ const Upload = ({currentUser}) => {
             console.log("This is the url", url)
             console.log("This is the data", data)
             console.log("This mint success", added)
+            const mintNftsuccess = added.cid;
+            setMintNftsuccess(mintNftsuccess)
+            // console.log(propertyform)
+            if (mintNftsuccess) {
+                Swal.fire({
+                    title: 'NFT Mint Added Successfully',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                      },
+                      hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                      },
+                    text: 'You have successfully Uploaded your nftmint',
+                    icon: 'success',
+                    customClass: 'swal-wide',
+                    confirmButtonColor: '#02AAB0',           
+                });
+            } else {
+               return alert("Upload Processing");
+            };
+            setLoading(false)
         } catch (error) {
             console.log('Error uploading file: ', error)
         }
@@ -199,9 +222,11 @@ const Upload = ({currentUser}) => {
                             <input className='property_layer-input price' type="text" value='Trending' readonly />
                         </div>
                     </div>
-                    <div style={{ marginTop: '15px' }} id='property_layer button'>
+                    {loading ? <ReactBootStrap.Spinner animation="border" /> :
+                        <div style={{ marginTop: '15px' }} id='property_layer button'>
                         <button style={{ padding: '.5em 35px', background: '#02AAB0', border: 'none', borderRadius: '5px', color: '#FFF' }} onClick={createMarket}>Mint NFT</button>
                     </div>
+                    }
                 </section>
                 : 
                 <section className="items" id="property" style={{pointerEvents: 'none', backgroundColor: '#F4F4F4'}}>
