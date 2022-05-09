@@ -43,8 +43,7 @@ const Metadata = () => {
     const handleGiftShow = () => setGift(true);
 
     async function sendGift() {
-        // debugger
-        
+                
         if (!receiver)
         return; 
         
@@ -52,20 +51,17 @@ const Metadata = () => {
     }
 
     //function to handle disabling cancel button for gift
-    const handlegiftdisable = () => {
-        // debugger
+    const handlegiftdisable = () => {        
         const cancelgiftdisable = JSON.parse(localStorage.getItem('giftcanceldisable'));
         setCanceliftdisable(cancelgiftdisable);
         console.log("cancelgiftdisable", cancelgiftdisable)
     };
     
-    async function sendSell() {
-        debugger
+    async function sendSell() {        
         await sellNft(itemId, price, tokenId)
     }
 
-    const handleselldisable = () => {
-        debugger
+    const handleselldisable = () => {       
         const cancelselldisable = JSON.parse(localStorage.getItem('contract'));
         setCancelselldisable(cancelselldisable);
         console.log("cancelselldisable", cancelselldisable)

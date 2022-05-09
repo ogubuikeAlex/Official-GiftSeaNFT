@@ -29,7 +29,7 @@ const web3Modal = new Web3Modal({
 });
 
 const App = () => {
-    console.log(process.env.INFURA_ID, "Infuraid")
+    // console.log(process.env.INFURA_ID, "Infuraid")
     const [userHasConnectedccount, setUserHasConnectedAccount] = useState(false);
     const [userAccount, setUserAccount] = useState();
 

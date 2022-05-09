@@ -8,21 +8,36 @@ import { ethers } from 'ethers';
 import {
     nftAddress, marketAddress
 } from '../../config'
-import { getBalance, getCurrentAdmins, withdrawBalance } from './Metadatas/AdmistratorMethods';
+import { getBalance, getCurrentAdmins, withdrawBalance, withdrawMoneyTo , setAdmin} from './Metadatas/AdmistratorMethods';
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
-const Administrator = () => {
+const SuperAdministrator = () => {
     const [balance, setBalance] = useState('')
-    const [admin, setAdmin] = useState("");
+    const [admin, setCurrentAdmin] = useState("");
+    const [newAdmin, setNewAdmin] = useState("");
+    const [receiver, setReceiver] = useState("")
     const [fileUrl, setFileUrl] = useState(null);
     const [formInput, setFormInput] = useState({ price: '', name: '', description: '', amount: '' })
 
     let setPage = async () => {
-        var sum = await getBalance();        
-        setBalance(sum ? sum : "yes");        
+        var sum = await getBalance();
+        setBalance(sum);
 
         var admins = await getCurrentAdmins();
-        setAdmin(admins.admin ? admins.admin : "yes")
+        setCurrentAdmin(admins.admin)
+    }
+
+    let withdrawTo = () => {
+        if (!receiver)
+            return;
+        withdrawMoneyTo(receiver);
+    }
+
+    let setAdmin = () => {
+        if (!newAdmin)
+        return;
+//Check if address is proper
+        setAdmin(newAdmin)
     }
 
     useEffect(() => {
@@ -32,6 +47,7 @@ const Administrator = () => {
     return (
         <UploadStyled>
             <div className='uploadContainer'>
+
                 <section className='items' id="property">
                     <div id='property_layer'>
                         <div className='property_layer-InputContainer'>
@@ -49,13 +65,45 @@ const Administrator = () => {
                     <div id='property_layer'>
                         <div className='property_layer-InputContainer'>
                             <label for="price">Withdraw</label>
-                            <input className='property_layer-input' type="text" value=' Click to withdraw 👇' readonly />
+                            <input
+                                onChange={e => setReceiver(e.target.value)}
+                                className='property_layer-input' type="text" value=' Click to withdraw 👇' readonly />
                         </div>
                     </div>
                     <div style={{ marginTop: '15px' }} id='property_layer button'>
-                        <button 
-                        style={{ padding: '.5em 35px', background: '#02AAB0', border: 'none', borderRadius: '5px', color: '#FFF' }}
-                        onClick={() => withdrawBalance()} >Withdraw Contract Balance</button>
+                        <button
+                            style={{ padding: '.5em 35px', background: '#02AAB0', border: 'none', borderRadius: '5px', color: '#FFF' }}
+                            onClick={() => withdrawBalance()}> Withdraw Contract Balance To</button>
+                    </div>
+                </section>
+
+                <section className='items' id="property">
+                    <div id='property_layer'>
+                        <div className='property_layer-InputContainer'>
+                            <label for="price">Withdraw</label>
+                            <input className='property_layer-input' type="text" placeholder='Add a correct address or loose all funds!' />
+                        </div>
+                    </div>
+                    <div style={{ marginTop: '15px' }} id='property_layer button'>
+                        <button
+                            style={{ padding: '.5em 35px', background: '#02AAB0', border: 'none', borderRadius: '5px', color: '#FFF' }}
+                            onClick={() => withdrawTo()} >Withdraw Contract Balance</button>
+                    </div>
+                </section>
+
+                <section className='items' id="property">
+                    <div id='property_layer'>
+                        <div className='property_layer-InputContainer'>
+                            <label for="price">Set New Admin</label>
+                            <input
+                                onChange={e => setNewAdmin(e.target.value)}
+                                className='property_layer-input' type="text" placeholder='Add a correct address for the new admin' />
+                        </div>
+                    </div>
+                    <div style={{ marginTop: '15px' }} id='property_layer button'>
+                        <button
+                            style={{ padding: '.5em 35px', background: '#02AAB0', border: 'none', borderRadius: '5px', color: '#FFF' }}
+                            onClick={() => setAdmin()}> Set new Admin</button>
                     </div>
                 </section>
 
@@ -85,4 +133,4 @@ const Administrator = () => {
 
 }
 
-export default Administrator;
+export default SuperAdministrator;
