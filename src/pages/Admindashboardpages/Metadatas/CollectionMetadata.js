@@ -127,13 +127,22 @@ const Metadata = () => {
                                         Incase of a warning for premature selling of the nft*/} 
                                     </div>
                                     <ButtonStyled>
+                                    {cancelselldisable === true ?
+                                        <Button className='buttondis'>
+                                            Sales Processing...
+                                        </Button>
+                                        
+                                        :
+
                                         <Button onClick={() =>
                                             [sendSell(),
                                             handleselldisable()]
                                         } 
                                         className='button'>
                                             Sell
-                                        </Button><br />
+                                        </Button>
+                                    }
+                                    <br />
                                         {cancelselldisable === true ?
                                         <Button className='buttondis' disable>Please wait...</Button> 
                                         : 
@@ -189,6 +198,13 @@ const Metadata = () => {
                                         </Form>
                                     </FormStyled>
                                     <ButtonStyled>
+                                    {cancelgiftdisable === true ?
+                                        <Button 
+                                        className='buttondis'
+                                        >
+                                            Gift Processing...
+                                        </Button>
+                                        :
                                         <Button 
                                         onClick={() =>
                                             [sendGift(),
@@ -197,7 +213,9 @@ const Metadata = () => {
                                         className='button'
                                         >
                                             Gift
-                                        </Button><br />
+                                        </Button>
+                                    }
+                                        <br />
                                         {cancelgiftdisable === true ?
                                         <Button className='buttondis' disable>Please wait...</Button> 
                                         : 

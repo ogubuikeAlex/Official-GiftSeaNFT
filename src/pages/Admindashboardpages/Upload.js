@@ -85,27 +85,40 @@ const Upload = ({currentUser}) => {
             const mintNftsuccess = added.cid;
             setMintNftsuccess(mintNftsuccess)
             // console.log(propertyform)
-            if (mintNftsuccess) {
+            // if (mintNftsuccess) {
+            //     Swal.fire({
+            //         title: 'NFT Mint Added Successfully',
+            //         showClass: {
+            //             popup: 'animate__animated animate__fadeInDown'
+            //           },
+            //           hideClass: {
+            //             popup: 'animate__animated animate__fadeOutUp'
+            //           },
+            //         text: 'You have successfully Uploaded your nftmint',
+            //         icon: 'success',
+            //         customClass: 'swal-wide',
+            //         confirmButtonColor: '#02AAB0',           
+            //     });
+            // } else {
+            //    return alert("Upload Processing");
+            // };
+        
+        }catch(error) {
+            console.log("catched", error)
+            if (error.data.originalError.code === 3) {
+                // swal(error.response.data.email.toString())
+
                 Swal.fire({
-                    title: 'NFT Mint Added Successfully',
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                      },
-                      hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                      },
-                    text: 'You have successfully Uploaded your nftmint',
-                    icon: 'success',
+
+                    text: 'Mint failed' + error.data.originalError.message.toString(),
+                    icon: 'warning',
                     customClass: 'swal-wide',
-                    confirmButtonColor: '#02AAB0',           
+                    confirmButtonColor: '#282E52',
+                    confirmButtonText: 'OK'
                 });
-            } else {
-               return alert("Upload Processing");
-            };
-            setLoading(false)
-        } catch (error) {
-            console.log('Error uploading file: ', error)
         }
+    }
+        setLoading(false)
     }
 
     // async function createSale(url) {
